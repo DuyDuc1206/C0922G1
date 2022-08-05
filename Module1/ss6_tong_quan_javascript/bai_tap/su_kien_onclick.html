@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DUC_NGUYEN</title>
+</head>
+<body>
+    <p onclick="do_something()">click me?</p>
+    <p id="click">click</p>
+</body>
+<script>
+    function do_something(){
+        alert("hello");
+    }
+    var a=document.getElementById("click");
+    a.addEnventListener("onclick",clickfunction);
+    function clickfunction(){
+        alert("duc nguyen");
+    }
+</script>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DUC_NGUYEN</title>
+</head>
+<body>
+    <div style="width:5%">
+<!--        <p id="myselect" onmouseover="mouseover()" onmouseout="mouseout()">DUC_NGUYEN</p>-->
+        <button id="myselect">DUC_NGUYEN</button>
+    </div>
+</body>
+<script>
+    var myselect = document.getElementById("myselect");
+    myselect.addEventListener("mouseover",f1);
+    myselect.addEventListener("mouseout",mouseout);
+    function f1(){
+        document.getElementById("myselect").style.color="red";
+    }
+    function mouseout(){
+        document.getElementById("myselect").style.color="black";
+    }
+</script>
+</html>

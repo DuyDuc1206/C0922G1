@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DUC_NGUYEN</title>
+</head>
+<body>
+<select id="myselect">
+    <option value="Đà Nẵng">Đà Nẵng</option>
+    <option value="Huế">Huế</option>
+    <option value="Quảng Nam">Quảng Nam</option>
+</select>
+
+<script>
+
+   // function do_something() {
+   //     var selectedValue = document.getElementById("myselect").value;
+   //     alert(selectedValue) ;
+   // }
+     var selectedElement = document.getElemnetById("myselect");
+     selectedElement.addEventListener("onchange",changeFunction);
+     function changeFunction(){
+         var selectedValue = document.getElementById("myselect").value;
+         alert(selectedValue);
+     }
+</script>
+
+</body>
+</html>
