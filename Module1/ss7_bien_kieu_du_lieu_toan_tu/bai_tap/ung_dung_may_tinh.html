@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DUC_NGUYEN</title>
+</head>
+<body>
+<div>
+    <h1>Caculator</h1>
+<input id="num1" type="text">
+<input id="num2" type="text">
+<span><strong>Result: </strong></span>
+<span id="kq">đây là kết quả</span><br> <br>
+<button onclick="adt()">Addition(+)</button>
+<button onclick="sbt()">Subtraction(-)</button>
+<button onclick="mul()">Multiplication(X)</button>
+<button onclick="div()">Division(/)</button>
+</div>
+<div>
+    <h1>Caculator2</h1>
+    <form>
+        <table border="1" style="border-collapse: collapse">
+            <tr>
+                <th colspan="4" valve="0"></th>
+            </tr>
+            <tr>
+                <td><button>7</button></td>
+                <td><button>8</button></td>
+                <td><button>9</button></td>
+                <td><button>/</button></td>
+            </tr>
+            <tr>
+                <td><button>4</button></td>
+                <td><button>5</button></td>
+                <td><button>6</button></td>
+                <td><button>x</button></td>
+            </tr>
+            <tr>
+                <td><button>1</button></td>
+                <td><button>2</button></td>
+                <td><button>3</button></td>
+                <td><button>-</button></td>
+            </tr>
+            <tr>
+                <td><button>0</button></td>
+                <td><button>.</button></td>
+                <td><button>=</button></td>
+                <td><button>+</button></td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+</body>
+<script>
+    let num1 = document.getElementById('num1');
+    let num2 = document.getElementById('num2');
+    function adt() {
+        let adt = parseFloat(num1.value) + parseFloat(num2.value);
+        document.getElementById('kq').innerHTML = adt;
+    }
+    function sbt() {
+        let sbt = parseFloat(num1.value) - parseFloat(num2.value);
+        document.getElementById('kq').innerHTML = sbt;
+    }
+    function mul() {
+        let mul = parseFloat(num1.value) * parseFloat(num2.value);
+        document.getElementById('kq').innerHTML = mul;
+    }
+
+    function div() {
+        let div = parseFloat(num1.value) / parseFloat(num2.value);
+        document.getElementById('kq').innerHTML = div;
+    }
+</script>
+</html>

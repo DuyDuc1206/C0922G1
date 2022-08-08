@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DUC_NGUYEN</title>
+</head>
+<body>
+<!--chương trình tính số trung bình cộng và tổng-->
+    <table>
+        <tr>
+            <th>Physics</th>
+            <th>Chemistry</th>
+            <th>Biology</th>
+            <th><button type="button" onclick="total()">Total</button></th>
+            <th><button type="button" onclick="average()">Average</button></th>
+        </tr>
+        <tr>
+            <td><input id="phy" type="number" value="0" min="0" max="10"></td>
+            <td><input id="che" type="number" value="0" min="0" max="10" ></td>
+            <td><input id="bio" type="number" value="0" min="0" max="10"></td>
+            <th style="width: 100px;"><span id="sum"></span></th>
+            <th style="width: 100px;"><span id="aver"></span></th>
+        </tr>
+    </table>
+<!--    chương trình chuyển đổi nhiệt độ-->
+    <h1>Chuyển đổi nhiệt độ</h1>
+    <div style="width: 400px">
+        <input id="celsius" type="number" placeholder="0" min="-50" max="50" oninput="myFunction()">℃
+        <p id="demo"></p>
+    </div>
+<!--    Tính diện tích và chu vi hình tròn-->
+    <h1>Tính diện tích và chu vi hình tròn</h1>
+    <div>
+        Radius:<input id="rad" type="number" min="0"  oninput="Radius()">mm <br>
+       Circle Area:  <span id="area"></span> <br>
+       Circle Perimeter :  <span id="per"></span> <br>
+
+
+    </div>
+    <script>
+        function total() {
+            var a = document.getElementById('phy').value;
+                 b = document.getElementById('che').value;
+                 c = document.getElementById('bio').value;
+                 d = +a + +b + +c ;
+                 e = ( +a + +b + +c ) / 2 ;
+                document.getElementById('sum').innerHTML = d;
+            };
+            function average(){
+                document.getElementById('aver').innerHTML = e;
+                };
+           function myFunction(){
+               var  cel = document.getElementById('celsius').value;
+               F = ( 9 * cel + +35) / 5;
+               document.getElementById('demo').innerHTML = cel + "℃ = " + F + "°F";
+            };
+           function Radius(){
+               var R = document.getElementById('rad').value;
+               pi = 3.14 ;
+               S = pi * R * R ;
+               C = pi * 2 * R ;
+               document.getElementById('area').innerHTML = S + "mm²";
+               document.getElementById('per').innerHTML = C + "mm";
+           };
+    </script>
+</body>
+</html>

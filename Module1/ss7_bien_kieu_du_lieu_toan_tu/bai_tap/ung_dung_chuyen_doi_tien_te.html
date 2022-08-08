@@ -13,28 +13,41 @@
             <th>To Currency</th>
         </tr>
         <tr>
-            <td><input type="number" name="number" value="1"></td>
+            <td><input id="nhap" type="number" ></td>
             <th style="width: 200px">
-                <select>
-                    <option value="VND" selected>VND</option>
-                    <option value="UER">UER</option>
+                <select id="select1">
+                    <option value="VND">VND</option>
                     <option value="USD">USD</option>
-                    <option value="RUB">RUB</option>
                 </select>
             </th>
             <th style="width: 100px">
-                <select>
-                    <option value="VND" selected>USD</option>
-                    <option value="UER">UER</option>
+                <select id="select2" >
                     <option value="USD">USD</option>
-                    <option value="RUB">RUB</option>
+                    <option value="VND">VND</option>
                 </select>
             </th>
-            <th style="width: 100px"><button type="submit" value="convert" style="background-color: darkviolet; color: bisque" onclick="aa">Convert</button></th>
+            <th style="width: 100px"><button type="button" style="background-color: darkviolet; color: bisque" onclick="myFunction()">Convert</button></th>
         </tr>
     </table>
-    <p>Result:</p>
-
+    <p id="kq"></p>
 </form>
+<script>
+    function myFunction() {
+        var a = document.getElementById('nhap').value;
+        select1 = document.getElementById('select1').value;
+        select2 = document.getElementById('select2').value;
+        usd = a * 23.390;
+        vnd = a / 23.398;
+        if (select1 == select2) {
+            document.getElementById('kq').innerHTML = a;
+        }
+        if (select1 == "VND" && select2 == "USD") {
+            document.getElementById('kq').innerHTML = "Result: " + usd + "USD";
+        }
+        if (select1 == "USD" && select2 == "VND") {
+            document.getElementById('kq').innerHTML = "Result: " + vnd + "VND";
+        }
+    }
+</script>
 </body>
 </html>
