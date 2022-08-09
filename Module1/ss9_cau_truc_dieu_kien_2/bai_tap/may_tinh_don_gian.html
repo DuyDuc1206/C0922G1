@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DUC_NGUYEN</title>
+</head>
+<body>
+<input id="result" type="text" >
+<table>
+    <tr>
+        <td><button onclick="nhap(1)">1</button></td>
+        <td><button onclick="nhap(2)">2</button></td>
+        <td><button onclick="nhap(3)">3</button></td>
+        <td><button onclick="nhap(value)" value="+">+</button></td>
+    </tr>
+    <tr>
+        <td><button onclick="nhap(4)">4</button></td>
+        <td><button onclick="nhap(5)">5</button></td>
+        <td><button onclick="nhap(6)">6</button></td>
+        <td><button onclick="nhap(value)" value="-">-</button></td>
+    </tr>
+    <tr>
+        <td><button onclick="nhap(7)">7</button></td>
+        <td><button onclick="nhap(8)">8</button></td>
+        <td><button onclick="nhap(9)">9</button></td>
+        <td><button onclick="nhap(value)" value="*" >*</button></td>
+    </tr>
+    <tr>
+        <td><button onclick="deletedAll()">C</button></td>
+        <td><button onclick="nhap(0)">0</button></td>
+        <td><button onclick="equal()">=</button></td>
+        <td><button onclick="nhap(value)" value="/">/</button></td>
+    </tr>
+</table>
+<script>
+       function nhap(value) {
+           document.getElementById("result").value +=value ;
+       }
+       function deletedAll() {
+           document.getElementById("result").value = "" ;
+       }
+       function equal() {
+           // let kq = eval(result.value);
+           let res = document.getElementById("result").value;
+           let kq = eval(res);
+           document.getElementById("result").value = kq;
+       }
+</script>
+</body>
+</html>

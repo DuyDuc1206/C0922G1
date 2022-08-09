@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let count1 = parseFloat(prompt("Điểm kiểm tra"));
+    let count2 = parseFloat(prompt("Điểm giữa kì"));
+    let count3 = parseFloat(prompt("Điểm cuối kì"));
+    let countAver =(count1 + count2*2 + count3*3)/6;
+    alert("Điểm tb là: " + countAver);
+    if (countAver >=8) {
+        parseInt(alert("Học sinh giỏi"));
+    }
+    else if ( countAver < 6 ) {
+        alert("Học sinh khá");
+    }
+        else if ( countAver < 4 ) {
+                alert("Học sinh: TB");
+            }
+            else {
+                alert("Học sinh yếu:");
+            }
+</script>
+</body>
+</html>

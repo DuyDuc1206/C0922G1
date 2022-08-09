@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DUC_NGUYEN</title>
+</head>
+<body>
+<h3>Check the number of days in the month</h3>
+<input id="demo" type="number" min="0" max="12" placeholder="Month" style="width: 250px">
+<button type="button" onclick="myFunction()">Check</button>
+<p id="kq"></p> <br> <br>
+<script>
+    function myFunction() {
+        let monthh = document.getElementById("demo").value;
+        switch (monthh) {
+            case "1" :
+            case "3" :
+            case "5" :
+            case "7" :
+            case "8" :
+            case "10":
+            case "12":
+                document.getElementById("kq").innerHTML = "Tháng " + monthh + " có 31 ngày";
+                break;
+            case "2" :
+                document.getElementById("kq").innerHTML = "Tháng " + monthh + " có 28 hoặc 29 ngày";
+                break;
+            case "4" :
+            case "6" :
+            case "9" :
+            case "11" :
+                document.getElementById("kq").innerHTML = "Tháng " + monthh + " có 30 ngày";
+                break;
+        }
+    }
+</script>
+</body>
+</html>
