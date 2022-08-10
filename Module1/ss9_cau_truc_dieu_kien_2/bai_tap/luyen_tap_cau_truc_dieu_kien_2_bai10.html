@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai10</title>
+</head>
+<body>
+<script>
+    let chuDien = parseFloat(prompt("Chữ điện"));
+    let bac1 = 1678;
+    let bac2 = 1734;
+    let bac3 = 2014;
+    let bac4 = 2536;
+    let bac5 = 2834;
+    let bac6 =  2927;
+    let tien = 0;
+    if ( chuDien <= 50) {
+        tien = chuDien * bac1;
+        alert("Tiền phải trả: " + tien);
+    }
+    else if ( chuDien <=100) {
+        tien = 50 * bac1 + bac2*(chuDien-50);
+        alert("Tiền phải trả là: " + tien);
+    }
+        else if ( chuDien <=200) {
+            tien = 50*bac1 + 50*bac2 + bac3*(chuDien-100);
+        alert("Tiền phải trả: " + tien);
+    }
+            else if (chuDien <=300) {
+                tien = 50*bac1 + 50*bac2 + 100*bac3 + bac4*(chuDien-200);
+        alert("Tiền phải trả: " + tien);
+    }
+                else if ( chuDien <=400) {
+                    tien = 50*bac1 + 50*bac2 + 100*bac3 + bac4*100 + bac5*(chuDien-300);
+        alert("Tiền phải trả: " + tien);
+    }
+                    else {
+                        tien = 50*bac1 + 50*bac2 + 100*bac3 + bac4*100 + bac5*100 + bac6*(chuDien-400)
+        alert("Tiền phải trả: " + tien);
+    }
+</script>
+</body>
+</html>

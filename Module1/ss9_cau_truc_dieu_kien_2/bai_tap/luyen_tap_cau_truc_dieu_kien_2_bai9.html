@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai9</title>
+</head>
+<body>
+<script>
+    let a = parseFloat(prompt("Cạnh thứ nhất"));
+    let b = parseFloat(prompt("Cạnh thứ hai"));
+    let c = parseFloat(prompt("Cạnh thứ ba"));
+    let d = a + b;
+    let e = b + c;
+    let f = a + c;
+    if ( a<0 || b<0 || c<0 ) {
+            alert("3 cạnh trên k phải là cạnh của 1 tam giác");
+        }
+    else if ( d>c && e>a && f>b ) {
+            alert("3 cạnh trên là cạnh của 1 tam giác");
+        }
+        else {
+        alert("3 cạnh trên không  là cạnh của 1 tam giác");
+    }
+</script>
+</body>
+</html>
