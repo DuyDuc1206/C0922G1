@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let sout = "<table border='1' width='300' cellspacing='0' cellpadding='10'>"
+    for (i = 1; i <= 10; i++) {
+        sout = sout + "<tr>";
+        for (j = 1; j <= 10; j++) {
+            sout = sout + "<td>" + i * j + "</td>";
+        }
+        sout = sout + "</tr>";
+    }
+    sout = sout + "</table>";
+    document.write(sout);
+    let sout2 = "<table border='1' width='300' cellspacing='0' cellpadding='10'>"
+    i = j = 1;
+    while (i <= 10) {
+        sout2 = sout2 + "<tr>";
+        while (j <= 10) {
+            sout2 = sout2 + "<td>" + i * j + "</td>";
+            j++;
+        }
+        sout = sout + "</tr>";
+        i++;
+        j = 1;
+    }
+    sout2 = sout2 + "</table>";
+    document.write(sout2);
+</script>
+
+</body>
+</html>

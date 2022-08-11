@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DUC_NGUYEN</title>
+</head>
+<body>
+<script>
+    let enter = prompt("Tên đăng nhập:");
+    if (enter == "Admin") {
+        let password = prompt("Nhập mật khẩu");
+        if (password == "TheMaster") {
+            alert("Welcome");
+        } else if (password == "null") {
+            alert("Canceled");
+        } else {
+            alert("Wrong password");
+        }
+
+    } else if (enter == "null") {
+        alert("Cancel");
+    } else {
+        alert("I don't know");
+    }
+</script>
+</body>
+</html>
