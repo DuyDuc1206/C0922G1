@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BAI1</title>
+</head>
+<body>
+<script>
+    let n1=0;
+    let n2=1;
+    let so=0;
+    let number = parseInt(prompt("Sô lượng trong dãy số Fibonaci"));
+    document.write(number + " số đầu trong dãy Fibonaci là:" + "<br>");
+    for (let i = 1; i <= number ; i++) {
+        so = n1 + n2;
+        document.write(n2 + "<br>");
+        n1 = n2;
+        n2 = so;
+    }
+
+</script>
+</body>
+</html>
