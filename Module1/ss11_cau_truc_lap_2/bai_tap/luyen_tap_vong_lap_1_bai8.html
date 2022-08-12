@@ -5,9 +5,27 @@
     <title>Title</title>
 </head>
 <body>
-<button></button>
+<button onclick="myFunction()">Bắt đầu</button>
 <script>
-
+    function myFunction() {
+        let numb = +prompt("số bạn muốn đoán trong khoảng lớn nhất là bao nhiêu");
+        let number_ran = Math.floor(Math.random() * numb);
+        console.log(number_ran);
+        let number = +prompt("Số bạn muốn đoán là");
+        if (number == number_ran) {
+            alert("chúc mừng bạn")
+        } else {
+            for (i = 0; i < 3; i++) {
+                if (number < number_ran) {
+                    prompt("số bạn chọn bé hơn số ngẫu nhiên");
+                }
+                if (number > number_ran) {
+                    prompt("Số bạn chọn lớn hơn số ngẫu nhiên");
+                }
+            }
+            document.write("Bạn hết số lần đoán");
+        }
+    }
 </script>
 </body>
 </html>
