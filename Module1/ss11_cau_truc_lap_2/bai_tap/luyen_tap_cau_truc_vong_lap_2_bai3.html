@@ -7,20 +7,22 @@
 <body>
 <script>
     /*Tam giác 1*/
-    let text = " ";
-    for (let i = 0; i < 5; i++) {
-        for (let j = 0; j <= i; j++) {
-            text += "*";
-        }
-        text += "<br>";
-    }
-    document.write(text);
+    /*   let text = " ";
+       for (let i = 0; i < 5; i++) {
+           for (let j = 0; j <= i; j++) {
+               text += "*";
+           }
+           text += "<br>";
+       }
+       document.write(text);*/
     for (let i = 0; i < 5; i++) {
         for (let j = 0; j <= i; j++) {
             document.write("*");
         }
         document.write("<br>");
     }
+    document.write("<br>");
+    document.write("<br>");
     /*Tam giác 2*/
     for (let i = 5; i > 0; i--) {
         for (let j = 1; j <= i; j++) {
@@ -28,26 +30,32 @@
         }
         document.write("<br>");
     }
+    document.write("<br>");
+    document.write("<br>");
     /*Tam giác 3*/
     for (let i = 0; i < 5; i++) {
-        for (let j = 0; j < 4; j++) {
-            document.write(" ");
+        for (let j = 4; j > i; j--) {
+            document.write("&nbsp&nbsp");
         }
         for (let j = 0; j <= i; j++) {
             document.write("*");
         }
         document.write("<br>");
     }
-    /*Tam giacs 4*/
-    // for (let i = 5; i >0; i--) {
-    //     for (let j = 1; j >1; j++) {
-    //         document.write("&nbsp&nbsp");
-    //     }
-    //     for (let j = 0; j < i; j++) {
-    //         document.write("*");
-    //     }
-    //     document.write("<br>");
-    // }
+    document.write("<br>");
+    document.write("<br>");
+    /*Tam giác 4*/
+    for (let i = 0; i < 5; i++) {
+        for (let j = 1; j <= i; j++) {
+            document.write("&nbsp&nbsp");
+        }
+        for (let j = 5; j > i; j--) {
+            document.write("*");
+        }
+        document.write("<br>");
+    }
+    document.write("<br>");
+    document.write("<br>");
     document.write("<div style='width:50px' align='right'> ")
     for (let i = 5; i > 0; i--) {
         for (let j = 0; j < i; j++) {
