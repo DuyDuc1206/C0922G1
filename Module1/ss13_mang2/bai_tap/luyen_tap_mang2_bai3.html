@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // let integer = [];
+    // for (let i = 0; i < 10; i++) {
+    //     integer[i] = prompt("enter integer ");
+    // }
+    // document.write(" array cover: " + integer.length + " and " + integer + "<br>");
+    // let count = 0;
+    // for (let i = 0; i < integer.length; i++) {
+    //     if (integer[i] == 1 || integer[i] == 2|| integer[i] == 3|| integer[i] ==4||integer[i] ==5||integer[i] ==6||integer[i] ==7||integer[i] ==8||integer[i] ==9) {
+    //         count++;
+    //     }
+    // }
+    // document.write(count);
+    let integer = [];
+    for (let i = 0; i < 5; i++) {
+        integer[i] = prompt("Nhập vào phần tử thứ " + (i + 1));
+    }
+    document.write(" array cover: " + integer.length + " and " + integer + "<br>");
+    let count = 0;
+    for (let i = 0; i < integer.length; i++) {
+        if (isNaN(integer[i]) !== true) {
+            count++;
+        }
+    }
+    document.write(count);
+</script>
+</body>
+</html>

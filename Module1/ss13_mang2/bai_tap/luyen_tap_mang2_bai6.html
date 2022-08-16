@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let size = +prompt(" số kí tự nhập");
+    let array = [];
+    for (let i = 0; i < size; i++) {
+        array[i] = prompt("nhập kí tự thứ " + (i + 1));
+    }
+    document.write(array.toString() + "<br>");
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] == "-") {
+            array[i] = "_";
+        }
+    }
+    document.write(array.toString());
+</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let numb = [10,56,42,1,3,0,55,5,6,78];
+    document.write(numb + "<br>")
+    let max= numb[0];
+    let max_index = 0;
+    for (let i = 0; i <numb.length ; i++) {
+        if (max < numb[i]) {
+            max = numb[i];
+            max_index=[i];
+        }
+    }
+    document.write("số lớn nhất có giá trị là: " + max + " ở vị trí thứ " + max_index);
+</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // let myColor = ["Red", "Green", "While", "Black"];
+    // // document.write(myColor.join());
+    //
+    // const numb = window.prompt("Nhập 1 dãy số");
+    // const array = numb.toString();
+    // const result = [array[0]];
+    // for (let i = 1; i < array.length; i++) {
+    //     if ((array[i--] % 2 === 0) && (array[i] % 2 === 0)) {
+    //         result.push("-", array[i]);
+    //     } else {
+    //         result.push(array[i]);
+    //     }
+    // }
+    // alert(result.join(""));
+    let enter = window.prompt("Nhập chữ cần nhập");
+    let upper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    let lower = 'abcdefghijklmnopqrstuvwxyz';
+    let result = [];
+    for (var x = 0; x < enter.length; x++) {
+        if (upper.indexOf(enter[x]) !== -1) {
+            result.push(enter[x].toLowerCase());
+        } else if (lower.indexOf(enter[x]) !== -1) {
+            result.push(enter[x].toUpperCase());
+        } else {
+            result.push(enter[x]);
+        }
+    }
+    alert(result.join(''));
+</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai1</title>
+</head>
+<body>
+<script>
+    let numb = [12, 6, 7, 15, 20, 5, 4, 6, 4, 10];
+    document.write(numb + "<br>");
+    let count = 0;
+    let kq = "";
+    for (let i = 0; i < numb.length; i++) {
+        if (numb[i] >= 10) {
+            count++;
+            kq += numb[i] + ",";
+        } else {
+            count += 0;
+        }
+    }
+    document.write("<br>" + "Chương trình có " + count + "phần tử lớn hơn hoặc bằng 10 là: " + kq);
+</script>
+</body>
+</html>

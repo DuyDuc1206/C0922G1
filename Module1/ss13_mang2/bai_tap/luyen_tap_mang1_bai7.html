@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    alert("Nhập 10 số nguyên");
+    let integer = [];
+    for (let i = 0; i < 10; i++) {
+        integer[i] = +prompt("Nhập số nguyên thứ " + (i + 1));
+    }
+    let index = 0;
+    let enter = +prompt("Nhập số nguyên V");
+    for (let i = 0; i < integer.length; i++) {
+        if (enter === integer[i]) {
+            index = i;
+        }
+    }
+    for (let i = index; i < integer.length; i++) {
+        integer[i] = integer[i + 1];
+        integer[integer.length - 1] = 0;
+    }
+    document.write(integer.toString());
+</script>
+</html>

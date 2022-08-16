@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p id="id"></p>
+<script>
+    alert("Nhập 10 số nguyên");
+    let integer = [];
+    for (let i = 0; i < 10; i++) {
+        integer[i] = +prompt("NHập số nguyên thứ " + i);
+    }
+    let enter = +prompt("Nhập vào số nguyên X");
+    for (let i = 0; i < integer.length; i++) {
+        if (enter === integer[i]) {
+            document.getElementById("id").innerHTML = "X is in the array";
+            break;
+        } else {
+            document.getElementById("id").innerHTML = "X isn't in the array";
+        }
+    }
+</script>
+</body>
+</html>
