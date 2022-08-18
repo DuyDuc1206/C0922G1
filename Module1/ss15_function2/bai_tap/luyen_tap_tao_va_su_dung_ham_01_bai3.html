@@ -2,9 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
 </head>
 <body>
-$END$
+<script>
+    let enterFirst = +prompt("Nhập vào tham số thứ nhất");
+    let enterSecond = +prompt("Nhập vào tham số thứ hai");
+    function checkNumber(){
+        if (enterFirst >enterSecond) {
+            alert("Số thứ nhất lớn hơm số thứ hai")
+        }
+        else {
+            enterFirst+=enterSecond;
+            alert("tổng của 2 tham số là " + enterFirst);
+        }
+    }
+    checkNumber();
+</script>
 </body>
 </html>

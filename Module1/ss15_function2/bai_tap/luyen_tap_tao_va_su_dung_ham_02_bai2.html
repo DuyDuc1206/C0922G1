@@ -2,9 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
 </head>
 <body>
-$END$
+<script>
+    function tinhDienTich() {
+        let dienTich = Math.PI * Math.pow(banKinh, 2);
+        alert("Diện tích hình tròn là " + dienTich);
+    }
+
+    function tinhChuVi() {
+        let chuVi = Math.PI * 2 * banKinh;
+        alert("Chu vi hình tròn là " + chuVi);
+    }
+
+    let banKinh = +prompt("Bán kính hình tròn là");
+    tinhDienTich();
+    tinhChuVi();
+</script>
 </body>
 </html>

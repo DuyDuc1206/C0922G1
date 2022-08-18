@@ -2,9 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
 </head>
 <body>
-$END$
+<script>
+    function checkNumber() {
+        if (numb >= 0) {
+            return true
+        }
+        return false;
+    }
+
+    let numb = +prompt("Nhập vào một số nguyên");
+    alert(checkNumber());
+</script>
 </body>
 </html>

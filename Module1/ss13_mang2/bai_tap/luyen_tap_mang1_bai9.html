@@ -7,17 +7,17 @@
 <body>
 <script>
     let arrayA = [];
-    let arrayB =[];
-    for (let i = 0; i <10 ; i++) {
-        arrayA[i] = +prompt("Nhập phần tử thứ "+(i+1) + " của mảng a");
+    let arrayB = [];
+    for (let i = 0; i < 10; i++) {
+        arrayA[i] = +prompt("Nhập phần tử thứ " + (i + 1) + " của mảng a");
     }
-    for (let i = 0; i <10 ; i++) {
-        arrayB[i] = +prompt("Nhập phần tử thứ "+(i+1) + " của mảng b");
+    for (let i = 0; i < 10; i++) {
+        arrayB[i] = +prompt("Nhập phần tử thứ " + (i + 1) + " của mảng b");
     }
-    let arrayC=[];
-        arrayC=arrayA;
-    for (let i = 0; i <arrayB.length ; i++) {
-       arrayC.push(arrayB[i]);
+    let arrayC = [];
+    arrayC = arrayA;
+    for (let i = 0; i < arrayB.length; i++) {
+        arrayC.push(arrayB[i]);
     }
     document.write(arrayC.toString());
 </script>

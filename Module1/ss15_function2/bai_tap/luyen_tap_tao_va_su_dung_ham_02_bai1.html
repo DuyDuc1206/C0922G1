@@ -2,9 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
 </head>
 <body>
-$END$
+<script>
+    function tinhBinhPhuong(number) {
+        let x = Math.pow(number, 2);
+        return "Bình phương của " + number + " là " + x;
+    }
+
+    let number = +prompt("Nhập vào một số");
+    alert(tinhBinhPhuong(number));
+</script>
 </body>
 </html>

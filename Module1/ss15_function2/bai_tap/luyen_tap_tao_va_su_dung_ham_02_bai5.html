@@ -2,9 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
 </head>
 <body>
-$END$
+<script>
+    let numb1 = +prompt("Nhập số nguyên thứ nhất");
+    let numb2 = +prompt("Nhập số nguyên thứ hai");
+    let numb3 = +prompt("Nhập số nguyên thứ ba");
+
+    function checkMinNumber() {
+        if (numb1 < numb2 && numb1 < numb3) {
+            return "số nhỏ nhất là số thứ nhất " + numb1;
+        } else if (numb2 < numb3) {
+            return "số nhỏ nhất là số thứ hai " + numb2;
+        } else {
+            return "số nhỏ nhất là số thứ ba " + numb3;
+        }
+    }
+
+    alert(checkMinNumber());
+</script>
 </body>
 </html>

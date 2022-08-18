@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arr = ["a", 2, 5, 8,8,8, 0, "-", "@", "%", "!", "!", ")", 9, 7, 0];
+    let enter = prompt("Nhập vào một phần tử");
+    let count = 0;
+
+    function myFunction() {
+        for (let i = 0; i < arr.length; i++) {
+            if (enter == arr[i]) {
+                count++;
+            }
+        }
+        if (count == 0) {
+            return "-1";
+        } else {
+            return "số lần xuất hiện của " + enter + " là " + count;
+        }
+    }
+
+    document.write(myFunction());
+</script>
+</body>
+</html>

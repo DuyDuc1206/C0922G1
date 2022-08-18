@@ -2,9 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
 </head>
 <body>
-$END$
+<script>
+    let arrayName = ["Ronaldo", "Messi", "Neymar", "Honda", "Manzukic", "coutinho", "Ramos"];
+    let arrayStar = ["Ursa Minor", "Tarurus", "Cygnus", "Lyra", "Aquila", "Leo", "Major"];
+    let enterName = prompt("Nhập tên các cầu thủ bóng đá");
+
+    function creatFunction() {
+        for (let i = 0; i < arrayName.length; i++) {
+            if (enterName == arrayName[i]) {
+                return "Tên chòm sao ứng với ngôi sao đó là " + arrayStar[i];
+            }
+        }
+        return "Không có ngôi sao nào cso tên như vậy";
+    }
+
+    alert(creatFunction());
+
+</script>
 </body>
 </html>

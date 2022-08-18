@@ -2,9 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
 </head>
 <body>
-$END$
+<script>
+    let kq = 1;
+    let so = +prompt("NHập vào một số");
+
+    function tinhGiaiThua() {
+        for (let i = 1; i <= so; i++) {
+            kq = kq * i;
+        }
+        return "Giai thừa của " + so + " là " + kq;
+    }
+
+    alert(tinhGiaiThua());
+</script>
 </body>
 </html>
