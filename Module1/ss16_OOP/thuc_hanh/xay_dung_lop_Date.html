@@ -2,9 +2,46 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
 </head>
 <body>
-$END$
+<script>
+    let myDay = function(day, month, year) {
+        this.day = day ;
+        this.month = month;
+        this.year = year;
+        this.getDay = function() {
+            return this.day;
+        }
+        this.getMonth = function(){
+            return this.month;
+        }
+        this.getYear = function(){
+            return this.year;
+        }
+        this.setDay = function(day){
+            this.day = day;
+        }
+        this.setMonth = function(month){
+            this.month = month;
+        }
+        this.setYear = function(year){
+            this.year = year;
+        }
+        // this.toString = function(){
+        //     this.day.toString;
+        //     this.month.toString;
+        //     this.year.toString;
+        // }
+    };
+    let date = new myDay(12, 6, 1995);
+    date.setDay(11);
+    date.setMonth(1);
+    date.setYear(1111);
+    let day = date.getDay().toString();
+    let month = date.getMonth().toString();
+    let year = date.getYear().toString();
+    alert(day + "/" + month + "/" + year);
+</script>
 </body>
 </html>
