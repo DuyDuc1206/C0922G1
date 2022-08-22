@@ -2,9 +2,60 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
 </head>
 <body>
-$END$
+<script>
+    class ElectricLamp {
+        constructor() {
+            this.status = false;
+        }
+
+        getStatus() {
+            return this.status;
+        }
+
+        turnOff() {
+            this.status = false + " den tat";
+        }
+
+        turnOn() {
+            this.status = true + " den sang";
+        }
+    }
+
+    class SwitchButton {
+        constructor() {
+            this.status = false;
+            this.lamp = null;
+        }
+
+        connectToLamp(ElectricLamp) {
+            this.lamp = ElectricLamp;
+        }
+
+        switchOn() {
+            if (this.lamp != null) {
+                this.status = true;
+                this.lamp.turnOn();
+            } else {
+                alert("can ket noi bong den ")
+            }
+        }
+
+        switchOff() {
+            this.status = false;
+            this.lamp.turnOff();
+        }
+    }
+
+    let electricLamp = new ElectricLamp();
+    let switchButton = new SwitchButton();
+    switchButton.connectToLamp(electricLamp);
+    switchButton.switchOn();
+    alert(electricLamp.getStatus());
+    switchButton.switchOff();
+    alert(electricLamp.getStatus());
+</script>
 </body>
 </html>

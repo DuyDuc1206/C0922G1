@@ -2,9 +2,35 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
 </head>
 <body>
-$END$
+<script>
+    class Temperature {
+        constructor(temperature) {
+            this.temperature = temperature;
+        }
+
+        setTemperature(temperature) {
+            this.temperature = temperature;
+        }
+
+        getConertToF() {
+            return this.temperature * 1.8 + 32;
+        }
+
+        getConertToK() {
+            return this.temperature + 273.15;
+        }
+    }
+
+    let temperature = new Temperature();
+    let enter = +prompt("enter temperature");
+    temperature.setTemperature(enter);
+    let temperatureF = temperature.getConertToF();
+    let temperatureK = temperature.getConertToK();
+    document.write(enter + " độ C = " + temperatureF + " độ F" + "<br>");
+    document.write(enter + " độ C = " + temperatureK + " độ K" + "<br>");
+</script>
 </body>
 </html>

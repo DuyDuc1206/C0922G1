@@ -2,9 +2,55 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Adam&Eva</title>
 </head>
 <body>
-$END$
+<script>
+    class Apple {
+        constructor(weight) {
+            this.weight = weight;
+        }
+
+        getWeight() {
+            return this.weight;
+        }
+    }
+
+    class Human {
+        constructor(name, gender, mass) {
+            this.name = name;
+            this.gender = gender;
+            this.mass = mass;
+        }
+
+        getName() {
+            return this.name;
+        }
+
+        getGender() {
+            return this.gender;
+        }
+
+        getMass() {
+            return this.mass;
+        }
+    }
+
+    let apple = new Apple(10);
+    document.write("Quả táo nặng " + apple.getWeight() + "<br>");
+    let human1 = new Human("Adam", "Nam", 60);
+    let human2 = new Human("Eva", "Nu", 55);
+    document.write(human1.getName() + "-" + human1.getGender() + "-" + human1.getMass() + "<br>");
+    document.write(human2.getName() + "-" + human2.getGender() + "-" + human2.getMass() + "<br>");
+    let count = 1;
+    for (let i = apple.getWeight(); i > 0; i--) {
+        if (i % 2 == 0) {
+            document.write(human1.getName() + " ăn táo. Quả táo còn " + (i - 1) + " đơn vị. Cân nặng của " + human1.getName() + " là " + (human1.getMass() + count) + "<br>");
+        } else {
+            document.write(human2.getName() + " ăn táo. Quả táo còn " + (i - 1) + " đơn vị. Cân nặng của " + human2.getName() + " là " + (human2.getMass() + --count) + "<br>");
+        }
+        count++;
+    }
+</script>
 </body>
 </html>

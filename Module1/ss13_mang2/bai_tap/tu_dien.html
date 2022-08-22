@@ -14,13 +14,13 @@
     function myFunction() {
         let array1 = ["hello", "skill", "football"];
         let array2 = ["xin chào", "kỹ năng", "bóng đá"];
-        let enter = document.getElementById("enter").value;
+        let enter = a.getElementById("enter").value;
         for (let i = 0; i < array1.length; i++) {
             if (enter == array1[i]) {
-                document.getElementById("result").innerHTML = array2[i];
+                a.getElementById("result").innerHTML = array2[i];
                 break;
             } else {
-                document.getElementById("result").innerHTML = "no";
+                a.getElementById("result").innerHTML = "no";
             }
         }
     }

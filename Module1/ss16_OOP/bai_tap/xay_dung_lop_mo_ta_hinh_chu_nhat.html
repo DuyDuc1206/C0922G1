@@ -2,9 +2,52 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
 </head>
 <body>
-$END$
+<canvas id="canvas" width="700px" height="200px" style="border: 1px solid #000000;"></canvas>
 </body>
+<script>
+    class Rectangle {
+        constructor ( length, width) {
+        this.length = length;
+        this.width = width;
+        }
+        setLength (length) {
+            this.length = length;
+        }
+        setWidth (width) {
+            this.width = width;
+        }
+        getArea () {
+            return this.length * this.width;
+        }
+        getPerimeter () {
+            return 2 * (this.length + this.width);
+        }
+        getPain () {
+            let canvas = document.getElementById("canvas");
+            let ctx = canvas.getContext("2d");
+            ctx.fillStyle = "#FF0";
+            ctx.fillRect(0, 0, length, width);
+        }
+    }
+
+    let length = +prompt("Nhap chieu dai hinh chu nhat");
+    let width = +prompt("Nhap chieu rong hinh chu nhat");
+    let rectangle = new Rectangle(length, width);
+    let area = rectangle.getArea();
+    let perimeter = rectangle.getPerimeter();
+    rectangle.getPain();
+    document.write("<br>" + "Diện tích hình chữ nhật là " + area + " & Chu vi hình chữ nhật là " + perimeter);
+
+    // function creatRectangle() {
+    //     let canvas = document.getElementById("canvas");
+    //     let ctx = canvas.getContext("2d");
+    //     ctx.fillStyle = "#FF0";
+    //     ctx.fillRect(0, 0, chieuDai, chieuRong);
+    // }
+    //
+    // creatRectangle();
+</script>
 </html>
