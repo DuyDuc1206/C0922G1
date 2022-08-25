@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let str = prompt("Nhập Chuỗi: ")
+    function check(string) {
+        string = string.split("");
+        for (let i = 0; i < string.length; i++){
+            for (let j = i+1; j < string.length; j++){
+                if (string[i] == string[j]){
+                    string.splice(j,1);
+                    i--;
+                }
+            }
+        }
+        return string;
+    }
+    alert(check(str));
+</script>
+</body>
+</html>

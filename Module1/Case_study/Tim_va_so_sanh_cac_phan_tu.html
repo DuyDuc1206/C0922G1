@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--Cho một mảng số nguyên Hãy kiểm tra xem tần số xuất hiện của tất cả các số nguyên trong mảng có bằng nhau hay không-->
+<!--Ví dụ:-->
+<!--Với inputArray = [1, 2, 2, 1], thì kết quả checkEqualFrequency(inputArray) = true-->
+<!--Số 1 và số 2 đều có tần số xuất hiện là 2-->
+<!--Với inputArray = [1, 2, 2, 3, 1, 3, 1, 3], thì kết quả checkEqualFrequency(inputArray) = false.-->
+<!--Số 1 có tần số xuất hiện là 3, khác vs số 2 và số 3 có tần số xuất hiện là 2-->
+</body>
+<script>
+    let arr = [1, 2, 2, 3, 1, 3, 1, 3];
+
+    function solution(arr) {
+        let count = 0;
+        let counts = [];
+        for (let i = 0; i < arr.length; i++) {
+            for (let j = 0; j < arr.length; j++) {
+                if (arr[i] === arr[j]) {
+                    count++;
+                }
+            }
+            counts.push(count);
+            count = 0;
+        }
+        for (let i = 0; i < counts.length; i++) {
+            if (counts[0] !== counts[i]) {
+                return false;
+            }
+        }
+        return true;
+    }
+    document.write(solution(arr));
+</script>
+</html>

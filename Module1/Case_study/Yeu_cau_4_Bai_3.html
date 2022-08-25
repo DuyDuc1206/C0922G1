@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let str1 = prompt("Nhập chuỗi thứ nhất");
+    let str2 = prompt("Nhập chuỗi thứ hai");
+    let strA = str1.split("");
+    let strB = str2.split("");
+    let str = [];
+    let count = 0;
+    for (let i = 0; i < strA.length; i++) {
+        for (let j = 0; j < strB.length; j++) {
+            if (strA[i] == strB[j]) {
+                str.push(strA[i]);
+                strA.splice(i, 1);
+                strB.splice(j, 1);
+                i--;
+                j--;
+                count++;
+            }
+        }
+    }
+    alert(count + " kí tự chung đó là " + str.toString());
+
+
+</script>
+</body>
+</html>

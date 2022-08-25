@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tinh tien luong</title>
+</head>
+<body>
+<script>
+    let enterSalary = parseInt(prompt("Nhập lương nhân viên"));
+    if (enterSalary >= 15000000) {
+        let incomTax = enterSalary * 20 / 100;
+        let netSalary = enterSalary - incomTax;
+        alert("Thuế thu nhập là: " + incomTax + " & Lương ròng là: " + netSalary);
+    } else if (enterSalary < 7000000) {
+        let incomTax = enterSalary * 5 / 100;
+        let netSalary = enterSalary - incomTax;
+        alert("Thuế thu nhập là: " + incomTax + " & Lương ròng là: " + netSalary);
+    } else {
+        let incomTax = enterSalary * 10 / 100;
+        let netSalary = enterSalary - incomTax;
+        alert("Thuế thu nhập là: " + incomTax + " & Lương ròng là: " + netSalary);
+    }
+</script>
+</body>
+</html>

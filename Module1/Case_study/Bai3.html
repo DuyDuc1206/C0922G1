@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 3</title>
+</head>
+<body>
+<script>
+    let height = parseInt(prompt("Nhập chiều cao tam giac cân"));
+    for (let i = 0; i < height; i++) {
+        for (let j = height - 1; j > i; j--) {
+            document.write("&nbsp&nbsp");
+        }
+        for (let j = 0; j <= i * 2; j++) {
+            document.write("*");
+        }
+        document.write("<br>");
+    }
+
+    document.write("<br>");
+    // Vẽ tam giác cân cách 2
+    for (let i = 1; i <= height; i++) {
+        for (let j = 1; j <= 2 * height - 1; j++) {
+            if (Math.abs(height - j) <= (i - 1)) {
+                document.write("*");
+            } else {
+                document.write("&nbsp&nbsp");
+            }
+        }
+        document.write("<br>");
+    }
+    document.write("<br>");
+    // Vẽ tam giác cân ngược
+    for (let i = 1; i <= height; i++) {
+        for (let j = 1; j < i; j++) {
+            document.write("&nbsp&nbsp");
+        }
+        for (let j = 2 * height; j >= i * 2; j--) {
+            document.write("*");
+        }
+        document.write("<br>");
+    }
+</script>
+</body>
+</html>

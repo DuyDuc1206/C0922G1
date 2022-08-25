@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 4</title>
+</head>
+<body>
+<script>
+    let height = parseInt(prompt("Nhập chiều cao của tam giác"));
+    for (let i = 1; i <= height; i++) {
+        for (let j = 1; j < 2 * height; j++) {
+            if (Math.abs(height - j) == (i - 1) || i == height) {
+                document.write("*");
+            } else {
+                document.write("&nbsp&nbsp");
+            }
+        }
+        document.write("<br>");
+    }
+</script>
+</body>
+</html>

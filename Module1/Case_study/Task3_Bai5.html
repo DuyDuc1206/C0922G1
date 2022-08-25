@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--<h3>Chọn thức uống</h3>-->
+<!--<input type="checkbox" value="Cafe">Cafe-->
+<!--<span></span><br>-->
+<!--<input type="checkbox" value="Nước cam">Nước cam-->
+<!--<span></span><br>-->
+<!--<input type="checkbox" value="Sữa chua">Sữa chua-->
+<!--<span></span><br>-->
+<!--<input type="checkbox" value="Nước dừa">Nước dừa-->
+<!--<span></span><br>-->
+<!--<input type="checkbox" value="Nước dừa">Nước dừa-->
+<!--<span></span><br>-->
+<!--<input type="checkbox" value="Nước lọc">Nước lọc-->
+<!--<span></span><br>-->
+<!--<input type="checkbox" value="Bia">Bia-->
+<!--<span></span><br>-->
+<!--<button type="button" onclick="pay()">Thanh toán</button>-->
+
+
+</body>
+<script>
+    let str;
+    let num;
+    let sum = 0;
+    let array1 = [1, 2, 3, 4, 5, 6];
+    let array2 = ["Cafe", "Nước cam", "Nước dừa", "Nước Chanh", "Cacao", "Trà sữa"];
+    let array3 = [20000, 45000, 30000, 30000, 35000, 50000];
+    do {
+        str = +prompt("BẤM SỐ ĐỂ LỰA CHỌN THỨC UỐNG:\n 1.Cafe\n 2.Nước cam\n 3.Nước dừa\n 4.Nước chanh \n 5.Cacao\n 6.Trà sữa\n 7.Tính tiền");
+        for (let i = 0; i < array1.length; i++) {
+            if (str == array1[i]) {
+                num = +prompt("Thức uống bạn gọi là: " + array2[i] + " có đơn giá là: " + array3[i] + "\nNhập số lượng cần mua:");
+                sum += num * array3[i];
+            }
+        }
+    }
+    while (str !== 7);
+    alert("Hóa đơn của bạn là: " + sum);
+</script>
+</html>

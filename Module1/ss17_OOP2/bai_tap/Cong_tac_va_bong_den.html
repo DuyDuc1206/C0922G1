@@ -16,11 +16,11 @@
         }
 
         turnOff() {
-            this.status = false + " den tat";
+            this.status = false;
         }
 
         turnOn() {
-            this.status = true + " den sang";
+            this.status = true;
         }
     }
 
@@ -53,9 +53,11 @@
     let switchButton = new SwitchButton();
     switchButton.connectToLamp(electricLamp);
     switchButton.switchOn();
-    alert(electricLamp.getStatus());
+    document.write("Trang thai của công tắc: " + switchButton.status + "<br>");
+    document.write("Trang thai của bóng đèn: " + electricLamp.status + "<br>");
     switchButton.switchOff();
-    alert(electricLamp.getStatus());
+    document.write("Trang thai của công tắc: " + switchButton.status + "<br>");
+    document.write("Trang thai của bóng đèn: " + electricLamp.status + "<br>");
 </script>
 </body>
 </html>

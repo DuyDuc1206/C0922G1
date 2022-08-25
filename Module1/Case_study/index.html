@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // let numb = parseInt(prompt("Nhập độ dài mảng"));
+    // let arr = [];
+    // for (let i = 0; i < numb; i++) {
+    //     arr[i] = +prompt("Nhập phần tử thứ " + (i + 1));
+    // }
+    // document.write(arr.toString() + "<br>");
+    // let count1 = 0;
+    // let count2 = 0;
+    // for (let i = 0; i < numb; i++) {
+    //     if (arr[i] < arr[i + 1]) {
+    //         count1++;
+    //     }
+    //     if (arr[i] > arr[i + 1]) {
+    //         count2++;
+    //     }
+    // }
+    // if (count1 == numb-1 || count2==numb-1) {
+    //     document.write("OK");
+    // } else {
+    //     document.write("NO");
+    // }
+
+    let str = prompt("Nhập chuỗi");
+    let count = 0;
+
+    function checkString(str) {
+        for (let i = 0; i < str.length; i++) {
+            if (str[i] >= "A" && str[i] <= "Z") {
+                count++;
+            }
+        }
+        if (count == str.length - count) {
+            return "true";
+        } else {
+            return "false";
+        }
+    }
+
+    alert(checkString(str));
+
+</script>
+</body>
+</html>
