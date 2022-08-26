@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let str = prompt("Nhập Chuỗi: ")
+    let arr = str.split("");
+    for (let i = 0; i < arr.length; i++) {
+        for (let j = i + 1; j < arr.length; j++) {
+            if (arr[i] == arr[j]) {
+                arr.splice(j, 1);
+                i--;
+            }
+        }
+    }
+    alert("Các kí tự khác nhau là : " + arr);
+
+</script>
+</body>
+</html>

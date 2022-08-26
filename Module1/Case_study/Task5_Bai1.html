@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let numb1 = +prompt("Nhập độ dài mảng lớn");
+    let arr = [];
+    let numb2 = +prompt("Nhập độ dài mảng nhỏ");
+
+    for (let i = 0; i < numb1; i++) {
+        arr[i] = [];
+        for (let j = 0; j < numb2; j++) {
+            arr[i][j] = +prompt("Nhập phần tử thứ " + "[" + (i) + "]" + "[" + (j) + "]");
+        }
+    }
+    let count = 0;
+
+    function calculate() {
+        for (let i = 0; i < numb1; i++) {
+            for (let j = 0; j < numb2; j++) {
+                if (arr[i][j] % 2 == 0) {
+                    count++;
+                }
+            }
+        }
+        return "Tổng các số chẵn trong mảng là " + count;
+    }
+
+    alert(calculate());
+</script>
+</body>
+</html>
