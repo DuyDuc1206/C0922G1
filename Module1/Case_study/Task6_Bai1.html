@@ -6,8 +6,8 @@
 </head>
 <body>
 <h1>Xổ số CodeGym</h1>
-<button type="button" onclick="buy()">Tùy chọn vé</button>
 <button type="button" onclick="buy1()">Mua vé ngẫu nhiên</button>
+<button type="button" onclick="buy2()">Tùy chọn vé</button>
 <br><br>
 <input type="text" class="output" readonly>
 <input type="text" class="output" readonly>
@@ -19,9 +19,11 @@
 <button onclick="seeResult()">Xem kết quả</button>
 </body>
 <script>
+    let arr1 = [];
+    let arr2 = [];
+    let arr3 = [];
     function buy1() {
-        numb1 = [];
-        arr1 = [];
+        let numb1 = [];
         for (let i = 0; i < 6; i++) {
             numb1[i] = Math.floor(Math.random() * 100);
             document.getElementsByClassName("output")[i].value = numb1[i];
@@ -29,9 +31,9 @@
         }
     }
 
-    function buy() {
-        numb2 = [];
-        arr2 = [];
+    function buy2() {
+        let numb2 = [];
+
         for (let i = 0; i < 6; i++) {
             numb2[i] = +prompt("Nhập số thứ " + (i + 1))
             document.getElementsByClassName("output")[i].value = numb2[i];
@@ -41,27 +43,34 @@
 
     function seeResult() {
         let numb3 = [];
-        let arr3 = [];
+
         for (let i = 0; i < 6; i++) {
             numb3[i] = Math.floor(Math.random() * 100);
             arr3.push(numb3[i]);
         }
         alert(arr3);
+
+
         let count = 0;
         for (let i = 6; i > 0; i--) {
-            if (arr1[i] == arr3[i]) {
+            if (arr1[i] == arr3[i] || arr2[i] == arr3[i]) {
                 count++;
+            } else {
+                break;
             }
-            if (count == 3) {
+        }
+        switch (count) {
+            case 3:
                 alert("Bạn được giải ba");
-            }
-            if (count == 5) {
+
+            case 5:
                 alert("Bạn đã được giải nhì");
-            }
-            if (count == 6) {
-                alert("Bạn đã được giải nhất");
-            }
-            alert("Rất tiếc") ;
+
+            case 6:
+                alert("Bạn đã đưuọc giải nhất");
+
+            default:
+                alert("Rất tiếc");
         }
     }
 </script>
