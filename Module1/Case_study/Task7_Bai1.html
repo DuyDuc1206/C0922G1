@@ -7,5 +7,100 @@
 <body>
 <div><h1 style="text-align: center">Hệ thống quản lý bài tập Casestudy modul 1</h1></div>
 <hr>
+<div>
+</div>
+<div>
+    <div style=" width:220px;float: left;padding: 10px">
+        <span>Chọn Bài Tập Modul 1:</span>
+        <select onchange="changeFunction(this)">
+            <option value="1">Bài 1</option>
+            <option value="2">Bài 2</option>
+            <option value="3">Bài 3</option>
+            <option value="4">Bài 4</option>
+        </select><br><br>
+        <span>Chọn Bài Tập Modul 2:</span>
+        <select onchange="changeFunction(this)">
+            <option value="5">Bài 1</option>
+            <option value="6">Bài 2</option>
+            <option value="7">Bài 3</option>
+            <option value="8">Bài 4</option>
+        </select><br><br>
+        <span>Chọn Bài Tập Modul 3:</span>
+        <select onchange="changeFunction(this)">
+            <option value="9">Bài 1</option>
+            <option value="10">Bài 2</option>
+            <option value="11">Bài 3</option>
+            <option value="12">Bài 4</option>
+        </select><br><br>
+        <span>Chọn Bài Tập Modul 4:</span>
+        <select onchange="changeFunction(this)">
+            <option value="13">Bài 1</option>
+            <option value="14">Bài 2</option>
+            <option value="15">Bài 3</option>
+            <option value="16">Bài 4</option>
+        </select><br><br>
+    </div>
+    <div>
+        <hr width="1" style="height: 70vh;float: left;">
+    </div>
+    <div style=" width: 650px; float: left;padding: 10px">
+        <p id="id"></p>
+    </div>
+</div>
 </body>
+<script>
+    function changeFunction(obj) {
+        let value = obj.value;
+        switch (value) {
+            case "1":
+                document.getElementById("id").innerHTML = "Hello";
+                break;
+            case "2":
+                document.getElementById("id").innerHTML = "Xin chào";
+                break;
+            case "3":
+                document.getElementById("id").innerHTML = "Tôi";
+                break;
+            case "4":
+                document.getElementById("id").innerHTML = "Tên";
+                break;
+            case "5":
+                document.getElementById("id").innerHTML = "Là";
+                break;
+            case "6":
+                document.getElementById("id").innerHTML = "DUC NGUYEN";
+                break;
+            case "7":
+                document.getElementById("id").innerHTML = "XIN";
+                break;
+            case "8":
+                document.getElementById("id").innerHTML = "CHAO";
+                break;
+            case "9":
+                document.getElementById("id").innerHTML = "CAC";
+                break;
+            case "10":
+                document.getElementById("id").innerHTML = "Ban";
+                break;
+            case "11":
+                document.getElementById("id").innerHTML = "Neymar";
+                break;
+            case "12":
+                document.getElementById("id").innerHTML = "Jr";
+                break;
+            case "13":
+                document.getElementById("id").innerHTML = "Ronaldo";
+                break;
+            case "14":
+                document.getElementById("id").innerHTML = "Messi";
+                break;
+            case "15":
+                document.getElementById("id").innerHTML = "chealsi";
+                break;
+            case "16":
+                document.getElementById("id").innerHTML = "MC";
+                break;
+        }
+    }
+</script>
 </html>

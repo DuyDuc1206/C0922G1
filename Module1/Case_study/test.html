@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>NAME</th>
+        <th>AGE</th>
+        <th>DELETED</th>
+        <th>EDIT</th>
+    </tr>
+    <tr>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+    </tr>
+</table>
+<script>
+    class Student {
+        constructor (id, name,age) {
+            this.id = id;
+            this.name = name;
+            this.age = age;
+        }
+        getId(){
+            return this.id;
+        }
+        getName(){
+            return this.name;
+        }
+        getAge(){
+            return this.age;
+        }
+        setId(id){
+            this.id=id;
+        }
+        setName(name){
+            this.name=name;
+        }
+        setAge(age){
+            this.age=age;
+        }
+    }
+    let student1 = new Student(1, Duc, 28);
+    let student2 = new Student(2, Duy, 30);
+    let student3 = new Student(3, Nguyen, 35);
+    let studentList = [student1,student2,student3];
+    display(studentList);
+</script>
+</body>
+</html>
