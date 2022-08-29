@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<!--Viết hàm có tham số truyền vào là một chuỗi các ký tự.
+Hàm thực hiện tạo ra một cụm từ viết tắt
+-	Nếu chuỗi có nhiều hơn hoặc bằng 2 từ trở lên thì
+hàm sẽ trả về 1 cụm từ viết tắt là lấy các ký tự đầu tiên của từng từ và đổi sang in hoa.
+-->
+<body>
+<script>
+    let enterCharacter = prompt(" Nhập vào một chuỗi các ký tự");
+
+    function check(character) {
+        let arr1 = [];
+        let arr = enterCharacter.split(" ");
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] !== "") {
+                arr1.push(arr[i]);
+            }
+        }
+        for (let i = 0; i < arr1.length; i++) {
+            if (arr1.length < 2) {
+                return "Chuỗi chỉ có 1 từ nên không cần viết tắc";
+            } else {
+                arr1[i] = arr1[i][0].toUpperCase();
+            }
+        }
+        return "Cụm từ viết tắc là: " + arr1.join("");
+    }
+
+    alert(check(enterCharacter));
+</script>
+</body>
+</html>

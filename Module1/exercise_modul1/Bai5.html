@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<!--Nhập 1 mảng với độ dài n(n chẵn)
+Hiển thị mảng sau khi thêm các phần tử
+Kiểm tra mảng vừa nhập. Nếu các cặp phần tử liền kề nhau(phần tử thứ nhất < phần tử thứ hai)
+thì hiển thị thông báo "OK", nếu không thì "NO"-->
+<body>
+<script>
+    let number = parseInt(prompt("Nhập số lượng phần tử ( số chẵn)"));
+    let arr = [];
+    for (let i = 0; i < number; i++) {
+        arr[i] = parseInt(prompt("Nhập phần tử thứ: " + (i + 1)));
+    }
+    alert(arr.toString());
+    let count = 0;
+    for (let i = 0; i < arr.length; i += 2) {
+        if (arr[i] < arr[i + 1]) {
+            count++;
+        }
+    }
+    if (count == number / 2) {
+        alert("OK, Phần tử thứ nhất nhỏ hơn phần tử thứ hai đối với các cặp");
+    } else {
+        alert("NO, Không thỏa mãn");
+    }
+</script>
+</body>
+</html>

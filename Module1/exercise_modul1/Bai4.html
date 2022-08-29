@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="number" id="id" placeholder="Enter id">
+<input type="text" id="name" placeholder="Enter name">
+<input type="text" id="brand" placeholder="Enter brand">
+<input type="number" id="price" placeholder="Enter price">
+<input type="button" onclick="addNewLaptop()" value="Add New Laptop">
+<p id="display"></p>
+<script>
+    class Laptop {
+        constructor(id, name, brand, price) {
+            this.id = id;
+            this.name = name;
+            this.brand = brand;
+            this.price = price;
+        }
+
+        getId() {
+            return this.id;
+        }
+
+        getName() {
+            return this.name;
+        }
+
+        getBrand() {
+            return this.brand;
+        }
+
+        getPrice() {
+            return this.price;
+        }
+
+        setId(id) {
+            this.id = id;
+        }
+
+        setName(name) {
+            this.name = name;
+        }
+
+        setBrand(brand) {
+            this.brand = brand;
+        }
+
+        setPrice(price) {
+            this.price = price;
+        }
+
+        toString() {
+            return this.id + this.name + this.brand + this.price
+        }
+    }
+
+    let laptop1 = new Laptop(101, "Inspiron", "Dell", 17000000);
+    let laptop2 = new Laptop(102, "ZenBook", "Asus", 18000000);
+    let laptop3 = new Laptop(103, "MacBook", "Apple", 20000000);
+    let laptopList = [laptop1, laptop2, laptop3];
+    display(laptopList);
+
+    function display(list) {
+        let tableString = "<table style=\"border-collapse: collapse\" border=\"1\">\n" +
+            "    <tr>\n" +
+            "        <th>STT</th>\n" +
+            "        <th>ID</th>\n" +
+            "        <th>NAME</th>\n" +
+            "        <th>BRAND</th>\n" +
+            "        <th>PRICE</th>\n" +
+            "        <th>EDIT</th>\n" +
+            "        <th>DELETE</th>\n" +
+            "    </tr>"
+        for (let i = 0; i < list.length; i++) {
+            tableString += "<tr>\n" +
+                "        <td>" + (i + 1) + "</td>\n" +
+                "        <td>" + list[i].getId() + "</td>\n" +
+                "        <td>" + list[i].getName() + "</td>\n" +
+                "        <td>" + list[i].getBrand() + "</td>\n" +
+                "        <td>" + list[i].getPrice() + "</td>\n" +
+                "        <td><input type='button' value='Edit' onclick='editLaptopById(" + i + ")'></td>\n" +
+                "        <td><input type='button' value='Delete' onclick='deleteLaptopById(" + i + ")'></td>\n" +
+                "    </tr>"
+        }
+        tableString += "</table>"
+        document.getElementById("display").innerHTML = tableString;
+    }
+
+    function addNewLaptop() {
+        let id = document.getElementById("id").value;
+        let name = document.getElementById("name").value;
+        let brand = document.getElementById("brand").value;
+        let price = document.getElementById("price").value;
+        let newLaptop = new Laptop(id, name, brand, price);
+        laptopList.push(newLaptop);
+        display(laptopList);
+        document.getElementById("id").value = ""; /*Để trả về rỗng để nhập liệu vô tiếp*/
+        document.getElementById("name").value = ""; /*Để trả về rỗng để nhập liệu vô tiếp*/
+        document.getElementById("brand").value = ""; /*Để trả về rỗng để nhập liệu vô tiếp*/
+        document.getElementById("price").value = ""; /*Để trả về rỗng để nhập liệu vô tiếp*/
+    }
+
+    function editLaptopById(index) {
+        let newId = parseInt(prompt("enter new id"));
+        let newName = prompt("enter new name");
+        let newBrand = prompt("enter new brand");
+        let newPrice = parseInt(prompt("enter new Price"));
+        laptopList[index].setId(newId);
+        laptopList[index].setName(newName);
+        laptopList[index].setBrand(newBrand);
+        laptopList[index].setPrice(newPrice);
+        display(laptopList);
+    }
+
+    function deleteLaptopById(index) {
+        let conf = confirm("Are you sure you want to delete " + laptopList[index].getName() + " ?");
+        if (conf) {
+            laptopList.splice(index, 1);
+            display(laptopList);
+        }
+    }
+</script>
+</body>
+</html>

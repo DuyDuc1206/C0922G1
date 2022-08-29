@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<!--Viết 1 hàm truyền vào 1 tham số( với tham số là 1 chuỗi),(checkstring(str))
+Hàm trả về mảng các ký tự là nguyên âm có trong mảng-->
+<body>
+<script>
+    let str = "my name is duc"
+    let arr = ["u", "e", "o", "a", "i", "U", "E", "O", "A", "I"];
+
+    function checkString(string) {
+        let arr1 = string.split("");
+        let arr2 = [];
+        for (let i = 0; i < arr1.length; i++) {
+            for (let j = 0; j < arr.length; j++) {
+                if (arr1[i] === arr[j]) {
+                    arr2.push(arr1[i]);
+                    arr1.splice(i, 1);
+                    i--;
+                }
+            }
+        }
+        return " Mảng số nguyên là: " + arr2;
+    }
+
+    alert(checkString(str));
+</script>
+</body>
+</html>

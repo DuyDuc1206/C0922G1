@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<!--Nhập 1 mảng từ bàn phím với độ dài n
+HIển thị mảng sau khi thêm các phần tử
+Kiểm tra mảng vừa nhập.Nếu mảng vừa nhập đã được sắp xếp( tăng/ giảm dần) thì hiển thị thông báo OK
+nếu không thì  hiển thị NO-->
+<body>
+<script>
+    let n = parseInt(prompt("Nhập độ dài mảng"));
+    let arr = [];
+    let count1 = 0;
+    let count2 = 0;
+    for (let i = 0; i < n; i++) {
+        arr[i] = parseInt(prompt("Nhập phần tử thứ " + (i + 1)));
+    }
+    alert(arr);
+    for (let i = 0; i < n; i++) {
+        if (arr[i] < arr[i + 1]) {
+            count1++;
+        }
+        if (arr[i] > arr[i + 1]) {
+            count2++;
+        }
+    }
+    if (count1 === (n - 1) || count2 === (n - 1)) {
+        alert("OK");
+    } else {
+        alert("NO");
+    }
+</script>
+</body>
+</html>

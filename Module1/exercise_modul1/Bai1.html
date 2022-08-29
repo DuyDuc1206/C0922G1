@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<!--Nhập từ bàn phím mảng số nguyên gồm n phần tử (n<=50).
+Hiển thị ra màn hình danh sách các phần tử của mảng,
+Hiển thị giá trị trung bình của các phần tử chia hết cho 5 ở vị trí chia hết cho 3 ( phần tử có index chia hết cho 3)-->
+<body>
+<script>
+    let number = parseInt(prompt("Nhập số lượng phần tử number <= 50 "));
+    let arr = [];
+    for (let i = 0; i < number; i++) {
+        arr[i] = parseInt(prompt("Nhập phần tử vị trí thứ " + i));
+    }
+    document.write("Mảng có " + arr.length + " phần tử đó là: " + arr.toString() + "<br>");
+    let index = 0;
+    let sum = 0;
+    let average;
+    for (let i = 0; i < number; i++) {
+        if (arr[i] % 5 === 0 && i % 3 === 0) {
+            sum += arr[i];
+            index++;
+            average = sum / index;
+        }
+    }
+    document.write("Trung bình của các phần tử chia hết cho 5 ở vị trí chí hết cho 3 là: " + average);
+
+</script>
+</body>
+</html>

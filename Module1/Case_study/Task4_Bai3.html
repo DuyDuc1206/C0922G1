@@ -14,7 +14,7 @@
     let count = 0;
     for (let i = 0; i < strA.length; i++) {
         for (let j = 0; j < strB.length; j++) {
-            if (strA[i] == strB[j]) {
+            if (strA[i] === strB[j]) {
                 str.push(strA[i]);
                 strA.splice(i, 1);
                 strB.splice(j, 1);

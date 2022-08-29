@@ -5,53 +5,103 @@
     <title>Title</title>
 </head>
 <body>
-<table>
-    <tr>
-        <th>ID</th>
-        <th>NAME</th>
-        <th>AGE</th>
-        <th>DELETED</th>
-        <th>EDIT</th>
-    </tr>
-    <tr>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-    </tr>
-</table>
+<input type="text" id="id" placeholder="Nhập id">
+<input type="text" id="name" placeholder="Nhập tên">
+<input type="text" id="age" placeholder="Nhập tuổi">
+<input type="button" onclick="addNewStudent()" value="Add New Student">
+<p id="display"></p>
 <script>
     class Student {
-        constructor (id, name,age) {
+        constructor(id, name, age) {
             this.id = id;
             this.name = name;
             this.age = age;
         }
-        getId(){
+
+        getId() {
             return this.id;
         }
-        getName(){
+
+        getName() {
             return this.name;
         }
-        getAge(){
+
+        getAge() {
             return this.age;
         }
-        setId(id){
-            this.id=id;
+
+        setId(id) {
+            this.id = id;
         }
-        setName(name){
-            this.name=name;
+
+        setName(name) {
+            this.name = name;
         }
-        setAge(age){
-            this.age=age;
+
+        setAge(age) {
+            this.age = age;
         }
     }
-    let student1 = new Student(1, Duc, 28);
-    let student2 = new Student(2, Duy, 30);
-    let student3 = new Student(3, Nguyen, 35);
-    let studentList = [student1,student2,student3];
+
+    let student1 = new Student(1, "Duc", 28);
+    let student2 = new Student(2, "Duy", 30);
+    let student3 = new Student(3, "Nguyen", 35);
+    let studentList = [student1, student2, student3];
     display(studentList);
+
+    function display(list) {
+        let tableString = "<table border=\"1\">\n" +
+            "    <tr>\n" +
+            "        <th>STT</th>\n" +
+            "        <th>ID</th>\n" +
+            "        <th>NAME</th>\n" +
+            "        <th>AGE</th>\n" +
+            "        <th>DELETE</th>\n" +
+            "        <th>EDIT</th>\n" +
+            "    </tr>"
+        for (let i = 0; i < list.length; i++) {
+            tableString += " <tr>\n" +
+                "        <th>" + (i + 1) + "</th>\n" +
+                "        <th>" + list[i].getId() + "</th>\n" +
+                "        <th>" + list[i].getName() + "</th>\n" +
+                "        <th>" + list[i].getAge() + "</th>\n" +
+                "        <th><input type='text' value='Delete' onclick='deleteStudentById(" + i + ")'></th>\n" +
+                "        <th><input type='text' value='Edit' onclick='editStudentById(" + i + ")'></th>\n" +
+                "    </tr>"
+        }
+        tableString += "</table>";
+        document.getElementById("display").innerHTML = tableString;
+    }
+
+    function addNewStudent() {
+        let id = document.getElementById("id").value;
+        let name = document.getElementById("name").value;
+        let age = document.getElementById("age").value;
+        let newStudent = new Student(id, name, age);
+        studentList.push(newStudent);
+        display(studentList);
+        document.getElementById("id").value = "";
+        document.getElementById("name").value = "";
+        document.getElementById("age").value = "";
+    }
+
+    function deleteStudentById(index) {
+        let conf = confirm("Bạn có muốn xóa sinh viên tên " + studentList[index].getName());
+        if (conf) {
+            studentList.splice(index, 1);
+        }
+        display(studentList);
+    }
+
+    function editStudentById(index) {
+        let editId = prompt("Nhập id ")
+        let editName = prompt("Nhập tên ")
+        let editAge = prompt("Nhập tuổi ")
+        studentList[index].setId(editId);
+        studentList[index].setName(editName);
+        studentList[index].setAge(editAge);
+        display(studentList);
+    }
 </script>
 </body>
 </html>
