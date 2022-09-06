@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<!--2.	Nhập vào tháng, năm bất kỳ. In ra số ngày tương ứng với tháng, năm đó. -->
+<body>
+<script>
+    let year = parseInt(prompt("Nhập vào 1 năm"));
+    let month = parseInt(prompt("Nhập vào 1 tháng"));
+    let num;
+    if ((year % 4 === 0 && year % 100 !== 0 && year % 400 !== 0) || (year % 100 === 0 && year % 400 === 0)) {
+        num = true;
+        alert(year + " là năm nhuận");
+    } else {
+        alert(year + " không phải là năm nhuận");
+    }
+    switch (month) {
+        case 1:
+        case 3:
+        case 5:
+        case 7:
+        case 8:
+        case 10:
+        case 12:
+            alert("Tháng " + month + " có 31 ngày");
+            break;
+        case 4:
+        case 6:
+        case 9:
+        case 11:
+            alert("Tháng " + month + " có 30 ngày");
+            break;
+        case 2:
+            if (num === true) {
+                alert("Tháng " + month + " có 29 ngày");
+            } else {
+                alert("Tháng " + month + " có 28 ngày");
+            }
+    }
+</script>
+</body>
+</html>

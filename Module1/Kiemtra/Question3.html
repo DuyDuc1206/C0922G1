@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<!--Tìm số lượng các phần tử khác nhau chia hết cho n-->
+<body>
+<script>
+    let number = parseInt((prompt("Nhập vào số lượng mảng số nguyên")));
+    let arr = [];
+    for (let i = 0; i < number; i++) {
+        arr[i] = parseInt(prompt("Nhập phần tử thứ " + (i + 1)));
+    }
+    document.write("Mảng số nguyên " + arr + "<br>");
+    let n = parseInt(prompt("Nhập vào số nguyên n"));
+    document.write("Số nguyên n là: " + n + "<br>");
+    let count = 0;
+
+    function find(arr) {
+        for (let i = 0; i < arr.length; i++) {
+            for (let j = i + 1; j < arr.length; j++) {
+                if (arr[i] === arr[j]) {
+                    arr.splice(j, 1);
+                    j--;
+                }
+            }
+        }
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] % 2 === 0) {
+                count++;
+            }
+        }
+        document.write("Số lượng phần tử khác nhau trong mảng chia hết cho " + n + " là " + count);
+    }
+
+    find(arr);
+</script>
+</body>
+</html>

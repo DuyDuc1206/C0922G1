@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>
+    <center>Danh sách bệnh nhân</center>
+</h1>
+<p id="display"></p>
+<script>
+    class BenhNhan {
+        constructor(ten, tuoi, diaChi, sdt) {
+            this.ten = ten;
+            this.tuoi = tuoi;
+            this.diaChi = diaChi;
+            this.sdt = sdt;
+        }
+
+        getTen() {
+            return this.ten;
+        }
+
+        getTuoi() {
+            return this.tuoi;
+        }
+
+        getDiaChi() {
+            return this.diaChi;
+        }
+
+        getSdt() {
+            return this.sdt;
+        }
+
+    }
+
+    let benhNhan1 = new BenhNhan("Nguyễn Lê Hoàng Anh", "20", "Quảng Nam", "0628500047");
+    let benhNhan2 = new BenhNhan("Nguyễn thị Canh", "26", "Dà nẵng", "0278800474");
+    let benhNhan3 = new BenhNhan("Hoàng Thanh Hùng", "25", "Quảng Nam", "0935222475");
+    let benhNhan4 = new BenhNhan("Nguyễn Thị Thanh Hương", "26", "Dà Nẵng", "0922222475");
+    let danhSachBenhNhan = [benhNhan1, benhNhan2, benhNhan3, benhNhan4];
+    //Sắp xếp theo số
+    // danhSachBenhNhan.sort(function (a, b) {return a.tuoi - b.tuoi; });
+
+    //Sắp xếp theo chữ
+    function myFunction(w){
+        w.sort(function(a,b){
+            let x = a.ten.toLowerCase();
+            let y = b.ten.toLowerCase();
+            if(x > y){return 1};
+            if(x < y){return -1};
+            return 0;
+        });
+        return w;
+    }
+    myFunction(danhSachBenhNhan);
+    display(danhSachBenhNhan);
+
+    function display(danhSach) {
+        let tableString = "<center><table style=\"border-collapse: collapse\" border=\"1\">\n" +
+            "    <tr>\n" +
+            "        <th>STT</th>\n" +
+            "        <th>Họvà tên </th>\n" +
+            "        <th>Tuổi</th>\n" +
+            "        <th>Địa chỉ</th>\n" +
+            "        <th>Số điện thoại</th>\n" +
+            "    </tr>"
+        for (let i = 0; i < danhSach.length; i++) {
+            tableString += "<tr>\n" +
+                "        <td>" + (i + 1) + "</td>\n" +
+                "        <td>" + danhSach[i].getTen() + "</td>\n" +
+                "        <td>" + danhSach[i].getTuoi() + "</td>\n" +
+                "        <td>" + danhSach[i].getDiaChi() + "</td>\n" +
+                "        <td>" + danhSach[i].getSdt() + "</td>\n" +
+                "    </tr>"
+        }
+        tableString += "</table></center>"
+        document.getElementById("display").innerHTML = tableString;
+    }
+
+</script>
+</body>
+</html>

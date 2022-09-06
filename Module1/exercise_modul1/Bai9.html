@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<!--Xây dựng 1 hàm nhận vào 2 mảng bất kì. Nếu mảng thứ 2 là con của mảng thứ nhất thì trả về true,
+ ngược lại trả về false.Ví dụ:-->
+<!--•	Mảng thứ nhất [ 1, 2, 3, 4 ] mảng thứ 2 [2, 3] => true.-->
+<!--•	Mảng thứ nhất [ 1, 2, 3, 4 ] mảng thứ 2 [3, 2] => false.-->
+<body>
+<script>
+    let day = 1;
+    let message = "";
+
+    switch (day) {
+        case 1:
+            message = "Ngày đầu tuần";
+
+        case 2:
+            message = "Ngày giữa tuần";
+
+        case "Sat":
+        case "Sun":
+            message = "Ngày nghỉ";
+
+    }
+    alert(message);
+
+
+
+</script>
+</body>
+</html>

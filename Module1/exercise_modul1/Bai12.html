@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<!--Viết 1 hàm nhận vào 1 mảng các số nguyên. 
+Đếm số lần xuất hiện của các phần tử trong mảng đó. Ví dụ:
+ [ 1,2,3,3,2,4] => 1 : 1 lần , 2 : 2 lần, 3: 2 lần, 4: 1 lần.
+-->
+<body>
+<script>
+    let n = parseInt(prompt("Nhập số lượng phần tử trong mảng"));
+    let arr = [];
+    for (let i = 0; i < n; i++) {
+        arr[i] = parseInt(prompt(" Nhập phần tử thứ " + (i + 1)));
+    }
+    let count = 1;
+    let arr1 = [];
+
+    function enter(arr) {
+
+        for (let i = 0; i < arr.length; i++) {
+            for (let j = i+1; j < arr.length; j++) {
+                if (arr[i] === arr[j]) {
+                    arr.splice(j, 1);
+                    j--;
+                    count++;
+                }
+            }
+            arr1.push(count);
+            count = 1;
+        }
+
+        for (let i = 0; i < arr.length; i++) {
+            document.write(arr[i] + " xuất hiện: " + arr1[i] + " lần" + "<br>");
+        }
+    }
+
+    enter(arr);
+</script>
+</body>
+</html>

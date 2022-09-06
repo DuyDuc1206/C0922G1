@@ -5,6 +5,7 @@
     <title>Title</title>
 </head>
 <body>
+
 <input type="number" id="id" placeholder="Enter id">
 <input type="text" id="name" placeholder="Enter name">
 <input type="text" id="brand" placeholder="Enter brand">
@@ -64,7 +65,7 @@
     display(laptopList);
 
     function display(list) {
-        let tableString = "<table style=\"border-collapse: collapse\" border=\"1\">\n" +
+        let tableString = "<center><table style=\"border-collapse: collapse\" border=\"1\">\n" +
             "    <tr>\n" +
             "        <th>STT</th>\n" +
             "        <th>ID</th>\n" +
@@ -85,7 +86,7 @@
                 "        <td><input type='button' value='Delete' onclick='deleteLaptopById(" + i + ")'></td>\n" +
                 "    </tr>"
         }
-        tableString += "</table>"
+        tableString += "</table></center>"
         document.getElementById("display").innerHTML = tableString;
     }
 

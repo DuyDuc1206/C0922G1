@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<!--Viết 1 hàm nhận vào 1 số nguyên duy nhất hàm trả về mảng số nguyên từ 0 đến số được truyền vào và phải thỏa mãn 2 yêu cầu:
+thứ nhất số đó thuộc dãy fibonacci ,
+thứ 2 số đó phải là số nguyên tố. In ra mảng đấy.-->
+<body>
+<script>
+    let n = parseInt(prompt("Nhập vào 1 số nguyên"));
+    let n1 = 0;
+    let n2 = 1;
+    let sum;
+    let arr = [];
+
+
+    function isFibonacci() {
+        for (let i = 0; i < n; i++) {
+            sum = n1 + n2;
+            arr.push(n1);
+            n1 = n2;
+            n2 = sum;
+        }
+        for (let i = 0; i <arr.length ; i++) {
+            if ( arr[i] >n ) {
+                arr.splice(i,1);
+                i--;
+            }
+        }
+        return arr;
+    }
+
+    document.write("Mảng số Fibonacci có gái trị đến số nhập lại là: " + isFibonacci(n).toString() + "<br>");
+
+    function isPrime(n) {
+        if (n < 2) {
+            return false;
+        }
+        for (let i = 2; i <= Math.sqrt(n); i++) {
+            if (n % i === 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    let arr1 = [];
+    for (let i = 0; i < arr.length; i++) {
+        if (isPrime(arr[i]) === true) {
+            arr1.push(arr[i]);
+        }
+    }
+    document.write("Mảng số nguyên tố trong dãy số Fibonacci là: " + arr1.toString());
+
+
+</script>
+</body>
+</html>

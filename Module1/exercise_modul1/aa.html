@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo_form</title>
+</head>
+<body>
+<form name="form">
+    <label for="name">Tên</label>
+    <!--    Sử dụng để nhập chuỗi-->
+    <input type="text" placeholder="nhập tên" id="name" >
+    <p>Tuổi</p>
+    <input type="number">
+    <!--    Nhập định dạng email-->
+    <p>Email:</p>
+    <input type="email">
+    <p>Mật Khẩu</p>
+    <input type="password">
+    <!--    Chọn 1 trong nhiều-->
+    <p>Giới tính</p>
+    <input type="radio" name="gender"> Nam
+    <input type="radio" name="gender" checked> Nữ
+    <input type="radio" name="gender"> LGBT
+    <!--    Chọn nhiều-->
+    <p>Sở thích</p>
+    <input type="checkbox"> Trà sữa
+    <input type="checkbox" checked> Shopping
+    <input type="checkbox"> Kara
+    <input type="checkbox"> Game
+    <!--    Select - option-->
+    <p>Quê quán</p>
+    <select>
+        <option>Đà Nẵng</option>
+        <option>Huế</option>
+        <option>Quảng Nam</option>
+        <option selected>Hà Nội</option>
+        <option>Hồ Chí Minh</option>
+    </select>
+    <!--    Gửi dữ liệu đi-->
+    <input type="submit" value="input-submit">
+    <input type="button" value="Click me">
+    <button><a href="https://www.w3schools.com/css/">Css</a></button>
+    <!--    Reset thông tin của form-->
+    <button type="reset">Reset</button>
+</form>
+</body>
+</html>

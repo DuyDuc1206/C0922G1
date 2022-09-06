@@ -10,6 +10,11 @@ Hiển thị giá trị trung bình của các phần tử chia hết cho 5 ở 
 <body>
 <script>
     let number = parseInt(prompt("Nhập số lượng phần tử number <= 50 "));
+    if (number > 50) {
+        for (; number > 50;) {
+            number = parseInt(prompt("Nhập số lượng phần tử number <= 50 "));
+        }
+    }
     let arr = [];
     for (let i = 0; i < number; i++) {
         arr[i] = parseInt(prompt("Nhập phần tử vị trí thứ " + i));
@@ -25,8 +30,8 @@ Hiển thị giá trị trung bình của các phần tử chia hết cho 5 ở 
             average = sum / index;
         }
     }
-    document.write("Trung bình của các phần tử chia hết cho 5 ở vị trí chí hết cho 3 là: " + average);
 
+    document.write("Trung bình của các phần tử chia hết cho 5 ở vị trí chí hết cho 3 là: " + average);
 </script>
 </body>
 </html>
