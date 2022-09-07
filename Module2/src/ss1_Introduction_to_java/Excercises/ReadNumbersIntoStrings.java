@@ -135,7 +135,7 @@ public class ReadNumbersIntoStrings {
                     theSecondNumber = "Ninety";
                     break;
                 default:
-                    theSecondNumber = " ";
+                    theSecondNumber = "";
             }
             String theThirdNumber;
             switch (hundreds - tens) {
@@ -167,7 +167,7 @@ public class ReadNumbersIntoStrings {
                     theThirdNumber = "Nine hundred";
                     break;
                 default:
-                    theThirdNumber = " ";
+                    theThirdNumber = "";
             }
             String theFirstNumber;
             switch (ones) {
