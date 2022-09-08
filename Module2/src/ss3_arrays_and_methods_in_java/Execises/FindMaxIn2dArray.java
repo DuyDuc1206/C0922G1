@@ -17,15 +17,21 @@ public class FindMaxIn2dArray {
                 array[i][j] = Integer.parseInt(scanner.nextLine());
             }
         }
-//        System.out.println("Array is:");
-//        for (int i = 0; i < length; i++) {
-//            for (int j = 0; j < width; j++) {
-//                System.out.print(array[i][j] + " ");
-//            }
-//            System.out.println();
-//        }
+        System.out.println("Array is:");
         for (int i = 0; i < length; i++) {
-            System.out.println(Arrays.toString(array[width]));
+            for (int j = 0; j < width; j++) {
+                System.out.print(array[i][j] + " ");
+            }
+            System.out.println();
         }
+        int max = array[0][0];
+        for (int i = 0; i < length; i++) {
+            for (int j = 0; j < width; j++) {
+                if (max < array[i][j]) {
+                    max = array[i][j];
+                }
+            }
+        }
+        System.out.println("Max number is: " + max);
     }
 }
