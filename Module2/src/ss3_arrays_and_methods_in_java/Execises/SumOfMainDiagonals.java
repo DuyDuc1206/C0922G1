@@ -27,7 +27,6 @@ public class SumOfMainDiagonals {
         int sum = 0;
         for (int i = 0; i < n; i++) {
             sum += arr[i][i];
-            sum += arr[i][n - 1 - i];
         }
         System.out.print("Sum the number on the main diagonal of a square matrix is: " + sum);
     }

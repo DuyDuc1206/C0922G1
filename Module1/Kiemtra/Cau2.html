@@ -2,9 +2,38 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
 </head>
+<!--The power of the string is the maximum length of a non-empty substring that contains only one unique character.
+Given a string s, return the power of s.
+
+Example 1:
+Input: s = "leetcode"
+Output: 2
+Explanation: The substring "ee" is of length 2 with the character 'e' only.-->
 <body>
-$END$
+<script>
+    let str = prompt("Nhập một chuỗi kí tự");
+
+    function maxPower(string) {
+        let count = 0;
+        let maxCount = 0;
+        let prevPointer = " ";
+        for (let i = 0; i < string.length; i++) {
+            if (string[i] !== prevPointer) {
+                count = 1;
+                prevPointer = string[i];
+            } else {
+                count++;
+            }
+            maxCount = Math.max(maxCount, count);
+        }
+        return "Có " + maxCount + " kí tự liên tiếp nhau nhiều nhất ";
+    }
+
+    document.write("Chuỗi: " + str + "<br>")
+    document.write(maxPower(str));
+</script>
+
 </body>
 </html>
