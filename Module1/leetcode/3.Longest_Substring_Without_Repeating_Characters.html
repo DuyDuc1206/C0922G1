@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let str =prompt("Enter the string");
+
+    function longestSubstring(array) {
+        let count = 0;
+        for (let i = 0; i < array.length - 1; i++) {
+            for (let j = i + 1; j < array.length; j++) {
+                if (array[i] !== array[j]) {
+                    count++;
+                    array.splice(i,1);
+                    i--;
+                }
+                break;
+            }
+        }
+        alert(count);
+    }
+    longestSubstring(str);
+</script>
+</body>
+</html>
