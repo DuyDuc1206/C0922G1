@@ -1,4 +1,7 @@
-package case_study.service;
-
-public interface FacilityService extends IService {
-}
+//package case_study.service;
+//
+//public interface FacilityService extends IService {
+//    void display(){
+//
+//    }
+//}
