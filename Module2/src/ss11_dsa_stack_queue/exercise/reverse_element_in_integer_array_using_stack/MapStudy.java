@@ -24,12 +24,10 @@ public class MapStudy {
             }
         }
         System.out.println(map);
-        Set set = map.keySet();
-        Iterator itr = set.iterator();
-
-        while (itr.hasNext()) {
-            key = (String) itr.next();
-            System.out.println("Từ '" + key + "' xuất hiện " + map.get(key) + " lần");
+        Set<String> sets = map.keySet();
+        for (String set : sets){
+            System.out.println("Từ: " + set + ", xuất hiện: " + map.get(set) + " lần");
+            
         }
     }
 }
