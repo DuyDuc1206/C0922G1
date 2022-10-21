@@ -27,4 +27,7 @@ public class Customer extends Person {
     public void setAddress(String address) {
         this.address = address;
     }
+    public String toString(){
+            return "Customer: " + super.toString() + " ,Customer type= '" + '\''+ getCustomerType() + " ,address= '" + getAddress() + '\'';
+    }
 }

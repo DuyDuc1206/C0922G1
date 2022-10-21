@@ -1,7 +1,9 @@
 package case_study.controller;
 
+import case_study.service.ICustomerService;
 import case_study.service.IEmployeeService;
 import case_study.service.IService;
+import case_study.service.impl.CustomerService;
 import case_study.service.impl.EmployeeService;
 
 import java.util.Scanner;
@@ -9,7 +11,7 @@ import java.util.Scanner;
 public  class FuramaController {
     static Scanner scanner = new Scanner(System.in);
     static IEmployeeService employeeService = new EmployeeService();
-//    EmployeeController employeeController = new EmployeeController();
+    static ICustomerService customerService = new CustomerService();
 
     public static void displayMainMenu() {
 
@@ -52,13 +54,13 @@ public  class FuramaController {
     }
 
     public static void employeeMenu() {
-//        boolean isChoise = false;
         while (true) {
             System.out.println("1. Display list employees");
             System.out.println("2. Add new employee");
             System.out.println("3. Delete employee");
             System.out.println("4. Edit employee");
             System.out.println("5. Return main menu");
+            System.out.println("Enter the number");
             String number1 = scanner.nextLine();
             switch (number1) {
                 case "1":
@@ -71,23 +73,40 @@ public  class FuramaController {
                     employeeService.remove();
                     break;
                 case "4":
-                    employeeService.set();
+                    employeeService.edit();
                     break;
                 case "5":
-//                    isChoise = true;
-//                    break;
                     return;
                 default:
-                    System.out.println("Re-Enter");
+                    System.out.println("Re-Enter the number");
             }
         }
     }
 
     public static void customerMenu() {
-        System.out.println("1. Display list customer");
-        System.out.println("2. Add new customer");
-        System.out.println("3. Edit customer");
-        System.out.println("4. Return main menu");
+        while (true) {
+            System.out.println("1. Display list customer");
+            System.out.println("2. Add new customer");
+            System.out.println("3. Edit customer");
+            System.out.println("4. Return main menu");
+            System.out.println("Enter the number");
+            String number2 = scanner.nextLine();
+            switch (number2){
+                case "1":
+                    customerService.display();
+                    break;
+                case "2":
+                    customerService.add();
+                    break;
+                case "3":
+                    customerService.edit();
+                    break;
+                case "4":
+                    return;
+                default:
+                    System.out.println("Re-enter the number");
+            }
+        }
     }
 
     public static void facilityMenu() {

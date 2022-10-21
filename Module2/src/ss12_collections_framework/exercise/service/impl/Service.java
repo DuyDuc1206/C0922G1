@@ -40,50 +40,46 @@ public class Service implements IService {
     }
 
     public void edit() {
-        Integer productId;
-        while (true) {
-            boolean check = true;
-            System.out.println("Enter the id you want edit:");
-            productId = Integer.parseInt(scanner.nextLine());
-            for (Product product : productList) {
-                if (product.getId().equals(productId)) {
-                    System.out.println("1. edit product name: ");
-                    System.out.println("2. edit product price: ");
-                    System.out.println("3. edit product name and price ");
-                    System.out.println("Enter number you wannt edit");
-                    String choice = scanner.nextLine();
-                    switch (choice) {
-                        case "1":
-                            System.out.println("Enter name:");
-                            String productName = scanner.nextLine();
-                            product.setName(productName);
-                            System.out.println("Edit successfully!");
-                            return;
-                        case "2":
-                            System.out.println("Enter price:");
-                            Integer productPrice = Integer.parseInt(scanner.nextLine());
-                            product.setPrice(productPrice);
-                            System.out.println("Edit successfully!");
-                            return;
-                        case "3":
-                            System.out.println("Enter name: ");
-                            productName = scanner.nextLine();
-                            product.setName(productName);
-                            System.out.println("Enter price:");
-                            productPrice = Integer.parseInt(scanner.nextLine());
-                            product.setPrice(productPrice);
-                            System.out.println("Edit successfully!");
-                            return;
+        boolean check = true;
+        System.out.println("Enter the id you want edit:");
+        Integer productId = Integer.parseInt(scanner.nextLine());
+        for (Product product : productList) {
+            if (product.getId().equals(productId)) {
+                System.out.println("1. edit product name: ");
+                System.out.println("2. edit product price: ");
+                System.out.println("3. edit product name and price ");
+                System.out.println("Enter number you wannt edit");
+                String choice = scanner.nextLine();
+                switch (choice) {
+                    case "1":
+                        System.out.println("Enter name:");
+                        String productName = scanner.nextLine();
+                        product.setName(productName);
+                        System.out.println("Edit successfully!");
+                        return;
+                    case "2":
+                        System.out.println("Enter price:");
+                        Integer productPrice = Integer.parseInt(scanner.nextLine());
+                        product.setPrice(productPrice);
+                        System.out.println("Edit successfully!");
+                        return;
+                    case "3":
+                        System.out.println("Enter name: ");
+                        productName = scanner.nextLine();
+                        product.setName(productName);
+                        System.out.println("Enter price:");
+                        productPrice = Integer.parseInt(scanner.nextLine());
+                        product.setPrice(productPrice);
+                        System.out.println("Edit successfully!");
+                        return;
 
-                    }
-                    check = false;
-                    break;
                 }
-            }
-            if (check) {
-                System.out.println("This id doesn't exist");
+                check = false;
                 break;
             }
+        }
+        if (check) {
+            System.out.println("This id doesn't exist");
         }
     }
 
