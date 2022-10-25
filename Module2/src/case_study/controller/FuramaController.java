@@ -2,16 +2,19 @@ package case_study.controller;
 
 import case_study.service.ICustomerService;
 import case_study.service.IEmployeeService;
+import case_study.service.IFacilityService;
 import case_study.service.IService;
 import case_study.service.impl.CustomerService;
 import case_study.service.impl.EmployeeService;
+import case_study.service.impl.FacilityService;
 
 import java.util.Scanner;
 
-public  class FuramaController {
+public class FuramaController {
     static Scanner scanner = new Scanner(System.in);
     static IEmployeeService employeeService = new EmployeeService();
     static ICustomerService customerService = new CustomerService();
+    static IFacilityService facilityService = new FacilityService();
 
     public static void displayMainMenu() {
 
@@ -28,7 +31,6 @@ public  class FuramaController {
 
             number = scanner.nextLine();
             switch (number) {
-
                 case "1":
                     employeeMenu();
                     break;
@@ -69,7 +71,7 @@ public  class FuramaController {
                 case "2":
                     employeeService.add();
                     break;
-                case  "3":
+                case "3":
                     employeeService.remove();
                     break;
                 case "4":
@@ -91,7 +93,7 @@ public  class FuramaController {
             System.out.println("4. Return main menu");
             System.out.println("Enter the number");
             String number2 = scanner.nextLine();
-            switch (number2){
+            switch (number2) {
                 case "1":
                     customerService.display();
                     break;
@@ -110,10 +112,27 @@ public  class FuramaController {
     }
 
     public static void facilityMenu() {
-        System.out.println("1. Display list facility");
-        System.out.println("2. Add new facility");
-        System.out.println("3. Display list facility maintenance");
-        System.out.println("4. Return main menu");
+        while (true) {
+            System.out.println("1. Display list facility");
+            System.out.println("2. Add new facility");
+            System.out.println("3. Display list facility maintenance");
+            System.out.println("4. Return main menu");
+            System.out.println("Enter the number");
+            String number3 = scanner.nextLine();
+            switch (number3) {
+                case "1":
+                    facilityService.display();
+                    break;
+                case "2":
+                    facilityService.add();
+                    break;
+                case "3":
+                case "4":
+                    return;
+                default:
+                    System.out.println("Re-enter the number");
+            }
+        }
     }
 
     public static void bookingMenu() {
