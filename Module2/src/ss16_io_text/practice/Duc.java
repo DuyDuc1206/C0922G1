@@ -16,7 +16,7 @@ public class Duc {
             BufferedReader sourceFileReaderBuffer = new BufferedReader(sourceFileReader);
 
             while ((line = sourceFileReaderBuffer.readLine()) != null) {
-                line = line.replaceAll("\"", "");
+//                line = line.replaceAll("\"", "");
                 lines.add(line.split(","));
             }
 
