@@ -2,7 +2,6 @@ package ss16_io_text.exercises.read_file;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 
@@ -13,17 +12,18 @@ public class ReadFile {
             FileReader fileReader = new FileReader(file);
             BufferedReader bufferedReader = new BufferedReader(fileReader);
             String line;
-            List<String[]> lists = new ArrayList<>();
+            List<Nation> nationList = new ArrayList<>();
             while ((line = bufferedReader.readLine()) != null) {
-                line = line.replaceAll("\"", "");
-               lists.add(line.split(","));
+                String[] info = line.split(",");
+                Nation nation = new Nation(Integer.parseInt(info[0]), info[1], info[2]);
+                nationList.add(nation);
             }
-            for (String[] str : lists) {
-                System.out.println( str[0] + str[1] + str[2] );
+            for (Nation str : nationList) {
+                System.out.println(String.format("%s,%s,%s\n",str.getId() , str.getShortedName() , str.getName()));
             }
             bufferedReader.close();
         } catch (IOException e) {
-            System.out.println("file is not exist");
+            System.out.println("File is not exist");
         }
     }
 }
