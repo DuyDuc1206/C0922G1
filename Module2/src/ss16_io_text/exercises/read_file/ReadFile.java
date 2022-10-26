@@ -1,7 +1,9 @@
 package ss16_io_text.exercises.read_file;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 
 public class ReadFile {
@@ -11,10 +13,13 @@ public class ReadFile {
             FileReader fileReader = new FileReader(file);
             BufferedReader bufferedReader = new BufferedReader(fileReader);
             String line;
-
+            List<String[]> lists = new ArrayList<>();
             while ((line = bufferedReader.readLine()) != null) {
-                String[] array = line.split(",");
-                System.out.println(Arrays.toString(array));
+                line = line.replaceAll("\"", "");
+               lists.add(line.split(","));
+            }
+            for (String[] str : lists) {
+                System.out.println( str[0] + str[1] + str[2] );
             }
             bufferedReader.close();
         } catch (IOException e) {

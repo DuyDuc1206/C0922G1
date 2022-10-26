@@ -24,13 +24,11 @@ public class CopyFile {
             int count = list.size();
             System.out.println(count);
 
-
             for (String str : list) {
                 System.out.println(str);
             }
             bufferedReader.close();
             bufferedWriter.close();
-
 
         } catch (IOException e){
             System.out.println("file is not exist");
