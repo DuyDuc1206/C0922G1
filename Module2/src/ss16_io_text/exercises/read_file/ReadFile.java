@@ -18,8 +18,9 @@ public class ReadFile {
                 Nation nation = new Nation(Integer.parseInt(info[0]), info[1], info[2]);
                 nationList.add(nation);
             }
+
             for (Nation str : nationList) {
-                System.out.println(String.format("%s,%s,%s\n",str.getId() , str.getShortedName() , str.getName()));
+                System.out.println(String.format("%s,%s,%s\n", str.getId(), str.getShortedName(), str.getName()));
             }
             bufferedReader.close();
         } catch (IOException e) {
