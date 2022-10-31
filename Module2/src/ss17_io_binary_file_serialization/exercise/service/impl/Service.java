@@ -1,10 +1,12 @@
 package ss17_io_binary_file_serialization.exercise.service.impl;
 
 import ss17_io_binary_file_serialization.exercise.model.Product;
+import ss17_io_binary_file_serialization.exercise.model.SortProductById;
 import ss17_io_binary_file_serialization.exercise.service.IService;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
@@ -26,7 +28,7 @@ public class Service implements IService {
 
     public void readFileCharacter(){
         try {
-            File file = new File("src\\ss17_io_binary_file_serialization\\exercise\\data\\data2.csv");
+            File file = new File("src\\ss17_io_binary_file_serialization\\exercise\\data\\data3.csv");
             FileReader fileReader = new FileReader(file);
             BufferedReader bufferedReader = new BufferedReader(fileReader);
             String line;
@@ -40,12 +42,12 @@ public class Service implements IService {
     }
     public void writeFileCharacter() {
         try {
-            File file = new File("src\\ss17_io_binary_file_serialization\\exercise\\data\\data2.csv");
+            File file = new File("src\\ss17_io_binary_file_serialization\\exercise\\data\\data3.csv");
             FileWriter fileWriter = new FileWriter(file,true);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
             for(Product product:productList){
                 bufferedWriter.write(String.format("Id: %s,Name: %s,Brand: %s,Price: %s,Description: %s\n",product.getId(),product.getProductName(),product.getProductBrand(),product.getPrice(),product.getOtherDescription()));
-                bufferedWriter.flush();
+//                bufferedWriter.flush();
 //                bufferedWriter.newLine();
             }
             bufferedWriter.close();
@@ -154,6 +156,20 @@ public class Service implements IService {
                 System.out.println("Not id found!!!");
             }
 //            writeFile();
+            writeFileCharacter();
+        }
+        public void sort(){
+            readFileCharacter();
+            for (Product product:productList){
+                System.out.println(product);
+            }
+            Collections.sort(productList);
+//            System.out.println(productList);
+            writeFileCharacter();
+        }
+        public void sortById(){
+//            readFileCharacter();
+        Collections.sort(productList,new SortProductById());
             writeFileCharacter();
         }
     }

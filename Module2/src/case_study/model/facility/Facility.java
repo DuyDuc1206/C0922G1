@@ -64,7 +64,6 @@ public abstract class Facility {
                 ", usableArea=" + usableArea +
                 ", rentalCosts=" + rentalCosts +
                 ", maxNumberOfPeople=" + maxNumberOfPeople +
-                ", rentalTime='" + rentalTime + '\'' +
-                '}';
+                ", rentalTime='" + rentalTime + '\'' ;
     }
 }

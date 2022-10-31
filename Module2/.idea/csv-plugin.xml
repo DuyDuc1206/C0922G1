@@ -3,6 +3,27 @@
   <component name="CsvFileAttributes">
     <option name="attributeMap">
       <map>
+        <entry key="\src\case_study\data\Facility.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\src\case_study\data\Room.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\src\case_study\data\Villa.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\src\ss16_io_text\exercises\read_file\Country.csv">
           <value>
             <Attribute>
@@ -18,6 +39,13 @@
           </value>
         </entry>
         <entry key="\src\ss17_io_binary_file_serialization\exercise\data\data2.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\src\ss17_io_binary_file_serialization\exercise\data\data3.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />

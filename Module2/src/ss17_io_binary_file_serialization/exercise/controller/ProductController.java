@@ -18,7 +18,9 @@ public class ProductController {
             System.out.println("3. Search the products");
             System.out.println("4. Delete the products");
             System.out.println("5. Edit the products");
-            System.out.println("6. Exit");
+            System.out.println("6. Sort Id ");
+            System.out.println("7. Sort Product By Id");
+            System.out.println("8. Exit");
             System.out.println("Choose number");
             number = scanner.nextLine();
             switch (number){
@@ -38,6 +40,12 @@ public class ProductController {
                     service.edit();
                     break;
                 case "6":
+                    service.sort();
+                    break;
+                case "7":
+                    service.sortById();
+                    break;
+                case "8":
                     System.exit(0);
                 default:
                     System.out.println("Re-enter number to choose");

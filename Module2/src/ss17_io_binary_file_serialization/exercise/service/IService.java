@@ -3,17 +3,21 @@ package ss17_io_binary_file_serialization.exercise.service;
 import java.io.IOException;
 
 public interface IService {
-    void display() ;
+    void display();
 
     void search();
 
-    void add() ;
+    void add();
 
-    void readFile() ;
+    void readFile();
 
     void writeFile();
 
-    void remove() ;
+    void remove();
 
-    void edit() ;
+    void edit();
+
+    void sort();
+
+    void sortById();
 }

@@ -2,7 +2,7 @@ package ss17_io_binary_file_serialization.exercise.model;
 
 import java.io.Serializable;
 
-public class Product implements Serializable {
+public class Product implements Serializable, Comparable<Product> {
     private int id;
     private String productName;
     private String productBrand;
@@ -69,5 +69,15 @@ public class Product implements Serializable {
                 ", price=" + price +
                 ", otherDescription='" + otherDescription + '\'' +
                 '}';
+    }
+
+    public int compareTo(Product o) {
+        if (this.getId() > o.getId()) {
+            return 1;
+        } else if (this.getId() == o.getId()) {
+            return 0;
+        } else {
+            return -1;
+        }
     }
 }
