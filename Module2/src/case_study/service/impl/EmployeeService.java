@@ -1,19 +1,25 @@
 package case_study.service.impl;
 
+import case_study.Utils.ReadAndWrite;
 import case_study.model.person.Employee;
 import case_study.service.IEmployeeService;
 
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class EmployeeService implements IEmployeeService {
-    private static Scanner scanner = new Scanner(System.in);
-
-    private static final ArrayList<Employee> employeeList = new ArrayList<>();
+    private static final Scanner scanner = new Scanner(System.in);
+    private List<Employee> employeeList = new ArrayList<>();
+    private static final String EMPLOYEE_fILE = "src\\case_study\\data\\Employee.csv";
 
     @Override
     public void display() {
+        employeeList = ReadAndWrite.readEmployeeFile(EMPLOYEE_fILE);
+        if (employeeList.isEmpty()) {
+            System.out.println("List is empty!!!");
+        }
         for (Employee employee : employeeList) {
             System.out.println(employee.toString());
         }
@@ -23,12 +29,13 @@ public class EmployeeService implements IEmployeeService {
     public void add() {
         Employee employee = this.info();
         employeeList.add(employee);
+        ReadAndWrite.writeEmployeeFile(EMPLOYEE_fILE, employeeList);
         System.out.println("You added successfully: ");
     }
 
     public Employee info() {
         System.out.println("Enter id ");
-        double id = Double.parseDouble(scanner.nextLine());
+        String id = scanner.nextLine();
         System.out.println("Enter name ");
         String name = scanner.nextLine();
         System.out.println("Enter gender ");
@@ -36,9 +43,9 @@ public class EmployeeService implements IEmployeeService {
         System.out.println("Enter date ");
         String date = scanner.nextLine();
         System.out.println("Enter identityCardNumber ");
-        double identityCardNumber = Double.parseDouble(scanner.nextLine());
+        String identityCardNumber = scanner.nextLine();
         System.out.println("Enter phone Number ");
-        double phoneNumber = Double.parseDouble(scanner.nextLine());
+        String phoneNumber = scanner.nextLine();
         System.out.println("Enter email ");
         String email = scanner.nextLine();
         System.out.println("Enter location ");
@@ -59,7 +66,7 @@ public class EmployeeService implements IEmployeeService {
 
     public void edit() {
         System.out.println("Enter id you want edit: ");
-        double id = Double.parseDouble(scanner.nextLine());
+        String id = scanner.nextLine();
         boolean isCheck = false;
         for (int i = 0; i < employeeList.size(); i++) {
             if (employeeList.get(i).getId() == id) {

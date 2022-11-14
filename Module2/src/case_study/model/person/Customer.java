@@ -6,7 +6,7 @@ public class Customer extends Person {
         public Customer(){
 
         }
-        public Customer(double id, String name, String gender, String date, double identityCardNumber, double phoneNumber, String email,String customerType,String address){
+        public Customer(String id, String name, String gender, String date, String identityCardNumber ,String phoneNumber, String email,String customerType,String address){
             super(id, name, gender, date, identityCardNumber, phoneNumber, email);
             this.customerType= customerType;
             this.address =address;
@@ -28,6 +28,6 @@ public class Customer extends Person {
         this.address = address;
     }
     public String toString(){
-            return "Customer: " + super.toString() + " ,Customer type= '" + '\''+ getCustomerType() + " ,address= '" + getAddress() + '\'';
+            return "Customer: " + super.toString() + " ,Customer type= '" + getCustomerType() +'\''+ " ,address= '" + getAddress() + '\'';
     }
 }

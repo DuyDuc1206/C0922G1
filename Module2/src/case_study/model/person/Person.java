@@ -3,17 +3,17 @@ package case_study.model.person;
 import java.time.LocalDate;
 
 public abstract class Person {
-    private double id;
+    private String id;
     private String name;
     private String date; // String, Date or LocalDate
     private String gender;
-    private double identityCardNumber;
-    private double phoneNumber;
+    private String identityCardNumber;
+    private String phoneNumber;
     private String email;
-    public Person(){
+    protected Person(){
 
     }
-    public Person(double id, String name, String gender, String date, double identityCardNumber, double phoneNumber, String email) {
+    protected Person(String id, String name, String gender, String date, String identityCardNumber, String phoneNumber, String email) {
         this.id = id;
         this.name = name;
         this.gender = gender;
@@ -23,11 +23,11 @@ public abstract class Person {
         this.email = email;
     }
 
-    public double getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(double id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -55,19 +55,19 @@ public abstract class Person {
         this.date = date;
     }
 
-    public double getIdentityCardNumber() {
+    public String getIdentityCardNumber() {
         return identityCardNumber;
     }
 
-    public void setIdentityCardNumber(double identityCardNumber) {
+    public void setIdentityCardNumber(String identityCardNumber) {
         this.identityCardNumber = identityCardNumber;
     }
 
-    public double getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(double phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 

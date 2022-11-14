@@ -4,17 +4,21 @@ import case_study.model.facility.Facility;
 
 public class Room extends Facility {
     private String freeServiceIncluded;
-    public Room(){
+
+    public Room() {
 
     }
-    public Room (String serviceName,double usableArea, double rentalCosts, double maxNumberOfPeople, String rentalTime,String freeServiceIncluded ){
-        super(serviceName, usableArea, rentalCosts, maxNumberOfPeople, rentalTime);
+
+    public Room(String serviceName, String serviceCode, double usableArea, double rentalCosts, double maxNumberOfPeople, String rentalTime, String freeServiceIncluded) {
+        super(serviceName, serviceCode, usableArea, rentalCosts, maxNumberOfPeople, rentalTime);
         this.freeServiceIncluded = freeServiceIncluded;
     }
-    public String getFreeServiceIncluded(){
+
+    public String getFreeServiceIncluded() {
         return this.freeServiceIncluded;
     }
-    public void setFreeServiceIncluded(String freeServiceIncluded){
+
+    public void setFreeServiceIncluded(String freeServiceIncluded) {
         this.freeServiceIncluded = freeServiceIncluded;
     }
 
