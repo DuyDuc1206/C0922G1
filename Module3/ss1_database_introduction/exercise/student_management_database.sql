@@ -1,4 +1,4 @@
-CREATE DATABASE module3_day1;
+CREATE DATABASE ss1_student_management_database;
 use class;
 DROP 
   DATABASE class;
