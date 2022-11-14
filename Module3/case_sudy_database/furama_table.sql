@@ -14,7 +14,7 @@ CREATE TABLE bo_phan(
 );
 CREATE TABLE nhan_vien(
   ma_nhan_vien INT PRIMARY KEY, 
-  ho_ten_ VARCHAR(45), 
+  ho_ten VARCHAR(45), 
   ngay_sinh DATE, 
   so_cmnd VARCHAR(45), 
   luong DOUBLE, 
@@ -27,14 +27,14 @@ CREATE TABLE nhan_vien(
 );
 CREATE TABLE khach_hang(
   ma_khach_hang INT PRIMARY KEY, 
-  ma_loai_khach INT, 
   ho_ten VARCHAR(45), 
   ngay_sinh DATE, 
   gioi_tinh BIT(1), 
   so_cmnd VARCHAR(45), 
   so_dien_thoai VARCHAR(45), 
   email VARCHAR(45), 
-  dia_chi VARCHAR(45)
+  dia_chi VARCHAR(45),
+  ma_loai_khach INT
 );
 CREATE TABLE loai_khach(
   ma_loai_khach INT PRIMARY KEY, 
@@ -50,13 +50,13 @@ CREATE TABLE dich_vu(
   dien_tich INT, 
   chi_phi_thue DOUBLE, 
   so_nguoi_toi_da INT, 
-  ma_kieu_thue INT, 
-  ma_loai_dich_vu INT, 
   tieu_chuan_phong VARCHAR(45), 
   mo_ta_tien_nghi_khac VARCHAR(45), 
   dien_tich_ho_boi DOUBLE, 
   so_tang INT, 
-  dich_vu_mien_phi_di_kem TEXT
+  dich_vu_mien_phi_di_kem TEXT,
+  ma_kieu_thue INT,
+  ma_loai_dich_vu INT 
 );
 CREATE TABLE hop_dong(
   ma_hop_dong INT PRIMARY KEY, 
