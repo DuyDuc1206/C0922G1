@@ -59,9 +59,12 @@ CREATE TABLE dich_vu(
   dich_vu_mien_phi_di_kem TEXT
 );
 CREATE TABLE hop_dong(
-  ma_hop_dong INT PRIMARY KEY, ngay_lam_hop_dong DATETIME, 
-  ngay_ket_thuc DATETIME, tien_dat_coc DOUBLE, 
-  ma_nhan_vien INT, ma_khach_hang INT, 
+  ma_hop_dong INT PRIMARY KEY, 
+  ngay_lam_hop_dong DATETIME, 
+  ngay_ket_thuc DATETIME, 
+  tien_dat_coc DOUBLE, 
+  ma_nhan_vien INT, 
+  ma_khach_hang INT, 
   ma_dich_vu INT
 );
 CREATE TABLE kieu_thue(
@@ -70,7 +73,8 @@ CREATE TABLE kieu_thue(
 );
 CREATE TABLE hop_dong_chi_tiet(
   ma_hop_dong_chi_tiet INT PRIMARY KEY, 
-  ma_hop_dong INT, ma_dich_vu_di_kem INT, 
+  ma_hop_dong INT, 
+  ma_dich_vu_di_kem INT, 
   so_luong INT
 );
 CREATE TABLE dich_vu_di_kem(
