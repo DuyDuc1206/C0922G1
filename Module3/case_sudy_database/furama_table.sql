@@ -21,9 +21,16 @@ CREATE TABLE nhan_vien(
   so_dien_thoai VARCHAR(45), 
   email VARCHAR(45), 
   dia_chi VARCHAR(45), 
-  ma_vi_tri INT, 
-  ma_trinh_do INT, 
-  ma_bo_phan INT
+  ma_vi_tri int,
+  ma_trinh_do int,
+  ma_bo_phan int,
+  FOREIGN KEY (ma_vi_tri) REFERENCES vi_tri(ma_vi_tri), 
+  FOREIGN KEY (ma_trinh_do) REFERENCES trinh_do(ma_trinh_do),
+  FOREIGN KEY (ma_bo_phan) REFERENCES bo_phan(ma_bo_phan)
+);
+CREATE TABLE loai_khach(
+  ma_loai_khach INT PRIMARY KEY, 
+  ten_loai_khach VARCHAR(45)
 );
 CREATE TABLE khach_hang(
   ma_khach_hang INT PRIMARY KEY, 
@@ -34,15 +41,16 @@ CREATE TABLE khach_hang(
   so_dien_thoai VARCHAR(45), 
   email VARCHAR(45), 
   dia_chi VARCHAR(45),
-  ma_loai_khach INT
-);
-CREATE TABLE loai_khach(
-  ma_loai_khach INT PRIMARY KEY, 
-  ten_loai_khach VARCHAR(45)
+  ma_loai_khach INT,
+  FOREIGN KEY (ma_loai_khach) REFERENCES loai_khach(ma_loai_khach)
 );
 CREATE TABLE loai_dich_vu(
   ma_loai_dich_vu INT PRIMARY KEY, 
   ten_loai_dich_vu VARCHAR(45)
+);
+CREATE TABLE kieu_thue(
+  ma_kieu_thue INT PRIMARY KEY, 
+  ten_kieu_thue VARCHAR(45)
 );
 CREATE TABLE dich_vu(
   ma_dich_vu INT PRIMARY KEY, 
@@ -56,7 +64,9 @@ CREATE TABLE dich_vu(
   so_tang INT, 
   dich_vu_mien_phi_di_kem TEXT,
   ma_kieu_thue INT,
-  ma_loai_dich_vu INT 
+  ma_loai_dich_vu INT,
+  FOREIGN KEY(ma_kieu_thue) REFERENCES kieu_thue(ma_kieu_thue),
+  FOREIGN KEY(ma_loai_dich_vu) REFERENCES loai_dich_vu(ma_loai_dich_vu)
 );
 CREATE TABLE hop_dong(
   ma_hop_dong INT PRIMARY KEY, 
@@ -65,17 +75,10 @@ CREATE TABLE hop_dong(
   tien_dat_coc DOUBLE, 
   ma_nhan_vien INT, 
   ma_khach_hang INT, 
-  ma_dich_vu INT
-);
-CREATE TABLE kieu_thue(
-  ma_kieu_thue INT PRIMARY KEY, 
-  ten_kieu_thue VARCHAR(45)
-);
-CREATE TABLE hop_dong_chi_tiet(
-  ma_hop_dong_chi_tiet INT PRIMARY KEY, 
-  ma_hop_dong INT, 
-  ma_dich_vu_di_kem INT, 
-  so_luong INT
+  ma_dich_vu INT,
+  FOREIGN KEY ( ma_nhan_vien) REFERENCES nhan_vien(ma_nhan_vien),
+  FOREIGN KEY ( ma_khach_hang) REFERENCES khach_hang(ma_khach_hang),
+  FOREIGN KEY ( ma_dich_vu) REFERENCES dich_vu(ma_dich_vu)
 );
 CREATE TABLE dich_vu_di_kem(
   ma_dich_vu_di_kem INT PRIMARY KEY, 
@@ -84,3 +87,12 @@ CREATE TABLE dich_vu_di_kem(
   don_vi VARCHAR(45), 
   trang_thai VARCHAR(45)
 );
+CREATE TABLE hop_dong_chi_tiet(
+  ma_hop_dong_chi_tiet INT PRIMARY KEY, 
+  so_luong INT,
+  ma_hop_dong INT, 
+  ma_dich_vu_di_kem INT,
+  FOREIGN KEY (ma_hop_dong) REFERENCES hop_dong(ma_hop_dong),
+  FOREIGN KEY (ma_dich_vu_di_kem) REFERENCES dich_vu_di_kem(ma_dich_vu_di_kem)
+);
+DROP DATABASE furama_table;
