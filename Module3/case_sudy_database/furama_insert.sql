@@ -2,13 +2,13 @@ CREATE DATABASE furama_insert;
 USE furama_table;
 
 -- table vị trí
-INSERT INTO vi_tri (ma_vi_tri, ten_vi_tri) 
+INSERT INTO vi_tri
 VALUES 
 	(1, 'Quản Lý'),
 	(2, 'Nhân Viên');
     
 -- table trình độ
-INSERT INTO trinh_do (ma_trinh_do, ten_trinh_do) 
+INSERT INTO trinh_do 
 VALUES 
 	(1, 'Trung Cấp'),
 	(2, 'Cao Đẳng'),
@@ -16,7 +16,7 @@ VALUES
 	(4, 'Sau Đại Học');
     
 -- table bộ phận
-INSERT INTO bo_phan (ma_bo_phan, ten_bo_phan) 
+INSERT INTO bo_phan 
 VALUES 
 	(1, 'Sale-Marketing'),
 	(2, 'Hành chính'),
@@ -24,7 +24,7 @@ VALUES
 	(4, 'Quản lý');
 
 -- table nhân viên
-INSERT INTO nhan_vien (ma_nhan_vien, ho_ten, ngay_sinh, so_cmnd, luong, so_dien_thoai, email, dia_chi, ma_vi_tri, ma_trinh_do, ma_bo_phan) 
+INSERT INTO nhan_vien
 VALUES 
 	(1, 'Nguyễn Văn An', '1970-11-07', '456231786', 10000000,'0901234121', 'annguyen@gmail.com', '295 Nguyễn Tất Thành, Đà Nẵng', 1, 3, 1),
 	(2, 'Lê Văn Bình', '1997-04-09', '654231234', 7000000, '0934212314', 'binhlv@gmail.com', '22 Yên Bái, Đà Nẵng', 1, 2, 2),
@@ -38,7 +38,7 @@ VALUES
 	(10, 'Nguyễn Công Đạo', '1994-01-08', '755434343', 8000000, '0988767111', 'nguyencongdao12@gmail.com', '6 Hoà Khánh, Đồng Nai', 2, 3, 2);
     
 -- table loại khách
-INSERT INTO loai_khach (ma_loai_khach, ten_loai_khach) 
+INSERT INTO loai_khach
 VALUES 
 	(1, 'Diamond'),
 	(2, 'Platinium'),
@@ -47,7 +47,7 @@ VALUES
 	(5, 'Member');
     
 -- table khách hàng
-INSERT INTO khach_hang (ma_khach_hang, ho_ten, ngay_sinh, gioi_tinh, so_cmnd, so_dien_thoai, email, dia_chi,ma_loai_khach)
+INSERT INTO khach_hang
 VALUES 
 	(1, 'Nguyễn Thị Hào', '1970-11-07', 0, '643431213', '0945423362', 'thihao07@gmail.com', '23 Nguyễn Hoàng, Đà Nẵng', 5),
 	(2, 'Phạm Xuân Diệu', '1992-08-08', 1, '865342123', '0954333333', 'xuandieu92@gmail.com', 'K77/22 Thái Phiên, Quảng Trị', 3),
@@ -61,14 +61,14 @@ VALUES
 	(10, 'Nguyễn Tâm Đắc', '1989-07-01', 1, '344343432', '0987654321', 'dactam@gmail.com', '22 Ngô Quyền, Đà Nẵng', 2);
 
 -- table loại dịch vụ
-INSERT INTO loai_dich_vu (ma_loai_dich_vu, ten_loai_dich_vu) 
+INSERT INTO loai_dich_vu
 VALUES 
 	(1, 'Villa'),
 	(2, 'House'),
 	(3, 'Room');
     
     -- table kiểu thuê
-INSERT INTO kieu_thue (ma_kieu_thue, ten_kieu_thue)
+INSERT INTO kieu_thue
 VALUES 
 	(1, 'year'),
 	(2, 'month'),
@@ -76,7 +76,7 @@ VALUES
 	(4, 'hour');
     
 -- table dịch vụ
-INSERT INTO dich_vu (ma_dich_vu, ten_dich_vu, dien_tich, chi_phi_thue, so_nguoi_toi_da, tieu_chuan_phong, mo_ta_tien_nghi_khac, dien_tich_ho_boi, so_tang, dich_vu_mien_phi_di_kem, ma_kieu_thue, ma_loai_dich_vu) 
+INSERT INTO dich_vu
 VALUES 
 	(1, 'Villa Beach Front', 25000, 1000000, 10, 'vip', 'Có hồ bơi', 500,4,null, 3, 1),
 	(2, 'House Princess 01', 14000, 5000000, 7, 'vip', 'Có thêm bếp nướng', null, 3,null , 2, 2),
@@ -86,7 +86,7 @@ VALUES
 	(6, 'Room Twin 02', 3000, 900000, 2, 'normal', 'Có tivi', null, null, '1 Xe máy', 4, 3);
     
 -- table hợp đồng
-INSERT INTO hop_dong (ma_hop_dong, ngay_lam_hop_dong, ngay_ket_thuc, tien_dat_coc, ma_nhan_vien, ma_khach_hang, ma_dich_vu) 
+INSERT INTO hop_dong
 VALUES 
 	(1, '2020-12-08', '2020-12-08', 0, 3, 1, 3),
 	(2, '2020-07-14', '2020-07-21', 200000, 7, 3, 1),
@@ -102,7 +102,7 @@ VALUES
 	(12, '2021-05-25', '2021-05-27', 0, 7, 10, 1);
     
     -- table dịch vụ đi kèm
-INSERT INTO dich_vu_di_kem (ma_dich_vu_di_kem,ten_dich_vu_di_kem, gia, don_vi, trang_thai) 
+INSERT INTO dich_vu_di_kem 
 VALUES 
 	(1, 'Karaoke', 10000, 'giờ', 'tiện nghi, hiện tại'),
 	(2, 'Thuê xe máy', '10000', 'chiếc', 'hỏng 1 xe'),
@@ -112,7 +112,7 @@ VALUES
 	(6, 'Buffet buổi tối', '16000', 'suất', 'đầy đủ đồ ăn, tráng miệng');
 
 -- table hợp đồng chi tiết
-INSERT INTO hop_dong_chi_tiet (ma_hop_dong_chi_tiet, so_luong,ma_hop_dong, ma_dich_vu_di_kem) 
+INSERT INTO hop_dong_chi_tiet 
 VALUES 
 	(1, 5, 2, 4),
 	(2, 8, 2, 5),
