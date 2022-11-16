@@ -1,27 +1,27 @@
-CREATE DATABASE sales_management_database;
-USE sales_management_database;
-CREATE TABLE customer(
-	cId int auto_increment primary key,
-    cName varchar(30),
-    cAge int 
+create database sales_management_database;
+use sales_management_database;
+create table customer(
+	c_id int auto_increment primary key,
+    c_name varchar(30),
+    c_age int 
 );
-CREATE TABLE `order`(
-	oId int auto_increment primary key,
-    oDate date,
-    oTotalPrice double,
-    cId int,
-    foreign key(cId) references customer(cId)
+create table `order`(
+	o_id int auto_increment primary key,
+    o_date date,
+    o_total_price double,
+    c_id int,
+    foreign key(c_id) references customer(c_id)
 );
-CREATE TABLE product(
-	pId int auto_increment primary key,
-    pName varchar(30),
-    pPrice double
+create table product(
+	p_id int auto_increment primary key,
+    p_name varchar(30),
+    p_price double
 );
-CREATE TABLE order_detail(
-	oId int,
-    pId int,
+create table order_detail(
+	o_id int,
+    p_id int,
     sl_product int,
-    primary key(oId,pId),
-    foreign key(pId) references product(pId),
-    foreign key(oId) references `order`(oId)
+    primary key(o_id,p_id),
+    foreign key(p_id) references product(p_id),
+    foreign key(o_id) references `order`(o_id)
 );
