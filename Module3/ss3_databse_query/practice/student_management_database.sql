@@ -2,7 +2,7 @@ CREATE DATABASE quan_ly_sinh_vien;
 USE quan_ly_sinh_vien;
 CREATE TABLE class
 (
-    ClassID   INT         NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    class_ID   INT         NOT NULL AUTO_INCREMENT PRIMARY KEY,
     ClassName VARCHAR(60) NOT NULL,
     StartDate DATETIME    NOT NULL,
     Status    BIT

@@ -53,7 +53,7 @@ select
 from 
   class 
 where 
-  month(StartDate)> 11;
+  month(StartDate)= 12;
   
 -- Hiển thị các thông tin lớp học có thười gian bắt đầu trước năm 2010
 select 
