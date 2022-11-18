@@ -3,12 +3,12 @@ use product_database;
 
 create table products(
 	id int auto_increment primary key,
-    product_code int ,
-    product_name varchar(50),
-    product_price double,
-    product_amount int,
-    product_description varchar(50),
-    product_status varchar(50)
+	product_code int ,
+	product_name varchar(50),
+	product_price double,
+	product_amount int,
+	product_description varchar(50),
+	product_status varchar(50)
 );
 
 insert into products 
