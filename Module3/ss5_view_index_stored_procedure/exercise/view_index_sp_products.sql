@@ -2,7 +2,7 @@ create database product_database;
 use product_database;
 
 create table products(
-id int auto_increment primary key,
+	id int auto_increment primary key,
     product_code int ,
     product_name varchar(50),
     product_price double,
