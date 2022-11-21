@@ -146,7 +146,16 @@ having sum(hdct.so_luong) > 10) as tim_ma_dich_vu);
 -- 20. Hiển thị thông tin của tát cả nhân viên và khách hàng có trong hệ thống 
 select nv.ma_nhan_vien 'id' ,nv.ho_ten,nv.email,nv.so_dien_thoai,nv.ngay_sinh,nv.dia_chi from nhan_vien nv
 union 
-select kh.ma_khach_hang 'id' ,kh.ho_ten,kh.email,kh.so_dien_thoai,kh.ngay_sinh,kh.dia_chi from khach_hang kh
+select kh.ma_khach_hang 'id' ,kh.ho_ten,kh.email,kh.so_dien_thoai,kh.ngay_sinh,kh.dia_chi from khach_hang kh;
+
+-- 21. Tạo view v_nhan_vien lấy tất cả thông tin nhân viên có địa chi hải châu và từng lập hợp dong  vào ngày 12/12/2019
+create view v_nhan_vien as select * from nhan_vien  where ma_nhan_vien in ( select nv.ma_nhan_vien from nhan_vien nv 
+join hop_dong hd on nv.ma_nhan_vien = hd.ma_nhan_vien 
+where dia_chi like '% Hải Châu' and  hd.ngay_lam_hop_dong = '2019-12-12');
+select * from v_nhan_vien;
+
+-- 22. Cập nhật địa chỉ thành Liên Chiểu 
+update v_nhan_vien set dia_chỉ ='% Liên Chiểu'
 
 -- 23. Tạo procedure Product dùng để xóa thông tin của khách hàng
 delimiter //
@@ -177,19 +186,3 @@ drop procedure sp_them_moi_hop_dong;
 call sp_them_moi_hop_dong(14,'2020-08-30','2022-03-23',122.3,3,5,2);
 
 -- 28. Tạo stored procedure xóa dịch vụ và room
-delimiter //
-create procedure sp_xoa_dich_vu_va_hd_room()
-begin 
-set sql_safe_updates = 0;
-set foreign_key_checks = 0;
-delete loai_dich_vu.*, dich_vu.* ,hop_dong.* from loai_dich_vu, dich_vu,hop_dong where (ten_loai_dich_vu or hop_dong.ma_hop_dong) = all ( select ten_loai_dich_vu from (
-select ldv.ten_loai_dich_vu,dv.ma_dich_vu,hd.ma_hop_dong from loai_dich_vu ldv 
-join dich_vu dv on ldv.ma_loai_dich_vu = dv.ma_loai_dich_vu
-join hop_dong hd on hd.ma_dich_vu = dv.ma_dich_vu
-having ten_loai_dich_vu = 'Room' ) as t) ;
-set sql_safe_updates = 1;
-set foreign_key_checks = 1;
-end //
-delimiter ;
-drop procedure sp_xoa_dich_vu_va_hd_room;
-call sp_xoa_dich_vu_va_hd_room();
