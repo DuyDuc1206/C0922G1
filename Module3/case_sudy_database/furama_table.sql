@@ -1,4 +1,5 @@
 CREATE DATABASE furama_table;
+DROP DATABASE furama_table;
 USE furama_table;
 CREATE TABLE vi_tri(
   ma_vi_tri INT PRIMARY KEY, 
@@ -95,4 +96,3 @@ CREATE TABLE hop_dong_chi_tiet(
   FOREIGN KEY (ma_hop_dong) REFERENCES hop_dong(ma_hop_dong),
   FOREIGN KEY (ma_dich_vu_di_kem) REFERENCES dich_vu_di_kem(ma_dich_vu_di_kem)
 );
-DROP DATABASE furama_table;

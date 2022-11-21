@@ -1,4 +1,5 @@
 CREATE DATABASE furama_insert;
+DROP DATABASE furama_insert;
 USE furama_table;
 
 -- table vị trí
@@ -123,4 +124,3 @@ VALUES
 	(7, 2, 1, 2),
 	(8, 2, 12, 2);
     
-    DROP DATABASE furama_insert;

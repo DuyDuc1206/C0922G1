@@ -18,15 +18,15 @@ where kh.ma_loai_khach = 1
 group by hd.ma_khach_hang;
 
 -- 5. Hiển thị mã khách hàng , họ tên, tên loại khách,mã hợp đồng ,tên dịch vụ,ngày làm hợp đồng, ngày kết thúc , tổng tiền cho tất cả các khách hàng đã từng đặt phòng 
-select distinct kh.ma_khach_hang, kh.ho_ten, lk.ten_loai_khach, hd.ma_hop_dong, hd.ngay_lam_hop_dong, hd.ngay_ket_thuc, dv.ten_dich_vu,dv.chi_phi_thue,hdct.so_luong,dvdk.gia,
-(ifnull(dv.chi_phi_thue,0) + ifnull(sum(ifnull(hdct.so_luong,0)) * ifnull(dvdk.gia,0),0))'tong_tien'
+select kh.ma_khach_hang, kh.ho_ten, lk.ten_loai_khach, hd.ma_hop_dong, hd.ngay_lam_hop_dong, hd.ngay_ket_thuc, dv.ten_dich_vu,dv.chi_phi_thue,hdct.so_luong,dvdk.gia,
+(ifnull(dv.chi_phi_thue,0) + (ifnull(hdct.so_luong,0)) * ifnull(dvdk.gia,0)) as 'tong_tien'
 from khach_hang kh
 join loai_khach lk on lk.ma_loai_khach = kh.ma_loai_khach
 left join hop_dong hd on kh.ma_khach_hang = hd.ma_khach_hang
 left join hop_dong_chi_tiet hdct on hd.ma_hop_dong = hdct.ma_hop_dong
 left join dich_vu dv on hd.ma_dich_vu = dv.ma_dich_vu
 left join dich_vu_di_kem dvdk on dvdk.ma_dich_vu_di_kem = hdct.ma_dich_vu_di_kem
-group by ma_khach_hang, ma_hop_dong ;
+group by kh.ma_khach_hang, hd.ma_hop_dong ;
 
 -- 6. HIển thị mã dịch vụ, tên dịch vụ, diện tích, chi phí thuê, tên loại dịch vụ của tất cả các dịch vụ chưa từng được khách hàng thực hiện dặt từ quý 1 của năm 2021
 select dv.ma_dich_vu, dv.ten_dich_vu, dv.dien_tich, dv.chi_phi_thue, ldv.ten_loai_dich_vu
@@ -143,7 +143,53 @@ where year(ngay_lam_hop_dong ) =2020
 group by hdct.ma_dich_vu_di_kem 
 having sum(hdct.so_luong) > 10) as tim_ma_dich_vu); 
 
--- Hiển thị thông tin của tát cả nhân viên và khách hàng có trong hệ thống 
+-- 20. Hiển thị thông tin của tát cả nhân viên và khách hàng có trong hệ thống 
 select nv.ma_nhan_vien 'id' ,nv.ho_ten,nv.email,nv.so_dien_thoai,nv.ngay_sinh,nv.dia_chi from nhan_vien nv
 union 
 select kh.ma_khach_hang 'id' ,kh.ho_ten,kh.email,kh.so_dien_thoai,kh.ngay_sinh,kh.dia_chi from khach_hang kh
+
+-- 23. Tạo procedure Product dùng để xóa thông tin của khách hàng
+delimiter //
+create procedure sp_xoa_khach_hang(in id_new int)
+begin 
+set sql_safe_updates = 0;
+set foreign_key_checks = 0;
+delete from khach_hang where ma_khach_hang = id_new;
+set sql_safe_updates =1;
+set foreign_key_checks = 1;
+end //
+delimiter ;
+drop procedure sp_xoa_khach_hang;
+call sp_xoa_khach_hang(5);
+
+-- 24.Tạo Store Procedure dùng để thêm mới bản hợp đồng
+delimiter //
+create procedure sp_them_moi_hop_dong(in sp_id int, sp_ngay_lam_hop_dong datetime,sp_ngay_ket_thuc datetime , sp_tien_dat_coc double,sp_ma_nhan_vien int,sp_ma_khach_hang int, sp_ma_dich_vu int )
+begin 
+set foreign_key_checks = 0;
+insert into hop_dong 
+values 
+	(sp_id,sp_ngay_lam_hop_dong,sp_ngay_ket_thuc,sp_tien_dat_coc,sp_ma_nhan_vien,sp_ma_khach_hang,sp_ma_dich_vu);
+set foreign_key_checks = 1;
+end //
+delimiter ;
+drop procedure sp_them_moi_hop_dong;
+call sp_them_moi_hop_dong(14,'2020-08-30','2022-03-23',122.3,3,5,2);
+
+-- 28. Tạo stored procedure xóa dịch vụ và room
+delimiter //
+create procedure sp_xoa_dich_vu_va_hd_room()
+begin 
+set sql_safe_updates = 0;
+set foreign_key_checks = 0;
+delete loai_dich_vu.*, dich_vu.* ,hop_dong.* from loai_dich_vu, dich_vu,hop_dong where (ten_loai_dich_vu or hop_dong.ma_hop_dong) = all ( select ten_loai_dich_vu from (
+select ldv.ten_loai_dich_vu,dv.ma_dich_vu,hd.ma_hop_dong from loai_dich_vu ldv 
+join dich_vu dv on ldv.ma_loai_dich_vu = dv.ma_loai_dich_vu
+join hop_dong hd on hd.ma_dich_vu = dv.ma_dich_vu
+having ten_loai_dich_vu = 'Room' ) as t) ;
+set sql_safe_updates = 1;
+set foreign_key_checks = 1;
+end //
+delimiter ;
+drop procedure sp_xoa_dich_vu_va_hd_room;
+call sp_xoa_dich_vu_va_hd_room();
