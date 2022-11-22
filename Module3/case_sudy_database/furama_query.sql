@@ -388,46 +388,76 @@ set
   dia_chỉ = '% Liên Chiểu'
   
 -- 23. Tạo procedure Product dùng để xóa thông tin của khách hàng
-  delimiter // create procedure sp_xoa_khach_hang(in id_new int) begin 
-set 
-  sql_safe_updates = 0;
-set 
-  foreign_key_checks = 0;
+delimiter // 
+create procedure sp_xoa_khach_hang(in id_new int) 
+begin 
+set sql_safe_updates = 0;
+set foreign_key_checks = 0;
 delete from 
   khach_hang 
 where 
   ma_khach_hang = id_new;
-set 
-  sql_safe_updates = 1;
-set 
-  foreign_key_checks = 1;
-end // delimiter;
+set sql_safe_updates = 1;
+set foreign_key_checks = 1;
+end // 
+delimiter ;
 drop 
   procedure sp_xoa_khach_hang;
 call sp_xoa_khach_hang(5);
 
 -- 24.Tạo Store Procedure dùng để thêm mới bản hợp đồng
-delimiter // create procedure sp_them_moi_hop_dong(
-  in sp_id int, sp_ngay_lam_hop_dong datetime, 
-  sp_ngay_ket_thuc datetime, sp_tien_dat_coc double, 
-  sp_ma_nhan_vien int, sp_ma_khach_hang int, 
-  sp_ma_dich_vu int
-) begin 
-set 
-  foreign_key_checks = 0;
+delimiter // 
+create procedure sp_them_moi_hop_dong( in sp_id int, sp_ngay_lam_hop_dong datetime, sp_ngay_ket_thuc datetime, sp_tien_dat_coc double, sp_ma_nhan_vien int, sp_ma_khach_hang int, sp_ma_dich_vu int ) 
+begin 
+set foreign_key_checks = 0;
 insert into hop_dong 
 values 
-  (
-    sp_id, sp_ngay_lam_hop_dong, sp_ngay_ket_thuc, 
-    sp_tien_dat_coc, sp_ma_nhan_vien, 
-    sp_ma_khach_hang, sp_ma_dich_vu
-  );
-set 
-  foreign_key_checks = 1;
-end // delimiter;
+  ( sp_id, sp_ngay_lam_hop_dong, sp_ngay_ket_thuc, sp_tien_dat_coc, sp_ma_nhan_vien, sp_ma_khach_hang, sp_ma_dich_vu);
+set foreign_key_checks = 1;
+end // 
+delimiter ;
 drop 
   procedure sp_them_moi_hop_dong;
 call sp_them_moi_hop_dong(
   14, '2020-08-30', '2022-03-23', 122.3, 
   3, 5, 2
 );
+
+-- 25. Tạo trigger xóa bản ghi trong bản hợp đồng thì hiển thị tổng số lượng bản ghi còn lại trong bảng hợp đồng ra giao diện console của database
+create table so_luong_hop_dong(
+	record_mount int ,
+    now_day datetime
+);
+delimiter //
+create trigger tr_xoa_hop_dong after delete on hop_dong
+for each row 
+begin
+insert into so_luong_hop_dong (record_mount,now_day) 
+values ((select count(ma_khach_hang) from hop_dong),now());
+end //
+delimiter ;
+set foreign_key_checks =0;
+delete from hop_dong where ma_hop_dong = 14;
+set foreign_key_checks =1;
+select * from so_luong_hop_dong;
+
+-- 26. Tạo trigger cập nhật ngày kết thúc hợp đồng , kiểm tra xem thời gian cập nhật có phù hợp hay không: ngày kết thúc hợp đồng lớn hơn ngày làm hợp đồng 2 ngày 
+-- dữ liệu phù hợp thì cập nhật , không phù họp thì ra thông báo trên console của database
+create table notification(
+	text_notification varchar(100),
+    now_day datetime
+);
+delimiter //
+create trigger tr_cap_nhat_hop_dong after update on hop_dong
+for each row
+begin 
+if timestampdiff(day,old.ngay_lam_hop_dong,new.ngay_ket_thuc)<2 then
+insert into notification(text_notification,now_day) 
+values (' Ngày kết thúc hợp đồng phải lớn hơn ngày làm hợp đồng ít nhất là 2 ngày ', now());
+end if;
+end //
+delimiter ;
+update hop_dong set ngay_ket_thuc = '2021-03-16'where ma_hop_dong =3;
+select * from notification;
+
+
