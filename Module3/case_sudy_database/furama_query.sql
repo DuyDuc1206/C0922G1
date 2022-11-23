@@ -9,10 +9,7 @@ select
 from 
   nhan_vien 
 where 
-  ho_ten like 'H%' 
-  or ho_ten like 'T%' 
-  or ho_ten like 'K%' 
-  and length(ho_ten)<= 15;
+  ( substring_index(ho_ten,' ',-1) like 'H%' or substring_index(ho_ten,' ',-1) like 'K%' or substring_index(ho_ten,' ',-1) like 'T%' ) and char_length(ho_ten) <= 15;
   
 -- 3. Hiển thị thông tin của tất cả khách hàng có độ tuổi từ 18 đến 50 tuổi và có địa chỉ ở “Đà Nẵng” hoặc “Quảng Trị”.
 select 
@@ -54,11 +51,7 @@ select
   dv.chi_phi_thue, 
   hdct.so_luong, 
   dvdk.gia, 
-  (
-    ifnull(dv.chi_phi_thue, 0) + (
-      ifnull(hdct.so_luong, 0)
-    ) * ifnull(dvdk.gia, 0)
-  ) as 'tong_tien' 
+  (ifnull(dv.chi_phi_thue, 0) + sum((ifnull(hdct.so_luong, 0)) * ifnull(dvdk.gia, 0))) as 'tong_tien' 
 from 
   khach_hang kh 
   join loai_khach lk on lk.ma_loai_khach = kh.ma_loai_khach 
@@ -460,4 +453,5 @@ delimiter ;
 update hop_dong set ngay_ket_thuc = '2021-03-16'where ma_hop_dong =3;
 select * from notification;
 
-
+-- 
+select * from hop_dong , (select * from dich_vu) as t;
