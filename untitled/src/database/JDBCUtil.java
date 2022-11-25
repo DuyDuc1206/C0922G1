@@ -6,10 +6,10 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class JDBCUtil {
-    public static Connection getConnection(){
+    public static Connection getConnection() {
         Connection c = null;
         try {
-            // Đăng ký Mysql Driver với DriverManagement
+            // Đăng ký Mysql  Driver với DriverManagement (Register Mysql JDBC driver with DriverManager)
             com.mysql.jdbc.Driver driver = new com.mysql.jdbc.Driver();
             DriverManager.registerDriver(driver);
             // Đường link server
@@ -18,17 +18,17 @@ public class JDBCUtil {
             // user name
             String username = "root";
             // password
-            String password ="pemosepemose123!@#";
+            String password = "pemosepemose123!@#";
             // Tạo kết nối
-            c = DriverManager.getConnection(url,username,password);
+            c = DriverManager.getConnection(url, username, password);
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-
         return c;
     }
-    public static void closeConnection(Connection c){
-        try{
+
+    public static void closeConnection(Connection c) {
+        try {
             if (c != null) {
                 c.close();
             }
@@ -36,10 +36,11 @@ public class JDBCUtil {
             System.out.println(e.getMessage());
         }
     }
-    public static void printInfo(Connection c){
-        try{
-            if ( c!=null) {
-                DatabaseMetaData mtdt =  c.getMetaData();
+
+    public static void printInfo(Connection c) {
+        try {
+            if (c != null) {
+                DatabaseMetaData mtdt = c.getMetaData();
                 System.out.println(mtdt.getDatabaseProductVersion());
                 System.out.println(mtdt.getDatabaseProductName());
             }
