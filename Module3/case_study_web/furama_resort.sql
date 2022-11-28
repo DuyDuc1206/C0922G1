@@ -32,7 +32,7 @@ create table `employee`(
     employee_name varchar(45),
     date_of_birth date,
     id_card varchar(45) unique,
-    salatry double,
+    salary double,
     phone_number varchar(45),
     email varchar(45),
     address varchar(45),

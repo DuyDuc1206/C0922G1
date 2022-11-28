@@ -52,7 +52,7 @@ insert into `user_role` values
 -- Thêm dữ liệu vào bảng kiểu khách hàng
 insert into `customer_type` values
 	('1', 'Diamond'),
-	('2', 'Platinium'),
+	('2', 'Platinum'),
 	('3', 'Gold'),
 	('4', 'Silver'),
 	('5', 'Member');
