@@ -61,6 +61,10 @@
         </div>
     </div>
 </nav>
+<div class="row container-fluid justify-content-center ">
+    <h2 style="text-align: center">LIST FACILITY</h2>
+    <hr style="width: 30%;background-color: #046056" size="8px">
+</div>
 <div class="row container-fluid ">
     <table class="table">
         <thead>
@@ -75,8 +79,8 @@
             <th scope="col">POOR AREA</th>
             <th scope="col">NUMBER OF FLOOR</th>
             <th scope="col">FACILITY FREE</th>
-            <th scope="col">RENT TYPE ID</th>
-            <th scope="col">FACILITY TYPE ID</th>
+            <th scope="col">RENT TYPE NAME</th>
+            <th scope="col">FACILITY TYPE NAME</th>
             <th scope="col">EDIT</th>
             <th scope="col">DELETE</th>
         </tr>
@@ -95,10 +99,18 @@
             <td>Nước uống miễn phí</td>
             <td>2</td>
             <td>1</td>
-            <td><button type="button" class="btn btn-outline-secondary">edit</button></td>
-            <td><button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                delete
-            </button></td>
+            <td>
+                <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal2">
+                    Edit
+                </button>
+            </td>
+            <td>
+                <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal">
+                    Delete
+                </button>
+            </td>
         </tr>
         <tr>
             <th scope="row">2</th>
@@ -113,10 +125,18 @@
             <td>Di chuyển miễn phí</td>
             <td>1</td>
             <td>2</td>
-            <td><button type="button" class="btn btn-outline-secondary">edit</button></td>
-            <td><button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                delete
-            </button></td>
+            <td>
+                <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal2">
+                    Edit
+                </button>
+            </td>
+            <td>
+                <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal">
+                    delete
+                </button>
+            </td>
         </tr>
         <tr>
             <th scope="row">3</th>
@@ -131,10 +151,18 @@
             <td>Trái cây miễn phí</td>
             <td>1</td>
             <td>2</td>
-            <td><button type="button" class="btn btn-outline-secondary">edit</button></td>
-            <td><button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                delete
-            </button></td>
+            <td>
+                <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal2">
+                    Edit
+                </button>
+            </td>
+            <td>
+                <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal">
+                    delete
+                </button>
+            </td>
         </tr>
         </tbody>
     </table>
@@ -197,15 +225,95 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Notification</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                ...
+                Are you sure you want to delete it?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary">Agree</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal edit -->
+<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel2">Edit facility</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Name</label>
+                                <input type="text" class="form-control" id="name" aria-describedby="emailHelp">
+<!--                                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.-->
+<!--                                </div>-->
+                            </div>
+                            <div class="mb-3">
+                                <label for="area" class="form-label">Area</label>
+                                <input type="number" class="form-control" id="area">
+                            </div>
+                            <div class="mb-3">
+                                <label for="cost" class="form-label">Cost</label>
+                                <input type="number" class="form-control" id="cost">
+                            </div>
+                            <div class="mb-3">
+                                <label for="people" class="form-label">Max People</label>
+                                <input type="number" class="form-control" id="people">
+                            </div>
+                            <div class="mb-3">
+                                <label for="standard" class="form-label">Standard Room</label>
+                                <input type="text" class="form-control" id="standard">
+                            </div>
+                            <div class="mb-3">
+                                <label for="description" class="form-label">Standard Room</label>
+                                <input type="text" class="form-control" id="description">
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="mb-3">
+                                <label for="poor" class="form-label">Poor Area</label>
+                                <input type="number" class="form-control" id="poor">
+                            </div>
+                            <div class="mb-3">
+                                <label for="floor" class="form-label">Number Of Floor</label>
+                                <input type="number" class="form-control" id="floor">
+                            </div>
+                            <div class="mb-3">
+                                <label for="free" class="form-label">Facility Free</label>
+                                <input type="text" class="form-control" id="free">
+                            </div>
+                            <div class="mb-3">
+                                <label class="col-form-label">Rent Type Name</label>
+                                <select class="form-control">
+                                    <option value="">abv</option>
+                                    <option value="">452</option>
+                                    <option value="">abv</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="col-form-label">Facility Type Name</label>
+                                <select class="form-control">
+                                    <option value="">abv</option>
+                                    <option value="">452</option>
+                                    <option value="">abv</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="submit" class="btn btn-primary">Save changes</button>
             </div>
         </div>
     </div>
