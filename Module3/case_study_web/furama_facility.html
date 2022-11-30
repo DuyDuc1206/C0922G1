@@ -168,7 +168,10 @@
     </table>
 </div>
 <div>
-    <button type="button" class="btn btn-outline-primary">ADD FACILITY</button>
+    <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
+            data-bs-target="#exampleModal3">
+        ADD FACILITY
+    </button>
 </div>
 <div class="row container-fluid" style="background-color: #addccf ;justify-content: space-evenly">
     <div class="col-lg-2" style="background-color:#f3f3f3;margin-left: 200px ">
@@ -274,7 +277,7 @@
                                 <input type="text" class="form-control" id="standard">
                             </div>
                             <div class="mb-3">
-                                <label for="description" class="form-label">Standard Room</label>
+                                <label for="description" class="form-label">Description</label>
                                 <input type="text" class="form-control" id="description">
                             </div>
                         </div>
@@ -314,6 +317,85 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 <button type="submit" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal add -->
+<div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel3" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel3">Add facility</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="mb-3">
+                                <label for="name2" class="form-label">Name</label>
+                                <input type="text" class="form-control" id="name2" aria-describedby="emailHelp">
+<!--                                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.-->
+<!--                                </div>-->
+                            </div>
+                            <div class="mb-3">
+                                <label for="area2" class="form-label">Area</label>
+                                <input type="number" class="form-control" id="area2">
+                            </div>
+                            <div class="mb-3">
+                                <label for="cost2" class="form-label">Cost</label>
+                                <input type="number" class="form-control" id="cost2">
+                            </div>
+                            <div class="mb-3">
+                                <label for="people2" class="form-label">Max People</label>
+                                <input type="number" class="form-control" id="people2">
+                            </div>
+                            <div class="mb-3">
+                                <label for="standard2" class="form-label">Standard Room</label>
+                                <input type="text" class="form-control" id="standard2">
+                            </div>
+                            <div class="mb-3">
+                                <label for="description2" class="form-label">Description</label>
+                                <input type="text" class="form-control" id="description2">
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="mb-3">
+                                <label for="poor2" class="form-label">Poor Area</label>
+                                <input type="number" class="form-control" id="poor2">
+                            </div>
+                            <div class="mb-3">
+                                <label for="floor2" class="form-label">Number Of Floor</label>
+                                <input type="number" class="form-control" id="floor2">
+                            </div>
+                            <div class="mb-3">
+                                <label for="free2" class="form-label">Facility Free</label>
+                                <input type="text" class="form-control" id="free2">
+                            </div>
+                            <div class="mb-3">
+                                <label class="col-form-label">Rent Type Name</label>
+                                <select class="form-control">
+                                    <option value="">abv</option>
+                                    <option value="">452</option>
+                                    <option value="">abv</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="col-form-label">Facility Type Name</label>
+                                <select class="form-control">
+                                    <option value="">abv</option>
+                                    <option value="">452</option>
+                                    <option value="">abv</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="submit" class="btn btn-primary">Save</button>
             </div>
         </div>
     </div>

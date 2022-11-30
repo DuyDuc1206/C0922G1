@@ -12,6 +12,7 @@ public class JDBCUtil {
             // Đăng ký Mysql  Driver với DriverManagement (Register Mysql JDBC driver with DriverManager)
             com.mysql.jdbc.Driver driver = new com.mysql.jdbc.Driver();
             DriverManager.registerDriver(driver);
+//            Class.forName("com.jdbc.mysql.Driver");
             // Đường link server
             // String url = "jdbc:mySQL://<server>:<port>/<database>?<props>";
             String url = "jdbc:mySQL://localhost:3306/furama_query";
