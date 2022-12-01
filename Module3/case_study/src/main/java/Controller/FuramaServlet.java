@@ -15,7 +15,6 @@ public class FuramaServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String action;
-        if()
+        request.getRequestDispatcher("/result.jsp").forward(request,response);
     }
 }
