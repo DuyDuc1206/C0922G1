@@ -24,7 +24,7 @@
 <a href="/home?action=search" >
     <button class="btn btn-info">Search Product</button>
 </a>
-<input type="text" name="name">
+<input type="text" name="searchName">
 <table>
     <tr>
         <th>STT</th>

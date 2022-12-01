@@ -91,6 +91,9 @@ public class HomeServlet extends HttpServlet {
     }
 
     private void showSearch(HttpServletRequest request, HttpServletResponse response) {
+        String name = request.getParameter("searchName");
+        Product product = productService.findByName(name);
+        request.setAttribute("product",product);
         try {
             request.getRequestDispatcher("/view/search.jsp").forward(request,response);
         } catch (ServletException e) {

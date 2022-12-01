@@ -20,11 +20,6 @@ public class ProductService implements IProductService {
     }
 
     @Override
-    public Product findByName(String name) {
-        return null;
-    }
-
-    @Override
     public void add(Product product) {
         productRepository.add(product);
     }
@@ -39,8 +34,9 @@ public class ProductService implements IProductService {
         productRepository.delete(id);
     }
 
+
     @Override
-    public Product findByName() {
-        return null;
+    public Product findByName(String name) {
+        return productRepository.findByName(name);
     }
 }
