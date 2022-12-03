@@ -65,12 +65,12 @@ public class UserServlet extends HttpServlet {
     }
 
     private void editUser(HttpServletRequest request, HttpServletResponse response) {
+        int id = Integer.parseInt(request.getParameter("id"));
         String name = request.getParameter("name");
         String email = request.getParameter("email");
         String country = request.getParameter("country");
-        User user = new User(name,email,country);
+        User user = new User(id,name,email,country);
         userService.updateUser(user);
-        request.setAttribute("user",user);
         try {
             request.getRequestDispatcher("/user/edit.jsp").forward(request,response);
         } catch (ServletException e) {

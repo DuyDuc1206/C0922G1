@@ -62,6 +62,7 @@ public class UserRepository implements IUserRepository {
            ps.setString(1,user.getName());
            ps.setString(2,user.getEmail());
            ps.setString(3,user.getCountry());
+           ps.setInt(4,user.getId());
            return ps.executeUpdate() > 0;
        } catch (SQLException throwables) {
            throwables.printStackTrace();
