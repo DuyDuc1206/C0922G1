@@ -30,7 +30,7 @@ public class UserService implements IUserService {
 
     @Override
     public boolean deleteUser(int id) {
-        return false;
+        return userRepository.deleteUser(id);
     }
 
     @Override

@@ -17,6 +17,7 @@ public class UserRepository implements IUserRepository {
     private static final String UPDATE_USERS = "update users set name = ?,email= ?, country =? where id = ?;";
     private static final String SELECT_USER_BY_COUNTRY = "select * from users where country like ?";
     private static final String SELECT_USER_BY_ID = "select * from users where id =?";
+    private static final String DELETE_USERS = "delete from users where id = ?;";
     @Override
     public List<User> selectAllUser() {
         List<User> userList = new ArrayList<>();
@@ -114,6 +115,14 @@ public class UserRepository implements IUserRepository {
 
         @Override
     public boolean deleteUser(int id) {
-        return false;
+        Connection connection =BaseRepository.getConnection();
+            try {
+                PreparedStatement ps = connection.prepareStatement(DELETE_USERS);
+                ps.setInt(1,id);
+                return ps.executeUpdate() > 0;
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+            return false;
     }
 }

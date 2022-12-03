@@ -33,7 +33,20 @@ public class UserServlet extends HttpServlet {
             case "search":
                 searchUser(request,response);
                 break;
+            case "delete":
+                delete(request,response);
+                break;
             default:
+        }
+    }
+
+    private void delete(HttpServletRequest request, HttpServletResponse response) {
+        int id = Integer.parseInt(request.getParameter("id"));
+        userService.deleteUser(id);
+        try {
+            response.sendRedirect("/home");
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -57,7 +70,7 @@ public class UserServlet extends HttpServlet {
         String country = request.getParameter("country");
         User user = new User(name,email,country);
         userService.updateUser(user);
-//        request.setAttribute("user",user);
+        request.setAttribute("user",user);
         try {
             request.getRequestDispatcher("/user/edit.jsp").forward(request,response);
         } catch (ServletException e) {
@@ -89,14 +102,31 @@ public class UserServlet extends HttpServlet {
             case "edit":
                 showEditForm(request, response);
                 break;
+            case "delete" :
+                showDeleteForm(request,response);
+                break;
             default:
                 showlist(request, response);
-
         }
+    }
 
+    private void showDeleteForm(HttpServletRequest request, HttpServletResponse response) {
+        int id = Integer.parseInt(request.getParameter("id"));
+        User user = userService.selectUserById(id);
+        request.setAttribute("user",user);
+        try {
+            request.getRequestDispatcher("/user/delete.jsp").forward(request,response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private void showEditForm(HttpServletRequest request, HttpServletResponse response) {
+        int id = Integer.parseInt(request.getParameter("id"));
+        User user = userService.selectUserById(id);
+        request.setAttribute("user",user);
         try {
             request.getRequestDispatcher("/user/edit.jsp").forward(request,response);
         } catch (ServletException e) {
