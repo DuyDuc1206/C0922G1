@@ -14,3 +14,4 @@ values
 	('Minh','duy@gmail.com','viet nam'),
 	('Nhan','abc@gmail.com','Japan');
 
+select * from users;
