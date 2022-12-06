@@ -9,12 +9,24 @@ public class Customer {
     private String phoneNumber;
     private String email;
     private String address;
-    private CustomerType customerType;
+    private int customerTypeId;
+    private CustomerType customerTypeName;
 
     public Customer() {
     }
 
-    public Customer(int id, String customerName, String dateOfBirth, String gender, String idCard, String phoneNumber, String email, String address, CustomerType customerType) {
+    public Customer(String customerName, String dateOfBirth, String gender, String idCard, String phoneNumber, String email, String address, int customerTypeId) {
+        this.customerName = customerName;
+        this.dateOfBirth = dateOfBirth;
+        this.gender = gender;
+        this.idCard = idCard;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.address = address;
+        this.customerTypeId = customerTypeId;
+    }
+
+    public Customer(int id, String customerName, String dateOfBirth, String gender, String idCard, String phoneNumber, String email, String address, int customerTypeId,CustomerType customerTypeName) {
         this.id = id;
         this.customerName = customerName;
         this.dateOfBirth = dateOfBirth;
@@ -23,7 +35,8 @@ public class Customer {
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.address = address;
-        this.customerType = customerType;
+        this.customerTypeId = customerTypeId;
+        this.customerTypeName = customerTypeName;
     }
 
     public int getId() {
@@ -90,11 +103,19 @@ public class Customer {
         this.address = address;
     }
 
-    public CustomerType getCustomerType() {
-        return customerType;
+    public int getCustomerTypeId() {
+        return customerTypeId;
     }
 
-    public void setCustomerType(CustomerType customerType) {
-        this.customerType = customerType;
+    public void setCustomerType(int customerTypeId) {
+        this.customerTypeId = customerTypeId;
+    }
+
+    public CustomerType getCustomerTypeName() {
+        return customerTypeName;
+    }
+
+    public void setCustomerTypeName(CustomerType customerTypeName) {
+        this.customerTypeName = customerTypeName;
     }
 }
