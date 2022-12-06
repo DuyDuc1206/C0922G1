@@ -21,53 +21,56 @@
             <div class="card">
                 <div class="card-body">
                     <p class="text-center fs-2">Add Customer Form</p>
-                    <form action="" method="post">
+                    <form action="/furama?action=add" method="post">
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="mb-3">
                                     <label class="form-label">Name</label>
-                                    <input type="text" class="form-control" name="name"
-                                           value="<c:out value='${customer.customerName}' />">
+                                    <input type="text" class="form-control" name="name">
                                 </div>
                                 <div class="mb-3">
-                                    <label class="form-label">DOB</label>
-                                    <input type="text" class="form-control" name="name"
-                                           value="<c:out value='${customer.dayOfBirth}' />">
+                                    <label class="form-label">Date Of Birth</label>
+                                    <input type="date" class="form-control" name="DOB">
                                 </div>
                                 <div class="mb-3">
-                                    <label class="form-label">Gender</label>
-                                    <input type="text" class="form-control" name="name"
-                                           value="<c:out value='${customer.gender}' />">
+                                    <label class="form-label">Gender</label><br>
+                                    <select name="gender" >
+                                        <option value="True" ${customer.isGender()==True?"checked":""}>Man</option>
+                                        <option value="False" ${customer.isGender()==False?"checked":""}>Woman</option>
+                                    </select>
                                 </div>
                                 <div class="mb-3">
-                                    <label class="form-label">id Card</label>
-                                    <input type="text" class="form-control" name="name"
-                                           value="<c:out value='${customer.idCard}' />">
+                                    <label class="form-label">ID Card</label>
+                                    <input type="text" class="form-control" name="idCard">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="mb-3">
                                     <label class="form-label">Phone Number</label>
-                                    <input type="text" class="form-control" name="name"
-                                           value="<c:out value='${customer.phoneNumber}' />">
+                                    <input type="text" class="form-control" name="phoneNumber">
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Email</label>
-                                    <input type="text" class="form-control" name="name"
-                                           value="<c:out value='${customer.email}' />">
+                                    <input type="text" class="form-control" name="email">
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Address</label>
-                                    <input type="text" class="form-control" name="name"
-                                           value="<c:out value='${customer.address}' />">
+                                    <input type="text" class="form-control" name="address">
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Customer Type Name</label>
-                                    <input type="text" class="form-control" name="name"
-                                           value="<c:out value='${customer.customerTypeName}' />">
+                                    <input type="text" class="form-control" name="idType">
+<%--                                    <select name="isType">--%>
+<%--                                        <c:forEach var="customerType" items="customerTypeList">--%>
+<%--                                        <option value="${customerType.getId()}">--%>
+<%--                                            ${customerType.getCustomerTypeName()}--%>
+<%--                                        </option>--%>
+<%--                                        </c:forEach>--%>
+<%--                                    </select>--%>
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
                     </form>
                 </div>
             </div>

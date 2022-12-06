@@ -39,7 +39,7 @@ public class CustomerServlet extends HttpServlet {
     private void addCustomer(HttpServletRequest request, HttpServletResponse response) {
         String name = request.getParameter("name");
         String DOB = request.getParameter("DOB");
-        String gender = request.getParameter("gender");
+        boolean gender = Boolean.parseBoolean(request.getParameter("gender"));
         String idCard = request.getParameter("idCard");
         String phoneNumber = request.getParameter("phoneNumber");
         String email = request.getParameter("email");
@@ -53,12 +53,15 @@ public class CustomerServlet extends HttpServlet {
     private void updateCustomer(HttpServletRequest request, HttpServletResponse response) {
         String name = request.getParameter("name");
         String DOB = request.getParameter("DOB");
-        String gender = request.getParameter("gender");
+        boolean gender = Boolean.parseBoolean(request.getParameter("gender"));
         String idCard = request.getParameter("idCard");
         String phoneNumber = request.getParameter("phoneNumber");
         String email = request.getParameter("email");
         String address = request.getParameter("address");
-//            String address =request.getParameter("address");
+        int customerTypeId = Integer.parseInt(request.getParameter("customerTypeId"));
+        Customer customer = new Customer(name,DOB,gender,idCard,phoneNumber,email,address,customerTypeId);
+        customerService.updateCustomer(customer);
+        showListCustomer(request,response);
     }
 
     private void deleteCustomer(HttpServletRequest request, HttpServletResponse response) {
@@ -98,8 +101,8 @@ public class CustomerServlet extends HttpServlet {
     }
 
     private void showEditForm(HttpServletRequest request, HttpServletResponse response) {
-        int Id = Integer.parseInt(request.getParameter("Id"));
-        Customer customer = customerService.selectCustomerById(Id);
+        int id = Integer.parseInt(request.getParameter("id"));
+        Customer customer = customerService.selectCustomerById(id);
         request.setAttribute("customer", customer);
         try {
             request.getRequestDispatcher("view/customer/edit.jsp").forward(request, response);

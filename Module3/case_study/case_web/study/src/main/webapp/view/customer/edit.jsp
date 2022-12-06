@@ -10,59 +10,64 @@
 <html>
 <head>
     <title>Edit Customer</title>
+    <%@include file="../interface/css.jsp" %>
 </head>
 <body>
 <%@include file="../interface/header.jsp" %>
+<%@include file="../interface/navbar.jsp" %>
 <div class="container p-4">
     <div class="row">
         <div class="col-md-6 offset-md-3">
             <div class="card">
                 <div class="card-body">
                     <p class="text-center fs-2">Edit Customer Form</p>
-                    <form action="" method="post">
-                        <div class="col-lg-6">
-                            <div class="mb-3">
-                                <label class="form-label">Name</label>
-                                <input type="text" class="form-control" name="name"
-                                       value="<c:out value='${customer.customerName}' />">
+                    <form action="/furama?action=edit" method="post">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Name</label>
+                                    <input type="text" class="form-control" name="name"
+                                           value="<c:out value='${customer.customerName}' />">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">DOB</label>
+                                    <input type="date" class="form-control" name="DOB"
+                                           value="<c:out value='${customer.dateOfBirth}' />">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Gender</label>
+                                    <input type="text" class="form-control" name="gender"
+                                           value="<c:out value='${customer.gender}' />">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">id Card</label>
+                                    <input type="text" class="form-control" name="idCard"
+                                           value="<c:out value='${customer.idCard}' />">
+                                </div>
                             </div>
-                            <div class="mb-3">
-                                <label class="form-label">DOB</label>
-                                <input type="text" class="form-control" name="name"
-                                       value="<c:out value='${customer.dayOfBirth}' />">
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Phone Number</label>
+                                    <input type="text" class="form-control" name="phoneNumber"
+                                           value="<c:out value='${customer.phoneNumber}' />">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Email</label>
+                                    <input type="text" class="form-control" name="email"
+                                           value="<c:out value='${customer.email}' />">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Address</label>
+                                    <input type="text" class="form-control" name="address"
+                                           value="<c:out value='${customer.address}' />">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Customer Type Name</label>
+                                    <input type="text" class="form-control" name="customerTypeId"
+                                           value="<c:out value='${customer.customerTypeName}' />">
+                                </div>
                             </div>
-                            <div class="mb-3">
-                                <label class="form-label">Gender</label>
-                                <input type="text" class="form-control" name="name"
-                                       value="<c:out value='${customer.gender}' />">
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">id Card</label>
-                                <input type="text" class="form-control" name="name"
-                                       value="<c:out value='${customer.idCard}' />">
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="mb-3">
-                                <label class="form-label">Phone Number</label>
-                                <input type="text" class="form-control" name="name"
-                                       value="<c:out value='${customer.phoneNumber}' />">
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Email</label>
-                                <input type="text" class="form-control" name="name"
-                                       value="<c:out value='${customer.email}' />">
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Address</label>
-                                <input type="text" class="form-control" name="name"
-                                       value="<c:out value='${customer.address}' />">
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Customer Type Name</label>
-                                <input type="text" class="form-control" name="name"
-                                       value="<c:out value='${customer.customerTypeName}' />">
-                            </div>
+                            <button class="btn btn-primary" type="submit">Submit</button>
                         </div>
                     </form>
                 </div>

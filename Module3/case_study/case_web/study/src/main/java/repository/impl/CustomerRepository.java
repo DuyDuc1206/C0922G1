@@ -34,15 +34,15 @@ public class CustomerRepository implements ICustomerRepository {
                 int id = rs.getInt("customer_id");
                 String name = rs.getString("customer_name");
                 String DOB = rs.getString("date_of_birth");
-                String gender = rs.getString("gender");
-                String phoneNumber = rs.getString("phone_number");
+                boolean gender = rs.getBoolean("gender");
                 String idCard = rs.getString("id_card");
+                String phoneNumber = rs.getString("phone_number");
                 String email = rs.getString("email");
                 String address = rs.getString("address");
                 int idType = rs.getInt("customer_type_id");
                 String nameType = rs.getString("customer_type_name");
                 CustomerType customerType = new CustomerType(nameType);
-                Customer customer = new Customer(id, name, DOB, gender, phoneNumber, idCard, email, address, idType, customerType);
+                Customer customer = new Customer(id, name, DOB, gender, idCard, phoneNumber, email, address, idType, customerType);
                 customerList.add(customer);
             }
         } catch (SQLException throwables) {
@@ -62,14 +62,14 @@ public class CustomerRepository implements ICustomerRepository {
             while (rs.next()) {
                 String name = rs.getString("customer_name");
                 String DOB = rs.getString("date_of_birth");
-                String gender = rs.getString("gender");
+                boolean gender = rs.getBoolean("gender");
                 String idCard = rs.getString("id_card");
                 String phoneNumber = rs.getString("phone_number");
                 String email = rs.getString("email");
                 String address = rs.getString("address");
-                int customerTypeId = rs.getInt("customer_type_id");
                 String customerTypeName = rs.getString("customer_type_name");
-                customer = new Customer(name, DOB, gender, idCard, phoneNumber, email, address, customerTypeId);
+                CustomerType customerType = new CustomerType(customerTypeName);
+                customer = new Customer(name, DOB, gender, idCard, phoneNumber, email, address, customerType);
 
             }
         } catch (SQLException throwables) {
@@ -85,7 +85,7 @@ public class CustomerRepository implements ICustomerRepository {
             PreparedStatement ps = connection.prepareStatement(INSERT_INTO_CUSTOMER);
             ps.setString(1,customer.getCustomerName());
             ps.setString(2,customer.getDateOfBirth());
-            ps.setString(3,customer.getGender());
+            ps.setBoolean(3,customer.isGender());
             ps.setString(4,customer.getIdCard());
             ps.setString(5,customer.getPhoneNumber());
             ps.setString(6,customer.getEmail());
@@ -105,7 +105,7 @@ public class CustomerRepository implements ICustomerRepository {
             PreparedStatement ps = connection.prepareStatement(UPDATE_CUSTOMER);
             ps.setString(1, customer.getCustomerName());
             ps.setString(2, customer.getDateOfBirth());
-            ps.setString(3, customer.getGender());
+            ps.setBoolean(3, customer.isGender());
             ps.setString(4, customer.getIdCard());
             ps.setString(5, customer.getPhoneNumber());
             ps.setString(6, customer.getEmail());

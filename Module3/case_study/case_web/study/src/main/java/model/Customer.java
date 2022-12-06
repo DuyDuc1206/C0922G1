@@ -4,7 +4,7 @@ public class Customer {
     private int id;
     private String customerName;
     private String dateOfBirth;
-    private String gender;
+    private boolean gender;
     private String idCard;
     private String phoneNumber;
     private String email;
@@ -15,7 +15,18 @@ public class Customer {
     public Customer() {
     }
 
-    public Customer(String customerName, String dateOfBirth, String gender, String idCard, String phoneNumber, String email, String address, int customerTypeId) {
+    public Customer(String customerName, String dateOfBirth, boolean gender, String idCard, String phoneNumber, String email, String address, CustomerType customerTypeName) {
+        this.customerName = customerName;
+        this.dateOfBirth = dateOfBirth;
+        this.gender = gender;
+        this.idCard = idCard;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.address = address;
+        this.customerTypeName = customerTypeName;
+    }
+
+    public Customer(String customerName, String dateOfBirth, boolean gender, String idCard, String phoneNumber, String email, String address, int customerTypeId) {
         this.customerName = customerName;
         this.dateOfBirth = dateOfBirth;
         this.gender = gender;
@@ -26,7 +37,7 @@ public class Customer {
         this.customerTypeId = customerTypeId;
     }
 
-    public Customer(int id, String customerName, String dateOfBirth, String gender, String idCard, String phoneNumber, String email, String address, int customerTypeId,CustomerType customerTypeName) {
+    public Customer(int id, String customerName, String dateOfBirth, boolean gender, String idCard, String phoneNumber, String email, String address, int customerTypeId,CustomerType customerTypeName) {
         this.id = id;
         this.customerName = customerName;
         this.dateOfBirth = dateOfBirth;
@@ -63,11 +74,11 @@ public class Customer {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public String getGender() {
+    public boolean isGender() {
         return gender;
     }
 
-    public void setGender(String gender) {
+    public void setGender(boolean gender) {
         this.gender = gender;
     }
 
