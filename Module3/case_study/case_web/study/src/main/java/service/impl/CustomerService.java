@@ -20,6 +20,12 @@ public class CustomerService implements ICustomerService {
     }
 
     @Override
+    public List<Customer> selectCustomerByName(String name) {
+        return customerRepository.selectCustomerByName(name);
+    }
+
+
+    @Override
     public boolean insertCustomer(Customer customer) {
         return customerRepository.insertCustomer(customer);
     }

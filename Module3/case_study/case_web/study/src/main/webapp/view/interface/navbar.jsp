@@ -20,8 +20,8 @@
                     <a class="nav-link" href="/view/contract/list.jsp" style="color: white">Contract</a>
                 </li>
             </ul>
-            <form class="d-flex" role="search" style="margin-right: 100px">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <form class="d-flex" role="search" style="margin-right: 100px" action="/furama?action=search" method="post">
+                <input class="form-control me-2" type="search" placeholder="Search name" aria-label="Search" name="name">
                 <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
         </div>

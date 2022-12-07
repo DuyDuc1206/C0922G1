@@ -20,7 +20,7 @@
         <div class="col-md-6 offset-md-3">
             <div class="card">
                 <div class="card-body">
-                    <p class="text-center fs-2">Add Customer Form</p>
+                    <p class="text-center fs-2 fw-bold">Add Customer Form</p>
                     <form action="/furama?action=add" method="post">
                         <div class="row">
                             <div class="col-lg-6">
@@ -35,8 +35,8 @@
                                 <div class="mb-3">
                                     <label class="form-label">Gender</label><br>
                                     <select name="gender" >
-                                        <option value="True" ${customer.isGender()==True?"checked":""}>Man</option>
-                                        <option value="False" ${customer.isGender()==False?"checked":""}>Woman</option>
+                                        <option value="true" ${customer.gender==true?"checked":""}>Man</option>
+                                        <option value="false" ${customer.gender==false?"checked":""}>Woman</option>
                                     </select>
                                 </div>
                                 <div class="mb-3">
@@ -58,15 +58,14 @@
                                     <input type="text" class="form-control" name="address">
                                 </div>
                                 <div class="mb-3">
-                                    <label class="form-label">Customer Type Name</label>
-                                    <input type="text" class="form-control" name="idType">
-<%--                                    <select name="isType">--%>
-<%--                                        <c:forEach var="customerType" items="customerTypeList">--%>
-<%--                                        <option value="${customerType.getId()}">--%>
-<%--                                            ${customerType.getCustomerTypeName()}--%>
-<%--                                        </option>--%>
-<%--                                        </c:forEach>--%>
-<%--                                    </select>--%>
+                                    <label class="form-label">Customer Type Name</label><br>
+                                    <select name="idType">
+                                        <c:forEach var="customerType" items="${customerTypeList}">
+                                        <option value="${customerType.getId()}">
+                                            ${customerType.getCustomerTypeName()}
+                                        </option>
+                                        </c:forEach>
+                                    </select>
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-primary">Submit</button>

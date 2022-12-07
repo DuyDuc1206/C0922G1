@@ -15,13 +15,16 @@ import java.util.List;
 public class CustomerRepository implements ICustomerRepository {
     private static final String SELECT_CUSTOMER = " select c.customer_id,c.customer_name,c.date_of_birth,c.gender,c.id_card,c.phone_number,c.email,c.address ,ct.customer_type_id, ct.customer_type_name from customer c\n" +
             "    join customer_type as ct on c.customer_type_id = ct.customer_type_id;";
-    private static final String SELECT_CUSTOMER_BY_ID = "select c.customer_id,c.customer_name,c.date_of_birth,c.gender,c.id_card,c.phone_number,c.email,c.address , ct.customer_type_name from customer c\n" +
+    private static final String SELECT_CUSTOMER_BY_ID = "select c.* , ct.customer_type_name from customer c\n" +
             "    join customer_type as ct on c.customer_type_id = ct.customer_type_id\n" +
             "    where customer_id = ?;";
     private static final String DELETE_CUSTOMER = "delete from customer where customer_id = ?;";
     private static final String UPDATE_CUSTOMER = "update customer set customer_name = ?,date_of_birth =?, gender = ?, id_card = ?,phone_number = ?, email=?,address = ?,customer_type_id =? where customer_id = ?;";
     private static final String INSERT_INTO_CUSTOMER = "insert into `customer` (customer_name,date_of_birth,gender,id_card,phone_number,email,address,customer_type_id) values\n" +
             " ( ?, ?, ? , ?, ?,?, ?,?);";
+    private static final String SELECT_CUSTOMER_BY_NAME = "select c.*, ct.customer_type_name from customer c\n" +
+            "    join customer_type as ct on c.customer_type_id = ct.customer_type_id\n" +
+            "    where customer_name = ?;";
 
     @Override
     public List<Customer> selectAllCustomer() {
@@ -67,15 +70,44 @@ public class CustomerRepository implements ICustomerRepository {
                 String phoneNumber = rs.getString("phone_number");
                 String email = rs.getString("email");
                 String address = rs.getString("address");
+                int idType = rs.getInt("customer_type_id");
                 String customerTypeName = rs.getString("customer_type_name");
                 CustomerType customerType = new CustomerType(customerTypeName);
-                customer = new Customer(name, DOB, gender, idCard, phoneNumber, email, address, customerType);
+                customer = new Customer(id, name, DOB, gender, idCard, phoneNumber, email, address,idType, customerType);
 
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
         return customer;
+    }
+
+    @Override
+    public List<Customer> selectCustomerByName(String name) {
+        List<Customer> customerList =new ArrayList<>();
+        Connection connection = BaseRepository.getConnection();
+        try {
+            PreparedStatement ps = connection.prepareStatement(SELECT_CUSTOMER_BY_NAME);
+            ps.setString(1,name);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()){
+                int id = rs.getInt("customer_id");
+                String DOB = rs.getString("date_of_birth");
+                boolean gender = rs.getBoolean("gender");
+                String idCard = rs.getString("id_card");
+                String phoneNumber = rs.getString("phone_number");
+                String email = rs.getString("email");
+                String address = rs.getString("address");
+                int idType = rs.getInt("customer_type_id");
+                String customerType = rs.getString("customer_type_name");
+                CustomerType customerType1 = new CustomerType(customerType);
+                Customer customer = new Customer(id,name,DOB,gender,idCard,phoneNumber,email,address,idType,customerType1);
+                customerList.add(customer);
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return customerList;
     }
 
     @Override
@@ -116,7 +148,6 @@ public class CustomerRepository implements ICustomerRepository {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-
         return false;
     }
 

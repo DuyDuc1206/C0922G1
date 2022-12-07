@@ -21,9 +21,14 @@
             <div class="card">
                 <div class="card-body">
                     <p class="text-center fs-2">Edit Customer Form</p>
-                    <form action="/furama?action=edit" method="post">
+                    <form action="/furama?action=edit&id${customer.id}" method="post">
                         <div class="row">
                             <div class="col-lg-6">
+                                <div hidden class="mb-3">
+                                    <label class="form-label">Id</label>
+                                    <input type="text" class="form-control" name="id"
+                                           value="<c:out value='${customer.id}' />">
+                                </div>
                                 <div class="mb-3">
                                     <label class="form-label">Name</label>
                                     <input type="text" class="form-control" name="name"
@@ -35,9 +40,12 @@
                                            value="<c:out value='${customer.dateOfBirth}' />">
                                 </div>
                                 <div class="mb-3">
-                                    <label class="form-label">Gender</label>
-                                    <input type="text" class="form-control" name="gender"
-                                           value="<c:out value='${customer.gender}' />">
+                                    <label>Gender:</label> <br>
+                                    <td><input type="radio" name="gender" size="50"
+                                           value="true" ${customer.isGender()==true?"checked":""}>Man
+                                    <input type="radio" name="gender" size="50"
+                                           value="false" ${customer.isGender()==false?"checked":""}>Woman
+                                    </td>
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">id Card</label>
@@ -62,9 +70,12 @@
                                            value="<c:out value='${customer.address}' />">
                                 </div>
                                 <div class="mb-3">
-                                    <label class="form-label">Customer Type Name</label>
-                                    <input type="text" class="form-control" name="customerTypeId"
-                                           value="<c:out value='${customer.customerTypeName}' />">
+                                    <label class="form-label">Customer Type Name</label><br>
+                                    <select name="customerTypeId">
+                                        <c:forEach var="customerType" items="${customerTypeList}">
+                                        <option value="${customerType.getId()}">${customerType.getCustomerTypeName()}</option>
+                                        </c:forEach>
+                                    </select>
                                 </div>
                             </div>
                             <button class="btn btn-primary" type="submit">Submit</button>

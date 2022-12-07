@@ -44,7 +44,8 @@
                 <th scope="row"><c:out value="${status.count}"/></th>
                 <td><c:out value="${customer.customerName}"/></td>
                 <td><c:out value="${customer.dateOfBirth}"/></td>
-                <td><c:out value="${customer.gender}"/></td>
+                <c:if test="${customer.gender}"><td>Nam</td></c:if>
+                <c:if test="${!customer.gender}"><td>Nữ</td></c:if>
                 <td><c:out value="${customer.idCard}"/></td>
                 <td><c:out value="${customer.phoneNumber}"/></td>
                 <td><c:out value="${customer.email}"/></td>

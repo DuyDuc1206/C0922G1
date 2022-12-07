@@ -7,6 +7,7 @@ import java.util.List;
 public interface ICustomerRepository {
     List<Customer> selectAllCustomer();
     Customer selectCustomerById(int id);
+    List<Customer> selectCustomerByName(String name);
     boolean insertCustomer(Customer customer);
     boolean updateCustomer(Customer customer);
     boolean deleteCustomer(int id);
