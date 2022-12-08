@@ -7,6 +7,10 @@ public class FacilityType {
     public FacilityType() {
     }
 
+    public FacilityType(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 
     public FacilityType(String name) {
         this.name = name;

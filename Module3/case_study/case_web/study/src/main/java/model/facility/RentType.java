@@ -7,6 +7,10 @@ public class RentType {
     public RentType() {
     }
 
+    public RentType(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 
     public RentType(String name) {
         this.name = name;
