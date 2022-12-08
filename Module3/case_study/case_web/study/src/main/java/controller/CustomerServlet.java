@@ -1,12 +1,11 @@
 package controller;
 
-import model.Customer;
-import model.CustomerType;
-import service.ICustomerService;
-import service.ICustomerTypeService;
-import service.impl.CustomerService;
-import service.impl.CustomerTypeService;
-import sun.nio.cs.ArrayEncoder;
+import model.customer.Customer;
+import model.customer.CustomerType;
+import service.customer.ICustomerService;
+import service.customer.ICustomerTypeService;
+import service.customer.impl.CustomerService;
+import service.customer.impl.CustomerTypeService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,7 +13,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet(name = "CustomerServlet", value = "/furama")
@@ -47,8 +45,10 @@ public class CustomerServlet extends HttpServlet {
     private void searchCustomer(HttpServletRequest request, HttpServletResponse response) {
         String name = request.getParameter("name");
         request.setAttribute("name",name);
+        String address = request.getParameter("address");
+        request.setAttribute("address",address);
 
-        List<Customer> customerList =  customerService.selectCustomerByName(name);
+        List<Customer> customerList =  customerService.selectCustomerByCondition(name,address);
        request.setAttribute("customerList",customerList);
         try {
             request.getRequestDispatcher("/view/customer/list.jsp").forward(request,response);
@@ -110,7 +110,7 @@ public class CustomerServlet extends HttpServlet {
                 showAddForm(request, response);
                 break;
             default:
-                request.getRequestDispatcher("view/home.jsp").forward(request, response);
+                request.getRequestDispatcher("view/interface/home.jsp").forward(request, response);
         }
     }
 

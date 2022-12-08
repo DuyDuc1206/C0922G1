@@ -11,19 +11,23 @@
 <head>
     <title>Customer</title>
     <meta charset="UTF-8">
-    <%@include file="../interface/css.jsp" %>
+    <%@include file="/view/interface/css.jsp" %>
+    <link rel="stylesheet" href="bootstrap520/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="datatables/css/dataTables.bootstrap5.min.css" />
+<%--    for icon--%>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 </head>
 <body>
 <%@include file="../interface/header.jsp" %>
 <%@include file="../interface/navbar.jsp" %>
 <div class="container my-3">
     <a href="furama?action=add" class="btn btn-outline-primary">
-        ADD CUSTOMER
+        ADD CUSTOMER <i class="fas fa-plus"></i>
     </a>
 </div>
 <div class="container-fluid p-5">
-    <p class="text-center fs-2 fw-bold">All Customer Details</p>
-    <table class="table">
+    <p class="text-center fs-2 fw-bold" style="color: #CBBE73">All Customer Details</p>
+    <table id="tableCustomer" class="table table-striped table-bordered" style="width:100%">
         <thead>
         <tr>
             <th scope="col">No.</th>
@@ -53,11 +57,11 @@
                 <td><c:out value="${customer.customerTypeName.customerTypeName}"/></td>
                 <td>
                     <a href="furama?action=edit&id=${customer.id}" class="btn btn-outline-secondary">
-                        Edit
+                        <i class="fas fa-edit"></i>
                     </a>
                     <button onclick="infoDelete('${customer.id}','${customer.customerName}')"
-                            class="btn btn-sm btn-danger ms-1"
-                            data-bs-toggle="modal" data-bs-target="#exampleModal">Delete
+                            class="btn btn-md btn-danger ms-1"
+                            data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fas fa-trash-alt"></i>
                     </button>
                 </td>
             </tr>
@@ -92,6 +96,18 @@
         document.getElementById("deleteId").value = id;
         document.getElementById("deleteName").innerText = name;
     }
+</script>
+<script src="jquery/jquery-3.5.1.min.js"></script>
+<script src="datatables/js/jquery.dataTables.min.js"></script>
+<script src="datatables/js/dataTables.bootstrap5.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#tableCustomer').dataTable( {
+            "dom": 'lrtip',
+            "lengthChange": false,
+            "pageLength": 10
+        } );
+    } );
 </script>
 <%@include file="../interface/footer.jsp" %>
 </body>

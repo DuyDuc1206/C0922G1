@@ -21,7 +21,7 @@
             <div class="card">
                 <div class="card-body">
                     <p class="text-center fs-2">Edit Customer Form</p>
-                    <form action="/furama?action=edit&id${customer.id}" method="post">
+                    <form action="/furama?action=edit" method="post">
                         <div class="row">
                             <div class="col-lg-6">
                                 <div hidden class="mb-3">
@@ -42,9 +42,9 @@
                                 <div class="mb-3">
                                     <label>Gender:</label> <br>
                                     <td><input type="radio" name="gender" size="50"
-                                           value="true" ${customer.isGender()==true?"checked":""}>Man
-                                    <input type="radio" name="gender" size="50"
-                                           value="false" ${customer.isGender()==false?"checked":""}>Woman
+                                               value="true" ${customer.isGender()==true?"checked":""}>Man
+                                        <input type="radio" name="gender" size="50"
+                                               value="false" ${customer.isGender()==false?"checked":""}>Woman
                                     </td>
                                 </div>
                                 <div class="mb-3">
@@ -73,7 +73,7 @@
                                     <label class="form-label">Customer Type Name</label><br>
                                     <select name="customerTypeId">
                                         <c:forEach var="customerType" items="${customerTypeList}">
-                                        <option value="${customerType.getId()}">${customerType.getCustomerTypeName()}</option>
+                                            <option value="${customerType.getId()}">${customerType.getCustomerTypeName()}</option>
                                         </c:forEach>
                                     </select>
                                 </div>

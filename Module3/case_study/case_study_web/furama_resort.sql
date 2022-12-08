@@ -255,6 +255,7 @@ insert into `contract_detail` values
 	('7', '2', '1', '2'),
 	('8', '2', '5', '2');
     
+select* from customer where customer_name='NAM ML';
 select * from customer;
 
 select * from customer_type;
@@ -268,8 +269,16 @@ select c.customer_id,c.customer_name,c.date_of_birth,c.gender,c.id_card,c.phone_
     
 select c.customer_id,c.customer_name,c.date_of_birth,c.gender,c.id_card,c.phone_number,c.email,c.address , ct.customer_type_name from customer c
     join customer_type as ct on c.customer_type_id = ct.customer_type_id
-    where customer_id = 3;
+    where customer_name like '%c%';
     
 delete from customer where customer_id = 5;
 
-update customer set customer_name = 'a',date_of_birth ='2020-12-12', gender = 0, id_card = '1212121212',phone_number = '1231231231', email='asda',address = 'dasd' where customer_id = 2;
+update customer set customer_name = 'a',date_of_birth ='2020-12-12', gender = 0, id_card = '1212121212',phone_number = '1231231231', email='asda',address = 'dasd',customer_type_id ='2' where customer_id = 2;
+
+select c.*, ct.customer_type_name from customer c
+    join customer_type as ct on c.customer_type_id = ct.customer_type_id
+    where customer_name = 'NAM ML';
+    
+select c.*, ct.customer_type_name from customer c
+    join customer_type as ct on c.customer_type_id = ct.customer_type_id
+    where gender = true;
