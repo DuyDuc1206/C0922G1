@@ -24,6 +24,12 @@ public class FacilityRepository implements IFacilityRepository {
             "where facility_id = ?;";
     private static final String DELETE_FACILITY = "delete from facility where facility_id = ?;";
     private static final String UPDATE_FACILITY = "update facility set facility_name = ?,area=?,cost=?,max_people=?,standard_room=?,description_other_convenience=?,pool_area=?,number_of_floor=?,facility_free=?,rent_type_id=?,facility_type_id=? where facility_id =? ;\n";
+    private static final String ADD_FACILITY_VILLA = "insert into facility (facility_name,area,cost,max_people,standard_room,description_other_convenience,pool_area,number_of_floor,rent_type_id,facility_type_id) \n" +
+            "values (?,?,?,?,?,?,?,?,?,?);";
+    private final String ADD_FACILITY_HOUSE = "insert into facility(facility_name, area, cost, max_people, standard_room, description_other_convenience, number_of_floor, facility_free, rent_type_id, facility_type_id)\n" +
+            "value (?,?,?,?,?,?,?,?,?,?);";
+    private final String ADD_FACILITY_ROOM = "insert into facility(facility_name, area, cost, max_people, standard_room, description_other_convenience, facility_free, rent_type_id, facility_type_id)\n" +
+            "value (?,?,?,?,?,?,?,?,?);";
 
     @Override
     public List<Facility> selectAllService() {
@@ -103,7 +109,49 @@ public class FacilityRepository implements IFacilityRepository {
     @Override
     public boolean addFacility(Facility facility) {
         Connection connection = BaseRepository.getConnection();
-//        PreparedStatement ps = connection.prepareStatement();
+        PreparedStatement ps = null;
+        try {
+            if (facility.getFacilityTypeId() == 1) {
+                ps = connection.prepareStatement(ADD_FACILITY_VILLA);
+                ps.setString(1,facility.getName());
+                ps.setInt(2,facility.getArea());
+                ps.setDouble(3,facility.getCost());
+                ps.setInt(4,facility.getMaxPeople());
+                ps.setString(5,facility.getStandardRoom());
+                ps.setString(6,facility.getDescriptionOtherConvenience());
+                ps.setDouble(7,facility.getPoolArea());
+                ps.setInt(8,facility.getNumberOfFloor());
+                ps.setInt(9,facility.getRentTypeId());
+                ps.setInt(10,facility.getFacilityTypeId());
+            } else if(facility.getFacilityTypeId()==2){
+                ps = connection.prepareStatement(ADD_FACILITY_HOUSE);
+                ps.setString(1,facility.getName());
+                ps.setInt(2,facility.getArea());
+                ps.setDouble(3,facility.getCost());
+                ps.setInt(4,facility.getMaxPeople());
+                ps.setString(5,facility.getStandardRoom());
+                ps.setString(6,facility.getDescriptionOtherConvenience());
+                ps.setInt(7,facility.getNumberOfFloor());
+                ps.setString(8,facility.getFacilityFree());
+                ps.setInt(9,facility.getRentTypeId());
+                ps.setInt(10,facility.getFacilityTypeId());
+            } else {
+                ps = connection.prepareStatement(ADD_FACILITY_ROOM);
+                ps.setString(1,facility.getName());
+                ps.setInt(2,facility.getArea());
+                ps.setDouble(3,facility.getCost());
+                ps.setInt(4,facility.getMaxPeople());
+                ps.setString(5,facility.getStandardRoom());
+                ps.setString(6,facility.getDescriptionOtherConvenience());
+                ps.setString(7,facility.getFacilityFree());
+                ps.setInt(8,facility.getRentTypeId());
+                ps.setInt(9,facility.getFacilityTypeId());
+            }
+            return ps.executeUpdate() > 0;
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
         return false;
     }
 

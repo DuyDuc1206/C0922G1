@@ -23,7 +23,7 @@ public class FacilityTypeRepository implements IFacilityTypeRepository {
             while (rs.next()){
                 int id = rs.getInt("facility_type_id");
                 String name = rs.getString("facility_type_name");
-                FacilityType facilityType = new FacilityType(name);
+                FacilityType facilityType = new FacilityType(id,name);
                 facilityTypeList.add(facilityType);
             }
         } catch (SQLException throwables) {

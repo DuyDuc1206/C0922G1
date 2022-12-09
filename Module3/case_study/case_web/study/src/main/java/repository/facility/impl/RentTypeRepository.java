@@ -23,7 +23,7 @@ public class RentTypeRepository implements IRentTypeRepository {
             while (rs.next()){
                 int id = rs.getInt("rent_type_id");
                 String name = rs.getString("rent_type_name");
-                RentType rentType = new RentType(name);
+                RentType rentType = new RentType(id,name);
                 rentTypeList.add(rentType);
             }
         } catch (SQLException throwables) {

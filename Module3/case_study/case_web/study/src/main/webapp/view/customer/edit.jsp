@@ -20,7 +20,7 @@
         <div class="col-md-6 offset-md-3">
             <div class="card">
                 <div class="card-body">
-                    <p class="text-center fs-2">Edit Customer Form</p>
+                    <p class="text-center fs-2" style="color: #CBBE73">Edit Customer Form</p>
                     <form action="/furama?action=edit" method="post">
                         <div class="row">
                             <div class="col-lg-6">
@@ -73,7 +73,7 @@
                                     <label class="form-label">Customer Type Name</label><br>
                                     <select name="customerTypeId">
                                         <c:forEach var="customerType" items="${customerTypeList}">
-                                            <option value="${customerType.getId()}">${customerType.getCustomerTypeName()}</option>
+                                            <option value="${customerType.getId()}" ${customerType.getId() == customer.getCustomerTypeId()?'selected':''}>${customerType.getCustomerTypeName()}</option>
                                         </c:forEach>
                                     </select>
                                 </div>

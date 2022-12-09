@@ -282,3 +282,29 @@ select c.*, ct.customer_type_name from customer c
 select c.*, ct.customer_type_name from customer c
     join customer_type as ct on c.customer_type_id = ct.customer_type_id
     where gender = true;
+    
+select f.facility_id,f.facility_name,f.area,f.cost,f.max_people,f.standard_room,f.description_other_convenience,f.pool_area,f.number_of_floor,f.facility_free, ft.facility_type_name,rt.rent_type_name from facility as f 
+join facility_type as ft on f.facility_type_id = ft.facility_type_id
+join rent_type as rt on f.rent_type_id = rt.rent_type_id;
+
+select f.facility_id,f.facility_name,f.area,f.cost,f.max_people,f.standard_room,f.description_other_convenience,f.pool_area,f.number_of_floor,f.facility_free, ft.facility_type_name,rt.rent_type_name from facility as f 
+join facility_type as ft on f.facility_type_id = ft.facility_type_id
+join rent_type as rt on f.rent_type_id = rt.rent_type_id
+where facility_id = 2;
+
+select * from rent_type;
+
+select * from facility_type;
+
+select * from facility;
+
+select * from facility_type;
+
+update facility set facility_name = 'abbaaa',area='3',cost='5435',max_people='3',standard_room='fsdf',description_other_convenience='asdas',pool_area='34',number_of_floor='2',facility_free='3f',rent_type_id='3',facility_type_id='2' where facility_id =6 ;
+
+delete from facility where facility_id = 1;
+insert into facility (facility_name,area,cost,max_people,standard_room,description_other_convenience,pool_area,number_of_floor,rent_type_id,facility_type_id) 
+values ('villa resort',25000,10000000,10,'VIP','có nhà',400,2,2,2);
+
+insert into facility(facility_name, area, cost, max_people, standard_room, description_other_convenience, number_of_floor, facility_free, rent_type_id, facility_type_id) 
+            value ('a',2,3,2,'wds','asdas',32,'đá',1,1);

@@ -24,6 +24,11 @@
                     <form action="/facility?action=edit" method="post">
                         <div class="row">
                             <div class="col-lg-6">
+                                <div hidden class="mb-3">
+                                    <label class="form-label">Id</label>
+                                    <input type="text" class="form-control" name="id"
+                                           value="<c:out value='${facility.id}' />">
+                                </div>
                                 <div class="mb-3">
                                     <label class="form-label">Name</label>
                                     <input type="text" class="form-control" name="name"
@@ -70,7 +75,7 @@
                                     <label class="col-form-label">Rent Type Name</label>
                                     <select class="form-control" name="rentId">
                                         <c:forEach var="rentType" items="${rentTypeList}">
-                                            <option value="${rentType.getId()}">${rentType.getName()}</option>
+                                            <option value="${rentType.getId()}" >${rentType.getName()}</option>
                                         </c:forEach>
                                     </select>
                                 </div>
@@ -78,7 +83,7 @@
                                     <label class="col-form-label">Facility Type Name</label>
                                     <select class="form-control" name="facilityTypeId">
                                         <c:forEach var="facilityType" items="${facilityTypeList}">
-                                        <option value="${facilityType.getId()}">${facilityType.getName()}</option>
+                                        <option value="${facilityType.getId()}" >${facilityType.getName()}</option>
                                         </c:forEach>
                                     </select>
                                 </div>

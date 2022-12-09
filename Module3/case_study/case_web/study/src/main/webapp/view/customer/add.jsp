@@ -20,7 +20,7 @@
         <div class="col-md-6 offset-md-3">
             <div class="card">
                 <div class="card-body">
-                    <p class="text-center fs-2 fw-bold">Add Customer Form</p>
+                    <p class="text-center fs-2 fw-bold" style="color: #CBBE73">Add Customer Form</p>
                     <form action="/furama?action=add" method="post">
                         <div class="row">
                             <div class="col-lg-6">
