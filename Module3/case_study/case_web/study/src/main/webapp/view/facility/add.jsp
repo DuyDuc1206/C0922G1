@@ -21,7 +21,7 @@
             <div class="card">
                 <div class="card-body">
                     <p class="text-center fs-2 fw-bold" style="color: #CBBE73">Add Facility Form</p>
-                    <form action="/furama?action=add" method="post">
+                    <form action="/facility?action=add" method="post">
                         <div class="row">
                             <div class="mb-3">
                                 <label class="form-label">Facility Name</label>
@@ -33,129 +33,65 @@
                                     </c:forEach>
                                 </select>
                             </div>
+                            <div class="mb-3">
+                                <label class="form-label">Name</label>
+                                <input type="text" class="form-control" name="name">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Area</label>
+                                <input type="number" class="form-control" name="area">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Cost</label><br>
+                                <input type="number" class="form-control" name="cost">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Max people</label>
+                                <input type="number" class="form-control" name="maxPeople">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Standard Room</label>
+                                <input type="text" class="form-control" name="standardRoom">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Description</label>
+                                <input type="text" class="form-control" name="desc">
+                            </div>
+
+                            <%--   Villa                         --%>
                             <div class="row" id="form_villa">
-                                <div class="mb-3">
-                                    <label class="form-label">Name</label>
-                                    <input type="text" class="form-control" name="name">
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Area</label>
-                                    <input type="number" class="form-control" name="area">
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Cost</label><br>
-                                    <input type="number" class="form-control" name="cost">
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Max people</label>
-                                    <input type="number" class="form-control" name="maxPeople">
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Standard Room</label>
-                                    <input type="text" class="form-control" name="standardRoom">
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Description</label>
-                                    <input type="text" class="form-control" name="desc">
-                                </div>
                                 <div class="mb-3">
                                     <label class="form-label">Pool Area</label>
                                     <input type="number" class="form-control" name="poolArea">
                                 </div>
+                            </div>
+
+                            <%--  House                          --%>
+                            <div class="row" id="form_house" style="display: none">
                                 <div class="mb-3">
                                     <label class="form-label">Number Of Floor</label><br>
                                     <input type="number" class="form-control" name="numberOfFloor">
                                 </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Rent Type Name</label>
-                                    <select name="rentTypeId">
-                                        <c:forEach var="rentType" items="${rentTypeList}">
-                                            <option value="${rentType.getId()}">
-                                                    ${rentType.getName()}
-                                            </option>
-                                        </c:forEach>
-                                    </select>
-                                </div>
                             </div>
+
+                            <%--   Room                         --%>
                             <div class="row" id="form_room" style="display: none">
-                                <div class="mb-3">
-                                    <label class="form-label">Name</label>
-                                    <input type="text" class="form-control" name="name">
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Area</label>
-                                    <input type="number" class="form-control" name="area">
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Cost</label><br>
-                                    <input type="number" class="form-control" name="cost">
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Max people</label>
-                                    <input type="number" class="form-control" name="maxPeople">
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Standard Room</label>
-                                    <input type="text" class="form-control" name="standardRoom">
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Description</label>
-                                    <input type="text" class="form-control" name="desc">
-                                </div>
                                 <div class="mb-3">
                                     <label class="form-label">Facility Free</label>
                                     <input type="text" class="form-control" name="facilityFree">
                                 </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Rent Type Name</label>
-                                    <select name="rentTypeId">
-                                        <c:forEach var="rentType" items="${rentTypeList}">
-                                            <option value="${rentType.getId()}">
-                                                    ${rentType.getName()}
-                                            </option>
-                                        </c:forEach>
-                                    </select>
-                                </div>
                             </div>
-                            <div class="row" id="form_house" style="display: none">
-                                <div class="mb-3">
-                                    <label class="form-label">Name</label>
-                                    <input type="text" class="form-control" name="name">
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Area</label>
-                                    <input type="number" class="form-control" name="area">
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Cost</label><br>
-                                    <input type="number" class="form-control" name="cost">
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Max people</label>
-                                    <input type="number" class="form-control" name="maxPeople">
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Standard Room</label>
-                                    <input type="text" class="form-control" name="standardRoom">
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Description</label>
-                                    <input type="text" class="form-control" name="desc">
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Number Of Floor</label><br>
-                                    <input type="number" class="form-control" name="numberOfFloor">
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Rent Type Name</label>
-                                    <select name="rentTypeId">
-                                        <c:forEach var="rentType" items="${rentTypeList}">
-                                            <option value="${rentType.getId()}">
-                                                    ${rentType.getName()}
-                                            </option>
-                                        </c:forEach>
-                                    </select>
-                                </div>
+                            <%--                            --%>
+
+                            <div class="mb-3">
+                                <label class="form-label">Rent Type Name</label>
+                                <select name="rentTypeId">
+                                    <c:forEach var="rentType" items="${rentTypeList}">
+                                        <option value="${rentType.getId()}">
+                                                ${rentType.getName()}
+                                        </option>
+                                    </c:forEach>
+                                </select>
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
@@ -171,7 +107,7 @@
         if (x == "1") {
             document.getElementById("form_villa").style.display = "block";
             document.getElementById("form_house").style.display = "none";
-            document.getElementById("form_room").style.display = "none";
+            document.getElementById("form_room").style.display = "block";
         } else if (x == "2") {
             document.getElementById("form_villa").style.display = "none";
             document.getElementById("form_house").style.display = "block";
