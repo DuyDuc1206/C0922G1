@@ -66,7 +66,12 @@ public class FacilityServlet extends HttpServlet {
         int renTypeId = Integer.parseInt(request.getParameter("rentTypeId"));
         int facilityTypeId = Integer.parseInt(request.getParameter("facilityTypeID"));
         Facility facility = new Facility(name, area, cost, maxPeople, standardRoom, desc, poolArea, numberOfFloor, facilityFree, renTypeId, facilityTypeId);
-        facilityService.addFacility(facility);
+        boolean check = facilityService.addFacility(facility);
+        String mess = "Delete Facility Successfully!";
+        if (!check) {
+            mess = "Delete Failed!";
+        }
+        request.setAttribute("mess", mess);
         showFacilityList(request, response);
     }
 
@@ -84,7 +89,12 @@ public class FacilityServlet extends HttpServlet {
         int rentId = Integer.parseInt(request.getParameter("rentId"));
         int facilityTypeId = Integer.parseInt(request.getParameter("facilityTypeId"));
         Facility facility = new Facility(id, name, area, cost, max_people, standard, desc, poolArea, numberFloor, facilityFree, rentId, facilityTypeId);
-        facilityService.updateFacility(facility);
+        boolean check = facilityService.updateFacility(facility);
+        String messEdit = "Updated Successfully!";
+        if (!check){
+            messEdit = "Updated Failed!";
+        }
+        request.setAttribute("messEdit",messEdit);
         showFacilityList(request, response);
     }
 

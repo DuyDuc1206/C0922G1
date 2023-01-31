@@ -1,4 +1,5 @@
 create database ss3_sales_management_database;
+drop database ss3_sales_management_database;
 use sales_management_database;
 
 -- Thêm data cho customer table

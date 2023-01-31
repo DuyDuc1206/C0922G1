@@ -27,7 +27,7 @@
                                 <label class="form-label">Facility Name</label>
                                 <select name="facilityTypeID" id="element" onclick="setVisibility();">
                                     <c:forEach var="facilityType" items="${facilityTypeList}">
-                                        <option value="${facilityType.getId()}">
+                                        <option selected value="${facilityType.getId()}">
                                                 ${facilityType.getName()}
                                         </option>
                                     </c:forEach>
@@ -106,13 +106,13 @@
         var x = document.getElementById("element").value;
         if (x == "1") {
             document.getElementById("form_villa").style.display = "block";
-            document.getElementById("form_house").style.display = "none";
-            document.getElementById("form_room").style.display = "block";
+            document.getElementById("form_house").style.display = "block";
+            document.getElementById("form_room").style.display = "none";
         } else if (x == "2") {
             document.getElementById("form_villa").style.display = "none";
             document.getElementById("form_house").style.display = "block";
             document.getElementById("form_room").style.display = "none";
-        } else if (x == "3") {
+        } else {
             document.getElementById("form_villa").style.display = "none";
             document.getElementById("form_house").style.display = "none";
             document.getElementById("form_room").style.display = "block";

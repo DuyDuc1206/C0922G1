@@ -16,13 +16,11 @@
 <body>
 <%@include file="../interface/header.jsp" %>
 <%@include file="../interface/navbar.jsp" %>
-<div><p class="text-center fs-5" style="color: red">${mess}</p></div>
-<div class="container my-3">
-    <a href="/facility?action=add" class="btn btn-md btn-outline-primary">ADD FACILITY</a>
-</div>
-<div class="container-fluid p-5 ">
+<div><p id="mess" class="text-center fs-5 text-danger" >${mess}</p></div>
+<div class="container-fluid p-3 ">
     <p class="text-center fs-2 fw-bold" style="color: #CBBE73">All Facility Details</p>
-    <table class="table table-striped table-bordered">
+    <a href="/facility?action=add" class="btn btn-md btn-outline-primary">ADD FACILITY <i class="fas fa-plus"></i></a>
+    <table class="table table-striped table-bordered "  style="width:100% ;">
         <thead>
         <tr>
             <th scope="col">No.</th>
@@ -79,7 +77,7 @@
             <form action="/facility?action=delete" method="post">
                 <div class="modal-body">
                     <input hidden type="text" id="deleteId" name="id">
-                    <span>Do you want to delete </span><span id="deleteName"></span>?
+                    <span>Do you want to delete </span><strong class="text-danger" id="deleteName" ></strong>?
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                         <button type="submit" class="btn btn-md btn-primary">Delete</button>

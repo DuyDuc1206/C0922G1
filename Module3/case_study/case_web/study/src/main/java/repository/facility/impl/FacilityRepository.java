@@ -26,7 +26,7 @@ public class FacilityRepository implements IFacilityRepository {
     private static final String UPDATE_FACILITY = "update facility set facility_name = ?,area=?,cost=?,max_people=?,standard_room=?,description_other_convenience=?,pool_area=?,number_of_floor=?,facility_free=?,rent_type_id=?,facility_type_id=? where facility_id =? ;\n";
     private static final String ADD_FACILITY_VILLA = "insert into facility (facility_name,area,cost,max_people,standard_room,description_other_convenience,pool_area,number_of_floor,rent_type_id,facility_type_id) \n" +
             "values (?,?,?,?,?,?,?,?,?,?);";
-    private final String ADD_FACILITY_HOUSE = "insert into facility(facility_name, area, cost, max_people, standard_room, description_other_convenience, number_of_floor, facility_free, rent_type_id, facility_type_id)\n" +
+    private final String ADD_FACILITY_HOUSE = "insert into facility(facility_name, area, cost, max_people, standard_room, description_other_convenience, number_of_floor, rent_type_id, facility_type_id)\n" +
             "value (?,?,?,?,?,?,?,?,?,?);";
     private final String ADD_FACILITY_ROOM = "insert into facility(facility_name, area, cost, max_people, standard_room, description_other_convenience, facility_free, rent_type_id, facility_type_id)\n" +
             "value (?,?,?,?,?,?,?,?,?);";
@@ -132,9 +132,8 @@ public class FacilityRepository implements IFacilityRepository {
                 ps.setString(5,facility.getStandardRoom());
                 ps.setString(6,facility.getDescriptionOtherConvenience());
                 ps.setInt(7,facility.getNumberOfFloor());
-                ps.setString(8,facility.getFacilityFree());
-                ps.setInt(9,facility.getRentTypeId());
-                ps.setInt(10,facility.getFacilityTypeId());
+                ps.setInt(8,facility.getRentTypeId());
+                ps.setInt(9,facility.getFacilityTypeId());
             } else {
                 ps = connection.prepareStatement(ADD_FACILITY_ROOM);
                 ps.setString(1,facility.getName());

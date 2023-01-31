@@ -12,22 +12,36 @@
     <title>Customer</title>
     <meta charset="UTF-8">
     <%@include file="/view/interface/css.jsp" %>
-    <link rel="stylesheet" href="bootstrap520/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="datatables/css/dataTables.bootstrap5.min.css" />
-<%--    for icon--%>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet" href="bootstrap520/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="datatables/css/dataTables.bootstrap5.min.css"/>
+    <%--    for icon--%>
 </head>
 <body>
 <%@include file="../interface/header.jsp" %>
 <%@include file="../interface/navbar.jsp" %>
 <div class="container my-3">
-    <a href="furama?action=add" class="btn btn-outline-primary">
-        ADD CUSTOMER <i class="fas fa-plus"></i>
-    </a>
+    <p id="mess" class="text-center fs-5" style="color: red;">${mess}</p>
 </div>
-<div class="container-fluid p-5">
+<div class="container">
+    <div class="row  justify-content-between">
+        <div class="col-md-4 ">
+            <form class="d-flex" role="search" action="/furama?action=search" method="post">
+                <input class="form-control me-2" type="search" placeholder="Search name" aria-label="Search" name="name">
+                <input class="form-control me-2" type="search" placeholder="Search address" aria-label="Search" name="address">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+        </div>
+        <div class="col-md-2">
+            <a href="furama?action=add" class="btn btn-outline-primary">
+                Add Customer <i class="fas fa-plus"></i>
+            </a>
+        </div>
+
+    </div>
+</div>
+<div class="container-fluid p-3">
     <p class="text-center fs-2 fw-bold" style="color: #CBBE73">All Customer Details</p>
-    <table id="tableCustomer" class="table table-striped table-bordered" style="width:100%">
+    <table id="tableCustomer" class="table table-striped table-bordered " style="width:100% ;">
         <thead>
         <tr>
             <th scope="col">No.</th>
@@ -48,8 +62,12 @@
                 <th scope="row"><c:out value="${status.count}"/></th>
                 <td><c:out value="${customer.customerName}"/></td>
                 <td><c:out value="${customer.dateOfBirth}"/></td>
-                <c:if test="${customer.gender}"><td>Nam</td></c:if>
-                <c:if test="${!customer.gender}"><td>Nữ</td></c:if>
+                <c:if test="${customer.gender}">
+                    <td>Nam</td>
+                </c:if>
+                <c:if test="${!customer.gender}">
+                    <td>Nữ</td>
+                </c:if>
                 <td><c:out value="${customer.idCard}"/></td>
                 <td><c:out value="${customer.phoneNumber}"/></td>
                 <td><c:out value="${customer.email}"/></td>
@@ -81,7 +99,7 @@
             <form action="/furama?action=delete" method="post">
                 <div class="modal-body">
                     <input hidden type="text" id="deleteId" name="deleteId">
-                    <span>Do you want to delete </span><span id="deleteName"></span>?
+                    <span>Do you want to delete </span><span id="deleteName" class="text-danger"></span>?
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                         <button type="submit" class="btn btn-md btn-primary">Delete</button>
@@ -96,18 +114,22 @@
         document.getElementById("deleteId").value = id;
         document.getElementById("deleteName").innerText = name;
     }
+
+    setTimeout(function () {
+        document.getElementById('mess').style.display = 'none';
+    }, 3000);
 </script>
 <script src="jquery/jquery-3.5.1.min.js"></script>
 <script src="datatables/js/jquery.dataTables.min.js"></script>
 <script src="datatables/js/dataTables.bootstrap5.min.js"></script>
 <script>
-    $(document).ready(function() {
-        $('#tableCustomer').dataTable( {
+    $(document).ready(function () {
+        $('#tableCustomer').dataTable({
             "dom": 'lrtip',
             "lengthChange": false,
             "pageLength": 10
-        } );
-    } );
+        });
+    });
 </script>
 <%@include file="../interface/footer.jsp" %>
 </body>

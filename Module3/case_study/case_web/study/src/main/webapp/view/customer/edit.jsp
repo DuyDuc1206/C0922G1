@@ -31,7 +31,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Name</label>
-                                    <input type="text" class="form-control" name="name"
+                                    <input type="text" class="form-control" name="name" required pattern="[a-zA-Z]*"
                                            value="<c:out value='${customer.customerName}' />">
                                 </div>
                                 <div class="mb-3">
@@ -49,7 +49,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">id Card</label>
-                                    <input type="text" class="form-control" name="idCard"
+                                    <input type="text" class="form-control" name="idCard" required
                                            value="<c:out value='${customer.idCard}' />">
                                 </div>
                             </div>
@@ -78,7 +78,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <button class="btn btn-primary" type="submit">Submit</button>
+                            <button class="btn " type="submit" style="background-color:#046056;color: white">Submit</button>
                         </div>
                     </form>
                 </div>

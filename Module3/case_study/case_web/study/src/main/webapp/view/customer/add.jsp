@@ -26,15 +26,19 @@
                             <div class="col-lg-6">
                                 <div class="mb-3">
                                     <label class="form-label">Name</label>
-                                    <input type="text" class="form-control" name="name">
+                                    <input type="text" class="form-control" name="name" value="${customer.getName()}">
                                 </div>
+                                <p class="text-danger">${!errorMap.isEmpty()?errorMap.get("name"):""} </p>
                                 <div class="mb-3">
                                     <label class="form-label">Date Of Birth</label>
-                                    <input type="date" class="form-control" name="DOB">
+                                    <input type="date" class="form-control" name="DOB"
+                                           value="${customer !=null?customer.getDateOfBirth():""}"
+                                           min="1930-01-01" max="${endOfYear}">
                                 </div>
+                                <p class="text-danger">${!errorMap.isEmpty()?errorMap.get("birthday"):""}</p>
                                 <div class="mb-3">
                                     <label class="form-label">Gender</label><br>
-                                    <select name="gender" >
+                                    <select name="gender">
                                         <option value="true" ${customer.gender==true?"checked":""}>Man</option>
                                         <option value="false" ${customer.gender==false?"checked":""}>Woman</option>
                                     </select>
@@ -61,21 +65,21 @@
                                     <label class="form-label">Customer Type Name</label><br>
                                     <select name="idType">
                                         <c:forEach var="customerType" items="${customerTypeList}">
-                                        <option value="${customerType.getId()}">
-                                            ${customerType.getCustomerTypeName()}
-                                        </option>
+                                            <option value="${customerType.getId()}">
+                                                    ${customerType.getCustomerTypeName()}
+                                            </option>
                                         </c:forEach>
                                     </select>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" class="btn " style="background-color:#046056;color: white;">Submit
+                            </button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-</div>
 </div>
 <%@include file="../interface/footer.jsp" %>
 </body>

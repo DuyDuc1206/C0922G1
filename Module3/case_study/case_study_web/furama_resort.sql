@@ -63,11 +63,11 @@ create table `customer`(
 	customer_id int auto_increment primary key,
     customer_name varchar(45),
     date_of_birth date,
-    gender bit(1),
+    gender varchar(45),
     id_card varchar(45) unique,
     phone_number varchar(45),
-    email varchar(45),
     address varchar(45),
+    email varchar(45),
     customer_type_id int,
     foreign key(customer_type_id) references `customer_type`(customer_type_id) on delete cascade
 );
@@ -186,17 +186,17 @@ insert into `customer_type` values
 
 -- Thêm dữ liệu vào bảng khách hàng
 insert into `customer` values
-	('1', 'Nguyễn Thị Hào', '1970-11-07', 0 , '643431213', '0945423362', '23 Nguyễn Hoàng, Đà Nẵng', 'thihao07@gmail.com', '5'),
-	('2', 'Phạm Xuân Diệu', '1992-08-08', 1, '865342123', '0954333333', 'K77/22 Thái Phiên, Quảng Trị', 'xuandieu92@gmail.com', '3'),
-	('3', 'Trương Đình Nghệ', '1990-02-27', 1, '488645199', '0373213122', 'K323/12 Ông Ích Khiêm, Vinh', 'nghenhan2702@gmail.com', '1'),
-	('4', 'Dương Văn Quan', '1981-07-08', 1, '543432111', '0490039241', 'K453/12 Lê Lợi, Đà Nẵng', 'duongquan@gmail.com', '1'),
-	('5', 'Hoàng Trần Nhi Nhi', '1995-12-09', 0, '795453345', '0312345678', '224 Lý Thái Tổ, Gia Lai', 'nhinhi123@gmail.com', '4'),
-	('6', 'Tôn Nữ Mộc Châu', '2005-12-06', 0, '732434215', '0988888844', '37 Yên Thế, Đà Nẵng', 'tonnuchau@gmail.com', '4'),
-	('7', 'Nguyễn Mỹ Kim', '1984-04-08', 0, '856453123', '0912345698', 'K123/45 Lê Lợi, Hồ Chí Minh', 'kimcuong84@gmail.com', '1'),
-	('8', 'Nguyễn Thị Hào', '1999-04-08', 0, '965656433', '0763212345', '55 Nguyễn Văn Linh, Kon Tum', 'haohao99@gmail.com', '3'),
-	('9', 'Trần Đại Danh', '1994-07-01', 1, '432341235', '0643343433', '24 Lý Thường Kiệt, Quảng Ngãi', 'danhhai99@gmail.com', '1'),
-	('10', 'Nguyễn Tâm Đắc', '1989-07-01', 1, '344343432', '0987654321', '22 Ngô Quyền, Đà Nẵng', 'dactam@gmail.com', '2'),
-	('11', 'Nguyễn Văn Tâm', '1989-02-01', 1, '34434382', '0984530121', '23 Ngô Quyền, Đà Nẵng', 'tam@gmail.com', '3');
+	('1', 'Nguyễn Thị Hào', '1970-11-07', 'Woman' , '643431213', '0945423362', '23 Nguyễn Hoàng, Đà Nẵng', 'thihao07@gmail.com', '5'),
+	('2', 'Phạm Xuân Diệu', '1992-08-08', 'Man', '865342123', '0954333333', 'K77/22 Thái Phiên, Quảng Trị', 'xuandieu92@gmail.com', '3'),
+	('3', 'Trương Đình Nghệ', '1990-02-27', 'Man', '488645199', '0373213122', 'K323/12 Ông Ích Khiêm, Vinh', 'nghenhan2702@gmail.com', '1'),
+	('4', 'Dương Văn Quan', '1981-07-08','Man', '543432111', '0490039241', 'K453/12 Lê Lợi, Đà Nẵng', 'duongquan@gmail.com', '1'),
+	('5', 'Hoàng Trần Nhi Nhi', '1995-12-09', 'Woman', '795453345', '0312345678', '224 Lý Thái Tổ, Gia Lai', 'nhinhi123@gmail.com', '4'),
+	('6', 'Tôn Nữ Mộc Châu', '2005-12-06', 'Woman', '732434215', '0988888844', '37 Yên Thế, Đà Nẵng', 'tonnuchau@gmail.com', '4'),
+	('7', 'Nguyễn Mỹ Kim', '1984-04-08', 'Woman', '856453123', '0912345698', 'K123/45 Lê Lợi, Hồ Chí Minh', 'kimcuong84@gmail.com', '1'),
+	('8', 'Nguyễn Thị Hào', '1999-04-08', 'Woman', '965656433', '0763212345', '55 Nguyễn Văn Linh, Kon Tum', 'haohao99@gmail.com', '3'),
+	('9', 'Trần Đại Danh', '1994-07-01', 'Man', '432341235', '0643343433', '24 Lý Thường Kiệt, Quảng Ngãi', 'danhhai99@gmail.com', '1'),
+	('10', 'Nguyễn Tâm Đắc', '1989-07-01', 'Man', '344343432', '0987654321', '22 Ngô Quyền, Đà Nẵng', 'dactam@gmail.com', '2'),
+	('11', 'Nguyễn Văn Tâm', '1989-02-01', 'Man', '34434382', '0984530121', '23 Ngô Quyền, Đà Nẵng', 'tam@gmail.com', '3');
 
 -- THêm dữ liệu vào bảng kiểu dịch vụ
 insert into `facility_type` values
