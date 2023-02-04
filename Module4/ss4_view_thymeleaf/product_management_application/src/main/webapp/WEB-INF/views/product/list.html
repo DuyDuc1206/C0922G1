@@ -29,7 +29,7 @@
         <td th:text="${product.getPrice()}"></td>
         <td th:text="${product.getDescription()}"></td>
         <td th:text="${product.getManufacturer()}"></td>
-        <td><a th:href="@{/product/{id}/edit(id=${product.getId()})}">Edit</a></td>
+        <td><a th:href="@{/product/edit-form(id=${product.id})}">Edit</a></td>
         <td>
             <button th:onclick="'deleteProduct(\''+${product.getId()}+'\',\''+${product.getName()}+'\');'"
                     type="button"
@@ -37,7 +37,7 @@
                 Delete
             </button>
         </td>
-        <td><a th:href="@{/product/{id}/view(id=${product.getId()})}">View</a></td>
+        <td><a th:href="@{/product/view(id=${product.id})}">View</a></td>
     </tr>
     </tbody>
 </table>

@@ -10,33 +10,37 @@ import java.util.Map;
 
 @Service
 public class ProductService implements IProductService {
-    private static final Map<Integer, Product> products = new HashMap<>();
+    private static final List<Product> products = new ArrayList<>();
+
     static {
-        products.put(1,new Product(1,"Điện thoại",10000000,"mới","Hoang Duong"));
-        products.put(2,new Product(2,"Xe",20000000,"cũ","Nguyen Duc"));
-        products.put(3,new Product(3,"Tủ lạnh",30000000,"bth","Phu Thanh"));
-        products.put(4,new Product(4,"Ti vi",40000000,"To","Tan Truong"));
-        products.put(5,new Product(5,"Máy quạt",50000000,"nhỏ","Quang Bang"));
+        products.add(new Product(1, "Điện thoại", 10000000, "mới", "Hoang Duong"));
+        products.add(new Product(2, "Xe", 20000000, "cũ", "Nguyen Duc"));
+        products.add(new Product(3, "Tủ lạnh", 30000000, "bth", "Phu Thanh"));
+        products.add(new Product(4, "Ti vi", 40000000, "To", "Tan Truong"));
+        products.add(new Product(5, "Máy quạt", 50000000, "nhỏ", "Quang Bang"));
     }
 
     @Override
     public List<Product> findAll() {
-        return new ArrayList<>(products.values());
+        return products;
     }
 
     @Override
     public Product findById(int id) {
-        return products.get(id);
+        return products.get(id - 1);
     }
 
     @Override
     public void create(Product product) {
-        products.put(product.getId(),product);
+        products.add(product);
     }
 
     @Override
     public void update(int id, Product product) {
-        products.put(id,product);
+        Product findProduct = findById(id);
+//        Lấy vị trí
+        int index = products.indexOf(findProduct);
+        products.set(index, product);
     }
 
     @Override

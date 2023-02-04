@@ -35,15 +35,15 @@ public class ProductController {
         return "redirect:/product";
     }
 
-    @GetMapping("/{id}/edit")
-    public String editProduct(@PathVariable int id, Model model) {
+    @GetMapping("/edit-form")
+    public String editProduct(int id, Model model) {
         model.addAttribute("product", productService.findById(id));
         return "product/edit";
     }
 
     @PostMapping("/edit")
-    public String updateProduct(Product product) {
-        productService.update(product.getId(), product);
+    public String updateProduct( Product product, int id) {
+        productService.update(id, product);
         return "redirect:/product";
     }
 
@@ -53,8 +53,8 @@ public class ProductController {
         return "redirect:/product";
     }
 
-    @GetMapping("/{id}/view")
-    public String view(@PathVariable int id, Model model) {
+    @GetMapping("view")
+    public String view(int id, Model model) {
         model.addAttribute("product", productService.findById(id));
         return "product/view";
     }
