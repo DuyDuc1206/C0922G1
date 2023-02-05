@@ -36,11 +36,12 @@ public class ProductService implements IProductService {
     }
 
     @Override
-    public void update(int id, Product product) {
-        Product findProduct = findById(id);
-//        Lấy vị trí
-        int index = products.indexOf(findProduct);
-        products.set(index, product);
+    public void update(Product product) {
+        for (int i = 0; i < products.size(); i++) {
+            if (products.get(i).getId() == product.getId()) {
+                products.set(i, product);
+            }
+        }
     }
 
     @Override

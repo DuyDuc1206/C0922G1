@@ -78,7 +78,7 @@
                         <i class="fas fa-edit"></i>
                     </a>
                     <button onclick="infoDelete('${customer.id}','${customer.customerName}')"
-                            class="btn btn-md btn-danger ms-1"
+                            class="btn btn-md btn-danger ms-1 btn-p"
                             data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fas fa-trash-alt"></i>
                     </button>
                 </td>
