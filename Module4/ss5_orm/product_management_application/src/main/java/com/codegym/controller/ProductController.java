@@ -37,19 +37,33 @@ public class ProductController {
     }
 
     @PostMapping("remove")
-    public String removeProduct(int id,RedirectAttributes attributes) {
+    public String removeProduct(int id, RedirectAttributes attributes) {
         productService.remove(id);
-        attributes.addFlashAttribute("msg","xoa thanh cong");
-        return"redirect:/product";
+        attributes.addFlashAttribute("msg", "xoa thanh cong");
+        return "redirect:/product";
     }
+
     @GetMapping("view")
-    public String view(int id, Model model){
-        model.addAttribute("product",productService.findById(id));
+    public String view(int id, Model model) {
+        model.addAttribute("product", productService.findById(id));
         return "view";
     }
+
     @GetMapping("search")
-    public String searchProduct(String name,Model model){
-        model.addAttribute("products",productService.findByName(name));
+    public String searchProduct(String name, Model model) {
+        model.addAttribute("products", productService.findByName(name));
         return "list";
+    }
+
+    @GetMapping("edit-form")
+    public String showFormEdit(int id, Model model) {
+        model.addAttribute("product",productService.findById(id));
+        return "edit";
+    }
+
+    @PostMapping("edit")
+    public String editProduct(@ModelAttribute Product product) {
+        productService.edit(product);
+        return "redicect:/product";
     }
 }

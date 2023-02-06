@@ -34,6 +34,11 @@ public class ProductService implements IProductService {
     }
 
     @Override
+    public void edit(Product product) {
+        productRepository.edit(product);
+    }
+
+    @Override
     public List<Product> findByName(String name) {
         return productRepository.findByName(name);
     }

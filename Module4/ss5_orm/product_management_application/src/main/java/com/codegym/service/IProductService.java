@@ -9,5 +9,6 @@ public interface IProductService {
     Product findById(int id);
     void create(Product product);
     void remove(int id);
+    void edit(Product product);
     List<Product> findByName(String name);
 }

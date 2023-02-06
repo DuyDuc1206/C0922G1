@@ -43,6 +43,13 @@ public class ProductRepository implements IProductRepository {
     }
 
     @Override
+    public void edit(Product product) {
+        Product product1 = findById(product.getId());
+        product1.setName(product.getName());
+        entityManager.merge(product1);
+    }
+
+    @Override
     public List<Product> findByName(String name) {
        List<Product> productList = new ArrayList<>();
         for (Product p: findAll()) {
