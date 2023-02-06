@@ -15,6 +15,7 @@
                 <div class="card-body">
                     <p class="text-center fs-2 fw-bold">Edit Product Form</p>
                     <form th:action="@{/product/edit}" th:object="${product}" method="post">
+                        <input type="text" hidden th:field="*{id}">
                         <div class="mb-3">
                             <label class="form-label">Name</label>
                             <input class="form-control" type="text" th:field="*{name}">

@@ -46,6 +46,9 @@ public class ProductRepository implements IProductRepository {
     public void edit(Product product) {
         Product product1 = findById(product.getId());
         product1.setName(product.getName());
+        product1.setDescription(product.getDescription());
+        product1.setPrice(product.getPrice());
+        product1.setManufacturer(product.getManufacturer());
         entityManager.merge(product1);
     }
 

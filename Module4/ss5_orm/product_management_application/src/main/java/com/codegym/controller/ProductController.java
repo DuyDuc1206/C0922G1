@@ -23,7 +23,7 @@ public class ProductController {
         return "list";
     }
 
-    @GetMapping("create")
+    @GetMapping("/create")
     public String showCreateForm(Model model) {
         model.addAttribute("product", new Product());
         return "create";
@@ -32,14 +32,14 @@ public class ProductController {
     @PostMapping("save")
     public String saveProduct(@ModelAttribute Product product, RedirectAttributes redirects) {
         productService.create(product);
-        redirects.addFlashAttribute("msg", "them thanh cong");
+        redirects.addFlashAttribute("msg", "Add Successfully");
         return "redirect:/product";
     }
 
     @PostMapping("remove")
     public String removeProduct(int id, RedirectAttributes attributes) {
         productService.remove(id);
-        attributes.addFlashAttribute("msg", "xoa thanh cong");
+        attributes.addFlashAttribute("msg", "Delete Successfully");
         return "redirect:/product";
     }
 
@@ -61,9 +61,10 @@ public class ProductController {
         return "edit";
     }
 
-    @PostMapping("edit")
-    public String editProduct(@ModelAttribute Product product) {
+    @PostMapping("/edit")
+    public String editProduct(@ModelAttribute Product product, RedirectAttributes redirectAttributes) {
         productService.edit(product);
-        return "redicect:/product";
+        redirectAttributes.addFlashAttribute("msg","Edit Successfully");
+        return "redirect:/product";
     }
 }
