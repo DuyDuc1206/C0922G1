@@ -32,14 +32,14 @@ public class ProductController {
     @PostMapping("save")
     public String saveProduct(@ModelAttribute Product product, RedirectAttributes redirects) {
         productService.create(product);
-        redirects.addFlashAttribute("msg", "Add Successfully");
+        redirects.addFlashAttribute("mess", "Add Successfully");
         return "redirect:/product";
     }
 
     @PostMapping("remove")
     public String removeProduct(int id, RedirectAttributes attributes) {
         productService.remove(id);
-        attributes.addFlashAttribute("msg", "Delete Successfully");
+        attributes.addFlashAttribute("mess", "Delete Successfully");
         return "redirect:/product";
     }
 
@@ -64,7 +64,7 @@ public class ProductController {
     @PostMapping("/edit")
     public String editProduct(@ModelAttribute Product product, RedirectAttributes redirectAttributes) {
         productService.edit(product);
-        redirectAttributes.addFlashAttribute("msg","Edit Successfully");
+        redirectAttributes.addFlashAttribute("mess","Edit Successfully");
         return "redirect:/product";
     }
 }
