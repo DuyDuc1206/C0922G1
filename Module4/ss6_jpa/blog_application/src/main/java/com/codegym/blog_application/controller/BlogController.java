@@ -1,25 +1,36 @@
 package com.codegym.blog_application.controller;
 
 import com.codegym.blog_application.model.Blog;
+import com.codegym.blog_application.model.Category;
 import com.codegym.blog_application.service.IBlogService;
+import com.codegym.blog_application.service.ICategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @RequestMapping("/blog")
 public class BlogController {
     @Autowired
-    IBlogService blogService;
+    private IBlogService blogService;
+    @Autowired
+    private ICategoryService categoryService;
 
     @GetMapping("")
-    public String showList(Model model) {
-        model.addAttribute("blogs", blogService.findAll());
+    public String showList(Model model, @RequestParam(required = false, defaultValue = "") String name,
+                           @RequestParam(required = false, defaultValue = "0") int page) {
+        Pageable pageable = PageRequest.of(page, 2, Sort.by("date").descending().and(Sort.by("name").ascending()));
+        Page<Blog> blogPage = blogService.search(name, pageable);
+        model.addAttribute("categoryList", categoryService.findAllCategory());
+        model.addAttribute("blogPage", blogPage);
+        model.addAttribute("nameSearch", name);
         return "/list";
     }
 
@@ -33,6 +44,7 @@ public class BlogController {
     @GetMapping("/create")
     public String showFormCreate(Model model) {
         model.addAttribute("blog", new Blog());
+        model.addAttribute("categoryList", categoryService.findAllCategory());
         return "/create";
     }
 
@@ -46,6 +58,7 @@ public class BlogController {
     @GetMapping("/edit-form")
     public String showFormEdit(int id, Model model) {
         model.addAttribute("blog", blogService.findById(id));
+        model.addAttribute("categoryList", categoryService.findAllCategory());
         return "/edit";
     }
 
@@ -62,9 +75,9 @@ public class BlogController {
         return "/view";
     }
 
-    @GetMapping("search")
-    public String searchBlog(String name, Model model) {
-        model.addAttribute("blogs", blogService.findByNameContaining(name));
-        return "/list";
-    }
+//    @GetMapping("search")
+//    public String searchBlog(String name, Model model) {
+//        model.addAttribute("blogs", blogService.findByNameContaining(name));
+//        return "/list";
+//    }
 }

@@ -1,9 +1,12 @@
 package com.codegym.blog_application.service.impl;
 
 import com.codegym.blog_application.model.Blog;
+import com.codegym.blog_application.model.Category;
 import com.codegym.blog_application.repository.IBlogRepository;
 import com.codegym.blog_application.service.IBlogService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -11,7 +14,7 @@ import java.util.List;
 @Service
 public class BlogService implements IBlogService {
     @Autowired
-    IBlogRepository blogRepository;
+    private IBlogRepository blogRepository;
 
     @Override
     public List<Blog> findAll() {
@@ -36,5 +39,15 @@ public class BlogService implements IBlogService {
     @Override
     public List<Blog> findByNameContaining(String name) {
         return blogRepository.findByNameContaining(name);
+    }
+
+    @Override
+    public Page<Blog> search(String name, Pageable pageable) {
+        return blogRepository.findByNameContaining(name,pageable);
+    }
+
+    @Override
+    public Page<Blog> findByNameContainingAndCategory(String name, Category category, Pageable pageable) {
+        return blogRepository.findByNameContainingAndCategory(name,category,pageable);
     }
 }

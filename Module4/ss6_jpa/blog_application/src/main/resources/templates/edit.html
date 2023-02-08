@@ -7,7 +7,7 @@
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 <body>
-<h5><a th:href="@{/blog}">Back to blog list</a></h5>
+<a class="btn btn-primary" th:href="@{/blog}">Back to blog list</a>
 <div class="container">
     <div class="row">
         <div class="col-md-6 offset-md-3">
@@ -22,11 +22,13 @@
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Author</label>
-                            <input  class="form-control" type="text" th:field="*{author}">
+                            <input class="form-control" type="text" th:field="*{author}">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Category</label>
-                            <input class="form-control" type="text" th:field="*{category}">
+                            <select class="form-select" th:field="*{category}">
+                                <option th:text="${category.name}" th:value="${category.id}" th:each="category:${categoryList}"></option>
+                            </select>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Date</label>
@@ -34,7 +36,7 @@
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Description</label>
-                            <input class="form-control" type="text" th:field="*{description}">
+                            <textarea class="form-control" type="text" rows="5" th:field="*{description}"></textarea>
                         </div>
                         <input class="form-control btn-primary" type="submit" value="Edit">
                     </form>
