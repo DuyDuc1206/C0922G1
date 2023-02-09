@@ -76,7 +76,7 @@ public class MusicDto implements Validator {
             errors.rejectValue("singer","error1","Singer name can not contains special digits like @ ; , . = - + , ….");
         }
         String genre = musicDto.getGenre();
-        if (!genre.matches("^[A-Za-z, ]$")){
+        if (!genre.matches("^[A-Za-z, ]+$")){
             errors.rejectValue("genre","error1","Genre can not contains special digits, except ','");
         }
     }

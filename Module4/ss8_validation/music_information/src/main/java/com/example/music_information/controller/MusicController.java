@@ -50,4 +50,16 @@ public class MusicController {
         model.addAttribute("musicDto",new MusicDto());
         return "create";
     }
+    @PostMapping("create")
+    public String createMusic(@Validated @ModelAttribute MusicDto musicDto,BindingResult bindingResult,Model model){
+        new MusicDto().validate(musicDto,bindingResult);
+        if (bindingResult.hasErrors()){
+            model.addAttribute("musicDto",musicDto);
+            return "create";
+        }
+        Music music = new Music();
+        BeanUtils.copyProperties(musicDto,music);
+        musicService.save(music);
+        return "redirect:/";
+    }
 }
