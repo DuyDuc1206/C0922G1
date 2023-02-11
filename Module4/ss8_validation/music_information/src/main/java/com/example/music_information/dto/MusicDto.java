@@ -3,17 +3,19 @@ package com.example.music_information.dto;
 import com.sun.istack.NotNull;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
+
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 public class MusicDto implements Validator {
     private int id;
-    @NotNull
+    @NotBlank
     @Size(max=800,message = "khong duoc qua 800 ki tu")
     private String song;
-    @NotNull
+    @NotBlank
     @Size(max=300,message = "khong duoc qua 300 ki tu")
     private String singer;
-    @NotNull
+    @NotBlank
     @Size(max=1000,message = "khong duoc qua 1000 ki tu")
     private String genre;
 

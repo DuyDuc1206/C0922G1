@@ -22,4 +22,9 @@ public class CategoryService implements ICategoryService {
     public Category findById(Integer id) {
         return iCategoryRepository.findById(id).orElse(null);
     }
+
+    @Override
+    public void saveCategory(Category category) {
+        iCategoryRepository.save(category);
+    }
 }

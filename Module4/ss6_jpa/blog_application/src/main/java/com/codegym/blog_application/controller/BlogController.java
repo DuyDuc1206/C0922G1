@@ -5,10 +5,7 @@ import com.codegym.blog_application.model.Category;
 import com.codegym.blog_application.service.IBlogService;
 import com.codegym.blog_application.service.ICategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,12 +21,14 @@ public class BlogController {
     private ICategoryService categoryService;
 
     @GetMapping("")
-    public String showList(Model model, @RequestParam(required = false, defaultValue = "") String name,
-                           @RequestParam(required = false, defaultValue = "0") int page) {
-        Pageable pageable = PageRequest.of(page, 2, Sort.by("date").descending().and(Sort.by("name").ascending()));
-        Page<Blog> blogPage = blogService.search(name, pageable);
+    public String showList(Model model, @RequestParam(required = false, defaultValue = "") String category, @RequestParam(required = false, defaultValue = "") String name,
+                           @PageableDefault(size = 3, page = 0) Pageable pageable) {
+//        Pageable pageable = PageRequest.of(page, 2, Sort.by("date").descending().and(Sort.by("name").ascending()));
+//        Page<Blog> blogPage = blogService.search(name, pageable);
+//        Page<Blog> blogPage = blogService.findByNameContainingAndCategory(name,category, pageable);
+//        Category category = categoryService.findById(id);
+        model.addAttribute("blogPage", blogService.findByNameContainingAndCategory(name, category, pageable));
         model.addAttribute("categoryList", categoryService.findAllCategory());
-        model.addAttribute("blogPage", blogPage);
         model.addAttribute("nameSearch", name);
         return "/list";
     }
@@ -75,9 +74,33 @@ public class BlogController {
         return "/view";
     }
 
-//    @GetMapping("search")
+    //    @GetMapping("search")
 //    public String searchBlog(String name, Model model) {
 //        model.addAttribute("blogs", blogService.findByNameContaining(name));
 //        return "/list";
 //    }
+    @GetMapping("/category")
+    public String showCategory(int id,Model model) {
+        model.addAttribute("cate",categoryService.findById(id));
+        model.addAttribute("category", categoryService.findAllCategory());
+        return "/category/list";
+    }
+
+    @GetMapping("/create-category")
+    public String createCategory(Model model) {
+        model.addAttribute("category", new Category());
+        return "/category/create";
+    }
+
+    @PostMapping("/category/save")
+    public String saveCategory(Category category) {
+        categoryService.saveCategory(category);
+        return "redirect:/blog/category";
+    }
+
+    @PostMapping("/category-edit")
+    public String editCategory(@ModelAttribute Category cate) {
+        categoryService.saveCategory(cate);
+        return "redirect:/blog/category";
+    }
 }

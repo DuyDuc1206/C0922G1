@@ -16,16 +16,16 @@
     </style>
 </head>
 <body>
+<div th:insert="~{layout::navbar}"></div>
 <h4 id="mess" class="text-center text-danger" th:text="${mess}"></h4>
-
 <div class="container">
     <div class="d-flex justify-content-between">
         <a class="btn btn-primary" th:href="@{/blog/create}">Add Blog</a>
         <form class="d-flex" th:action="@{blog}" method="get">
             <input class="form-control" type="text" name="name" placeholder="search name" th:value="${nameSearch}">
-            <select class="form-select ms-2">
-                <option value="">Select Category</option>
-                <option name="category" th:each="category:${categoryList}" th:text="${category.name}" th:value="${category.id}"></option>
+            <select class="form-select ms-2" name="category">
+                <option value="" selected>Select Category</option>
+                <option  th:each="category:${categoryList}" th:text="${category.name}" th:value="${category.id}"></option>
             </select>
             <button class="btn btn-outline-primary ms-2">Search</button>
         </form>
@@ -75,7 +75,7 @@
            th:if="${blogPage.hasNext()}"><i class="fas fa-chevron-right"></i></a>
     </div>
 </div>
-
+<div th:insert="~{layout::footer}"></div>
 <!-- Modal delete-->
 <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">

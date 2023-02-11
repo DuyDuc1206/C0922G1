@@ -35,10 +35,17 @@ public class UserController {
         if (bindingResult.hasErrors()) {
             model.addAttribute("userDto", userDto);
             return "index";
+        } else if (userService.check(userDto.getEmail())) {
+            bindingResult.rejectValue("email", "hhhh", "Email trùng lặp");
+            return "index";
+        } else {
+            User user = new User();
+            BeanUtils.copyProperties(userDto, user);
+            userService.save(user);
+            return "redirect:/list";
         }
-        User user = new User();
-        BeanUtils.copyProperties(userDto, user);
-        userService.save(user);
-        return "redirect:/list";
     }
 }
+
+
+

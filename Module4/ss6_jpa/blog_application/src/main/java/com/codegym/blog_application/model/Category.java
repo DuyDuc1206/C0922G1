@@ -6,8 +6,8 @@ import java.util.Set;
 @Entity
 public class Category {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
     private String name;
 
     @OneToMany(mappedBy = "category",cascade = CascadeType.ALL)
@@ -16,17 +16,17 @@ public class Category {
     public Category() {
     }
 
-    public Category(Integer id, String name, Set<Blog> blogSet) {
+    public Category(int id, String name, Set<Blog> blogSet) {
         this.id = id;
         this.name = name;
         this.blogSet = blogSet;
     }
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 

@@ -6,7 +6,7 @@ import javax.persistence.*;
 public class Blog {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private int id;
     private String name;
     private String author;
 
@@ -19,7 +19,7 @@ public class Blog {
     public Blog() {
     }
 
-    public Blog(Integer id, String name, String author, Category category, String date, String description) {
+    public Blog(int id, String name, String author, Category category, String date, String description) {
         this.id = id;
         this.name = name;
         this.author = author;
@@ -28,11 +28,11 @@ public class Blog {
         this.description = description;
     }
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
