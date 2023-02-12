@@ -23,10 +23,12 @@
                         <div class="mb-3">
                             <label class="form-label">Singer</label>
                             <input class="form-control" type="text" th:field="*{singer}">
+                            <label class="text-danger" th:if="${#fields.hasErrors('singer')}" th:errors="*{singer}"></label>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Type</label>
                             <input class="form-control" type="text" th:field="*{genre}">
+                            <label class="text-danger" th:if="${#fields.hasErrors('genre')}" th:errors="*{genre}"></label>
                         </div>
                         <input class="form-control btn-primary" type="submit" value="Edit">
                     </form>
