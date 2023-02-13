@@ -100,7 +100,7 @@ public class BlogController {
 
     @PostMapping("/category-edit")
     public String editCategory(@ModelAttribute Category cate) {
-        categoryService.saveCategory(cate);
+        categoryService.saveCategory(cate   );
         return "redirect:/blog/category";
     }
 }
