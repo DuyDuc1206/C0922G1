@@ -23,5 +23,13 @@
         </div>
     </div>
 </div>
+
+<div th:if="${historyProduct}">
+    <div style="width: 200px">
+        <img th:src="@{${historyProduct.description}}" alt="" style="width: 100%;">
+        <p th:text="${historyProduct.name}"></p>
+        <p th:text="${historyProduct.price}"></p>
+    </div>
+</div>
 </body>
 </html>

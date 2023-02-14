@@ -12,6 +12,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
+
 @Controller
 @SessionAttributes("cart")
 public class ProductController {
@@ -35,7 +38,11 @@ public class ProductController {
     }
 
     @GetMapping("/product/detail/{id}")
-    public String detailProduct(@PathVariable("id") Integer id, Model model) {
+    public String detailProduct(@PathVariable("id") Integer id, Model model, HttpServletResponse response) {
+        Cookie cookie = new Cookie("idProduct", String.valueOf(id));
+        cookie.setMaxAge(30);
+        cookie.setPath("/");
+        response.addCookie(cookie);
         model.addAttribute("product", productService.findById(id));
         return "/product/detail";
     }

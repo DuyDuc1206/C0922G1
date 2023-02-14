@@ -9,6 +9,9 @@
 </head>
 <body>
 <div class="container">
+    <h3>Total Items: <span th:text="${cart.countItemQuantity()}"></span></h3>
+    <h3>Total Products: <span th:text="${cart.countProductQuantity()}"></span></h3>
+    <h3>Total Payment: <span th:text="${cart.countTotalPayment()}"></span></h3>
         <table class="table" th:if="${cart !=null && cart.getProductMap().size()>0}">
             <thead>
             <tr>
@@ -20,10 +23,12 @@
             </thead>
             <tbody>
             <tr th:each="productMap : ${cart.productMap}">
-                <td th:text="${productMap.key.name}"></td>
-                <td><img th:src="${productMap.key.image}" alt=""></td>
+                <td th:text="${productMap.key.name}"></i></td>
+                <td ><img th:src="${productMap.key.image}" alt=""><i style="position: absolute;" class="fas fa-times"></i></td>
                 <td th:text="${productMap.key.price}"></td>
-                <td th:text="${productMap.value}"></td>
+                <td><i th:text="${'-'}" id="decrease_button" style="display: inline" class="fas fa-arrow-down"></i>
+                    <span th:text="${productMap.getValue()}"></span>
+                    <i id="increase_button" style="display: inline" class="fas fa-arrow-up"></i></td>
             </tr>
             </tbody>
         </table>

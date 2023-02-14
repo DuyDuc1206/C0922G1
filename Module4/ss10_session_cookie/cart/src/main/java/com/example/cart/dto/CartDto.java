@@ -51,7 +51,25 @@ public class CartDto {
             productMap.replace(itemEntry.getKey(),newQuantity);
         }
     }
+    public Integer countProductQuantity(){
+        Integer productQuantity = 0;
+        for (Map.Entry<ProductDto, Integer> entry : productMap.entrySet()) {
+            productQuantity += entry.getValue();
+        }
+        return productQuantity;
+    }
 
+    public Integer countItemQuantity(){
+        return productMap.size();
+    }
+
+    public Float countTotalPayment(){
+        float payment = 0;
+        for (Map.Entry<ProductDto, Integer> entry : productMap.entrySet()) {
+            payment += entry.getKey().getPrice() * (float) entry.getValue();
+        }
+        return payment;
+    }
 
 }
 
