@@ -16,11 +16,13 @@ public interface IBlogRepository extends JpaRepository<Blog, Integer> {
     //    Phân trang (list + search)
     Page<Blog> findByNameContaining(String name, Pageable pageable);
 
-    @Query(value = "select * from blog where blog.name like concat ('%',:name,'%') and blog.category_id like concat ('%',:id,'%')",
+    @Query(value = "select * from blog where blog.name like concat ('%',:name,'%') or blog.category_id like concat ('%',:id,'%')",
             nativeQuery = true)
-    Page<Blog> findByNameAndCategory(@Param("name") String name, @Param("id") String id, Pageable pageable);
+    Page<Blog> findByNameContainingAndCategory(@Param("name") String name, @Param("id") String id, Pageable pageable);
 
+//    Page<Blog> findByNameContainingAndCategory_Id(String name, int category_id, Pageable pageable);
 
+    List<Blog> findBlogByCategory(Category category);
 
 
     //    Phân trang (list)

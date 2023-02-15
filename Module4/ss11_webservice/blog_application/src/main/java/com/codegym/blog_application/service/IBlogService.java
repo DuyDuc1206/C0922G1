@@ -22,5 +22,7 @@ public interface IBlogService {
 
     Page<Blog> search(String name, Pageable pageable);
 
-    Page<Blog> findByNameAndCategory(String name, String id, Pageable pageable);
+    Page<Blog> findByNameContainingAndCategory(String name, String id, Pageable pageable);
+
+    List<Blog> findByCategory(Category category);
 }

@@ -22,8 +22,12 @@ public class BlogController {
 
     @GetMapping("")
     public String showList(Model model, @RequestParam(required = false, defaultValue = "") String category, @RequestParam(required = false, defaultValue = "") String name,
-                           @PageableDefault(size = 2, page = 0) Pageable pageable) {
-        model.addAttribute("blogPage", blogService.findByNameAndCategory(name, category, pageable));
+                           @PageableDefault(size = 3, page = 0) Pageable pageable) {
+//        Pageable pageable = PageRequest.of(page, 2, Sort.by("date").descending().and(Sort.by("name").ascending()));
+//        Page<Blog> blogPage = blogService.search(name, pageable);
+//        Page<Blog> blogPage = blogService.findByNameContainingAndCategory(name,category, pageable);
+//        Category category = categoryService.findById(id);
+        model.addAttribute("blogPage", blogService.findByNameContainingAndCategory(name, category, pageable));
         model.addAttribute("categoryList", categoryService.findAllCategory());
         model.addAttribute("nameSearch", name);
         return "/list";
@@ -76,8 +80,8 @@ public class BlogController {
 //        return "/list";
 //    }
     @GetMapping("/category")
-    public String showCategory(int id, Model model) {
-        model.addAttribute("cate", categoryService.findById(id));
+    public String showCategory(int id,Model model) {
+        model.addAttribute("cate",categoryService.findById(id));
         model.addAttribute("category", categoryService.findAllCategory());
         return "/category/list";
     }
@@ -96,7 +100,7 @@ public class BlogController {
 
     @PostMapping("/category-edit")
     public String editCategory(@ModelAttribute Category cate) {
-        categoryService.saveCategory(cate);
+        categoryService.saveCategory(cate   );
         return "redirect:/blog/category";
     }
 }
