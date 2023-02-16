@@ -11,7 +11,12 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface IBlogRepository extends JpaRepository<Blog, Integer> {
-    List<Blog> findByNameContaining(String name);
+//    @Query(value = "select * from blog where blog.name like ('%',:name,'%')",nativeQuery = true)
+//    List<Blog> findByNameContaining(@Param("name") String name);
+
+    List<Blog> findBlogByNameContaining(String name, Pageable pageable);
+
+//    List<Blog> findBlogByNameContaining(String name);
 
     //    Phân trang (list + search)
     Page<Blog> findByNameContaining(String name, Pageable pageable);
@@ -20,7 +25,6 @@ public interface IBlogRepository extends JpaRepository<Blog, Integer> {
             nativeQuery = true)
     Page<Blog> findByNameContainingAndCategory(@Param("name") String name, @Param("id") String id, Pageable pageable);
 
-//    Page<Blog> findByNameContainingAndCategory_Id(String name, int category_id, Pageable pageable);
 
     List<Blog> findBlogByCategory(Category category);
 

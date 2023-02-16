@@ -37,8 +37,8 @@ public class BlogService implements IBlogService {
     }
 
     @Override
-    public List<Blog> findByNameContaining(String name) {
-        return blogRepository.findByNameContaining(name);
+    public List<Blog> findByNameContaining(String name,Pageable pageable) {
+        return blogRepository.findBlogByNameContaining(name,pageable);
     }
 
     @Override

@@ -18,7 +18,7 @@ public interface IBlogService {
     void remove(int id);
 
     //    search
-    List<Blog> findByNameContaining(String name);
+    List<Blog> findByNameContaining(String name,Pageable pageable);
 
     Page<Blog> search(String name, Pageable pageable);
 
