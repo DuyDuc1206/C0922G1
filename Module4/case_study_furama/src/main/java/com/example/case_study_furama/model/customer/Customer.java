@@ -37,4 +37,6 @@ public class Customer {
     @ManyToOne
     private CustomerType customerType;
 
+    private boolean isDelete;
+
 }
