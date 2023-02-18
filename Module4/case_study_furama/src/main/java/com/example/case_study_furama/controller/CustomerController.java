@@ -22,13 +22,13 @@ public class CustomerController {
 
     @GetMapping("")
     public String showCustomerList(Model model, @RequestParam(required = false, defaultValue = "") String name,
-                                   @RequestParam(required = false, defaultValue = "") String gender,
+                                   @RequestParam(required = false, defaultValue = "") String email,
                                    @RequestParam(required = false, defaultValue = "") String id,
-                                   @PageableDefault(size = 2, page = 0) Pageable pageable) {
-        model.addAttribute("customerPage", customerService.getAllCustomer(name, gender, id, pageable));
+                                   @PageableDefault(size = 5, page = 0) Pageable pageable) {
+        model.addAttribute("customerPage", customerService.getAllCustomer(name, email, id, pageable));
         model.addAttribute("customerTypeList", customerTypeService.findAllCustomerType());
         model.addAttribute("searchName", name);
-        model.addAttribute("searchGender", gender);
+        model.addAttribute("searchGender", email);
         model.addAttribute("searchCustomerType", id);
         return "/customer/list";
     }

@@ -9,8 +9,8 @@ import org.springframework.data.repository.query.Param;
 
 public interface ICustomerRepository extends JpaRepository<Customer, Integer> {
 
-    @Query(value = "select * from customer where customer.name like concat('%',:name,'%') " +
-            "and customer.gender like concat('%',:gender,'%') " +
-            "and customer.customer_type_id like concat('%',:id,'%')", nativeQuery = true)
-    Page<Customer> findByNameAndByGenderAndCustomerType(@Param("name") String name, @Param("gender") String gender, @Param("id") String id, Pageable pageable);
+    @Query(value = "select * from customer where ( customer.name like concat('%',:name,'%') " +
+            "and customer.gender like concat('%',:email,'%') " +
+            "and customer.customer_type_id like concat('%',:id,'%'))", nativeQuery = true)
+    Page<Customer> findByNameAndByEmailAndCustomerType(@Param("name") String name, @Param("email") String gender, @Param("id") String id, Pageable pageable);
 }
