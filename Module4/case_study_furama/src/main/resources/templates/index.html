@@ -28,8 +28,8 @@
             </a>
         </div>
         <div class="col-lg-3" style="align-content: flex-end;display: grid">
-            <p> 103 – 105 Đường Võ Nguyên Giáp, Phường Khuê Mỹ, Quận Ngũ hành Sơn, Tp. Đà Nẵng</p>
-            <p> 7.0 km từ sân bay Đà Nẵng</p>
+            <p> 103 – 105 Vo Nguyen Giap Street, Khue My Ward, Ngu Hanh Son District, City. Danang</p>
+            <p> 7.0 km from Da Nang airport</p>
         </div>
         <div class="col-lg-3"
              style="justify-items: center;align-content: center;display: grid; vertical-align: middle;align-items: center">
@@ -39,20 +39,20 @@
     <!--navbar-->
     <nav class="navbar navbar-expand-lg sticky-lg-top p-3" style="background-color: #046056;">
         <div class="container">
-            <a class="navbar-brand" href="/view/interface/home.jsp">Home</a>
+            <a class="navbar-brand" href="/view/interface/home.jsp" style="color: #E18665">Home</a>
             <div class="collapse navbar-collapse" id="navbarSupportedContent ">
                 <ul class="navbar-nav ms-auto ">
                     <li class="nav-item me-4">
-                        <a class="nav-link " aria-current="page" href="/view/employee/list.jsp">Employee</a>
+                        <a class="nav-link " aria-current="page" href="/view/employee/list.jsp" style="color: #E18665">Employee</a>
                     </li>
                     <li class="nav-item me-4">
-                        <a class="nav-link " th:href="@{/customer}">Customer</a>
+                        <a class="nav-link " th:href="@{/customer}" style="color: #E18665">Customer</a>
                     </li>
                     <li class="nav-item me-4">
-                        <a class="nav-link " href="/facility">Facility</a>
+                        <a class="nav-link " href="/facility" style="color: #E18665">Facility</a>
                     </li>
                     <li class="nav-item me-4">
-                        <a class="nav-link " href="/view/contract/list.jsp">Contract</a>
+                        <a class="nav-link " href="/view/contract/list.jsp" style="color: #E18665">Contract</a>
                     </li>
                 </ul>
             </div>
@@ -110,11 +110,11 @@
                     <img src="https://cdn.vntrip.vn/cam-nang/wp-content/uploads/2020/06/Review-Furama-Resort-Da-Nang-13.jpg"
                          class="card-img-top" alt="img1" style="height: 100%">
                     <div class="card-body">
-                        <h5 class="card-title">Phòng Suite hướng biển</h5>
-                        <p class="card-text">Diện tích 80m2.</p>
+                        <h5 class="card-title">Sea View Suite</h5>
+                        <p class="card-text">80 square meter area.</p>
                     </div>
                     <div class="card-footer">
-                        <small class="text-muted">Còn phòng </small>
+                        <small class="text-muted">Rooms </small>
                     </div>
                 </div>
             </div>
@@ -123,11 +123,11 @@
                     <img src="https://vietpowertravel.com.vn/data/images/furama%20resort%202.jpg"
                          class="card-img-top" alt="img3" style="height: 100%">
                     <div class="card-body">
-                        <h5 class="card-title">Phòng studio suite hướng biển</h5>
-                        <p class="card-text">Diện tích 100m2.</p>
+                        <h5 class="card-title">Studio suite with sea view</h5>
+                        <p class="card-text">100 square meter area.</p>
                     </div>
                     <div class="card-footer">
-                        <small class="text-muted">Còn phòng </small>
+                        <small class="text-muted">Rooms</small>
                     </div>
                 </div>
             </div>
@@ -136,11 +136,11 @@
                     <img src="https://thodiavn24h.com/wp-content/uploads/2020/05/toan-canh-furama-resort-danang-1.jpg"
                          class="card-img-top" alt="img3" style="height: 100%">
                     <div class="card-body">
-                        <h5 class="card-title">Phòng Deluxe hướng biển</h5>
-                        <p class="card-text">Diện tích 150m2.</p>
+                        <h5 class="card-title">Deluxe Sea View Room</h5>
+                        <p class="card-text">150 square meter area.</p>
                     </div>
                     <div class="card-footer">
-                        <small class="text-muted">Còn phòng </small>
+                        <small class="text-muted">Rooms </small>
                     </div>
                 </div>
             </div>
@@ -151,29 +151,28 @@
 <footer th:fragment="footer" class="container-fluid" style="background-color: #addccf ;">
     <div class="row">
         <div class="col-md-2 offset-md-2" style="background-color:#f3f3f3; ">
-            <h4 style="color: #cbbe73;margin-top: 30px">Hướng Dẫn Di Chuyển</h4>
-            <p>Khu nghỉ dưỡng Furama là cơ sở hàng đầu để khám phá một trong những điểm đến hấp dẫn nhất Châu Á. Chỉ
-                cách Đà
-                Nẵng một quãng lái xe ngắn là bốn Di sản Văn hóa Thế giới được UNESCO công nhận:</p>
-            <h5 style="color: #cbbe73">Địa điểm</h5>
+            <h4 style="color: #cbbe73;margin-top: 30px">Moving Guide</h4>
+            <p>Furama Resort is the premier base from which to explore one of Asia's most exciting destinations. Just a
+                short drive from Da Nang are four UNESCO World Heritage Sites:</p>
+            <h5 style="color: #cbbe73">Location</h5>
             <ol class="list-group list-group-numbered" style="margin-bottom: 30px">
                 <li class="list-group-item d-flex justify-content-between align-items-start">
                     <div class="ms-2 me-auto">
-                        <div class="fw-bold">Cố Đô Huế</div>
+                        <div class="fw-bold">The ancient capital Hue</div>
                     </div>
-                    <span class="badge bg-primary rounded-pill">2 Tiếng</span>
+                    <span class="badge bg-primary rounded-pill">2 hour</span>
                 </li>
                 <li class="list-group-item d-flex justify-content-between align-items-start">
                     <div class="ms-2 me-auto">
-                        <div class="fw-bold">Phố CỔ Hội An</div>
+                        <div class="fw-bold">Old Quarter hoi an</div>
                     </div>
-                    <span class="badge bg-primary rounded-pill">30 Phút</span>
+                    <span class="badge bg-primary rounded-pill">30 minutes</span>
                 </li>
                 <li class="list-group-item d-flex justify-content-between align-items-start">
                     <div class="ms-2 me-auto">
-                        <div class="fw-bold">Thánh Địa Mỹ Sơn</div>
+                        <div class="fw-bold">My Son Sanctuary</div>
                     </div>
-                    <span class="badge bg-primary rounded-pill">90 Phút</span>
+                    <span class="badge bg-primary rounded-pill">90 minutes</span>
                 </li>
             </ol>
         </div>
@@ -181,10 +180,10 @@
             <div class="row">
                 <div class="col-md-2 offset-md-2">
                     <ul style="margin-top: 30px;list-style: none">
-                        <li>Giá Công Bố</li>
+                        <li>Rack rate</li>
                         <li>Lifestyle Blog</li>
-                        <li>Tuyển Dụng</li>
-                        <li>Liên Hệ</li>
+                        <li>Recruitment</li>
+                        <li>Contact</li>
                     </ul>
                 </div>
                 <div class="col-md-2">
@@ -201,7 +200,7 @@
                             <i class="fa-solid fa-location-dot"> </i> 103-105 Vo Nguyen Giap Street, Khue My ward, Ngu
                             Hanh
                             Son
-                            district, Da Nang city, Viet Nam
+                            district, Da Nang city, Vietnam
                         </li>
                         <li><i class="fa-solid fa-phone"></i> 84-236-3847-333</li>
                         <li><i class="fa-solid fa-envelope"></i>Reservation@furama.com</li>

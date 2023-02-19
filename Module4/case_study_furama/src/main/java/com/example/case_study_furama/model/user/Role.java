@@ -9,19 +9,19 @@ public class Role {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(columnDefinition = "nvarchar(45)")
+    @Column(columnDefinition = "nvarchar(45)",unique = true)
     private String name;
 
     @ManyToMany(mappedBy = "roleSet")
-    private Set<UserEmployee> userEmployeeSet;
+    private Set<User> userSet;
 
     public Role() {
     }
 
-    public Role(Integer id, String name, Set<UserEmployee> userEmployeeSet) {
+    public Role(Integer id, String name, Set<User> userSet) {
         this.id = id;
         this.name = name;
-        this.userEmployeeSet = userEmployeeSet;
+        this.userSet = userSet;
     }
 
     public Integer getId() {
@@ -40,11 +40,11 @@ public class Role {
         this.name = name;
     }
 
-    public Set<UserEmployee> getUserEmployeeSet() {
-        return userEmployeeSet;
+    public Set<User> getUserEmployeeSet() {
+        return userSet;
     }
 
-    public void setUserEmployeeSet(Set<UserEmployee> userEmployeeSet) {
-        this.userEmployeeSet = userEmployeeSet;
+    public void setUserEmployeeSet(Set<User> userSet) {
+        this.userSet = userSet;
     }
 }

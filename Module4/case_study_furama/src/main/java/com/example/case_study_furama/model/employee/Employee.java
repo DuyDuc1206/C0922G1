@@ -1,7 +1,7 @@
 package com.example.case_study_furama.model.employee;
 
 import com.example.case_study_furama.model.contract.Contract;
-import com.example.case_study_furama.model.user.UserEmployee;
+import com.example.case_study_furama.model.user.User;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -18,16 +18,16 @@ public class Employee {
     @Column(columnDefinition = "date")
     private String dateOfBirth;
 
-    @Column(columnDefinition = "nvarchar(45)")
+    @Column(columnDefinition = "nvarchar(45) ",unique = true)
     private String idCard;
 
-    @Column(columnDefinition = "nvarchar(45)")
-    private String salary;
+    @Column(columnDefinition = "double")
+    private Double salary;
 
-    @Column(columnDefinition = "nvarchar(45)")
+    @Column(columnDefinition = "nvarchar(45)",unique = true)
     private String phoneNumber;
 
-    @Column(columnDefinition = "nvarchar(45)")
+    @Column(columnDefinition = "nvarchar(45)",unique = true)
     private String email;
 
     @Column(columnDefinition = "nvarchar(45)")
@@ -50,7 +50,7 @@ public class Employee {
 
     @OneToOne
     @JoinColumn(name = "user_id",referencedColumnName = "username")
-    private UserEmployee user;
+    private User user;
 
     @Column(columnDefinition = "boolean default false")
     private boolean isDelete;
@@ -58,7 +58,7 @@ public class Employee {
     public Employee() {
     }
 
-    public Employee(Integer id, String name, String dateOfBirth, String idCard, String salary, String phoneNumber, String email, String address, Position position, EducationDegree educationDegree, Division division, Set<Contract> contractSet, UserEmployee user, boolean isDelete) {
+    public Employee(Integer id, String name, String dateOfBirth, String idCard, Double salary, String phoneNumber, String email, String address, Position position, EducationDegree educationDegree, Division division, Set<Contract> contractSet, User user, boolean isDelete) {
         this.id = id;
         this.name = name;
         this.dateOfBirth = dateOfBirth;
@@ -107,11 +107,11 @@ public class Employee {
         this.idCard = idCard;
     }
 
-    public String getSalary() {
+    public Double getSalary() {
         return salary;
     }
 
-    public void setSalary(String salary) {
+    public void setSalary(Double salary) {
         this.salary = salary;
     }
 
@@ -163,11 +163,11 @@ public class Employee {
         this.division = division;
     }
 
-    public UserEmployee getUser() {
+    public User getUser() {
         return user;
     }
 
-    public void setUser(UserEmployee user) {
+    public void setUser(User user) {
         this.user = user;
     }
 

@@ -9,7 +9,7 @@ public class EducationDegree {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(columnDefinition = "nvarchar(45)")
+    @Column(columnDefinition = "nvarchar(45)",unique = true)
     private String name;
 
     @OneToMany(mappedBy = "educationDegree")

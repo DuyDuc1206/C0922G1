@@ -20,16 +20,16 @@ public class Customer {
 
     private boolean gender;
 
-    @Column(columnDefinition = "nvarchar(45)")
+    @Column(columnDefinition = "nvarchar(45)",unique = true)
     private String idCard;
 
-    @Column(columnDefinition = "nvarchar(45)")
+    @Column(columnDefinition = "nvarchar(45)",unique = true)
     private String phoneNumber;
 
     @Column(columnDefinition = "nvarchar(45)")
     private String address;
 
-    @Column(columnDefinition = "nvarchar(45)")
+    @Column(columnDefinition = "nvarchar(45)",unique = true)
     private String email;
 
     @ManyToOne
