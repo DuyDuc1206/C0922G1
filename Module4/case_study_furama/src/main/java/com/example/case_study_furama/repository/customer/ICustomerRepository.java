@@ -17,6 +17,11 @@ public interface ICustomerRepository extends JpaRepository<Customer, Integer> {
             "and customer.customer_type_id like concat('%',:id,'%'))", nativeQuery = true)
     Page<Customer> findByNameAndByEmailAndCustomerType(@Param("name") String name, @Param("email") String gender, @Param("id") String id, Pageable pageable);
 
+    @Query(value = "select * from customer where customer.is_delete =false and customer.name like concat('%',:name,'%') and customer.email like concat('%',:email,'%')" +
+            "and customer.customer_type_id like concat('%',:id,'%') "
+            ,nativeQuery = true)
+    Page<Customer> searchAndDisplay(@Param("name") String name,@Param("email") String email,@Param("id") String id,Pageable pageable);
+
     @Transactional
     @Modifying
     @Query(value = "update customer set customer.is_delete = true where customer.id = :id",nativeQuery = true)

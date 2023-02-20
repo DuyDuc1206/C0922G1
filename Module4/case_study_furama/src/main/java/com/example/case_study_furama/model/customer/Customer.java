@@ -20,7 +20,7 @@ public class Customer {
 
     private boolean gender;
 
-    @Column(columnDefinition = "nvarchar(45)",unique = true)
+    @Column(columnDefinition = "nvarchar(45) unique")
     private String idCard;
 
     @Column(columnDefinition = "nvarchar(45)",unique = true)

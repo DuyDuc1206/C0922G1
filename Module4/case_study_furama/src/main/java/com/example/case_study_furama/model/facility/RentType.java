@@ -15,10 +15,9 @@ public class RentType {
     @OneToMany(mappedBy = "rentType")
     private Set<Facility> facilitySet;
 
-    public RentType(Integer id, String name, Set<Facility> facilitySet) {
+    public RentType(Integer id, String name) {
         this.id = id;
         this.name = name;
-        this.facilitySet = facilitySet;
     }
 
     public RentType() {
@@ -40,11 +39,4 @@ public class RentType {
         this.name = name;
     }
 
-    public Set<Facility> getFacilitySet() {
-        return facilitySet;
-    }
-
-    public void setFacilitySet(Set<Facility> facilitySet) {
-        this.facilitySet = facilitySet;
-    }
 }

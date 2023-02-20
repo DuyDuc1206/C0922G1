@@ -47,7 +47,7 @@ public class Facility {
     public Facility() {
     }
 
-    public Facility(Integer id, String name, Integer area, Double cost, Integer maxPeople, String standardRoom, String description, Double poolArea, Integer numberOfFloor, String facilityFree, RentType rentType, FacilityType facilityType, Set<Contract> contractSet, boolean isDelete) {
+    public Facility(Integer id, String name, Integer area, Double cost, Integer maxPeople, String standardRoom, String description, Double poolArea, Integer numberOfFloor, String facilityFree, RentType rentType, FacilityType facilityType, boolean isDelete) {
         this.id = id;
         this.name = name;
         this.area = area;
@@ -60,7 +60,6 @@ public class Facility {
         this.facilityFree = facilityFree;
         this.rentType = rentType;
         this.facilityType = facilityType;
-        this.contractSet = contractSet;
         this.isDelete = isDelete;
     }
 
@@ -168,11 +167,4 @@ public class Facility {
         isDelete = delete;
     }
 
-    public Set<Contract> getContractSet() {
-        return contractSet;
-    }
-
-    public void setContractSet(Set<Contract> contractSet) {
-        this.contractSet = contractSet;
-    }
 }

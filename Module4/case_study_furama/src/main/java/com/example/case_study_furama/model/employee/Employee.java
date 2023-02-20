@@ -58,7 +58,7 @@ public class Employee {
     public Employee() {
     }
 
-    public Employee(Integer id, String name, String dateOfBirth, String idCard, Double salary, String phoneNumber, String email, String address, Position position, EducationDegree educationDegree, Division division, Set<Contract> contractSet, User user, boolean isDelete) {
+    public Employee(Integer id, String name, String dateOfBirth, String idCard, Double salary, String phoneNumber, String email, String address, Position position, EducationDegree educationDegree, Division division,  User user, boolean isDelete) {
         this.id = id;
         this.name = name;
         this.dateOfBirth = dateOfBirth;
@@ -70,7 +70,6 @@ public class Employee {
         this.position = position;
         this.educationDegree = educationDegree;
         this.division = division;
-        this.contractSet = contractSet;
         this.user = user;
         this.isDelete = isDelete;
     }
@@ -179,11 +178,4 @@ public class Employee {
         isDelete = delete;
     }
 
-    public Set<Contract> getContractSet() {
-        return contractSet;
-    }
-
-    public void setContractSet(Set<Contract> contractSet) {
-        this.contractSet = contractSet;
-    }
 }

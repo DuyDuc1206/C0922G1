@@ -18,10 +18,9 @@ public class FacilityType {
     public FacilityType() {
     }
 
-    public FacilityType(Integer id, String name, Set<Facility> facilitySet) {
+    public FacilityType(Integer id, String name) {
         this.id = id;
         this.name = name;
-        this.facilitySet = facilitySet;
     }
 
     public Integer getId() {
@@ -40,11 +39,4 @@ public class FacilityType {
         this.name = name;
     }
 
-    public Set<Facility> getFacilitySet() {
-        return facilitySet;
-    }
-
-    public void setFacilitySet(Set<Facility> facilitySet) {
-        this.facilitySet = facilitySet;
-    }
 }

@@ -9,7 +9,10 @@ public interface ICustomerService {
 
     Page<Customer> findAll(Pageable pageable);
 
-    void saveCustomer(Customer customer);
+    boolean saveCustomer(Customer customer);
 
     void remove(Integer id);
+
+    Customer findById(Integer id);
+    void save(Customer customer);
 }

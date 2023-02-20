@@ -18,10 +18,9 @@ public class Division {
     public Division() {
     }
 
-    public Division(Integer id, String name, Set<Employee> employeeSet) {
+    public Division(Integer id, String name) {
         this.id = id;
         this.name = name;
-        this.employeeSet = employeeSet;
     }
 
     public Integer getId() {
@@ -40,11 +39,4 @@ public class Division {
         this.name = name;
     }
 
-    public Set<Employee> getEmployeeSet() {
-        return employeeSet;
-    }
-
-    public void setEmployeeSet(Set<Employee> employeeSet) {
-        this.employeeSet = employeeSet;
-    }
 }
