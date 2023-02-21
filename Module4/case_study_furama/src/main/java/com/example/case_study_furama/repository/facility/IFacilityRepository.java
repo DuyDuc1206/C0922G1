@@ -12,7 +12,9 @@ import javax.transaction.Transactional;
 
 public interface IFacilityRepository extends JpaRepository<Facility,Integer> {
 
-    @Query(value = "select * from facility where facility.is_delete = false and facility.name like  concat('%',:name,'%') and facility.facility_type_id like concat('%',:id,'%') ",nativeQuery = true)
+    @Query(value = "select * from facility where facility.is_delete = false and facility.name like  concat('%',:name,'%') and facility.facility_type_id like concat('%',:id,'%') ",
+            countQuery = "select * from facility where facility.is_delete = false and facility.name like  concat('%',:name,'%') and facility.facility_type_id like concat('%',:id,'%') ",
+            nativeQuery = true)
     Page<Facility> searchAndDisplay(@Param("name") String name, @Param("id") String id, Pageable pageable);
 
     @Transactional

@@ -15,8 +15,8 @@ public class CustomerService implements ICustomerService {
     private ICustomerRepository customerRepository;
 
     @Override
-    public Page<Customer> search(String name, String email, String id, Pageable pageable) {
-        return customerRepository.searchAndDisplay(name,email,id,pageable);
+    public Page<Customer> search(String name, String email, String customerTypeId, Pageable pageable) {
+        return customerRepository.searchAndDisplay(name,email,customerTypeId,pageable);
     }
 
     @Override
@@ -26,9 +26,6 @@ public class CustomerService implements ICustomerService {
 
     @Override
     public boolean saveCustomer(Customer customer) {
-        if (customerRepository.findById(customer.getId()).isPresent()) {
-            return false;
-        }
         try {
             customerRepository.save(customer);
         } catch (DataIntegrityViolationException e) {

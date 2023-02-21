@@ -33,7 +33,7 @@ public class FacilityController {
                            @RequestParam(required = false, defaultValue = "") String name,
                            @RequestParam(required = false, defaultValue = "") String facilityTypeId,
                            @RequestParam(defaultValue = "0") int page,
-                           @RequestParam(defaultValue = "3") int size) {
+                           @RequestParam(defaultValue = "4") int size) {
         Pageable pageable = PageRequest.of(page, size, Sort.by("name").ascending());
         model.addAttribute("facilityPage", facilityService.searchAndDisplay(name, facilityTypeId, pageable));
         model.addAttribute("facilityTypeList", facilityTypeService.findAllFacilityType());
@@ -45,18 +45,19 @@ public class FacilityController {
     }
 
     @PostMapping("add")
-    public String addFacility(@Validated @ModelAttribute("newFacilityDto") FacilityDto facilityDto, BindingResult bindingResult, RedirectAttributes redirect,
+    public String addFacility(@Validated @ModelAttribute("newFacilityDto") FacilityDto newFacilityDto, BindingResult bindingResult, RedirectAttributes redirect,
                               @PageableDefault(page = 0, size = 3) Pageable pageable, Model model) {
-        new FacilityDto().validate(facilityDto, bindingResult);
+        new FacilityDto().validate(newFacilityDto, bindingResult);
         if (bindingResult.hasErrors()) {
+            model.addAttribute("newFacilityDto", newFacilityDto);
             model.addAttribute("facilityPage", facilityService.findAll(pageable));
             model.addAttribute("rentTypeList", rentTypeService.findAllRentType());
             model.addAttribute("status", true);
-
+            model.addAttribute("editFacilityDto", new FacilityDto());
             return "facility/list";
         }
         Facility facility = new Facility();
-        BeanUtils.copyProperties(facility, facility);
+        BeanUtils.copyProperties(newFacilityDto, facility);
         facilityService.save(facility);
         redirect.addFlashAttribute("message", "Add Successfully!");
         return "redirect:/facility";
@@ -69,21 +70,22 @@ public class FacilityController {
         return "redirect:/facility";
     }
 
-//    @PostMapping("edit")
-//    public String editFacility(@Validated @ModelAttribute("editFacilityDto") FacilityDto facilityDto, BindingResult bindingResult, RedirectAttributes redirect,
-//                               @PageableDefault(page = 0, size = 3) Pageable pageable, Model model) {
-//        new FacilityDto().validate(facilityDto, bindingResult);
-//        if (bindingResult.hasErrors()) {
-//            model.addAttribute("facilityPage", facilityService.findAll(pageable));
-//            model.addAttribute("rentTypeList", rentTypeService.findAllRentType());
-//            model.addAttribute("statusEdit", true);
-//
-//            return "facility/list";
-//        }
-//        Facility facility = new Facility();
-//        BeanUtils.copyProperties(facilityDto, facility);
-//        facilityService.save(facility);
-//        redirect.addFlashAttribute("message", "Edit Successfully!");
-//        return "redirect:/facility";
-//    }
+    @PostMapping("edit")
+    public String editFacility(@Validated @ModelAttribute("editFacilityDto") FacilityDto editFacilityDto, BindingResult bindingResult, RedirectAttributes redirect,
+                               @PageableDefault(page = 0, size = 3) Pageable pageable, Model model) {
+        new FacilityDto().validate(editFacilityDto, bindingResult);
+        if (bindingResult.hasErrors()) {
+            model.addAttribute("editFacilityDto", editFacilityDto);
+            model.addAttribute("facilityPage", facilityService.findAll(pageable));
+            model.addAttribute("rentTypeList", rentTypeService.findAllRentType());
+            model.addAttribute("statusEdit", true);
+            model.addAttribute("newFacilityDto", new FacilityDto());
+            return "facility/list";
+        }
+        Facility facility = new Facility();
+        BeanUtils.copyProperties(editFacilityDto, facility);
+        facilityService.save(facility);
+        redirect.addFlashAttribute("message", "Edit Successfully!");
+        return "redirect:/facility";
+    }
 }

@@ -35,7 +35,7 @@ public class CustomerController {
         Pageable pageable = PageRequest.of(page, size, Sort.by("name").ascending());
         model.addAttribute("customerPage", customerService.search(name, email, customerId, pageable));
         model.addAttribute("customerTypeList", customerTypeService.findAllCustomerType());
-        model.addAttribute("customerDto",new CustomerDto());
+        model.addAttribute("addCustomerDto",new CustomerDto());
 //        model.addAttribute("editCustomerDto",new CustomerDto());
         model.addAttribute("searchName", name);
         model.addAttribute("searchEmail", email);
@@ -43,9 +43,12 @@ public class CustomerController {
     }
 
     @PostMapping("/add")
-    public String createCustomer(@Validated @ModelAttribute("customerDto") CustomerDto customerDto, BindingResult bindingResult,
-                                 Model model, RedirectAttributes redirect,@PageableDefault(page = 0,size = 5) Pageable pageable) {
-        new CustomerDto().validate(customerDto, bindingResult);
+    public String createCustomer(@Validated @ModelAttribute("addCustomerDto") CustomerDto addCustomerDto, BindingResult bindingResult,
+                                 Model model, RedirectAttributes redirect,
+                                 @RequestParam(defaultValue = "0") int page,
+                                 @RequestParam(defaultValue = "5") int size) {
+        Pageable pageable = PageRequest.of(page, size, Sort.by("name").ascending());
+        new CustomerDto().validate(addCustomerDto, bindingResult);
         if (bindingResult.hasErrors()) {
             model.addAttribute("mess",1);
             model.addAttribute("customerPage", customerService.findAll(pageable));
@@ -53,7 +56,7 @@ public class CustomerController {
             return "/customer/list";
         }
         Customer customer = new Customer();
-        BeanUtils.copyProperties(customerDto, customer);
+        BeanUtils.copyProperties(addCustomerDto, customer);
         if (!customerService.saveCustomer(customer)){
             model.addAttribute("mess",1);
             bindingResult.rejectValue("email","email","Email cannot be duplicated");
@@ -75,6 +78,7 @@ public class CustomerController {
 //                               Model model, RedirectAttributes redirect, @PageableDefault(page = 0,size = 5) Pageable pageable) {
 //        new CustomerDto().validate(editCustomerDto, bindingResult);
 //        if (bindingResult.hasErrors()) {
+//            model.addAttribute("editCustomerDto",editCustomerDto);
 //            model.addAttribute("status",2);
 //            model.addAttribute("customerPage", customerService.findAll(pageable));
 //            model.addAttribute("customerTypeList", customerTypeService.findAllCustomerType());

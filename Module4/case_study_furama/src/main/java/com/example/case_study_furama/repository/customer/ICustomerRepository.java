@@ -12,18 +12,14 @@ import javax.transaction.Transactional;
 
 public interface ICustomerRepository extends JpaRepository<Customer, Integer> {
 
-    @Query(value = "select * from customer where ( customer.name like concat('%',:name,'%') " +
-            "and customer.email like concat('%',:email,'%') " +
-            "and customer.customer_type_id like concat('%',:id,'%'))", nativeQuery = true)
-    Page<Customer> findByNameAndByEmailAndCustomerType(@Param("name") String name, @Param("email") String gender, @Param("id") String id, Pageable pageable);
-
-    @Query(value = "select * from customer where customer.is_delete =false and customer.name like concat('%',:name,'%') and customer.email like concat('%',:email,'%')" +
-            "and customer.customer_type_id like concat('%',:id,'%') "
+    @Query(value = "select * from customer where is_delete =false and name like concat('%',:name,'%') and email like concat('%',:email,'%')" +
+            "and customer_type_id like concat('%',:id,'%') "
             ,nativeQuery = true)
     Page<Customer> searchAndDisplay(@Param("name") String name,@Param("email") String email,@Param("id") String id,Pageable pageable);
 
     @Transactional
     @Modifying
-    @Query(value = "update customer set customer.is_delete = true where customer.id = :id",nativeQuery = true)
+    @Query(value = "update customer set is_delete = true where id = :id",nativeQuery = true)
     void remove(@Param("id") Integer id);
+
 }

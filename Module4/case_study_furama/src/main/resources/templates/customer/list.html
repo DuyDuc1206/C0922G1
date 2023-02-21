@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Customer List</title>
-    <script src="js/bootstrap.js"></script>
-    <link rel="stylesheet" href="css/bootstrap.css">
+    <script src="/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="/css/bootstrap.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
-    <script src="jquery-3.6.3.min.js"></script>
+    <script src="/jquery-3.6.3.min.js"></script>
     <style>
         button.save,
         a.save {
@@ -46,7 +46,7 @@
                 <input class="form-control" type="text" name="name" th:value="${searchName}" placeholder="search name">
                 <input class="form-control ms-2" type="text" name="email" th:value="${searchEmail}"
                        placeholder="search email">
-                <select class="form-select ms-2" name="customerId">
+                <select class="form-select ms-2" name="customerTypeId">
                     <option value="">Customer Type</option>
                     <option th:each="type:${customerTypeList}" th:text="${type.name}" th:value="${type.id}"></option>
                 </select>
@@ -134,9 +134,9 @@
                 <h5 class="modal-title" id="addModalLabel">ADD CUSTOMER</h5>
             </div>
             <div class="modal-body">
-                <form method="post" th:object="${customerDto}" th:action="@{/customer/add}" id="formAdd">
+                <form method="post" th:object="${addCustomerDto}" th:action="@{/customer/add}" id="formAdd">
                     <div class="row">
-                        <input class="form-control" th:field="*{id}">
+                        <input class="form-control" th:field="*{id}" hidden>
                         <div class="mb-3">
                             <label class="form-label">Name</label>
                             <input type="text" class="form-control" th:field="*{name}">

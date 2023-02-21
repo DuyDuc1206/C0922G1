@@ -11,8 +11,7 @@ import javax.validation.constraints.Pattern;
 import java.util.Set;
 
 public class CustomerDto implements Validator {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private Integer id;
 
     @NotEmpty(message = "Name cannot be blank")
