@@ -39,7 +39,6 @@ public class CustomerController {
 //        model.addAttribute("editCustomerDto",new CustomerDto());
         model.addAttribute("searchName", name);
         model.addAttribute("searchEmail", email);
-        model.addAttribute("searchCustomerType", customerId);
         return "/customer/list";
     }
 

@@ -3,13 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Facility List</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-            crossorigin="anonymous" defer></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <script src="/jquery-3.6.3.min.js"></script>
     <style>
         button.save,
         a.save {
@@ -22,26 +19,402 @@
             color: #046056;
             font-weight: bold;
         }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        main {
+            flex: 1;
+        }
+
+        footer {
+            margin-top: auto;
+        }
     </style>
 </head>
 <body>
 <header th:insert="~{index::header}"></header>
-<div class="container-fluid">
-    <div class="row">
-        <div>
+<main class="container-fluid">
+    <p th:text="${message}" class="text-danger text-center"></p>
+    <div class="container d-flex justify-content-between mt-2">
+        <button class="btn btn-primary save" data-bs-toggle="modal" data-bs-target="#addModal">ADD FACILITY <i
+                class="fas fa-plus-square"></i></button>
+        <form th:action="@{/facility}" method="get">
+            <div class="d-flex">
+                <input class="form-control" type="text" name="name" th:value="${searchName}" placeholder="search name">
+                <select class="form-select ms-2" name="facilityTypeId">
+                    <option value="">Search Type</option>
+                    <option th:each="type:${facilityTypeList}"
+                            th:value="${type.id}" th:text="${type.name}"></option>
+                </select>
+                <button class="form-control btn btn-outline-primary ms-2 save">Search</button>
+            </div>
+        </form>
+    </div>
+    <div>
+        <p class="text-center fs-3">Facility List</p>
+    </div>
+    <div>
+        <table class="table table-bordered table-striped">
+            <thead>
+            <tr>
+                <th>No.</th>
+                <th>Name</th>
+                <th>Cost</th>
+                <th>Area</th>
+                <th>Max People</th>
+                <th>Standard Room</th>
+                <th>Description</th>
+                <th>Pool Area</th>
+                <th>Number Of Floor</th>
+                <th>Facility Free</th>
+                <th>Rent Type</th>
+                <th>Facility Type</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="facility,status:${facilityPage}">
+                <th th:text="${status.count} + ${facilityPage.number} * ${facilityPage.size}"></th>
+                <td th:text="${facility.name}"></td>
+                <td th:text="${facility.area}"></td>
+                <td th:text="${facility.cost}"></td>
+                <td th:text="${facility.maxPeople}"></td>
+                <td th:text="${facility.standardRoom}"></td>
+                <td th:text="${facility.description}"></td>
+                <td th:text="${facility.poolArea}"></td>
+                <td th:text="${facility.numberOfFloor}"></td>
+                <td th:text="${facility.facilityFree}"></td>
+                <td th:text="${facility.rentType.name}"></td>
+                <td th:text="${facility.facilityType.name}"></td>
+                <td class="d-flex justify-content-around">
+                    <button th:attr="onclick=|removeFacility('${facility.id}','${facility.name}')|"
+                            class="btn btn-outline-info save"
+                            data-bs-toggle="modal" data-bs-target="#deleteModal"><i class="fas fa-trash-alt"></i>
+                    </button>
+                    <button th:attr="onclick=|editFacility('${facility.id}','${facility.name}','${facility.area}','${facility.cost}',
+                    '${facility.maxPeople}','${facility.standardRoom}','${facility.description}','${facility.poolArea}',
+                    '${facility.numberOfFloor}','${facility.facilityFree}','${facility.rentType.id}','${facility.facilityType.id}')|"
+                            class="btn btn-outline-info save"
+                            data-bs-toggle="modal" data-bs-target="#editModal">
+                        <i class="fas fa-tools"></i>
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="d-flex justify-content-center align-items-center mb-2">
+        <a class="btn btn-outline-primary me-2 save" th:href="@{/facility(page=${facilityPage.number - 1})}"
+           th:if="${facilityPage.hasPrevious()}"><i class="fas fa-arrow-left"></i></a>
+        <a class="btn btn-outline-primary me-2 disabled" th:unless="${facilityPage.hasPrevious()}"><i
+                class="fas fa-arrow-left"></i></a>
+        <span th:text="${facilityPage.number + 1}"></span>/<span th:text="${facilityPage.totalPages}"></span>
+        <a class="btn btn-outline-primary ms-2 disabled" th:unless="${facilityPage.hasNext()}"><i
+                class="fas fa-arrow-right"></i></a>
+        <a class="btn btn-outline-primary ms-2 save" th:href="@{/facility(page=${facilityPage.number + 1})}"
+           th:if="${facilityPage.hasNext()}"><i class="fas fa-arrow-right"></i></a>
+    </div>
+</main>
 
-        </div>
-        <div>
-            <p></p>
-        </div>
-        <div>
-            <table>
+<footer th:insert="~{index::footer}"></footer>
 
-            </table>
+<!-- Modal Delete-->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteModalLabel">Delete Facility</h5>
+            </div>
+            <div class="modal-body">
+                <form th:action="@{/facility/delete}" id="deleteForm" method="post">
+                    <input type="text" id="idDelete" name="idDelete" hidden>
+                    <span>Do you want delete </span><span class="text-danger" id="nameDelete"></span>?
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary btn-md" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary btn-md save" form="deleteForm">Delete</button>
+            </div>
         </div>
     </div>
 </div>
 
-<footer th:insert="~{index::footer}"></footer>
+<!--Modal Edit-->
+<!--<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">-->
+<!--    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">-->
+<!--        <div class="modal-content">-->
+<!--            <div class="modal-header">-->
+<!--                <h5 class="modal-title" id="editModalLabel">Edit FACILITY</h5>-->
+<!--            </div>-->
+<!--            <div class="modal-body">-->
+<!--                <form method="post" th:object="${editFacilityDto}" th:action="@{/facility/edit}" id="formEdit">-->
+<!--                    <div class="row">-->
+<!--                        <div class="d-flex justify-content-around">-->
+<!--                            <button id="villaEdit" type="button" class="btn btn-outline-primary tbn-md save">-->
+<!--                                VILLA-->
+<!--                            </button>-->
+<!--                            <button id="houseEdit" type="button" class="btn btn-outline-danger btn-md save">-->
+<!--                                HOUSE-->
+<!--                            </button>-->
+<!--                            <button id="roomEdit" type="button" class="btn btn-outline-success btn-md save">-->
+<!--                                ROOM-->
+<!--                            </button>-->
+<!--                            <input type="text" id="facilityTypeEdit" th:field="*{facilityType}" hidden>-->
+<!--                        </div>-->
+<!--                        <input id="idEdit" class="form-control" th:field="*{id}" hidden>-->
+<!--                        <div class="mb-3">-->
+<!--                            <label class="form-label">Name</label>-->
+<!--                            <input id="nameEdit" type="text" class="form-control" th:field="*{name}">-->
+<!--                            <label class="text-danger" th:if="${#fields.hasErrors('name')}"-->
+<!--                                   th:errors="*{name}">Name Error</label>-->
+<!--                        </div>-->
+<!--                        <div class="mb-3">-->
+<!--                            <label class="form-label">Area</label>-->
+<!--                            <input id="areaEdit" type="number" class="form-control" th:field="*{area}">-->
+<!--                            <label class="text-danger" th:if="${#fields.hasErrors('area')}"-->
+<!--                                   th:errors="*{area}"></label>-->
+<!--                        </div>-->
+<!--                        <div class="mb-3">-->
+<!--                            <label class="form-label">Cost</label><br>-->
+<!--                            <input id="costEdit" type="number" class="form-control" th:field="*{cost}">-->
+<!--                            <label class="text-danger" th:if="${#fields.hasErrors('cost')}"-->
+<!--                                   th:errors="*{cost}"></label>-->
+<!--                        </div>-->
+<!--                        <div class="mb-3">-->
+<!--                            <label class="form-label">Max People</label>-->
+<!--                            <input id="maxPeopleEdit" type="number" class="form-control" th:field="*{maxPeople}">-->
+<!--                            <label class="text-danger" th:if="${#fields.hasErrors('maxPeople')}"-->
+<!--                                   th:errors="*{maxPeople}"></label>-->
+<!--                        </div>-->
+<!--                        <div class="mb-3">-->
+<!--                            <label class="form-label">Standard Room</label>-->
+<!--                            <input id="standardRoomEdit" type="text" class="form-control" th:field="*{standardRoom}">-->
+<!--                            <label class="text-danger" th:if="${#fields.hasErrors('standardRoom')}"-->
+<!--                                   th:errors="*{standardRoom}"></label>-->
+<!--                        </div>-->
+<!--                        <div class="mb-3">-->
+<!--                            <label class="form-label">Description</label>-->
+<!--                            <input id="descriptionEdit" type="text" class="form-control" th:field="*{description}">-->
+<!--                            <label class="text-danger" th:if="${#fields.hasErrors('description')}"-->
+<!--                                   th:errors="*{description}"></label>-->
+<!--                        </div>-->
+<!--                        <div id="poolAreaEdit" class="mb-3">-->
+<!--                            <label class="form-label">Pool Area</label>-->
+<!--                            <input id="pooEdit" type="number" class="form-control" th:field="*{poolArea}">-->
+<!--                        </div>-->
+<!--                        <div id="numberOfFloorEdit" class="mb-3">-->
+<!--                            <label class="form-label">Number Of Floor</label>-->
+<!--                            <input id="numEdit" type="number" class="form-control" th:field="*{numberOfFloor}">-->
+<!--                        </div>-->
+<!--                        <div id="facilityFreeEdit" class="mb-3">-->
+<!--                            <label class="form-label">Facility Free</label>-->
+<!--                            <input id="facEdit" type="text" class="form-control" th:field="*{facilityFree}">-->
+<!--                        </div>-->
+<!--                        <div class="mb-3">-->
+<!--                            <label class="form-label">Rent Type </label><br>-->
+<!--                            <select id="rentTypeEdit" class="form-select" th:field="*{rentType}">-->
+<!--                                <option th:each="rentType:${rentTypeList}"-->
+<!--                                        th:value="${rentType.id}" th:text="${rentType.name}"></option>-->
+<!--                            </select>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </form>-->
+<!--            </div>-->
+<!--            <div class="modal-footer">-->
+<!--                <button type="button" class="btn btn-secondary btn-md" data-bs-dismiss="modal">Close</button>-->
+<!--                <button type="submit" class="btn btn-primary btn-md save" form="formEdit">Save-->
+<!--                </button>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+<!--Modal Add-->
+<div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addModalLabel">ADD FACILITY</h5>
+            </div>
+            <div class="modal-body">
+                <form method="post" th:object="${newFacilityDto}" th:action="@{/facility/add}" id="formAdd">
+                    <div class="row">
+                        <div class="d-flex justify-content-around">
+                            <button id="villa" type="button" class="btn btn-outline-primary tbn-md save">
+                                VILLA
+                            </button>
+                            <button id="house" type="button" class="btn btn-outline-danger btn-md save">
+                                HOUSE
+                            </button>
+                            <button id="room" type="button" class="btn btn-outline-success btn-md save">
+                                ROOM
+                            </button>
+                            <input type="text" id="facilityType" th:field="*{facilityType}" hidden>
+                        </div>
+                        <input class="form-control" th:field="*{id}" hidden>
+                        <div class="mb-3">
+                            <label class="form-label">Name</label>
+                            <input type="text" class="form-control" th:field="*{name}">
+                            <label class="text-danger" th:if="${#fields.hasErrors('name')}"
+                                   th:errors="*{name}">Name Error</label>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Area</label>
+                            <input type="number" class="form-control" th:field="*{area}">
+                            <label class="text-danger" th:if="${#fields.hasErrors('area')}"
+                                   th:errors="*{area}"></label>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Cost</label><br>
+                            <input type="number" class="form-control" th:field="*{cost}">
+                            <label class="text-danger" th:if="${#fields.hasErrors('cost')}"
+                                   th:errors="*{cost}"></label>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Max People</label>
+                            <input type="number" class="form-control" th:field="*{maxPeople}">
+                            <label class="text-danger" th:if="${#fields.hasErrors('maxPeople')}"
+                                   th:errors="*{maxPeople}"></label>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Standard Room</label>
+                            <input type="text" class="form-control" th:field="*{standardRoom}">
+                            <label class="text-danger" th:if="${#fields.hasErrors('standardRoom')}"
+                                   th:errors="*{standardRoom}"></label>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Description</label>
+                            <input type="text" class="form-control" th:field="*{description}">
+                            <label class="text-danger" th:if="${#fields.hasErrors('description')}"
+                                   th:errors="*{description}"></label>
+                        </div>
+                        <div id="poolArea" class="mb-3">
+                            <label class="form-label">Pool Area</label>
+                            <input type="number" class="form-control" th:field="*{poolArea}">
+                        </div>
+                        <div id="numberOfFloor" class="mb-3">
+                            <label class="form-label">Number Of Floor</label>
+                            <input type="number" class="form-control" th:field="*{numberOfFloor}">
+                        </div>
+                        <div id="facilityFree" class="mb-3">
+                            <label class="form-label">Facility Free</label>
+                            <input type="text" class="form-control" th:field="*{facilityFree}">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Rent Type </label><br>
+                            <select class="form-select" th:field="*{rentType}">
+                                <option th:each="rentType:${rentTypeList}"
+                                        th:value="${rentType.id}" th:text="${rentType.name}"></option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary btn-md" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary btn-md save" form="formAdd">Save
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" th:if="${status}" >
+    $(document).ready(function () {
+        $('#addModal').modal('show');
+    })
+</script>
+<script type="text/javascript" th:if="${statusEdit}">
+    $(document).ready(function () {
+        $('#editModal').modal('show');
+    })
+</script>
+<script>
+    let villa = document.getElementById("villa");
+    let room = document.getElementById("room");
+    let house = document.getElementById("house");
+    villa.onclick = () => {
+        document.getElementById("facilityType").value = 1;
+        document.getElementById("facilityFree").style.display = "none";
+        document.getElementById("poolArea").style.display = "block";
+        document.getElementById("numberOfFloor").style.display = "block";
+    }
+    house.onclick = () => {
+        document.getElementById("facilityType").value = 2;
+        document.getElementById("facilityFree").style.display = "none";
+        document.getElementById("poolArea").style.display = "none";
+        document.getElementById("numberOfFloor").style.display = "block";
+    }
+    room.onclick = () => {
+        document.getElementById("facilityType").value = 3;
+        document.getElementById("facilityFree").style.display = "block";
+        document.getElementById("poolArea").style.display = "none";
+        document.getElementById("numberOfFloor").style.display = "none";
+    }
+
+    function removeFacility(id, name) {
+        document.getElementById("idDelete").value = id;
+        document.getElementById("nameDelete").innerText = name;
+    }
+
+    let idEdit = document.getElementById("idEdit");
+    let nameEdit = document.getElementById("nameEdit");
+    let areaEdit = document.getElementById("areaEdit");
+    let costEdit = document.getElementById("costEdit");
+    let maxPeopleEdit = document.getElementById("maxPeopleEdit");
+    let standardRoomEdit = document.getElementById("standardRoomEdit");
+    let descriptionEdit = document.getElementById("descriptionEdit");
+    let poolAreaEdit = document.getElementById("poolAreaEdit");
+    let pooEdit = document.getElementById("pooEdit");
+    let numberOfFloorEdit = document.getElementById("numberOfFloorEdit");
+    let numEdit = document.getElementById("numEdit");
+    let facilityFreeEdit = document.getElementById("facilityFreeEdit");
+    let facEdit = document.getElementById("facEdit");
+    let rentTypeEdit = document.getElementById("rentTypeEdit");
+    let facilityTypeEdit = document.getElementById("facilityTypeEdit");
+    let villaEdit = document.getElementById("villaEdit");
+    let houseEdit = document.getElementById("houseEdit");
+    let roomEdit = document.getElementById("roomEdit");
+
+    function editFacility(id, name, area, cost, maxPeople, standardRoom, description, poolArea, numberOfFloor, facilityFree, rentTypeId, facilityTypeId) {
+        idEdit.value = id;
+        nameEdit.value = name;
+        areaEdit.value = area;
+        costEdit.value = cost;
+        maxPeopleEdit.value = maxPeople;
+        standardRoomEdit.value = standardRoom;
+        descriptionEdit.value = description;
+        pooEdit.value = poolArea;
+        numEdit.value = numberOfFloor;
+        facEdit.value = facilityFree;
+        rentTypeEdit.value = rentTypeId;
+        facilityTypeEdit.value = facilityTypeId;
+        if (facilityTypeId == 1) {
+            villaEdit.style.display = 'block'
+            houseEdit.style.display = 'none';
+            roomEdit.style.display = 'none';
+            facilityFreeEdit.style.display = 'none';
+
+        }
+        if (facilityTypeId == 2) {
+            villaEdit.style.display = 'none'
+            houseEdit.style.display = 'block';
+            roomEdit.style.display = 'none';
+            facilityFreeEdit.style.display = 'none';
+            poolAreaEdit.style.display = 'none';
+        }
+        if (facilityTypeId == 3) {
+            villaEdit.style.display = 'none'
+            houseEdit.style.display = 'none';
+            roomEdit.style.display = 'block';
+            poolAreaEdit.style.display = 'none';
+            numberOfFloorEdit.style.display = 'none';
+        }
+    }
+</script>
 </body>
 </html>
