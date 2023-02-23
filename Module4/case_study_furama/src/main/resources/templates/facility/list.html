@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <title>Facility List</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
-    <script src="/js/bootstrap.js"></script>
-    <link rel="stylesheet" href="/css/bootstrap.css">
+
     <script src="/jquery-3.6.3.min.js"></script>
     <style>
         button.save,
@@ -34,6 +33,8 @@
             margin-top: auto;
         }
     </style>
+    <script src="/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="/bootstrap.min.css">
 </head>
 <body>
 <header th:insert="~{index::header}"></header>
@@ -145,6 +146,11 @@
 
 <!--Modal Edit-->
 <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+    <script type="text/javascript" th:if="${statusEdit}">
+        $(document).ready(function () {
+            $('#editModal').modal('show');
+        })
+    </script>
     <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
