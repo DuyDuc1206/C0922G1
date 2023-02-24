@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Form Edit Employee</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+    <script src="/jquery-3.6.3.min.js"></script>
+    <link rel="stylesheet" href="/bootstrap.min.css">
+    <script src="/bootstrap.bundle.min.js"></script>
+    <style>
+        a.nav-link,
+        a.navbar-brand {
+            color: #E18665
+        }
+
+        .navbar {
+            background-color: #046056;
+        }
+    </style>
+</head>
+<body>
+<header th:insert="~{index::header}"></header>
+<main>
+    <p class="text-center fs-3 fw-bold">Edit Form Employee</p>
+    <div class="col-md-4 offset-md-4">
+        <div class="card">
+            <div class="card-body">
+                <form th:action="@{/employee/save}" method="post" th:object="${employeeDto}">
+                    <div class="row">
+                        <div class="mb-3">
+                            <input class="form-control" th:field="*{id}" hidden>
+                            <div class="mb-3">
+                                <label class="form-label">Name</label>
+                                <input type="text" class="form-control" th:field="*{name}">
+                                <label class="text-danger" th:if="${#fields.hasErrors('name')}"
+                                       th:errors="*{name}">Name Error</label>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Date Of Birth</label>
+                                <input type="date" class="form-control" th:field="*{dateOfBirth}">
+                                <label class="text-danger" th:if="${#fields.hasErrors('dateOfBirth')}"
+                                       th:errors="*{dateOfBirth}"></label>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Id Card</label><br>
+                                <input type="number" class="form-control" th:field="*{idCard}">
+                                <label class="text-danger" th:if="${#fields.hasErrors('idCard')}"
+                                       th:errors="*{idCard}"></label>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Salary</label>
+                                <input type="number" class="form-control" th:field="*{salary}">
+                                <label class="text-danger" th:if="${#fields.hasErrors('salary')}"
+                                       th:errors="*{salary}"></label>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Phone number</label>
+                                <input type="number" class="form-control" th:field="*{phoneNumber}">
+                                <label class="text-danger" th:if="${#fields.hasErrors('phoneNumber')}"
+                                       th:errors="*{phoneNumber}"></label>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Email</label>
+                                <input type="text" class="form-control" th:field="*{email}">
+                                <label class="text-danger" th:if="${#fields.hasErrors('email')}"
+                                       th:errors="*{email}"></label>
+                            </div>
+                            <div id="poolArea" class="mb-3">
+                                <label class="form-label">Address</label>
+                                <input type="text" class="form-control" th:field="*{address}">
+                                <label class="text-danger" th:if="${#fields.hasErrors('address')}" th:errors="*{address}"></label>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Position </label><br>
+                                <select class="form-select" th:field="*{position}">
+                                    <option th:each="position:${positionList}"
+                                            th:value="${position.id}" th:text="${position.name}"></option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Education Degree </label><br>
+                                <select class="form-select" th:field="*{educationDegree}">
+                                    <option th:each="degree:${educationDegreeList}"
+                                            th:value="${degree.id}" th:text="${degree.name}"></option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Division </label><br>
+                                <select class="form-select" th:field="*{division}">
+                                    <option th:each="division:${divisionList}"
+                                            th:value="${division.id}" th:text="${division.name}"></option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-primary btn-md" id="cancel">Cancel</button>
+                    <button type="submit" class="btn btn-primary btn-md save">Save</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer th:insert="~{index::footer}"></footer>
+
+<script>
+    let cancel = document.getElementById("cancel");
+    cancel.addEventListener("click", () =>{
+        window.history.back();
+    })
+</script>
+</body>
+</html>

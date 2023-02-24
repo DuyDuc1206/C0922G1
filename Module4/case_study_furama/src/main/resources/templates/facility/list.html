@@ -4,9 +4,17 @@
     <meta charset="UTF-8">
     <title>Facility List</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
-
     <script src="/jquery-3.6.3.min.js"></script>
+    <script src="/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="/bootstrap.min.css">
     <style>
+        a.nav-link,
+        a.navbar-brand{
+            color: #E18665
+        }
+        .navbar{
+            background-color: #046056;
+        }
         button.save,
         a.save {
             background-color: #046056;
@@ -33,8 +41,6 @@
             margin-top: auto;
         }
     </style>
-    <script src="/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="/bootstrap.min.css">
 </head>
 <body>
 <header th:insert="~{index::header}"></header>
@@ -109,12 +115,12 @@
         </table>
     </div>
     <div class="d-flex justify-content-center align-items-center mb-2">
-        <a class="btn btn-outline-primary me-2 save" th:href="@{/facility(page=${facilityPage.number - 1})}"
+        <a class="btn btn-outline-primary me-2 save" th:href="@{/facility(page=${facilityPage.number - 1},name=${searchName},facilityTypeId=${facilityTypeId})}"
            th:if="${facilityPage.hasPrevious()}"><i class="fas fa-arrow-left"></i></a>
         <a class="btn btn-outline-primary me-2 disabled" th:unless="${facilityPage.hasPrevious()}"><i
                 class="fas fa-arrow-left"></i></a>
         <span th:text="${facilityPage.number + 1}"></span>/<span th:text="${facilityPage.totalPages}"></span>
-        <a class="btn btn-outline-primary ms-2 save" th:href="@{/facility(page=${facilityPage.number + 1})}"
+        <a class="btn btn-outline-primary ms-2 save" th:href="@{/facility(page=${facilityPage.number + 1},name=${searchName},facilityTypeId=${facilityTypeId})}"
            th:if="${facilityPage.hasNext()}"><i class="fas fa-arrow-right"></i></a>
         <a class="btn btn-outline-primary ms-2 disabled" th:unless="${facilityPage.hasNext()}"><i
                 class="fas fa-arrow-right"></i></a>

@@ -36,7 +36,7 @@ public class CustomerController {
         model.addAttribute("customerPage", customerService.search(name, email, customerId, pageable));
         model.addAttribute("customerTypeList", customerTypeService.findAllCustomerType());
         model.addAttribute("addCustomerDto",new CustomerDto());
-//        model.addAttribute("editCustomerDto",new CustomerDto());
+        model.addAttribute("editCustomerDto",new CustomerDto());
         model.addAttribute("searchName", name);
         model.addAttribute("searchEmail", email);
         return "/customer/list";
@@ -51,8 +51,10 @@ public class CustomerController {
         new CustomerDto().validate(addCustomerDto, bindingResult);
         if (bindingResult.hasErrors()) {
             model.addAttribute("mess",1);
+            model.addAttribute("addCustomerDto",addCustomerDto);
             model.addAttribute("customerPage", customerService.findAll(pageable));
             model.addAttribute("customerTypeList", customerTypeService.findAllCustomerType());
+            model.addAttribute("editCustomerDto",new CustomerDto());
             return "/customer/list";
         }
         Customer customer = new Customer();
@@ -73,23 +75,24 @@ public class CustomerController {
         }
     }
 
-//    @PostMapping("/update")
-//    public String editCustomer(@Validated @ModelAttribute("editCustomerDto") CustomerDto editCustomerDto, BindingResult bindingResult,
-//                               Model model, RedirectAttributes redirect, @PageableDefault(page = 0,size = 5) Pageable pageable) {
-//        new CustomerDto().validate(editCustomerDto, bindingResult);
-//        if (bindingResult.hasErrors()) {
-//            model.addAttribute("editCustomerDto",editCustomerDto);
-//            model.addAttribute("status",2);
-//            model.addAttribute("customerPage", customerService.findAll(pageable));
-//            model.addAttribute("customerTypeList", customerTypeService.findAllCustomerType());
-//            return "/customer/list";
-//        }
-//        Customer customer = new Customer();
-//        BeanUtils.copyProperties(editCustomerDto, customer);
-//        customerService.saveCustomer(customer);
-//        redirect.addFlashAttribute("message", "Edit Successfully!");
-//        return "redirect:/customer";
-//    }
+    @PostMapping("/update")
+    public String editCustomer(@Validated @ModelAttribute("editCustomerDto") CustomerDto editCustomerDto, BindingResult bindingResult,
+                               Model model, RedirectAttributes redirect, @PageableDefault(page = 0,size = 5) Pageable pageable) {
+        new CustomerDto().validate(editCustomerDto, bindingResult);
+        if (bindingResult.hasErrors()) {
+            model.addAttribute("editCustomerDto",editCustomerDto);
+            model.addAttribute("customerPage", customerService.findAll(pageable));
+            model.addAttribute("customerTypeList", customerTypeService.findAllCustomerType());
+            model.addAttribute("mess2",true);
+            model.addAttribute("addCustomer",new CustomerDto());
+            return "/customer/list";
+        }
+        Customer customer = new Customer();
+        BeanUtils.copyProperties(editCustomerDto, customer);
+        customerService.saveCustomer(customer);
+        redirect.addFlashAttribute("message", "Edit Successfully!");
+        return "redirect:/customer";
+    }
 
     @PostMapping("/delete")
     public String deleteCustomer(@ModelAttribute("idDelete") Integer id, RedirectAttributes redirect) {
@@ -98,25 +101,25 @@ public class CustomerController {
         return "redirect:/customer";
     }
 
-    @GetMapping("/edit")
-    public String showFormEdit(Integer id, Model model){
-        CustomerDto customerDto = new CustomerDto();
-        BeanUtils.copyProperties(customerService.findById(id),customerDto);
-        model.addAttribute("customerDto",customerDto);
-        model.addAttribute("customerTypeList",customerTypeService.findAllCustomerType());
-        return "/customer/edit";
-    }
-
-    @PostMapping("update")
-    public String editCustomer(@Validated @ModelAttribute("customerDto") CustomerDto customerDto,BindingResult bindingResult,Model model,RedirectAttributes redirect){
-        new CustomerDto().validate(customerDto,bindingResult);
-        if (bindingResult.hasErrors()){
-            model.addAttribute("customerDto",customerDto);
-            return "customer/edit";
-        }
-        Customer customer = new Customer();
-        BeanUtils.copyProperties(customerDto,customer);
-        customerService.save(customer);
-        return "redirect:/customer";
-    }
+//    @GetMapping("/edit")
+//    public String showFormEdit(Integer id, Model model){
+//        CustomerDto customerDto = new CustomerDto();
+//        BeanUtils.copyProperties(customerService.findById(id),customerDto);
+//        model.addAttribute("customerDto",customerDto);
+//        model.addAttribute("customerTypeList",customerTypeService.findAllCustomerType());
+//        return "/customer/edit";
+//    }
+//
+//    @PostMapping("update")
+//    public String editCustomer(@Validated @ModelAttribute("customerDto") CustomerDto customerDto,BindingResult bindingResult,Model model,RedirectAttributes redirect){
+//        new CustomerDto().validate(customerDto,bindingResult);
+//        if (bindingResult.hasErrors()){
+//            model.addAttribute("customerDto",customerDto);
+//            return "customer/edit";
+//        }
+//        Customer customer = new Customer();
+//        BeanUtils.copyProperties(customerDto,customer);
+//        customerService.save(customer);
+//        return "redirect:/customer";
+//    }
 }

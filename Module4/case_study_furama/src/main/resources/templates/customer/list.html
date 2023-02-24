@@ -8,6 +8,15 @@
     <link rel="stylesheet" href="/bootstrap.min.css">
     <script src="/jquery-3.6.3.min.js"></script>
     <style>
+        a.nav-link,
+        a.navbar-brand {
+            color: #E18665
+        }
+
+        .navbar {
+            background-color: #046056;
+        }
+
         button.save,
         a.save {
             background-color: #046056;
@@ -19,6 +28,7 @@
             color: #046056;
             font-weight: bold;
         }
+
         body {
             min-height: 100vh;
             display: flex;
@@ -28,11 +38,12 @@
         main {
             flex: 1;
         }
+
         footer {
             margin-top: auto;
         }
     </style>
-    </head>
+</head>
 <body>
 <header th:insert="~{index::header}"></header>
 <main class="container-fluid">
@@ -84,8 +95,13 @@
                 <button th:attr="onclick=|removeCustomer('${customer.id}','${customer.name}')|"
                         class="btn btn-outline-info save"
                         data-bs-toggle="modal" data-bs-target="#deleteModal"><i class="fas fa-trash-alt"></i></button>
-                <a class="btn btn-primary save ms-4" th:href="@{/customer/edit(id=${customer.getId()})}"><i
-                        class="fas fa-tools"></i></a>
+                <!--                <a class="btn btn-primary save" th:href="@{/customer/edit(id=${customer.getId()})}"><i-->
+                <!--                        class="fas fa-tools"></i></a>-->
+                <button th:attr="onclick=|editCustomer('${customer.id}','${customer.name}','${customer.dateOfBirth}',
+                '${customer.gender==true?'Man':'Woman'}','${customer.idCard}','${customer.phoneNumber}','${customer.email}',
+                '${customer.address}','${customer.customerType.id}')|"
+                        data-bs-toggle="modal" data-bs-target="#editModal"><i
+                        class="fas fa-tools"></i></button>
             </td>
         </tr>
         </tbody>
@@ -199,98 +215,97 @@
 </div>
 
 <!--modal edit-->
-<!--<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">-->
-<!--    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">-->
-<!--        <div class="modal-content">-->
-<!--            <div class="modal-header">-->
-<!--                <h5 class="modal-title" id="editModalLabel">EDIT CUSTOMER</h5>-->
-<!--            </div>-->
-<!--            <div class="modal-body">-->
-<!--                <form th:method="post" th:object="${editCustomerDto}" th:action="@{/customer/update}" id="formEdit">-->
-<!--                    <div class="row">-->
-<!--                        <input id="cusId" class="form-control" th:field="*{id}" hidden>-->
-<!--                        <div class="mb-3">-->
-<!--                            <label class="form-label">Name</label>-->
-<!--                            <input id="cusName" type="text" class="form-control" th:field="*{name}">-->
-<!--                            <label class="text-danger" th:if="${#fields.hasErrors('name')&&status==2}"-->
-<!--                                   th:errors="*{name}">Name-->
-<!--                                Error</label>-->
-<!--                        </div>-->
-<!--                        <div class="mb-3">-->
-<!--                            <label class="form-label">Date Of Birth</label>-->
-<!--                            <input id="cusDOB" type="date" class="form-control" th:field="*{dateOfBirth}">-->
-<!--                            <label class="text-danger"-->
-<!--                                   th:if="${#fields.hasErrors('dateOfBirth')&&status==2}"-->
-<!--                                   th:errors="*{dateOfBirth}"></label>-->
-<!--                        </div>-->
-<!--                        <div class="mb-3">-->
-<!--                            <label class="form-label">Gender</label><br>-->
-<!--                            <select id="cusGender" class="form-select" th:field="*{gender}">-->
-<!--                                <option th:value="true">Man</option>-->
-<!--                                <option th:value="false">Woman</option>-->
-<!--                            </select>-->
-<!--                        </div>-->
-<!--                        <div class="mb-3">-->
-<!--                            <label class="form-label">ID Card</label>-->
-<!--                            <input id="cusIdCard" type="text" class="form-control" th:field="*{idCard}">-->
-<!--                            <label class="text-danger"-->
-<!--                                   th:if="${#fields.hasErrors('idCard')&&status==2}"-->
-<!--                                   th:errors="*{idCard}"></label>-->
-<!--                        </div>-->
-<!--                        <div class="mb-3">-->
-<!--                            <label class="form-label">Phone Number</label>-->
-<!--                            <input id="cusPhoneNumber" type="text" class="form-control" th:field="*{phoneNumber}">-->
-<!--                            <label class="text-danger"-->
-<!--                                   th:if="${#fields.hasErrors('phoneNumber')&&status==2}"-->
-<!--                                   th:errors="*{phoneNumber}"></label>-->
-<!--                        </div>-->
-<!--                        <div class="mb-3">-->
-<!--                            <label class="form-label">Address</label>-->
-<!--                            <input id="cusAddress" type="text" class="form-control" th:field="*{address}">-->
-<!--                            <label class="text-danger"-->
-<!--                                   th:if="${#fields.hasErrors('address')&&status==2}"-->
-<!--                                   th:errors="*{address}"></label>-->
-<!--                        </div>-->
-<!--                        <div class="mb-3">-->
-<!--                            <label class="form-label">Email</label>-->
-<!--                            <input id="cusEmail" type="text" class="form-control" th:field="*{email}">-->
-<!--                            <label class="text-danger"-->
-<!--                                   th:if="${#fields.hasErrors('email')&&status==2}"-->
-<!--                                   th:errors="*{email}"></label>-->
-<!--                        </div>-->
-<!--                        <div class="mb-3">-->
-<!--                            <label class="form-label">Customer Type </label><br>-->
-<!--                            <select id="cusTypeId" class="form-select" th:field="*{customerType}">-->
-<!--                                <option th:each="customerType:${customerTypeList}"-->
-<!--                                        th:value="${customerType.id}"-->
-<!--                                        th:text="${customerType.name}"></option>-->
-<!--                            </select>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </form>-->
-<!--            </div>-->
-<!--            <div class="modal-footer">-->
-<!--                <button type="button" class="btn btn-secondary btn-md" data-bs-dismiss="modal">Close</button>-->
-<!--                <button type="submit" class="btn btn-primary btn-md save" form="formEdit">Save-->
-<!--                </button>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editModalLabel">EDIT CUSTOMER</h5>
+            </div>
+            <div class="modal-body">
+                <form th:method="post" th:object="${editCustomerDto}" th:action="@{/customer/update}" id="formEdit">
+                    <div class="row">
+                        <input id="cusId" class="form-control" th:field="*{id}" hidden>
+                        <div class="mb-3">
+                            <label class="form-label">Name</label>
+                            <input id="cusName" type="text" class="form-control" th:field="*{name}">
+                            <label class="text-danger" th:if="${#fields.hasErrors('name')}"
+                                   th:errors="*{name}">Name
+                                Error</label>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Date Of Birth</label>
+                            <input id="cusDOB" type="date" class="form-control" th:field="*{dateOfBirth}">
+                            <label class="text-danger"
+                                   th:if="${#fields.hasErrors('dateOfBirth')}"
+                                   th:errors="*{dateOfBirth}"></label>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Gender</label><br>
+                            <select id="cusGender" class="form-select" th:field="*{gender}">
+                                <option th:value="true">Man</option>
+                                <option th:value="false">Woman</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">ID Card</label>
+                            <input id="cusIdCard" type="text" class="form-control" th:field="*{idCard}">
+                            <label class="text-danger"
+                                   th:if="${#fields.hasErrors('idCard')}"
+                                   th:errors="*{idCard}"></label>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Phone Number</label>
+                            <input id="cusPhoneNumber" type="text" class="form-control" th:field="*{phoneNumber}">
+                            <label class="text-danger"
+                                   th:if="${#fields.hasErrors('phoneNumber')}"
+                                   th:errors="*{phoneNumber}"></label>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Address</label>
+                            <input id="cusAddress" type="text" class="form-control" th:field="*{address}">
+                            <label class="text-danger"
+                                   th:if="${#fields.hasErrors('address')}"
+                                   th:errors="*{address}"></label>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Email</label>
+                            <input id="cusEmail" type="text" class="form-control" th:field="*{email}">
+                            <label class="text-danger"
+                                   th:if="${#fields.hasErrors('email')}"
+                                   th:errors="*{email}"></label>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Customer Type </label><br>
+                            <select id="cusTypeId" class="form-select" th:field="*{customerType}">
+                                <option th:each="customerType:${customerTypeList}"
+                                        th:value="${customerType.id}"
+                                        th:text="${customerType.name}"></option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary btn-md" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary btn-md save" form="formEdit">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 <input type="text" id="mess" th:value="${mess}" hidden>
-<!--<input type="text" id="status" th:value="${status}" hidden>-->
 <script>
     $(document).ready(function () {
         if ($('#mess').val() == 1) {
             $('#addModal').modal('show');
         }
-        // if ($('#status').val() == 2) {
-        //     $('#editModal').modal('show');
-        // }
     })
 </script>
-
+<script type="text/javascript" th:if="${mess2}">
+    $(document).ready(function (){
+        $('#editModal').modal('show');
+    })
+</script>
 <script>
     $('#message').delay(3000).fadeOut();
 

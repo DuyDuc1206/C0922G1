@@ -41,6 +41,7 @@ public class FacilityController {
         model.addAttribute("searchName", name);
         model.addAttribute("newFacilityDto", new FacilityDto());
         model.addAttribute("editFacilityDto", new FacilityDto());
+        model.addAttribute("facilityTypeId",facilityTypeId);
         return "/facility/list";
     }
 

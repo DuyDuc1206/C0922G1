@@ -1,6 +1,6 @@
 package com.example.case_study_furama.service.contract.impl;
 
-import com.example.case_study_furama.dto.ContractDto;
+import com.example.case_study_furama.dto.IContractDto;
 import com.example.case_study_furama.model.contract.Contract;
 import com.example.case_study_furama.repository.contract.IContractRepository;
 import com.example.case_study_furama.service.contract.IContractService;
@@ -19,8 +19,13 @@ public class ContractService implements IContractService {
     }
 
     @Override
-    public Page<ContractDto> findTotal(Pageable pageable) {
+    public Page<IContractDto> findTotal(Pageable pageable) {
         return contractRepository.getTotal(pageable);
+    }
+
+    @Override
+    public void saveContract(Contract contract) {
+        contractRepository.save(contract);
     }
 
 }
