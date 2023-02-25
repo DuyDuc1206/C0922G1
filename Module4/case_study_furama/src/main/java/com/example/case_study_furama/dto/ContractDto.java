@@ -1,15 +1,12 @@
 package com.example.case_study_furama.dto;
 
-import com.example.case_study_furama.model.contract.ContractDetail;
 import com.example.case_study_furama.model.customer.Customer;
 import com.example.case_study_furama.model.employee.Employee;
 import com.example.case_study_furama.model.facility.Facility;
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
 import javax.persistence.*;
-import java.util.Set;
 
 public class ContractDto implements Validator {
 
@@ -35,7 +32,7 @@ public class ContractDto implements Validator {
     public ContractDto() {
     }
 
-    public ContractDto(Integer id, String startDate, String endDate, Double deposit, Employee employee, Customer customer, Facility facilityt) {
+    public ContractDto(Integer id, String startDate, String endDate, Double deposit, Employee employee, Customer customer, Facility facility) {
         this.id = id;
         this.startDate = startDate;
         this.endDate = endDate;

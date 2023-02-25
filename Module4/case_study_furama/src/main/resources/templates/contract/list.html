@@ -231,44 +231,53 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form th:action="@{/contract/save}" id="addContractForm" method="post" th:object="${contract}">
+                <form th:action="@{/contract/save}" id="addContractForm" method="post" th:object="${contractDto}">
                     <div class="row">
+                        <input type="text" th:field="*{id}" hidden>
                         <div class="mb-3">
                             <label class="form-label">Start Date</label>
-                            <input type="date" class="form-control" id="startDate" th:field="*{startDate}">
+                            <input type="date" class="form-control" th:field="*{startDate}">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">End Date</label>
-                            <input type="date" class="form-control" id="endDate" th:field="*{endDate}">
+                            <input type="date" class="form-control" th:field="*{endDate}">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Deposit</label>
-                            <input type="number" class="form-control" id="deposit" th:field="*{deposit}" >
+                            <input type="number" class="form-control" th:field="*{deposit}">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Total</label>
-                            <input type="text" class="form-control" disabled id="total">
+                            <input type="text" class="form-control" disabled >
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Customer</label>
-                            <select class="form-select" id="customerId">
-                                <option th:value=""></option>
+                            <select class="form-select" th:field="*{customer}">
+<!--                                <option th:value="${''}">Search Customer</option>-->
                                 <option th:each="cus:${customerList}" th:value="${cus.id}" th:text="${cus.name}"></option>
                             </select>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Facility</label>
-                            <select class="form-select" id="facilityId">
-                                <option th:value=""></option>
-                                <option th:each="facility:${facilityList}" th:value="${facility.id}" th:text="${facility.name}"></option>
+                            <label class="form-label">Customer</label>
+                            <select class="form-select" th:field="*{employee}">
+<!--                                <option th:value="${''}">Search Employee</option>-->
+                                <option th:each="emp:${employeeList}" th:value="${emp.id}" th:text="${emp.name}"></option>
                             </select>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Attach Facility</label>
-                            <button class="btn btn-primary" id="addAttachFacilityInContract" data-bs-toggle="modal"
-                                    data-bs-target="#addAttachModal">+
-                            </button>
+                            <label class="form-label">Facility</label>
+                            <select class="form-select" th:field="*{facility}">
+<!--                                <option th:value="${''}">Search facility</option>-->
+                                <option th:each="fac:${facilityList}" th:value="${fac.id}" th:text="${fac.name}"></option>
+                            </select>
                         </div>
+<!--                        <div class="mb-3">-->
+<!--                            <label class="form-label">Attach Facility</label>-->
+<!--                            <button type="button" class="btn btn-primary" id="addAttachFacilityInContract" data-bs-toggle="modal"-->
+<!--                                    data-bs-target="#addAttachModal">+-->
+<!--                            </button>-->
+<!--                        </div>-->
+
                     </div>
                 </form>
             </div>
@@ -279,7 +288,6 @@
         </div>
     </div>
 </div>
-
 
 <!-- Modal Add Attach Facility in Contract-->
 <div class="modal fade" id="addAttachModal" tabindex="-1" aria-labelledby="label" aria-hidden="true">
@@ -303,7 +311,6 @@
                         <input id="quantityId" type="number" class="form-control">
                     </div>
                 </div>
-                </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary btn-md" data-bs-dismiss="modal">Cancel</button>
@@ -396,12 +403,12 @@
             }
         })
     }
-</script>
-<script>
+
+    // Add attachFacility
     function addAttachFacility(idContract) {
         document.getElementById("contractId").value = idContract;
     }
-
 </script>
+
 </body>
 </html>
