@@ -9,7 +9,6 @@ import com.example.case_study_furama.service.contract.IContractService;
 import com.example.case_study_furama.service.customer.ICustomerService;
 import com.example.case_study_furama.service.employee.IEmployeeService;
 import com.example.case_study_furama.service.facility.IFacilityService;
-import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
@@ -20,7 +19,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class ContactController {
@@ -64,7 +62,7 @@ public class ContactController {
     @PostMapping("/save")
     public String saveContract(@ModelAttribute("contractDto") ContractDto contractDto) {
         Contract contract = new Contract();
-        BeanUtils.copyProperties(contractDto,contract);
+        BeanUtils.copyProperties(contractDto, contract);
         contractService.saveContract(contract);
         return "redirect:/contract";
     }
