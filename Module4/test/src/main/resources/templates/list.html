@@ -6,8 +6,159 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
     <link rel="stylesheet" href="/bootstrap.min.css">
     <script src="/bootstrap.bundle.min.js"></script>
+    <script src="/jquery-3.6.3.min.js"></script>
 </head>
 <body>
-<div th:insert="~{index::navbar}"></div>
+<header th:insert="~{index::navbar}"></header>
+<p th:text="${messages}" class="text-center text-danger"></p>
+<main>
+    <div class="container d-flex justify-content-between">
+        <button class="btn btn-danger"
+                data-bs-toggle="modal" data-bs-target="#addQuestion">ADD QUESTION
+        </button>
+        <form th:action="@{/question}" method="get" class="d-flex">
+            <input class="form-control" type="text" name="name" th:value="${name}">
+            <select class="form-select" name="questionType">
+                <option value="">Search Type</option>
+                <option th:each="stt:${statusList}" th:value="${stt.id}" th:text="${stt.name}"></option>
+            </select>
+            <button class="btn btn-outline-primary" type="submit">Search</button>
+        </form>
+    </div>
+    <table class="table table-striped table-bordered">
+        <thead>
+        <tr>
+            <th>No.</th>
+            <th>Tittle</th>
+            <th>Content</th>
+            <th>Answer</th>
+            <th>Date Create</th>
+            <th>Question Type</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="question,stt:${questionContentPage}">
+            <th th:text="${stt.count} + ${questionContentPage.number} * ${questionContentPage.size}"></th>
+            <td th:text="${question.tittle}"></td>
+            <td th:text="${question.content}"></td>
+            <td th:text="${question.answer}"></td>
+            <td th:text="${question.dateCreate}"></td>
+            <td th:text="${question.questionType.name}"></td>
+            <td th:text="${question.status.name}"></td>
+            <td>
+                <button th:attr="onclick=|remove('${question.id}','${question.tittle}')|" class="btn btn-danger"
+                        data-bs-toggle="modal" data-bs-target="#removeQuestion">
+                    Delete
+                </button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <div>
+        <a th:href="@{/question(page=${questionContentPage.number - 1},name=${name},questionType=${questionTypeId})}"
+           th:if="${questionContentPage.hasPrevious()}">Previous</a>
+        <span th:text="${questionContentPage.number + 1}"></span>/<span
+            th:text="${questionContentPage.totalPages}"></span>
+        <a th:href="@{/question(page=${questionContentPage.number + 1},name=${name},questionType=${questionTypeId})}"
+           th:if="${questionContentPage.hasNext()}">Next</a>
+    </div>
+</main>
+
+<!-- Modal Delete-->
+<div class="modal fade" id="removeQuestion" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteModalLabel">Delete Question</h5>
+            </div>
+            <div class="modal-body">
+                <form th:action="@{/question/delete}" id="deleteForm" method="post">
+                    <input type="text" id="idDelete" name="idDelete" hidden>
+                    <span>Do you want delete </span><span class="text-danger" id="nameDelete"></span>?
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary btn-md" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary btn-md save" form="deleteForm">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="addQuestion" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addModalLabel">ADD Question</h5>
+            </div>
+            <div class="modal-body">
+                <form method="post" th:object="${questionContentDto}" th:action="@{/question/create}" id="formAdd">
+                    <div class="row">
+                        <input class="form-control" th:field="*{id}" hidden>
+                        <div class="mb-3">
+                            <label class="form-label">Tittle</label>
+                            <input type="text" class="form-control" th:field="*{tittle}">
+                            <label class="text-danger" th:if="${#fields.hasErrors('tittle')}"
+                                   th:errors="*{tittle}"></label>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Content</label>
+                            <input type="text" class="form-control" th:field="*{content}">
+                            <label class="text-danger" th:if="${#fields.hasErrors('content')}"
+                                   th:errors="*{content}"></label>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Answer</label><br>
+                            <input type="text" class="form-control" th:field="*{answer}">
+                            <label class="text-danger" th:if="${#fields.hasErrors('answer')}"
+                                   th:errors="*{answer}"></label>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Date create</label>
+                            <input type="date" class="form-control" th:field="*{dateCreate}">
+                            <label class="text-danger" th:if="${#fields.hasErrors('dateCreate')}"
+                                   th:errors="*{dateCreate}"></label>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Question Type</label>
+                            <select class="form-select" th:field="*{questionType}">
+                                <option th:each="type:${questionTypeList}" th:value="${type.id}" th:text="${type.name}"></option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Status</label>
+                            <select class="form-select" th:field="*{status}">
+                                <option th:each="type:${statusList}" th:value="${type.id}" th:text="${type.name}"></option>
+                            </select>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary btn-md" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary btn-md save" form="formAdd">Save
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<input type="text" th:value="${flag}" id="flag">
+<script type="text/javascript" >
+    $(document).ready(function (){
+        if ($('#flag').val()==='true') {
+
+            $('#addQuestion').modal('show');
+        }
+    })
+</script>
+<script>
+    function remove(id, name) {
+        document.getElementById("idDelete").value = id;
+        document.getElementById("nameDelete").innerText = name;
+    }
+</script>
 </body>
 </html>

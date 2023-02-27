@@ -6,5 +6,8 @@ import org.springframework.data.domain.Pageable;
 
 public interface IQuestionContentService {
 
-    Page<QuestionContent> findAll(String name, Integer questionTypeId, Pageable pageable);
+    Page<QuestionContent> findAll(String name, String questionTypeId, Pageable pageable);
+    Page<QuestionContent> findQuestion(Pageable pageable);
+    void remove(Integer id);
+    void saveQuestion(QuestionContent questionContent);
 }

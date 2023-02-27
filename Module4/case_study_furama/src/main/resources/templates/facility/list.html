@@ -49,7 +49,7 @@
     <div class="container d-flex justify-content-between mt-2">
         <button class="btn btn-primary save" data-bs-toggle="modal" data-bs-target="#addModal">ADD FACILITY <i
                 class="fas fa-plus-square"></i></button>
-        <form th:action="@{/facility}" method="get">
+        <form th:action="@{/facility}" method="get" >
             <div class="d-flex">
                 <input class="form-control" type="text" name="name" th:value="${searchName}" placeholder="search name">
                 <select class="form-select ms-2" name="facilityTypeId">

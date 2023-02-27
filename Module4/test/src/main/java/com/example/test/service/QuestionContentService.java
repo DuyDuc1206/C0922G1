@@ -12,7 +12,23 @@ public class QuestionContentService implements IQuestionContentService{
     @Autowired
     private IQuestionContentRepository questionContentRepository;
     @Override
-    public Page<QuestionContent> findAll(String name, Integer questionTypeId, Pageable pageable) {
-        return null;
+    public Page<QuestionContent> findAll(String name, String questionTypeId, Pageable pageable) {
+        return questionContentRepository.findAll(name,questionTypeId,pageable);
     }
+
+    @Override
+    public Page<QuestionContent> findQuestion(Pageable pageable) {
+        return questionContentRepository.findAll(pageable);
+    }
+
+    @Override
+    public void remove(Integer id) {
+        questionContentRepository.remove(id);
+    }
+
+    @Override
+    public void saveQuestion(QuestionContent questionContent) {
+        questionContentRepository.save(questionContent);
+    }
+
 }

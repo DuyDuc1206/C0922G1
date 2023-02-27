@@ -1,5 +1,6 @@
 package com.example.case_study_furama.controller;
 
+import com.example.case_study_furama.dto.ContractDetailDto;
 import com.example.case_study_furama.dto.ContractDto;
 import com.example.case_study_furama.model.contract.Contract;
 import com.example.case_study_furama.model.contract.ContractDetail;
@@ -15,6 +16,8 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -44,7 +47,7 @@ public class ContactController {
                            @RequestParam(defaultValue = "5") int size) {
         Pageable pageable = PageRequest.of(page, size);
         model.addAttribute("contractDtoPage", contractService.findTotal(pageable));
-        model.addAttribute("contractDetail", new ContractDetail());
+        model.addAttribute("contractDetailDto", new ContractDetailDto());
         model.addAttribute("contractDto", new ContractDto());
         model.addAttribute("customerList", customerService.findAll(pageable));
         model.addAttribute("facilityList", facilityService.findAll(pageable));
@@ -54,7 +57,24 @@ public class ContactController {
     }
 
     @PostMapping("/attach-facility/add")
-    public String createAttachFacility(@ModelAttribute("contractDetail") ContractDetail contractDetail) {
+    public String createAttachFacility(@Validated @ModelAttribute("contractDetailDto") ContractDetailDto contractDetailDto, BindingResult bindingResult,
+                                       Model model,@RequestParam(defaultValue = "0") int page,
+                                       @RequestParam(defaultValue = "5") int size) {
+        Pageable pageable = PageRequest.of(page, size);
+        new ContractDetailDto().validate(contractDetailDto, bindingResult);
+        if (bindingResult.hasErrors()) {
+            model.addAttribute("contractDtoPage", contractService.findTotal(pageable));
+            model.addAttribute("customerList", customerService.findAll(pageable));
+            model.addAttribute("facilityList", facilityService.findAll(pageable));
+            model.addAttribute("employeeList", employeeService.getAll(pageable));
+            model.addAttribute("attachFacilityList", attachFacilityService.findAttachFacility());
+            model.addAttribute("contractDto", new ContractDto());
+            model.addAttribute("contractDetailDto", contractDetailDto);
+            model.addAttribute("mess","true");
+            return "contract/list";
+        }
+        ContractDetail contractDetail = new ContractDetail();
+        BeanUtils.copyProperties(contractDetailDto, contractDetail);
         contractDetailService.saveContractDetail(contractDetail);
         return "redirect:/contract";
     }

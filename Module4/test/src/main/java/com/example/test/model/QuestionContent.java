@@ -16,7 +16,7 @@ public class QuestionContent {
     private QuestionType questionType;
     @ManyToOne
     private Status status;
-    @Column(columnDefinition = "bit default false")
+    @Column(columnDefinition = "boolean default false")
     private boolean flagDelete;
 
     public QuestionContent() {
@@ -87,4 +87,5 @@ public class QuestionContent {
     public void setStatus(Status status) {
         this.status = status;
     }
+
 }

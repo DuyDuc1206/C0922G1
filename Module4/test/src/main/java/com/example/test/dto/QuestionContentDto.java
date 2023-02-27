@@ -20,11 +20,12 @@ public class QuestionContentDto implements Validator {
     private String dateCreate;
     private QuestionType questionType;
     private Status status;
+    private boolean flagDelete;
 
     public QuestionContentDto() {
     }
 
-    public QuestionContentDto(Integer id, String tittle, String content, String answer, String dateCreate, QuestionType questionType, Status status) {
+    public QuestionContentDto(Integer id, String tittle, String content, String answer, String dateCreate, QuestionType questionType, Status status, boolean flagDelete) {
         this.id = id;
         this.tittle = tittle;
         this.content = content;
@@ -32,6 +33,7 @@ public class QuestionContentDto implements Validator {
         this.dateCreate = dateCreate;
         this.questionType = questionType;
         this.status = status;
+        this.flagDelete = flagDelete;
     }
 
     public Integer getId() {
@@ -88,6 +90,14 @@ public class QuestionContentDto implements Validator {
 
     public void setStatus(Status status) {
         this.status = status;
+    }
+
+    public boolean isFlagDelete() {
+        return flagDelete;
+    }
+
+    public void setFlagDelete(boolean flagDelete) {
+        this.flagDelete = flagDelete;
     }
 
     @Override
