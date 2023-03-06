@@ -10,4 +10,5 @@ public interface IQuestionContentService {
     Page<QuestionContent> findQuestion(Pageable pageable);
     void remove(Integer id);
     void saveQuestion(QuestionContent questionContent);
+    QuestionContent findById(Integer id);
 }

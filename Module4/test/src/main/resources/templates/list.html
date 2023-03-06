@@ -20,7 +20,7 @@
             <input class="form-control" type="text" name="name" th:value="${name}">
             <select class="form-select" name="questionType">
                 <option value="">Search Type</option>
-                <option th:each="stt:${statusList}" th:value="${stt.id}" th:text="${stt.name}"></option>
+                <option th:each="stt:${questionTypeList}" th:value="${stt.id}" th:text="${stt.name}"></option>
             </select>
             <button class="btn btn-outline-primary" type="submit">Search</button>
         </form>
@@ -46,12 +46,13 @@
             <td th:text="${question.answer}"></td>
             <td th:text="${question.dateCreate}"></td>
             <td th:text="${question.questionType.name}"></td>
-            <td th:text="${question.status.name}"></td>
+<!--            <td th:text="${question.statuzz.id}"></td>-->
             <td>
                 <button th:attr="onclick=|remove('${question.id}','${question.tittle}')|" class="btn btn-danger"
                         data-bs-toggle="modal" data-bs-target="#removeQuestion">
                     Delete
                 </button>
+                <a class="btn btn-primary" th:href="@{/question/edit(id=${question.id})}">Edit</a>
             </td>
         </tr>
         </tbody>
@@ -130,7 +131,7 @@
                         <div class="mb-3">
                             <label class="form-label">Status</label>
                             <select class="form-select" th:field="*{status}">
-                                <option th:each="type:${statusList}" th:value="${type.id}" th:text="${type.name}"></option>
+                                <option th:each="stt:${statusList}" th:value="${stt.id}" th:text="${stt.name}"></option>
                             </select>
                         </div>
 
@@ -145,7 +146,7 @@
         </div>
     </div>
 </div>
-<input type="text" th:value="${flag}" id="flag">
+<input type="text" th:value="${flag}" id="flag" hidden>
 <script type="text/javascript" >
     $(document).ready(function (){
         if ($('#flag').val()==='true') {

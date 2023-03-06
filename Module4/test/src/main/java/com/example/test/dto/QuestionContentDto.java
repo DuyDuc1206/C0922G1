@@ -1,7 +1,7 @@
 package com.example.test.dto;
 
 import com.example.test.model.QuestionType;
-import com.example.test.model.Status;
+import com.example.test.model.Statuzz;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
@@ -19,13 +19,13 @@ public class QuestionContentDto implements Validator {
     private String answer;
     private String dateCreate;
     private QuestionType questionType;
-    private Status status;
+    private Statuzz status;
     private boolean flagDelete;
 
     public QuestionContentDto() {
     }
 
-    public QuestionContentDto(Integer id, String tittle, String content, String answer, String dateCreate, QuestionType questionType, Status status, boolean flagDelete) {
+    public QuestionContentDto(Integer id, String tittle, String content, String answer, String dateCreate, QuestionType questionType, Statuzz status, boolean flagDelete) {
         this.id = id;
         this.tittle = tittle;
         this.content = content;
@@ -84,11 +84,11 @@ public class QuestionContentDto implements Validator {
         this.questionType = questionType;
     }
 
-    public Status getStatus() {
+    public Statuzz getStatus() {
         return status;
     }
 
-    public void setStatus(Status status) {
+    public void setStatus(Statuzz status) {
         this.status = status;
     }
 

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+    <link rel="stylesheet" href="/bootstrap.min.css">
+    <script src="/bootstrap.bundle.min.js"></script>
+    <script src="/jquery-3.6.3.min.js"></script>
+</head>
+<body>
+<header th:insert="~{index::navbar}"></header>
+<p class="text-center fs-3 fw-bold">Edit Form Employee</p>
+<div class="col-md-4 offset-md-4">
+    <div class="card">
+        <div class="card-body">
+            <form method="post" th:object="${questionContentDto}" th:action="@{/question/save}" id="formAdd">
+                <div class="row">
+                    <input class="form-control" th:field="*{id}" hidden>
+                    <div class="mb-3">
+                        <label class="form-label">Tittle</label>
+                        <input type="text" class="form-control" th:field="*{tittle}">
+                        <label class="text-danger" th:if="${#fields.hasErrors('tittle')}"
+                               th:errors="*{tittle}"></label>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Content</label>
+                        <input type="text" class="form-control" th:field="*{content}">
+                        <label class="text-danger" th:if="${#fields.hasErrors('content')}"
+                               th:errors="*{content}"></label>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Answer</label><br>
+                        <input type="text" class="form-control" th:field="*{answer}">
+                        <label class="text-danger" th:if="${#fields.hasErrors('answer')}"
+                               th:errors="*{answer}"></label>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Date create</label>
+                        <input type="date" class="form-control" th:field="*{dateCreate}">
+                        <label class="text-danger" th:if="${#fields.hasErrors('dateCreate')}"
+                               th:errors="*{dateCreate}"></label>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Question Type</label>
+                        <select class="form-select" th:field="*{questionType}">
+                            <option th:each="type:${questionTypeList}" th:value="${type.id}"
+                                    th:text="${type.name}"></option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Status</label>
+                        <select class="form-select" th:field="*{status}">
+                            <option th:each="stt:${statusList}" th:value="${stt.id}" th:text="${stt.name}"></option>
+                        </select>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+        <button type="submit" class="btn btn-primary btn-md save" form="formAdd">Save
+        </button>
+    </div>
+</div>
+</body>
+</html>

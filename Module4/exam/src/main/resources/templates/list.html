@@ -6,8 +6,166 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
     <link rel="stylesheet" href="/bootstrap.min.css">
     <script src="/bootstrap.bundle.min.js"></script>
+    <script src="/jquery-3.6.3.min.js"></script>
+    <style>
+        body{
+            background-image: url(/bg1.png);
+            background-size: cover;
+            backdrop-filter: brightness(2);
+            height: 100vh;
+        }
+        a.nav-link {
+            color: yellow;
+        }
+
+        a.nav-link:hover {
+            color: darkorchid;
+        }
+        nav{
+            background-color: #6DBFAF;
+        }
+        h2:hover{
+            color: darkviolet;
+            transition: ease-in-out 0.5s;
+        }
+    </style>
 </head>
 <body>
-<div th:insert="~{index::navbar}"></div>
+<nav th:insert="~{index::navbar}" ></nav>
+<p class="text-center text-danger fw-bold" th:text="${mess}" ></p>
+<h2 class="text-center fw-bold mt-2">Danh sách sản phẩm </h2>
+<p class="text-center text-danger"></p>
+<main class="container mt-2">
+    <div class="container d-flex justify-content-around mb-2">
+        <button class="btn btn-primary"
+                data-bs-toggle="modal" data-bs-target="#addTranh">Thêm Tranh
+        </button>
+        <form method="get" class="d-flex">
+            <input class="form-control me-2" type="text" name="ten"  placeholder="Tìm Tranh" th:value="${ten}">
+            <select class="form-select me-2" name="theLoai" >
+                <option value="">Tim Thể Loại</option>
+                <option th:each="tl:${theLoaiList}" th:value="${tl.id}" th:text="${tl.ten}"></option>
+            </select>
+            <button class="btn btn-outline-primary form-control" type="submit">Tìm Kiếm</button>
+        </form>
+    </div>
+    <table class="table table-striped table-bordered text-center">
+        <thead>
+        <tr>
+            <th>Stt</th>
+            <th>Tên tác phẩm</th>
+            <th>Họa sĩ</th>
+            <th>Năm vẽ</th>
+            <th>Thể Loại</th>
+            <th>Kích thước</th>
+            <th>Chức năng</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="tranh,stt:${tacPhamPage}">
+            <td th:text="${stt.count} + ${tacPhamPage.number} * ${tacPhamPage.size}"></td>
+            <td th:text="${tranh.ten}"></td>
+            <td th:text="${tranh.hoaSi}"></td>
+            <td th:text="${tranh.namVe}"></td>
+            <td th:text="${tranh.theLoai.ten}"></td>
+            <td th:text="${tranh.kichThuoc}"></td>
+            <td class="justify-content-center">
+                <button th:attr="onclick=|removeTranh('${tranh.id}','${tranh.ten}')|" class="btn btn-danger"
+                        data-bs-toggle="modal" data-bs-target="#removeTranh">
+                    Xóa
+                </button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+<!--   Phan trang-->
+    <div class="d-flex justify-content-center align-items-center">
+        <a class="btn me-2" th:href="@{tranh(page=${tacPhamPage.number -1},ten=${ten},theLoai=${theLoai})}" th:if="${tacPhamPage.hasPrevious()}">Quay Lại</a>
+        <span class="text-primary"  th:text="${tacPhamPage.number + 1}"></span>/<span class="text-primary" th:text="${tacPhamPage.totalPages}" ></span>
+        <a class="btn ms-2" th:href="@{tranh(page=${tacPhamPage.number + 1},ten=${ten},theLoai=${theLoai})}" th:if="${tacPhamPage.hasNext()}">Kế Tiếp</a>
+    </div>
+</main>
+
+<!-- Modal Delete-->
+<div class="modal fade" id="removeTranh" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="deleteModalLabel">Xóa tranh</h2>
+            </div>
+            <div class="modal-body">
+                <form  id="deleteForm" method="post" th:action="@{tranh/xoa}">
+                    <input type="text" id="idDelete" name="idDelete" hidden>
+                    <span>Bạn có muốn xóa tranh: </span><span class="text-danger" id="nameDelete"></span>?
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary btn-md" data-bs-dismiss="modal">Không</button>
+                <button type="submit" class="btn btn-primary btn-md save" form="deleteForm">Có</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Modal Add-->
+<div class="modal fade" id="addTranh" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="addModalLabel">Thêm Tranh</h2>
+            </div>
+            <div class="modal-body">
+                <form method="post"  id="formAdd" th:action="@{/tranh/add}" th:object="${tacPhamDto}">
+                    <div class="row">
+                        <input class="form-control"  hidden>
+                        <div class="mb-3">
+                            <label class="form-label">Tên tác phẩm</label>
+                            <input type="text" class="form-control" th:field="*{ten}">
+                            <label class="text-danger" th:if="${#fields.hasErrors('ten')}" th:errors="*{ten}"></label>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Họa sĩ</label>
+                            <input type="text" class="form-control" th:field="*{hoaSi}">
+                            <label class="text-danger" th:if="${#fields.hasErrors('hoaSi')}" th:errors="*{hoaSi}"></label>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Năm vẽ</label>
+                            <input type="text" class="form-control" th:field="*{namVe}">
+                            <label class="text-danger" th:if="${#fields.hasErrors('namVe')}" th:errors="*{namVe}"></label>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Thể Loại</label>
+                            <select class="form-select" th:field="*{theLoai}" >
+                                <option th:each="tl:${theLoaiList}"  th:value="${tl.id}" th:text="${tl.ten}"></option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Kích thước</label>
+                            <input type="text" class="form-control" th:field="*{kichThuoc}">
+                            <label class="text-danger" th:if="${#fields.hasErrors('kichThuoc')}" th:errors="*{kichThuoc}"></label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary btn-md" data-bs-dismiss="modal">Đóng</button>
+                <button type="submit" class="btn btn-primary btn-md save" form="formAdd">Lưu
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<Script type="text/javascript" th:if="${stt}">
+    $(document).ready(function (){
+        $('#addTranh').modal('show');
+    })
+</Script>
+<script>
+    function removeTranh(id,name){
+        document.getElementById("idDelete").value=id;
+        document.getElementById("nameDelete").innerText=name;
+    }
+</script>
 </body>
 </html>

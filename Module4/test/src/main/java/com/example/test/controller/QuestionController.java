@@ -41,7 +41,7 @@ public class QuestionController {
         model.addAttribute("statusList", statusService.findAll());
         model.addAttribute("name", name);
         model.addAttribute("questionTypeId", questionType);
-        model.addAttribute("questionContentDto",new QuestionContentDto());
+        model.addAttribute("questionContentDto", new QuestionContentDto());
         return "list";
     }
 
@@ -60,18 +60,44 @@ public class QuestionController {
                                  @RequestParam(defaultValue = "1") int size) {
         Pageable pageable = PageRequest.of(page, size, Sort.by("tittle").ascending());
         new QuestionContentDto().validate(questionContentDto, bindingResult);
-        if (bindingResult.hasErrors()){
+        if (bindingResult.hasErrors()) {
             model.addAttribute("questionContentPage", questionContentService.findQuestion(pageable));
             model.addAttribute("questionTypeList", questionTypeService.findAll());
             model.addAttribute("statusList", statusService.findAll());
-            model.addAttribute("questionContentDto",questionContentDto);
-            model.addAttribute("flag","true");
+            model.addAttribute("questionContentDto", questionContentDto);
+            model.addAttribute("flag", "true");
             return "list";
+        }
+        QuestionContent questionContent = new QuestionContent();
+        BeanUtils.copyProperties(questionContentDto, questionContent);
+        questionContentService.saveQuestion(questionContent);
+        redirect.addFlashAttribute("messages", "Add Successfully!");
+        return "redirect:/question";
+    }
+
+    @GetMapping("edit")
+    public String showEdit(Integer id, Model model) {
+        QuestionContentDto questionContentDto = new QuestionContentDto();
+        BeanUtils.copyProperties(questionContentService.findById(id), questionContentDto);
+        model.addAttribute("questionContentDto",questionContentDto);
+        model.addAttribute("questionTypeList",questionTypeService.findAll());
+        model.addAttribute("statusList", statusService.findAll());
+        return "edit";
+    }
+    @PostMapping("/save")
+    public String saveQuestion(@Validated @ModelAttribute("questionContentDto") QuestionContentDto questionContentDto,BindingResult bindingResult,Model model,
+                               RedirectAttributes redirect){
+        new QuestionContentDto().validate(questionContentDto,bindingResult);
+        if (bindingResult.hasErrors()){
+            model.addAttribute("questionContentDto",questionContentDto);
+            model.addAttribute("questionTypeList",questionTypeService.findAll());
+            model.addAttribute("statusList", statusService.findAll());
+            return "edit";
         }
         QuestionContent questionContent = new QuestionContent();
         BeanUtils.copyProperties(questionContentDto,questionContent);
         questionContentService.saveQuestion(questionContent);
-        redirect.addFlashAttribute("messages","Add Successfully!");
+        redirect.addFlashAttribute("messages","Edit Successfully!");
         return "redirect:/question";
     }
 }

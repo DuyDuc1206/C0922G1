@@ -15,21 +15,11 @@ public class QuestionContent {
     @ManyToOne
     private QuestionType questionType;
     @ManyToOne
-    private Status status;
+    private Statuzz statuzz;
     @Column(columnDefinition = "boolean default false")
     private boolean flagDelete;
 
     public QuestionContent() {
-    }
-
-    public QuestionContent(Integer id, String tittle, String content, String answer, String dateCreate, QuestionType questionType,Status status) {
-        this.id = id;
-        this.tittle = tittle;
-        this.content = content;
-        this.answer = answer;
-        this.dateCreate = dateCreate;
-        this.questionType = questionType;
-        this.status = status;
     }
 
     public Integer getId() {
@@ -80,12 +70,19 @@ public class QuestionContent {
         this.questionType = questionType;
     }
 
-    public Status getStatus() {
-        return status;
+    public Statuzz getStatuzz() {
+        return statuzz;
     }
 
-    public void setStatus(Status status) {
-        this.status = status;
+    public void setStatuzz(Statuzz status) {
+        this.statuzz = status;
     }
 
+    public boolean isFlagDelete() {
+        return flagDelete;
+    }
+
+    public void setFlagDelete(boolean flagDelete) {
+        this.flagDelete = flagDelete;
+    }
 }

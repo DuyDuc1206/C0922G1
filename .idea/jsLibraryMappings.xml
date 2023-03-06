@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JavaScriptLibraryMappings">
+    <excludedPredefinedLibrary name="CODEGYM/Module5/ss2_typescript/practices/typescript_variable/node_modules" />
+  </component>
+</project>

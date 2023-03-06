@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+    <link rel="stylesheet" href="/bootstrap.min.css">
+    <script src="/bootstrap.bundle.min.js"></script>
+    <script src="/jquery-3.6.3.min.js"></script>
+</head>
+<body>
+<header th:insert="~{index::navbar}"></header>
+<p class="text-center fs -3">Edit Pig</p>
+<div class="col-md-4 offset-md-4">
+    <div class="card">
+        <div class="card-body">
+            <form method="post" th:object="${pigDto}" th:action="@{/pig/save}" id="formAdd">
+                <div class="row">
+                    <input class="form-control" th:field="*{id}" hidden>
+                    <div class="mb-3">
+                        <label class="form-label">Code Pig</label>
+                        <input type="text" class="form-control" th:field="*{codePig}">
+                        <label class="text-danger" th:if="${#fields.hasErrors('codePig')}"
+                               th:errors="*{codePig}"></label>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Date Added</label>
+                        <input type="date" class="form-control" th:field="*{dateAdded}">
+                        <label class="text-danger" th:if="${#fields.hasErrors('dateAdded')}"
+                               th:errors="*{dateAdded}"></label>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Weight Entering</label>
+                        <input type="number" class="form-control" th:field="*{weightEntering}">
+                        <label class="text-danger" th:if="${#fields.hasErrors('weightEntering')}"
+                               th:errors="*{weightEntering}"></label>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Export Date</label>
+                        <input type="date" class="form-control" th:field="*{exportDate}">
+                        <label class="text-danger" th:if="${#fields.hasErrors('exportDate')}"
+                               th:errors="*{exportDate}"></label>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Weight Export</label>
+                        <input type="number" class="form-control" th:field="*{weightExport}">
+                        <label class="text-danger" th:if="${#fields.hasErrors('weightExport')}"
+                               th:errors="*{weightExport}"></label>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Origin</label>
+                        <select class="form-select" th:field="*{origin}">
+                            <option th:each="ori:${originList}" th:value="${ori.id}"
+                                    th:text="${ori.name}"></option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Status</label>
+                        <select class="form-select" th:field="*{status}">
+                            <option th:value="${'Chua Ban'}"
+                                    th:text="${'Chua Ban'}"></option>
+                            <option th:value="${'Da Ban'}"
+                                    th:text="${'Da Ban'}"></option>
+                        </select>
+                    </div>
+
+                </div>
+            </form>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary btn-md save" form="formAdd">Save
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

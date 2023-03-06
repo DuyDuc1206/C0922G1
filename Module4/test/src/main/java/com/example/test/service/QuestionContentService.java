@@ -31,4 +31,10 @@ public class QuestionContentService implements IQuestionContentService{
         questionContentRepository.save(questionContent);
     }
 
+    @Override
+    public QuestionContent findById(Integer id) {
+        return questionContentRepository.findById(id).orElse(null);
+    }
+
+
 }
