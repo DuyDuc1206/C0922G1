@@ -1,0 +1,18 @@
+<div class="col-md-2 offset-md-5" xmlns="http://www.w3.org/1999/html">
+<div class="card">
+  <div class="card-header">Calculator</div>
+  <div class="card-body">
+    <input #firstNumber class="form-label me-2" type="number" id="number1" placeholder="number 1">
+    <input #secondNumber class="form-label" type="number" id="number2" placeholder="number 2">
+    <br>
+    <button class="btn btn-primary me-2" (click)="sum(firstNumber.value,secondNumber.value)">+</button>
+    <button class="btn btn-secondary me-2" (click)="subtraction(firstNumber.value,secondNumber.value)">-</button>
+    <button class="btn btn-danger me-2" (click)="multiplication(firstNumber.value,secondNumber.value)">*</button>
+    <button class="btn btn-warning" (click)="division(firstNumber.value,secondNumber.value)">/</button>
+    <br>
+    <label class="ms-2">=</label>
+    <label>{{result}}</label>
+    <br>
+  </div>
+</div>
+</div>
