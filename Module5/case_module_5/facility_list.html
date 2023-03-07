@@ -25,52 +25,34 @@
             color: white;
         }
 
-        .fs-3,
-        .modal-title {
-            color: #046056;
-            font-weight: bold;
+
+
+        main.container{
+            margin-top:50px;
+            margin-bottom:50px;
         }
 
-        body {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
+        .img-head {
+            background-image: url("https://cdn1.ivivu.com/iVivu/2022/03/03/18/53114-furama-resort-da-nang-11-800x450.jpg");
+            background-repeat: no-repeat;
+            background-position: center center;
+            height: 150px;
         }
-
-        main {
-            flex: 1;
+        .box{
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         }
-
-        footer {
-            margin-top: auto;
+        .card{
+            border-radius: 15px;
+            transition: opacity 0.3s ease-in-out;
+        }
+        .card:hover{
+            opacity: 0.8;
         }
     </style>
 </head>
 <body>
 <header>
-    <div class="row container-fluid " style="height: 130px">
-        <div class="col-lg-3 " style="justify-items: center;align-content: center;display: grid">
-            <img src="https://furamavietnam.com/wp-content/uploads/2018/08/logo.png" alt="furama"
-                 style="justify-content: center">
-        </div>
-        <div class="col-lg-3" style="justify-items: center;align-content: center;display: grid">
-            <a href="https://furamavietnam.com/vi/">
-                <div class="col-lg-3" style="justify-items: center;align-content: center;display: grid">
-                    <img src="https://smartdata.tonytemplates.com/bestel/wp-content/uploads/2018/05/widget-tripadvisor-logo.png"
-                         alt="aaa">
-                    <img src="https://furamavietnam.com/wp-content/uploads/2018/08/widget-tripadvisor-rating.png"
-                         alt="bbb">
-                </div>
-            </a>
-        </div>
-        <div class="col-lg-3" style="align-content: flex-end;display: grid">
-            <p> 103 – 105 Vo Nguyen Giap Street, Khue My Ward, Ngu Hanh Son District, City. Danang</p>
-            <p> 7.0 km from Da Nang airport</p>
-        </div>
-        <div class="col-lg-3"
-             style="justify-items: center;align-content: center;display: grid; vertical-align: middle;align-items: center">
-            <p>84-236-3847 333/888</p>
-        </div>
+    <div class="img-head">
     </div>
     <!--navbar-->
     <nav class="navbar navbar-expand-lg sticky-lg-top p-3">
@@ -95,137 +77,104 @@
         </div>
     </nav>
 </header>
-<main class="container-fluid">
-    <p class="text-danger text-center"></p>
-    <div class="container d-flex justify-content-between mt-2">
-        <button class="btn btn-primary save" data-bs-toggle="modal" data-bs-target="#addModal">ADD FACILITY <i
-                class="fas fa-plus-square"></i></button>
-        <form method="get">
-            <div class="d-flex">
-                <input class="form-control" type="text" placeholder="search name">
-                <select class="form-select ms-2" name="facilityTypeId">
-                    <option value="">Search Type</option>
-                    <option></option>
-                </select>
-                <button class="form-control btn btn-outline-primary ms-2 save">Search</button>
+<main class="container">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col">
+            <div class="box card h-100">
+                <img src="https://furamavietnam.com/wp-content/uploads/2018/03/Vietnam_Danang_Furama_Ocean-Suite-Feature-370x239.jpg"
+                     class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">OCEAN SUITE SUITE</h5>
+                    <div class="d-flex justify-content-between">
+                        <p class="card-text">Room Size: 43.7 m2</p>
+                        <div>
+                            <button class="btn btn-outline-primary"><i class="fas fa-edit"></i></button>
+                            <button class="btn btn-outline-danger"><i class="fas fa-trash-alt"></i></button>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </form>
-    </div>
-    <div>
-        <p class="text-center fs-3">Facility List</p>
-    </div>
-    <div>
-        <table class="table table-bordered table-striped">
-            <thead>
-            <tr>
-                <th scope="col">STT</th>
-                <th scope="col">NAME</th>
-                <th scope="col">AREA</th>
-                <th scope="col">COST</th>
-                <th scope="col">MAX PEOPLE</th>
-                <th scope="col">STANDARD ROOM</th>
-                <th scope="col">DESCRIPTION</th>
-                <th scope="col">POOR AREA</th>
-                <th scope="col">NUMBER OF FLOOR</th>
-                <th scope="col">FACILITY FREE</th>
-                <th scope="col">RENT TYPE NAME</th>
-                <th scope="col">FACILITY TYPE NAME</th>
-                <th scope="col">EDIT</th>
-                <th scope="col">DELETE</th>
-            </tr>
-            </thead>
-            <tbody class="table-group-divider">
-            <tr>
-                <th scope="row">1</th>
-                <td>Villa</td>
-                <td>50000</td>
-                <td>7000000</td>
-                <td>20</td>
-                <td>5 sao</td>
-                <td>Dành cho hộ gia đình muốn nghỉ mát</td>
-                <td>200</td>
-                <td>2</td>
-                <td>Nước uống miễn phí</td>
-                <td>2</td>
-                <td>1</td>
-                <td>
-                    <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal2">
-                        Edit
-                    </button>
-                </td>
-                <td>
-                    <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal">
-                        Delete
-                    </button>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>House</td>
-                <td>10000</td>
-                <td>3000000</td>
-                <td>20</td>
-                <td>3 sao</td>
-                <td>Dành cho hộ gia đình muốn du lịch</td>
-                <td>0</td>
-                <td>1</td>
-                <td>Di chuyển miễn phí</td>
-                <td>1</td>
-                <td>2</td>
-                <td>
-                    <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal2">
-                        Edit
-                    </button>
-                </td>
-                <td>
-                    <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal">
-                        delete
-                    </button>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Room</td>
-                <td>5000</td>
-                <td>1000000</td>
-                <td>8</td>
-                <td>4 sao</td>
-                <td>Dành cho nhóm đi nghỉ mát</td>
-                <td>10</td>
-                <td>3</td>
-                <td>Trái cây miễn phí</td>
-                <td>1</td>
-                <td>2</td>
-                <td>
-                    <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal2">
-                        Edit
-                    </button>
-                </td>
-                <td>
-                    <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal">
-                        delete
-                    </button>
-                </td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
-    <div class="d-flex justify-content-center align-items-center mb-2">
-        <a class="btn btn-outline-primary me-2 save"
-        ><i class="fas fa-arrow-left"></i></a>
-        <a class="btn btn-outline-primary me-2 disabled"><i
-                class="fas fa-arrow-left"></i></a>
-        <span></span>/<span></span>
-        <a class="btn btn-outline-primary ms-2 save"
-        ><i class="fas fa-arrow-right"></i></a>
-        <a class="btn btn-outline-primary ms-2 disabled"><i
-                class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="col">
+            <div class="box card h-100">
+                <img src="https://furamavietnam.com/wp-content/uploads/2018/08/Vietnam_Danang_Furama_Villas_Beach_Pool_Villas-_Exterior-1-F-370x239.jpg"
+                     class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">DELUXE ROOM OCEAN VIEW</h5>
+                    <div class="d-flex justify-content-between">
+                        <p class="card-text">Room Size: 40.1 m2</p>
+                        <div>
+                            <button class="btn btn-outline-primary"><i class="fas fa-edit"></i></button>
+                            <button class="btn btn-outline-danger"><i class="fas fa-trash-alt"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class=" box card h-100">
+                <img src="https://furamavietnam.com/wp-content/uploads/2018/08/Vietnam_Danang_Furama_Villas_Pool_Villas-F-370x239.jpg"
+                     class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">SUPERIOR ROOM WITH GARDEN VIEW</h5>
+                    <div class="d-flex justify-content-between">
+                        <p class="card-text">Room Size: 48.1 m2</p>
+                        <div>
+                            <button class="btn btn-outline-primary"><i class="fas fa-edit"></i></button>
+                            <button class="btn btn-outline-danger"><i class="fas fa-trash-alt"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="box card h-100">
+                <img src="https://furamavietnam.com/wp-content/uploads/2018/03/Presidential-Suite-F-370x239.jpg"
+                     class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">GARDEN VIEW DELUXE ROOM</h5>
+                    <div class="d-flex justify-content-between">
+                        <p class="card-text">Room Size: 50.7 m2</p>
+                        <div>
+                            <button class="btn btn-outline-primary"><i class="fas fa-edit"></i></button>
+                            <button class="btn btn-outline-danger"><i class="fas fa-trash-alt"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="box card h-100">
+                <img src="https://furamavietnam.com/wp-content/uploads/2018/03/Furama_Ocean_Deluxe-2-370x239.jpg"
+                     class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">ROOM PRESIDENTIAL SUITE</h5>
+                    <div class="d-flex justify-content-between">
+                        <p class="card-text">Room Size: 130 m2</p>
+                        <div>
+                            <button class="btn btn-outline-primary"><i class="fas fa-edit"></i></button>
+                            <button class="btn btn-outline-danger"><i class="fas fa-trash-alt"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="box card h-100">
+                <img src="https://furamavietnam.com/wp-content/uploads/2018/03/Vietnam_Danang_Furama_Ocean-Studio-Suite-F-370x239.jpg"
+                     class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">GARDEN VIEW VILLA</h5>
+                    <div class="d-flex justify-content-between">
+                        <p class="card-text">Room Size: 80 m2</p>
+                        <div>
+                            <button class="btn btn-outline-primary"><i class="fas fa-edit"></i></button>
+                            <button class="btn btn-outline-danger"><i class="fas fa-trash-alt"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </main>
 
