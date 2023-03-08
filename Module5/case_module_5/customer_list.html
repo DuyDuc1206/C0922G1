@@ -298,57 +298,45 @@
                 <h5 class="modal-title" id="addModalLabel">ADD CUSTOMER</h5>
             </div>
             <div class="modal-body">
-                <form method="post" th:object="${addCustomerDto}" th:action="@{/customer/add}" id="formAdd">
+                <form method="post" >
                     <div class="row">
-                        <input class="form-control" th:field="*{id}" hidden>
+                        <input class="form-control"  hidden>
                         <div class="mb-3">
                             <label class="form-label">Name</label>
-                            <input type="text" class="form-control" th:field="*{name}">
-                            <label class="text-danger" th:if="${#fields.hasErrors('name')&&mess==1}"
-                                   th:errors="*{name}">Name Error</label>
+                            <input type="text" class="form-control" >
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Date Of Birth</label>
-                            <input type="date" class="form-control" th:field="*{dateOfBirth}">
-                            <label class="text-danger" th:if="${#fields.hasErrors('dateOfBirth')&&mess==1}"
-                                   th:errors="*{dateOfBirth}"></label>
+                            <input type="date" class="form-control" >
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Gender</label><br>
-                            <select class="form-select" th:field="*{gender}">
-                                <option th:value="true">Man</option>
-                                <option th:value="false">Woman</option>
+                            <select class="form-select" >
+                                <option value="true">Man</option>
+                                <option value="false">Woman</option>
                             </select>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">ID Card</label>
-                            <input type="text" class="form-control" th:field="*{idCard}">
-                            <label class="text-danger" th:if="${#fields.hasErrors('idCard')&&mess==1}"
-                                   th:errors="*{idCard}"></label>
+                            <input type="text" class="form-control" >
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Phone Number</label>
-                            <input type="text" class="form-control" th:field="*{phoneNumber}">
-                            <label class="text-danger" th:if="${#fields.hasErrors('phoneNumber')&&mess==1}"
-                                   th:errors="*{phoneNumber}"></label>
+                            <input type="text" class="form-control" >
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Address</label>
-                            <input type="text" class="form-control" th:field="*{address}">
-                            <label class="text-danger" th:if="${#fields.hasErrors('address')&&mess==1}"
-                                   th:errors="*{address}"></label>
+                            <input type="text" class="form-control" >
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Email</label>
-                            <input type="text" class="form-control" th:field="*{email}">
-                            <label class="text-danger" th:if="${#fields.hasErrors('email')&&mess==1}"
-                                   th:errors="*{email}"></label>
+                            <input type="text" class="form-control" >
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Customer Type </label><br>
-                            <select class="form-select" th:field="*{customerType}">
-                                <option th:each="customerType:${customerTypeList}"
-                                        th:value="${customerType.id}" th:text="${customerType.name}"></option>
+                            <select class="form-select" >
+                                <option each="customerType:${customerTypeList}"
+                                        value="${customerType.id}" ></option>
                             </select>
                         </div>
                     </div>
@@ -356,91 +344,13 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary btn-md" data-bs-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary btn-md save" form="formAdd">Save
+                <button type="submit" class="btn btn-primary btn-md save" >Save
                 </button>
             </div>
         </div>
     </div>
 </div>
 
-<!--modal edit-->
-<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="editModalLabel">EDIT CUSTOMER</h5>
-            </div>
-            <div class="modal-body">
-                <form th:method="post" th:object="${editCustomerDto}" th:action="@{/customer/update}" id="formEdit">
-                    <div class="row">
-                        <input id="cusId" class="form-control" th:field="*{id}" hidden>
-                        <div class="mb-3">
-                            <label class="form-label">Name</label>
-                            <input id="cusName" type="text" class="form-control" th:field="*{name}">
-                            <label class="text-danger" th:if="${#fields.hasErrors('name')}"
-                                   th:errors="*{name}">Name
-                                Error</label>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Date Of Birth</label>
-                            <input id="cusDOB" type="date" class="form-control" th:field="*{dateOfBirth}">
-                            <label class="text-danger"
-                                   th:if="${#fields.hasErrors('dateOfBirth')}"
-                                   th:errors="*{dateOfBirth}"></label>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Gender</label><br>
-                            <select id="cusGender" class="form-select" th:field="*{gender}">
-                                <option th:value="true">Man</option>
-                                <option th:value="false">Woman</option>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">ID Card</label>
-                            <input id="cusIdCard" type="text" class="form-control" th:field="*{idCard}">
-                            <label class="text-danger"
-                                   th:if="${#fields.hasErrors('idCard')}"
-                                   th:errors="*{idCard}"></label>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Phone Number</label>
-                            <input id="cusPhoneNumber" type="text" class="form-control" th:field="*{phoneNumber}">
-                            <label class="text-danger"
-                                   th:if="${#fields.hasErrors('phoneNumber')}"
-                                   th:errors="*{phoneNumber}"></label>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Address</label>
-                            <input id="cusAddress" type="text" class="form-control" th:field="*{address}">
-                            <label class="text-danger"
-                                   th:if="${#fields.hasErrors('address')}"
-                                   th:errors="*{address}"></label>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Email</label>
-                            <input id="cusEmail" type="text" class="form-control" th:field="*{email}">
-                            <label class="text-danger"
-                                   th:if="${#fields.hasErrors('email')}"
-                                   th:errors="*{email}"></label>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Customer Type </label><br>
-                            <select id="cusTypeId" class="form-select" th:field="*{customerType}">
-                                <option th:each="customerType:${customerTypeList}"
-                                        th:value="${customerType.id}"
-                                        th:text="${customerType.name}"></option>
-                            </select>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary btn-md" data-bs-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary btn-md save" form="formEdit">Save</button>
-            </div>
-        </div>
-    </div>
-</div>
 
 
 <script>

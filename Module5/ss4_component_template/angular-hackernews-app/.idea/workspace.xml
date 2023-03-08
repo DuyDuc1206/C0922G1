@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fa18abba-2412-442e-ba01-415345917c7e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../ss3_angular_overview/angular-calculator-app/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss3_angular_overview/angular-calculator-app/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,7 +22,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../case_module_5/angular-furama-app" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -74,11 +74,17 @@
       <updated>1678238786796</updated>
       <workItem from="1678238790063" duration="5268000" />
       <workItem from="1678257023679" duration="1067000" />
-      <workItem from="1678258411185" duration="615000" />
+      <workItem from="1678258411185" duration="1389000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="687" y="212" key="FileChooserDialogImpl" timestamp="1678259809354">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state x="687" y="212" key="FileChooserDialogImpl/0.0.1920.1032@0.0.1920.1032" timestamp="1678259809354" />
   </component>
 </project>

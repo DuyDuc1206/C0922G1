@@ -1,0 +1,76 @@
+<main>
+  <p class="text-center fs-3 fw-bold">Create Form Facility</p>
+  <div class="col-md-4 offset-md-4">
+    <div class="card">
+      <div class="card-body">
+        <form method="post" >
+          <div class="row">
+            <div class="d-flex justify-content-around">
+              <button id="villa" type="button" class="btn btn-outline-primary tbn-md save">
+                VILLA
+              </button>
+              <button id="house" type="button" class="btn btn-outline-danger btn-md save">
+                HOUSE
+              </button>
+              <button id="room" type="button" class="btn btn-outline-success btn-md save">
+                ROOM
+              </button>
+              <input type="text" id="facilityTypeEdit"  hidden>
+            </div>
+            <input class="form-control" hidden>
+            <div class="mb-3">
+              <label class="form-label">Name</label>
+              <input  type="text" class="form-control">
+
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Area</label>
+              <input  type="number" class="form-control" >
+
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Cost</label><br>
+              <input  type="number" class="form-control">
+
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Max People</label>
+              <input  type="number" class="form-control">
+
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Standard Room</label>
+              <input  type="text" class="form-control">
+
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Description</label>
+              <input  type="text" class="form-control" >
+
+            </div>
+            <div id="poolAreaEdit" class="mb-3">
+              <label class="form-label">Pool Area</label>
+              <input  type="number" class="form-control" >
+            </div>
+            <div id="numberOfFloorEdit" class="mb-3">
+              <label class="form-label">Number Of Floor</label>
+              <input type="number" class="form-control" >
+            </div>
+            <div id="facilityFreeEdit" class="mb-3">
+              <label class="form-label">Facility Free</label>
+              <input  type="text" class="form-control" >
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Rent Type </label><br>
+              <select  class="form-select" >
+                <option></option>
+              </select>
+            </div>
+          </div>
+          <button type="button" class="btn btn-primary btn-md" id="cancel">Cancel</button>
+          <button type="submit" class="btn btn-primary btn-md save">Save</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</main>

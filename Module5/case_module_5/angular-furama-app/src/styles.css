@@ -1,0 +1,18 @@
+nav {
+  background-color: #046056;
+}
+app-root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+footer {
+  margin-top: auto;
+}
+footer{
+  margin-top: auto;
+}
+main {
+  flex: 1;
+}
