@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="92e6798b-c99d-4e94-895c-6e5189a78a49" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="fa18abba-2412-442e-ba01-415345917c7e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../ss3_angular_overview/angular-calculator-app/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss3_angular_overview/angular-calculator-app/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -12,7 +12,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
   </component>
-  <component name="ProjectId" id="2MfPuDo8fNpXuS1TaLoHrXGqbkM" />
+  <component name="ProjectId" id="2Mi7wKoahQxvUzv87lK6CRGmmYB" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -22,7 +22,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../ss4_component_template/angular-hackernews-app" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -30,18 +30,17 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
-    <property name="ts.external.directory.path" value="D:\CODEGYM\Module5\ss3_angular_overview\angular-calculator-app\node_modules\typescript\lib" />
+    <property name="ts.external.directory.path" value="D:\CODEGYM\Module5\ss4_component_template\angular-hackernews-app\node_modules\typescript\lib" />
   </component>
   <component name="RunManager" selected="npm.Angular CLI Server">
-    <configuration name="Tests (angular-calculator-app)" type="JavaScriptTestRunnerKarma">
+    <configuration name="Tests (angular-hackernews-app)" type="JavaScriptTestRunnerKarma">
       <config-file value="$PROJECT_DIR$/karma.conf.js" />
       <working-directory value="$PROJECT_DIR$" />
       <node-interpreter value="project" />
       <envs />
       <method v="2" />
     </configuration>
-    <configuration name="E2E Tests (angular-calculator-app)" type="JavaScriptTestRunnerProtractor">
+    <configuration name="E2E Tests (angular-hackernews-app)" type="JavaScriptTestRunnerProtractor">
       <config-file value="$PROJECT_DIR$/e2e/protractor.conf.js" />
       <node-interpreter value="project" />
       <protractor-options value="" />
@@ -68,30 +67,18 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="92e6798b-c99d-4e94-895c-6e5189a78a49" name="Default Changelist" comment="" />
-      <created>1678155883141</created>
+      <changelist id="fa18abba-2412-442e-ba01-415345917c7e" name="Default Changelist" comment="" />
+      <created>1678238786796</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1678155883141</updated>
-      <workItem from="1678155885008" duration="1746000" />
-      <workItem from="1678170266342" duration="3800000" />
-      <workItem from="1678174109139" duration="1138000" />
-      <workItem from="1678205177557" duration="2761000" />
-      <workItem from="1678238336706" duration="446000" />
+      <updated>1678238786796</updated>
+      <workItem from="1678238790063" duration="5268000" />
+      <workItem from="1678257023679" duration="1067000" />
+      <workItem from="1678258411185" duration="615000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="687" y="212" key="FileChooserDialogImpl" timestamp="1678238784744">
-      <screen x="0" y="0" width="1920" height="1032" />
-    </state>
-    <state x="687" y="212" key="FileChooserDialogImpl/0.0.1920.1032@0.0.1920.1032" timestamp="1678238784744" />
-    <state x="351" y="74" key="SettingsEditor" timestamp="1678174098494">
-      <screen x="0" y="0" width="1920" height="1032" />
-    </state>
-    <state x="351" y="74" key="SettingsEditor/0.0.1920.1032@0.0.1920.1032" timestamp="1678174098494" />
   </component>
 </project>
