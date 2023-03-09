@@ -1,0 +1,52 @@
+<p class="text-center fs-3">Customer Edit</p>
+<div class="col-md-4 offset-md-4">
+  <div class="card">
+    <div class="card-body">
+      <form th:method="post"  id="formEdit">
+        <div class="row">
+          <input id="cusId" class="form-control"  hidden>
+          <div class="mb-3">
+            <label class="form-label">Name</label>
+            <input id="cusName" type="text" class="form-control" >
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Date Of Birth</label>
+            <input id="cusDOB" type="date" class="form-control" >
+
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Gender</label><br>
+            <select id="cusGender" class="form-select" >
+              <option value="true">Man</option>
+              <option value="false">Woman</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">ID Card</label>
+            <input id="cusIdCard" type="text" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Phone Number</label>
+            <input id="cusPhoneNumber" type="text" class="form-control" >
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Address</label>
+            <input id="cusAddress" type="text" class="form-control" >
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input id="cusEmail" type="text" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Customer Type </label><br>
+            <select id="cusTypeId" class="form-select">
+              <option></option>
+            </select>
+          </div>
+        </div>
+      </form>
+      <button type="button" class="btn btn-primary btn-md" id="cancel">Cancel</button>
+      <button type="submit" class="btn btn-primary btn-md save" form="formEdit">Save</button>
+    </div>
+  </div>
+</div>
