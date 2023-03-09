@@ -8,6 +8,7 @@ import { FooterComponent } from './footer/footer.component';
 import { FacilityListComponent } from './facility/facility-list/facility-list.component';
 import { FacilityCreateComponent } from './facility/facility-create/facility-create.component';
 import { FacilityEditComponent } from './facility/facility-edit/facility-edit.component';
+import { BodyComponent } from './body/body.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { FacilityEditComponent } from './facility/facility-edit/facility-edit.co
     FacilityListComponent,
     FacilityCreateComponent,
     FacilityEditComponent,
+    BodyComponent,
   ],
   imports: [
     BrowserModule,
