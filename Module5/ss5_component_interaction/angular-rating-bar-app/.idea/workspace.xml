@@ -21,7 +21,7 @@
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="BRANCH:origin/main" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:origin/module4" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </select>
   </component>
@@ -50,10 +50,10 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../wfda-angular-countdown-timer-app" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="Shelf.Project.Settings" />
-    <property name="ts.external.directory.path" value="D:\CODEGYM\Module5\ss5_component_interaction\wfda-angular-rating-bar-app\node_modules\typescript\lib" />
+    <property name="ts.external.directory.path" value="D:\CODEGYM\Module5\ss5_component_interaction\angular-rating-bar-app\node_modules\typescript\lib" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -67,6 +67,7 @@
       <updated>1678354384731</updated>
       <workItem from="1678354386731" duration="1144000" />
       <workItem from="1678355636055" duration="42000" />
+      <workItem from="1678355899415" duration="119000" />
     </task>
     <servers />
   </component>
@@ -84,7 +85,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/main" />
+                        <option value="origin/module4" />
                       </list>
                     </value>
                   </entry>
@@ -98,6 +99,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="687" y="212" key="FileChooserDialogImpl" timestamp="1678356016391">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state x="687" y="212" key="FileChooserDialogImpl/0.0.1920.1032@0.0.1920.1032" timestamp="1678356016391" />
     <state width="1893" height="264" key="GridCell.Tab.0.bottom" timestamp="1678355533941">
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
