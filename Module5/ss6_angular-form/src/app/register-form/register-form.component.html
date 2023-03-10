@@ -19,7 +19,7 @@
                *ngIf="registerForm.controls.password.touched && registerForm.controls.password?.errors?.required">Bắt
           buộc nhập </label>
         <label class="form-label text-danger"
-               *ngIf="registerForm.controls.password.touched || registerForm.controls.password.dirty && registerForm.controls.password?.errors?.minLength">Phải
+               *ngIf="registerForm.controls.password.touched && registerForm.controls.password?.errors?.minLength">Phải
           nhập trên 6 kí tự </label>
       </div>
       <div class="mb-3">
