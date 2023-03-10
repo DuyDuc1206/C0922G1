@@ -1,0 +1,81 @@
+<div class="card col-md-4 offset-md-4">
+  <h2 class="card-header">Register form</h2>
+  <div class="card-body">
+    <form [formGroup]="registerForm" (ngSubmit)="submit()" novalidate>
+      <div class="mb-3">
+        <label class="form-label" for="email">Email</label>
+        <input class="form-control" type="text" id="email" name="email" formControlName="email">
+        <label class="form-label text-danger"
+               *ngIf="registerForm.controls.email?.touched && registerForm.controls.email?.errors?.required">Bắt buộc
+          nhập </label>
+        <label class="form-label text-danger"
+               *ngIf="registerForm.controls.email.touched && registerForm.controls.email?.errors?.email">Nhập sai cú pháp
+          email </label>
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="password">Password</label>
+        <input class="form-control" type="password" id="password" name="password" formControlName="password">
+        <label class="form-label text-danger"
+               *ngIf="registerForm.controls.password.touched && registerForm.controls.password?.errors?.required">Bắt
+          buộc nhập </label>
+        <label class="form-label text-danger"
+               *ngIf="registerForm.controls.password.touched || registerForm.controls.password.dirty && registerForm.controls.password?.errors?.minLength">Phải
+          nhập trên 6 kí tự </label>
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="confirmPassword">Confirm Password</label>
+        <input class="form-control" type="password" id="confirmPassword" name="confirmPassword"
+               formControlName="confirmPassword">
+        <p class="form-label text-danger"
+           *ngIf="registerForm.controls.confirmPassword.touched && registerForm.controls.confirmPassword?.errors?.required">
+          Bắt buộc nhập </p>
+        <label class="form-label text-danger"
+               *ngIf="registerForm.controls.confirmPassword.touched && registerForm.controls.password.value !==registerForm.controls.confirmPassword.value ">Password
+          không khớp</label>
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="country">Country</label>
+        <select class="form-select" name="" id="country" name="country" formControlName="country">
+          <option [ngValue]="c.id" *ngFor="let c of countryList">{{c.name}}</option>
+        </select>
+        <label class="form-label text-danger"
+               *ngIf="registerForm.controls.country.touched && registerForm.controls.country?.errors?.required">Bắt buộc
+          nhập </label>
+        <label class="form-label text-danger"
+               *ngIf="registerForm.controls.country.touched && registerForm.controls.country?.errors?.min">Tuổi phải
+          trên 18 tuổi </label>
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="age">Age</label>
+        <input class="form-control" type="number" id="age" name="age" formControlName="age">
+        <p class="form-label text-danger"
+               *ngIf="registerForm.controls.age.touched && registerForm.controls.age?.errors?.required">Bắt buộc
+          nhập </p>
+        <label class="form-label text-danger"
+               *ngIf="registerForm.controls.age.touched && registerForm.controls.age?.errors?.min">Tuổi phải lớn
+          hơn 18 </label>
+      </div>
+      <div class="mb-3">
+        <label class="form-label me-2">Gender</label>
+        <input class="me-2" type="radio" value="Male" name="gender" formControlName="gender">Male
+        <input class="me-2" type="radio" value="Man" name="gender" formControlName="gender">Man
+        <label class="form-label text-danger"
+               *ngIf="registerForm.controls.gender.touched && registerForm.controls.gender?.errors?.required">Bắt buộc
+          nhập </label>
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="phone">Phone Number</label>
+        <input class="form-control" type="text" id="phone" name="phone" formControlName="phone">
+        <label class="form-label text-danger"
+               *ngIf="registerForm.controls.phone.touched && registerForm.controls.phone?.errors?.required">Bắt buộc
+          nhập </label>
+        <label class="form-label text-danger"
+               *ngIf="registerForm.controls.phone.touched && registerForm.controls.phone?.errors?.pattern">sdt bắt đầu
+          +84 và 9 - 10 số </label>
+      </div>
+      <div class="mb-3">
+        <button class="btn btn-primary" type="submit" [disabled]="registerForm.invalid">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>

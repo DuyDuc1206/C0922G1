@@ -1,0 +1,23 @@
+<div class="card col-md-4 offset-md-4">
+  <h2 class="card-header">Login form</h2>
+  <div class="card-body">
+    <form [formGroup]="loginForm" (ngSubmit)="submit()" novalidate>
+      <div class="mb-3">
+        <label for="email">Email</label>
+        <input class="form-control" type="text" id="email" name="email" formControlName="email">
+        <div *ngIf="CheckEmail.invalid && (CheckEmail.dirty || CheckEmail.touched)" class="text-danger">
+          <div *ngIf="CheckEmail.errors?.required">Email không được để trống</div>
+          <div *ngIf="CheckEmail.errors?.email">Email không đúng cú pháp</div>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="password">Password</label>
+        <input class="form-control" type="password" id="password" email="password" formControlName="password">
+        <div *ngIf="checkPassword.invalid && (checkPassword.dirty || checkPassword.touched)" class="text-danger">
+          <div *ngIf="checkPassword.errors?.required">Password không được để trống</div>
+        </div>
+      </div>
+      <button type="submit">Login</button>
+    </form>
+  </div>
+</div>
