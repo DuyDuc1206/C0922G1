@@ -15,6 +15,7 @@ import { ContractCreateComponent } from './contract/contract-create/contract-cre
 import { ContractListComponent } from './contract/contract-list/contract-list.component';
 import { HomeComponent } from './home/home.component';
 import {CustomerModule} from './customer/customer.module';
+import { EmployeeListComponent } from './employee/employee-list/employee-list.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import {CustomerModule} from './customer/customer.module';
     ContractCreateComponent,
     ContractListComponent,
     HomeComponent,
+    EmployeeListComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,16 +1,16 @@
 <main class="container-fluid">
-  <p id="message" class="text-danger text-center fs-2" ></p>
+  <p id="message" class="text-danger text-center fs-2"></p>
   <div class="container d-flex justify-content-between mt-2">
     <button class="btn btn-primary save" data-bs-toggle="modal" data-bs-target="#addModal">Add Customer <i
       class="fas fa-plus-square"></i></button>
     <form method="get">
       <div class="d-flex">
-        <input class="form-control" type="text" name="name"  placeholder="search name">
+        <input class="form-control" type="text" name="name" placeholder="search name">
         <input class="form-control ms-2" type="text" name="email"
                placeholder="search email">
         <select class="form-select ms-2" name="customerTypeId">
           <option value="">Customer Type</option>
-          <option ></option>
+          <option></option>
         </select>
         <button class="btn btn-primary ms-2 form-control save">Search</button>
       </div>
@@ -32,75 +32,18 @@
       <th>Action</th>
     </tr>
     </thead>
-    <tbody class="table-group-divider">
-    <tr>
-      <th scope="row">1</th>
-      <td>Nguyễn Văn Thiên Ân</td>
-      <td>1989-04-05</td>
-      <td>Nam</td>
-      <td>451523025</td>
-      <td>0905022345</td>
-      <td>ngiueasdkud@gmail.com</td>
-      <td>k164 Nguyễn Chánh, Liên chiểu, Đà Nẵng</td>
-      <td>Diamond</td>
-      <td>
-        <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal"
-                data-bs-target="#exampleModal2">
-          Edit
-        </button>
-      </td>
-      <td>
-        <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal"
-                data-bs-target="#exampleModal">
-          delete
-        </button>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Phạm Tuấn</td>
-      <td>1999-10-01</td>
-      <td>Nam</td>
-      <td>166822532</td>
-      <td>0775088562</td>
-      <td>numberssonegamil.com</td>
-      <td>95 Hồ Nghinh, Hải Châu, Đà Nẵng</td>
-      <td>Gold</td>
-      <td>
-        <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal"
-                data-bs-target="#exampleModal2">
-          Edit
-        </button>
-      </td>
-      <td>
-        <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal"
-                data-bs-target="#exampleModal">
-          delete
-        </button>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Tôn Nữ Kim Ngân</td>
-      <td>1980-05-10</td>
-      <td>Nữ</td>
-      <td>2525252525</td>
-      <td>0898982362</td>
-      <td>supperman2gmail.com</td>
-      <td>252 Trường Chinh, Thanh Khê, Đà Nẵng</td>
-      <td>Member</td>
-      <td>
-        <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal"
-                data-bs-target="#exampleModal2">
-          Edit
-        </button>
-      </td>
-      <td>
-        <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal"
-                data-bs-target="#exampleModal">
-          delete
-        </button>
-      </td>
+    <tbody>
+    <tr *ngFor="let c of customerList,index as i">
+      <td>{{i + 1}}</td>
+      <td>{{c.name}}</td>
+      <td>{{c.dateOfBirth}}</td>
+      <td>{{c.gender}}</td>
+      <td>{{c.idCard}}</td>
+      <td>{{c.phoneNumber}}</td>
+      <td>{{c.email}}</td>
+      <td>{{c.address}}</td>
+      <td>{{c.customerType}}</td>
+      <td>Delete</td>
     </tr>
     </tbody>
   </table>

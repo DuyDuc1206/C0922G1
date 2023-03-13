@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, ParamMap} from '@angular/router';
+import {Customer} from '../model/customer';
+import {CustomerService} from '../service/customer.service';
 
 @Component({
   selector: 'app-customer-list',
@@ -7,10 +9,12 @@ import {ActivatedRoute, ParamMap} from '@angular/router';
   styleUrls: ['./customer-list.component.css']
 })
 export class CustomerListComponent implements OnInit {
-
-  constructor(private activatedRoute: ActivatedRoute) { }
+  customerList: Customer[] = [];
+  constructor(private activatedRoute: ActivatedRoute,
+              private customerService: CustomerService) { }
 
   ngOnInit(): void {
+    this.customerList = this.customerService.findAll();
   }
 
 }
