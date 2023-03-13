@@ -1,0 +1,95 @@
+<div class="card col-md-4 offset-md-4">
+  <h2 class="card-header">Register form</h2>
+  <div class="card-body">
+    <form [formGroup]="registerForm" (ngSubmit)="submit()" novalidate>
+      <div class="mb-3">
+        <label class="form-label" for="email">Email</label>
+        <input class="form-control" type="text" id="email" name="email" formControlName="email">
+        <div *ngIf="emailControl.invalid && emailControl.touched || emailControl.dirty" class="text-danger">
+          <div *ngIf="emailControl.errors?.required">Email is required</div>
+          <div *ngIf="emailControl.errors?.email">Wrong email format</div>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="password">Password</label>
+        <input class="form-control" type="password" id="password" name="password" formControlName="password">
+        <div *ngIf="passwordControl().invalid && passwordControl().touched || passwordControl().dirty" class="text-danger">
+          <div *ngIf="passwordControl().errors?.required">Password is required</div>
+          <div *ngIf="passwordControl().errors?.minlength">Password must be at least 6 character long</div>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="confirmPassword">Confirm Password</label>
+        <input class="form-control" type="password" id="confirmPassword" name="confirmPassword"
+               formControlName="confirmPassword">
+        <div *ngIf="confirmPasswordControl().invalid && confirmPasswordControl().dirty || confirmPasswordControl().touched"
+          class="text-danger">
+          <div *ngIf="confirmPasswordControl().errors?.invalidConfirmPassword">Confirm Password must be same with password.</div>
+          <div *ngIf="confirmPasswordControl().errors?.required">Confirm password is required</div>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="country">Country</label>
+        <select class="form-select" name="" id="country" name="country" formControlName="country">
+          <option [ngValue]="c.id" *ngFor="let c of countryList">{{c.country}}</option>
+        </select>
+        <div *ngIf="countryControl().invalid && countryControl().dirty || countryControl().touched" class="text-danger">Country must be required</div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="dateImport">Date Import</label>
+        <input class="form-control" type="date" id="dateImport" name="dateImport" formControlName="dateImport">
+        <div *ngIf="dateImportControl().invalid && dateImportControl().touched || dateImportControl().dirty" class="text-danger">
+          <div *ngIf="dateImportControl().errors?.required">Date import must be required</div>
+          <div *ngIf="dateImportControl().errors?.invalidDateImport">Date Import must be less than current year and greater than 1989</div>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="dateExport">Date Export</label>
+        <input class="form-control" type="date" id="dateExport" name="dateExport" formControlName="dateExport">
+        <div *ngIf="dateExportControl().invalid && dateExportControl().touched || dateExportControl().dirty" class="text-danger">
+          <div *ngIf="dateExportControl().errors?.required">Date export must be required</div>
+          <div *ngIf="dateExportControl().errors?.invalidDateExport">Date Import must be less than current year and greater than import date</div>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="age">Age</label>
+        <input class="form-control" type="number" id="age" name="age" formControlName="age">
+        <div *ngIf="ageControl().invalid && ageControl().dirty || ageControl().touched"
+             class="text-danger">
+          <div *ngIf="ageControl().errors?.required">Age must be required</div>
+          <div *ngIf="ageControl().errors?.min">Minimum age must be 18</div>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label me-2">Gender</label>
+        <input class="me-2" type="radio" value="Male" name="gender" formControlName="gender">Male
+        <input class="me-2" type="radio" value="Man" name="gender" formControlName="gender">Man
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="phone">Phone Number</label>
+        <input class="form-control" type="text" id="phone" name="phone" formControlName="phone">
+      </div>
+      <div formGroupName="address">
+        <div class="mb-3">
+          <label class="form-label" for="city">City</label>
+          <input class="form-control" type="text" id="city" name="city" formControlName="city">
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="street">Street</label>
+          <input class="form-control" type="text" id="street" name="street" formControlName="street">
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="pinCode">Pin Code</label>
+          <input class="form-control" type="text" id="pinCode" name="pinCode" formControlName="pinCode">
+          <div *ngIf="pinCodeControl().invalid && pinCodeControl().touched || pinCodeControl().dirty" class="text-danger">
+            <div *ngIf="pinCodeControl().errors?.required">Pin Code is required</div>
+          </div>
+        </div>
+        <div class="mb-3">
+          <button class="btn btn-primary" type="submit" [disabled]="registerForm.invalid">Submit</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+

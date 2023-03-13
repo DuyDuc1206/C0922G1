@@ -1,0 +1,20 @@
+<form [formGroup]="productDeleteForm" (ngSubmit)="onDelete()">
+  <table>
+    <tr>
+      <td>Name</td>
+      <td><input type="text" formControlName="name" disabled></td>
+    </tr>
+    <tr>
+      <td>Price</td>
+      <td><input type="text" formControlName="price" disabled></td>
+    </tr>
+    <tr>
+      <td>Description</td>
+      <td><input type="text" formControlName="description" disabled></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><button type="submit">Delete</button></td>
+    </tr>
+  </table>
+</form>

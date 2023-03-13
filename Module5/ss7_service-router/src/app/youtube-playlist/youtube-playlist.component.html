@@ -1,0 +1,9 @@
+<p>Hello Duc</p>
+<ul>
+  <li *ngFor="let song of playList">{{song.name}}</li>
+</ul>
+<ul>
+  <li *ngFor="let a of playList"><a [routerLink]="['/song',a.id]">{{a.name}}</a></li>
+</ul>
+<router-outlet></router-outlet>
+

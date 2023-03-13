@@ -1,0 +1,21 @@
+<p>product-update works!</p>
+<form [formGroup]="productEditForm" (ngSubmit)="onEdit()">
+  <table>
+    <tr>
+      <td>Name</td>
+      <td><input type="text" formControlName="name"></td>
+    </tr>
+    <tr>
+      <td>Price</td>
+      <td><input type="text" formControlName="price"></td>
+    </tr>
+    <tr>
+      <td>Description</td>
+      <td><input type="text" formControlName="description"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><button type="submit">Submit</button></td>
+    </tr>
+  </table>
+</form>

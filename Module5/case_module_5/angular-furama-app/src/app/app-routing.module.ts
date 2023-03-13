@@ -1,15 +1,14 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {FacilityListComponent} from './facility/facility-list/facility-list.component';
-import {BodyComponent} from './body/body.component';
-import {CustomerListComponent} from './customer/customer-list/customer-list.component';
+import {HomeComponent} from './home/home.component';
 
 
 const routes: Routes = [
-  {path: '', pathMatch: 'full', redirectTo: 'body'},
+  {path: '', pathMatch: 'full', redirectTo: 'home'},
   {path: 'facility', component: FacilityListComponent},
-  {path: '', component: BodyComponent},
-  {path: 'customer', component: CustomerListComponent}
+  {path: 'customer', loadChildren: () => import('./customer/customer.module').then((m) => m.CustomerModule)},
+  {path: '', component: HomeComponent},
 ];
 
 @NgModule({
