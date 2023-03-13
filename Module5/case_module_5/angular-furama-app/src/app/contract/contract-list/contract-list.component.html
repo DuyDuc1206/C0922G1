@@ -11,7 +11,7 @@
     <tr>
       <th>No.</th>
       <th>Facility</th>
-      <th>Customer</th>
+      <th>Employee</th>
       <th>Start Date</th>
       <th>End Date</th>
       <th>Deposit</th>
@@ -20,44 +20,16 @@
     </tr>
     </thead>
     <tbody class="table-group-divider">
-    <tr>
-      <th scope="row">1</th>
-      <td>Room</td>
-      <td>Nguyễn Hà Lam</td>
-      <td>2020-12-12</td>
-      <td>2021-01-01</td>
-      <td>10000000</td>
-      <td>30000000</td>
-      <td><button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal2" data-bs-whatever="@mdo">+</button></td>
-      <td><button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        List attach service
-      </button></td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Villa</td>
-      <td>Nguyễn Văn Nhàn</td>
-      <td>2020-05-12</td>
-      <td>2021-06-10</td>
-      <td>1200000</td>
-      <td>10000000</td>
-      <td><button type="button" class="btn btn-outline-secondary">+</button></td>
-      <td><button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        List attach service
-      </button></td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>House</td>
-      <td>Hồ Thị Lên</td>
-      <td>2022-10-10</td>
-      <td>2022-12-12</td>
-      <td>5000000</td>
-      <td>30000000</td>
-      <td><button type="button" class="btn btn-outline-secondary">+</button></td>
-      <td><button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        List attach service
-      </button></td>
+    <tr *ngFor="let c of contractList,index as i">
+      <td>{{i+1}}</td>
+      <td>{{c.facility}}</td>
+      <td>{{c.employee}}</td>
+      <td>{{c.startDate}}</td>
+      <td>{{c.endDate}}</td>
+      <td>{{c.deposit}}</td>
+
+
+      <td>Delete</td>
     </tr>
     </tbody>
   </table>

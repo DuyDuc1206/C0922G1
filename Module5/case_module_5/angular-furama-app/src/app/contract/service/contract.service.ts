@@ -14,6 +14,10 @@ export class ContractService {
     }
   ];
 
-  constructor(private ) {
+  constructor() {
+  }
+
+  findAll() {
+    return this.contractList;
   }
 }
