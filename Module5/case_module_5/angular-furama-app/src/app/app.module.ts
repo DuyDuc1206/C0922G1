@@ -16,6 +16,8 @@ import {ContractListComponent} from './contract/contract-list/contract-list.comp
 import {HomeComponent} from './home/home.component';
 import {CustomerModule} from './customer/customer.module';
 import {EmployeeListComponent} from './employee/employee-list/employee-list.component';
+import {HttpClientModule} from '@angular/common/http';
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,8 @@ import {EmployeeListComponent} from './employee/employee-list/employee-list.comp
     BrowserModule,
     AppRoutingModule,
     CustomerModule,
+    HttpClientModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

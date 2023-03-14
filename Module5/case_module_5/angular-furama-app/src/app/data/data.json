@@ -2,19 +2,17 @@
   "customer": [
     {
       "id": 1,
-      "customerCode": "KH-1111",
-      "customerType": {
-        "id": 5,
-        "name": "Member"
-      },
       "name": "Nguyễn Thị Hào",
       "birthday": "1970-11-07",
+      "gender": "false",
       "idCard": "643431213",
       "phoneNumber": "0945423362",
-      "gender": "Nữ",
-      "email": "thihao07@gmail.com",
       "address": "23 Nguyễn Hoàng, Đà Nẵng",
-      "flagDelete": false
+      "email": "thihao07@gmail.com",
+      "customerType": {
+        "id": 2,
+        "name": "Platinium"
+      }
     },
     {
       "id": 2,
@@ -159,6 +157,20 @@
       "email": "dactam@gmail.com",
       "address": "22 Ngô Quyền, Đà Nẵng",
       "flagDelete": false
+    },
+    {
+      "id": 11,
+      "name": "d DDDDDD",
+      "birthday": "2023-03-18",
+      "gender": "false",
+      "idCard": "22",
+      "phoneNumber": "0528203141",
+      "address": "k164/94 Nguyễn Chánh, Hoà Minh, Liên Chiểu, Đà Nẵng",
+      "email": "dd",
+      "customerType": {
+        "id": 2,
+        "name": "Platinium"
+      }
     }
   ],
   "facility": [

@@ -1,39 +1,30 @@
 import {Injectable} from '@angular/core';
 import {Facility} from '../model/facility';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FacilityService {
-  facilityList: Facility[] = [
-    {
-      id: 1,
-      name: 'Villa Beach Front',
-      area: 25000,
-      cost: 1000000,
-      maxPeople: 10,
-      standardRoom: 'vip',
-      description: 'co ho boi',
-      poolArea: 500,
-      numberOfFloor: 10,
-    },
-    {
-      id: 2,
-      name: 'Villa Beach',
-      area: 250,
-      cost: 10000,
-      maxPeople: 10,
-      standardRoom: 'vip',
-      description: 'co ho boi',
-      poolArea: 500,
-      numberOfFloor: 10,
-    }
-  ];
+  private URL = 'http://localhost:3000/facility';
 
-  constructor() {
+  constructor(private http: HttpClient) {
   }
 
-  findAdd(): Facility[] {
-    return this.facilityList;
+  findAllFacility(): Observable<Facility[]> {
+    return this.http.get<Facility[]>(`${this.URL}`);
+  }
+
+  findByIdFacility(id: number): Observable<Facility> {
+    return this.http.get<Facility>(`${this.URL}/${id}`);
+  }
+
+  createFacility(facility: Facility): Observable<Facility> {
+    return this.http.post<Facility>(`${this.URL}`, facility);
+  }
+
+  updateFacility(id: number, facility: Facility): Observable<Facility> {
+    return this.http.put<Facility>(`${this.URL}/${id}`, facility);
   }
 }

@@ -1,50 +1,50 @@
-<main class="container-fluid">
-  <p id="message" class="text-danger text-center fs-2"></p>
-  <div class="container d-flex justify-content-between mt-2">
-    <button class="btn btn-primary save" data-bs-toggle="modal" data-bs-target="#addModal">Add Employee <i
-      class="fas fa-plus-square"></i></button>
-    <form method="get">
-      <div class="d-flex">
-        <input class="form-control" type="text" name="name" placeholder="search name">
-        <input class="form-control ms-2" type="text" name="email"
-               placeholder="search email">
-        <select class="form-select ms-2" name="customerTypeId">
-          <option value="">Employee Type</option>
-          <option></option>
-        </select>
-        <button class="btn btn-primary ms-2 form-control save">Search</button>
-      </div>
-    </form>
-  </div>
-  <p class="text-center fs-3 mt-2">LIST EMPLOYEE</p>
-  <table class="table table-striped table-bordered">
-    <thead>
-    <tr>
-      <th>No.</th>
-      <th>Name</th>
-      <th>DOB</th>
-      <th>Gender</th>
-      <th>Id Card</th>
-      <th>Phone Number</th>
-      <th>Email</th>
-      <th>Address</th>
-      <th>Customer Type</th>
-      <th>Action</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let c of employee,index as i">
-      <td>{{i + 1}}</td>
-      <td>{{c.name}}</td>
-      <td>{{c.dateOfBirth}}</td>
-      <td>{{c.gender}}</td>
-      <td>{{c.idCard}}</td>
-      <td>{{c.phoneNumber}}</td>
-      <td>{{c.email}}</td>
-      <td>{{c.address}}</td>
-      <td>{{c.customerType}}</td>
-      <td>Delete</td>
-    </tr>
-    </tbody>
-  </table>
-</main>
+<!--<main class="container-fluid">-->
+<!--  <p id="message" class="text-danger text-center fs-2"></p>-->
+<!--  <div class="container d-flex justify-content-between mt-2">-->
+<!--    <button class="btn btn-primary save" data-bs-toggle="modal" data-bs-target="#addModal">Add Employee <i-->
+<!--      class="fas fa-plus-square"></i></button>-->
+<!--    <form method="get">-->
+<!--      <div class="d-flex">-->
+<!--        <input class="form-control" type="text" name="name" placeholder="search name">-->
+<!--        <input class="form-control ms-2" type="text" name="email"-->
+<!--               placeholder="search email">-->
+<!--        <select class="form-select ms-2" name="customerTypeId">-->
+<!--          <option value="">Employee Type</option>-->
+<!--          <option></option>-->
+<!--        </select>-->
+<!--        <button class="btn btn-primary ms-2 form-control save">Search</button>-->
+<!--      </div>-->
+<!--    </form>-->
+<!--  </div>-->
+<!--  <p class="text-center fs-3 mt-2">LIST EMPLOYEE</p>-->
+<!--  <table class="table table-striped table-bordered">-->
+<!--    <thead>-->
+<!--    <tr>-->
+<!--      <th>No.</th>-->
+<!--      <th>Name</th>-->
+<!--      <th>DOB</th>-->
+<!--      <th>Gender</th>-->
+<!--      <th>Id Card</th>-->
+<!--      <th>Phone Number</th>-->
+<!--      <th>Email</th>-->
+<!--      <th>Address</th>-->
+<!--      <th>Customer Type</th>-->
+<!--      <th>Action</th>-->
+<!--    </tr>-->
+<!--    </thead>-->
+<!--    <tbody>-->
+<!--    <tr *ngFor="let c of employees,index as i">-->
+<!--      <td>{{i + 1}}</td>-->
+<!--      <td>{{c.name}}</td>-->
+<!--      <td>{{c.dateOfBirth}}</td>-->
+<!--      <td>{{c.gender}}</td>-->
+<!--      <td>{{c.idCard}}</td>-->
+<!--      <td>{{c.phoneNumber}}</td>-->
+<!--      <td>{{c.email}}</td>-->
+<!--      <td>{{c.address}}</td>-->
+<!--      <td>{{c.customerType}}</td>-->
+<!--      <td>Delete</td>-->
+<!--    </tr>-->
+<!--    </tbody>-->
+<!--  </table>-->
+<!--</main>-->

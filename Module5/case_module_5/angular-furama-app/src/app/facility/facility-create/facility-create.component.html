@@ -3,7 +3,7 @@
   <div class="col-md-4 offset-md-4">
     <div class="card">
       <div class="card-body">
-        <form method="post" >
+        <form [formGroup]="facilityCreateForm" (ngSubmit)="onSubmit()" >
           <div class="row">
             <div class="d-flex justify-content-around">
               <button id="villa" type="button" class="btn btn-outline-primary tbn-md save">
@@ -20,51 +20,75 @@
             <input class="form-control" hidden>
             <div class="mb-3">
               <label class="form-label">Name</label>
-              <input  type="text" class="form-control">
-
+              <input  type="text" class="form-control" formControlName="name">
+              <div *ngIf="nameControl().invalid && nameControl().dirty || nameControl().touched" class="text-danger">
+                <div *ngIf="nameControl().errors?.required">Name must be required</div>
+              </div>
             </div>
             <div class="mb-3">
               <label class="form-label">Area</label>
-              <input  type="number" class="form-control" >
-
+              <input  type="number" class="form-control" formControlName="area">
+              <div *ngIf="areaControl().invalid && areaControl().dirty || areaControl().touched" class="text-danger">
+                <div *ngIf="areaControl().errors?.required">Area must be required</div>
+              </div>
             </div>
             <div class="mb-3">
               <label class="form-label">Cost</label><br>
-              <input  type="number" class="form-control">
-
+              <input  type="number" class="form-control" formControlName="cost">
+              <div *ngIf="costControl().invalid && costControl().dirty || costControl().touched" class="text-danger">
+                <div *ngIf="costControl().errors?.required">Cost must be required</div>
+              </div>
             </div>
             <div class="mb-3">
               <label class="form-label">Max People</label>
-              <input  type="number" class="form-control">
-
+              <input  type="number" class="form-control" formControlName="maxPeople">
+              <div *ngIf="maxPeopleControl().invalid && maxPeopleControl().dirty || maxPeopleControl().touched" class="text-danger">
+                <div *ngIf="maxPeopleControl().errors?.required">Max people must be required</div>
+              </div>
             </div>
             <div class="mb-3">
               <label class="form-label">Standard Room</label>
-              <input  type="text" class="form-control">
-
+              <input  type="text" class="form-control" formControlName="standardRoom">
+              <div *ngIf="standardRoomControl().invalid && standardRoomControl().dirty || standardRoomControl().touched" class="text-danger">
+                <div *ngIf="standardRoomControl().errors?.required">Standard Room must be required</div>
+              </div>
             </div>
             <div class="mb-3">
               <label class="form-label">Description</label>
-              <input  type="text" class="form-control" >
-
+              <input  type="text" class="form-control" formControlName="description">
+              <div *ngIf="descriptionControl().invalid && descriptionControl().dirty || descriptionControl().touched" class="text-danger">
+                <div *ngIf="descriptionControl().errors?.required">Description must be required</div>
+              </div>
             </div>
             <div id="poolAreaEdit" class="mb-3">
               <label class="form-label">Pool Area</label>
-              <input  type="number" class="form-control" >
+              <input  type="number" class="form-control" formControlName="poolArea" >
+              <div *ngIf="poolAreaControl().invalid && poolAreaControl().dirty || poolAreaControl().touched" class="text-danger">
+                <div *ngIf="poolAreaControl().errors?.required">Pool Area must be required</div>
+              </div>
             </div>
             <div id="numberOfFloorEdit" class="mb-3">
               <label class="form-label">Number Of Floor</label>
-              <input type="number" class="form-control" >
+              <input type="number" class="form-control" formControlName="numberOfFloor">
+              <div *ngIf="numberOfFloorControl().invalid && numberOfFloorControl().dirty || numberOfFloorControl().touched" class="text-danger">
+                <div *ngIf="numberOfFloorControl().errors?.required">Number Of Floor must be required</div>
+              </div>
             </div>
             <div id="facilityFreeEdit" class="mb-3">
               <label class="form-label">Facility Free</label>
-              <input  type="text" class="form-control" >
+              <input  type="text" class="form-control" formControlName="facilityFree" >
+              <div *ngIf="facilityFreeControl().invalid && facilityFreeControl().dirty || facilityFreeControl().touched" class="text-danger">
+                <div *ngIf="facilityFreeControl().errors?.required">Facility Free must be required</div>
+              </div>
             </div>
             <div class="mb-3">
               <label class="form-label">Rent Type </label><br>
-              <select  class="form-select" >
-                <option></option>
+              <select  class="form-select" formControlName="rentType">
+                <option *ngFor="let r of rentTypeList" [ngValue]="r">{{r.name}}</option>
               </select>
+              <div *ngIf="rentTypeControl().invalid && rentTypeControl().dirty || rentTypeControl().touched" class="text-danger">
+                <div *ngIf="rentTypeControl().errors?.required">Rent Type must be required</div>
+              </div>
             </div>
           </div>
           <button type="button" class="btn btn-primary btn-md" id="cancel">Cancel</button>

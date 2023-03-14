@@ -2,51 +2,74 @@
 <div class="col-md-4 offset-md-4">
   <div class="card">
     <div class="card-body">
-      <form th:method="post"  id="formEdit">
+      <form [formGroup]="customerEditForm" (ngSubmit)="onSubmit()" id="customerEditForm">
         <div class="row">
-          <input id="cusId" class="form-control"  hidden>
+          <input id="cusId" class="form-control" formControlName="id" hidden>
           <div class="mb-3">
             <label class="form-label">Name</label>
-            <input id="cusName" type="text" class="form-control" >
+            <input id="cusName" type="text" class="form-control" formControlName="name">
+            <div *ngIf="nameControl().invalid && nameControl().dirty || nameControl().touched" class="text-danger">
+              <div *ngIf="nameControl().errors?.required">Name must be required</div>
+            </div>
           </div>
           <div class="mb-3">
             <label class="form-label">Date Of Birth</label>
-            <input id="cusDOB" type="date" class="form-control" >
-
+            <input id="cusDOB" type="date" class="form-control" formControlName="birthday">
+            <div *ngIf="birthdayControl().invalid && birthdayControl().dirty || birthdayControl().touched" class="text-danger">
+              <div *ngIf="birthdayControl().errors?.required">Birthday must be required</div>
+            </div>
           </div>
           <div class="mb-3">
             <label class="form-label">Gender</label><br>
-            <select id="cusGender" class="form-select" >
+            <select id="cusGender" class="form-select" formControlName="gender">
               <option value="true">Man</option>
               <option value="false">Woman</option>
             </select>
+            <div *ngIf="genderControl().invalid && genderControl().dirty || genderControl().touched" class="text-danger">
+              <div *ngIf="genderControl().errors?.required">Birthday must be required</div>
+            </div>
           </div>
           <div class="mb-3">
             <label class="form-label">ID Card</label>
-            <input id="cusIdCard" type="text" class="form-control">
+            <input id="cusIdCard" type="text" class="form-control" formControlName="idCard">
+            <div *ngIf="idCardControl().invalid && idCardControl().dirty || idCardControl().touched" class="text-danger">
+              <div *ngIf="idCardControl().errors?.required">IdCard must be required</div>
+            </div>
           </div>
           <div class="mb-3">
             <label class="form-label">Phone Number</label>
-            <input id="cusPhoneNumber" type="text" class="form-control" >
+            <input id="cusPhoneNumber" type="text" class="form-control" formControlName="phoneNumber">
+            <div *ngIf="phoneNumberControl().invalid && phoneNumberControl().dirty || phoneNumberControl().touched" class="text-danger">
+              <div *ngIf="phoneNumberControl().errors?.required">Phone number must be required</div>
+            </div>
           </div>
           <div class="mb-3">
             <label class="form-label">Address</label>
-            <input id="cusAddress" type="text" class="form-control" >
+            <input id="cusAddress" type="text" class="form-control" formControlName="address">
+            <div *ngIf="addressControl().invalid && addressControl().dirty || addressControl().touched" class="text-danger">
+              <div *ngIf="addressControl().errors?.required">Address must be required</div>
+            </div>
           </div>
           <div class="mb-3">
             <label class="form-label">Email</label>
-            <input id="cusEmail" type="text" class="form-control">
+            <input id="cusEmail" type="text" class="form-control" formControlName="email">
+            <div *ngIf="emailControl().invalid && emailControl().dirty || emailControl().touched" class="text-danger">
+              <div *ngIf="emailControl().errors?.required">Email must be required</div>
+            </div>
           </div>
           <div class="mb-3">
             <label class="form-label">Customer Type </label><br>
-            <select id="cusTypeId" class="form-select">
-              <option></option>
+            <select id="cusTypeId" class="form-select" formControlName="customerType">
+              <option [ngValue]="ct" *ngFor="let ct of customerTypeList">{{ct.name}}</option>
             </select>
+            <div *ngIf="customerTypeControl().invalid && customerTypeControl().dirty || customerTypeControl().touched" class="text-danger">
+              <div *ngIf="customerTypeControl().errors?.required">Customer type must be required</div>
+            </div>
           </div>
         </div>
       </form>
-      <button type="button" class="btn btn-primary btn-md" id="cancel">Cancel</button>
-      <button type="submit" class="btn btn-primary btn-md save" form="formEdit">Save</button>
+      <button type="button" class="btn btn-primary btn-md me-4" id="cancel">Cancel</button>
+      <button type="submit" class="btn btn-primary btn-md save" form="customerEditForm" >Save</button>
     </div>
   </div>
 </div>

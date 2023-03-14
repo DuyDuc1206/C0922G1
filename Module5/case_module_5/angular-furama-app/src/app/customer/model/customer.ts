@@ -3,7 +3,7 @@ import {CustomerType} from './customer-type';
 export interface Customer {
   id?: number;
   name?: string;
-  dateOfBirth?: string;
+  birthday?: string;
   gender?: string;
   idCard?: string;
   phoneNumber?: string;

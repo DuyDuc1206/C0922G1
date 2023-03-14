@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, ParamMap} from '@angular/router';
+import {Component, OnInit} from '@angular/core';
 import {Customer} from '../model/customer';
 import {CustomerService} from '../service/customer.service';
+import {CustomerTypeService} from '../service/customer-type.service';
+import {CustomerType} from '../model/customer-type';
 
 @Component({
   selector: 'app-customer-list',
@@ -10,11 +11,27 @@ import {CustomerService} from '../service/customer.service';
 })
 export class CustomerListComponent implements OnInit {
   customerList: Customer[] = [];
-  constructor(private activatedRoute: ActivatedRoute,
-              private customerService: CustomerService) { }
+  customerTypeList: CustomerType[] = [];
+
+  constructor(private customerService: CustomerService,
+              private customerTypeService: CustomerTypeService) {
+  }
 
   ngOnInit(): void {
-    this.customerList = this.customerService.findAll();
+    this.getAllCustomer();
+    this.getAllCustomerType();
+  }
+
+  getAllCustomer() {
+    this.customerService.getAllCustomer().subscribe(customer => {
+      this.customerList = customer;
+    });
+  }
+
+  getAllCustomerType() {
+    this.customerTypeService.getAllCustomerType().subscribe(customerType => {
+      this.customerTypeList = customerType;
+    });
   }
 
 }
