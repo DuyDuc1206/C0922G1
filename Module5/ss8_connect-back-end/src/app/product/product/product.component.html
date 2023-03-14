@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row text-center">
+    <h2>List Product</h2>
+    <table class="table table-bordered table-striped">
+      <thead>
+      <tr>
+        <td>No.</td>
+        <td>Name</td>
+        <td>Price</td>
+        <td>Description</td>
+        <td>Category</td>
+        <td>Action</td>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let p of products,index as i">
+        <td>{{i + 1}}</td>
+        <td>{{p.name}}</td>
+        <td>{{p.price}}</td>
+        <td>{{p.description}}</td>
+        <td>{{p.category.name}}</td>
+        <td><button class="btn btn-primary">EDIT</button></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

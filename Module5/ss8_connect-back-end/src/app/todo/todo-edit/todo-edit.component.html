@@ -1,0 +1,17 @@
+<form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+  <table>
+    <tr>
+      <td>Title</td>
+      <td><input type="text" formControlName="title"></td>
+    </tr>
+    <tr>
+      <td>Completed</td>
+      <td><input type="text" formControlName="completed"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><button type="submit">Submit</button></td>
+    </tr>
+  </table>
+</form>
+

@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row text-center">
+  <h2>List Category</h2>
+  <table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+      <td>No.</td>
+      <td>Name</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let c of categories,index as i">
+      <td>{{i + 1}}</td>
+      <td>{{c.name}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+</div>

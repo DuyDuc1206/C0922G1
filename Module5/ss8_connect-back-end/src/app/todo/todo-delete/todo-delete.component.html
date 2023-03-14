@@ -1,0 +1,16 @@
+<form [formGroup]="deleteForm" (ngSubmit)="onSubmit()">
+  <table>
+    <tr>
+      <td>Title</td>
+      <td><input type="text" formControlName="title" disabled></td>
+    </tr>
+    <tr>
+      <td>Completed</td>
+      <td><input type="text" formControlName="completed" disabled></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><button type="submit">Delete</button></td>
+    </tr>
+  </table>
+</form>

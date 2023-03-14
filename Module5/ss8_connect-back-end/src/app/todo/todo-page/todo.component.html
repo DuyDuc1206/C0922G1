@@ -1,0 +1,19 @@
+<h2>Todo App with HttpClient</h2>
+<table>
+  <thead>
+  <tr>
+    <th>No.</th>
+    <th>Title</th>
+    <th>Completed</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let t of todoList, index as i">
+    <td>{{i +1}}</td>
+    <td>{{t.title}}</td>
+    <td>{{t.completed}}</td>
+    <td><button routerLink="/todo/edit/{{t.id}}">Edit</button></td>
+    <td><button routerLink="/todo/delete/{{t.id}}">Delete</button></td>
+  </tr>
+  </tbody>
+</table>
