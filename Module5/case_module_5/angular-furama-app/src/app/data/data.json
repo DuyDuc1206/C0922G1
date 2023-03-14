@@ -171,6 +171,20 @@
         "id": 2,
         "name": "Platinium"
       }
+    },
+    {
+      "id": 12,
+      "name": "A",
+      "birthday": "2023-03-11",
+      "gender": "false",
+      "idCard": "22",
+      "phoneNumber": "0528203141",
+      "address": "k164/94 Nguyễn Chánh, Hoà Minh, Liên Chiểu, Đà Nẵng",
+      "email": "aa",
+      "customerType": {
+        "id": 2,
+        "name": "Platinium"
+      }
     }
   ],
   "facility": [
@@ -576,6 +590,46 @@
       "facility": {
         "id": 1,
         "name": "Villa Beach Front"
+      }
+    },
+    {
+      "id": 13,
+      "startDate": "2023-03-16",
+      "endDate": "2023-03-24",
+      "customer": {
+        "id": 1,
+        "name": "Nguyễn Thị Hào",
+        "birthday": "1970-11-07",
+        "gender": "false",
+        "idCard": "643431213",
+        "phoneNumber": "0945423362",
+        "address": "23 Nguyễn Hoàng, Đà Nẵng",
+        "email": "thihao07@gmail.com",
+        "customerType": {
+          "id": 2,
+          "name": "Platinium"
+        }
+      },
+      "facility": {
+        "id": 2,
+        "name": "House Princess 01",
+        "area": 14000,
+        "cost": 5000000,
+        "maxPeople": 7,
+        "facilityType": {
+          "id": 2,
+          "name": "House"
+        },
+        "rentType": {
+          "id": 2,
+          "name": "month"
+        },
+        "standardRoom": "vip",
+        "descriptionOtherConvenience": "Có thêm bếp nướng",
+        "poolArea": 0,
+        "numberOfFloors": 3,
+        "facilityFree": "",
+        "flagDelete": false
       }
     }
   ],

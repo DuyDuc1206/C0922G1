@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
 
 
@@ -9,4 +9,5 @@ import { CommonModule } from '@angular/common';
     CommonModule
   ]
 })
-export class ContractModule { }
+export class ContractModule {
+}

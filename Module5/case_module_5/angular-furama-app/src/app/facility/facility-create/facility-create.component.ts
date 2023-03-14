@@ -43,6 +43,7 @@ export class FacilityCreateComponent implements OnInit {
       rentType: new FormControl('', [Validators.required]),
     });
   }
+
   idControl = () => this.facilityCreateForm.get('id');
   nameControl = () => this.facilityCreateForm.get('name');
   areaControl = () => this.facilityCreateForm.get('area');
@@ -69,8 +70,8 @@ export class FacilityCreateComponent implements OnInit {
   }
 
   onSubmit() {
-    this.facilityService.createFacility(this.facilityCreateForm.value).subscribe(item =>{
+    this.facilityService.createFacility(this.facilityCreateForm.value).subscribe(item => {
       this.router.navigateByUrl('/facility');
-    })
+    });
   }
 }

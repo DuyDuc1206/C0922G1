@@ -1,23 +1,22 @@
 import {Injectable} from '@angular/core';
 import {Contract} from '../model/contract';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ContractService {
-  contractList: Contract[] = [
-    {
-      id: 1,
-      startDate: '2020-12-08',
-      endDate: '2020-12-08',
-      deposit: 0,
-    }
-  ];
+  private URL = 'http://localhost:3000/contract';
 
-  constructor() {
+  constructor(private http: HttpClient) {
   }
 
-  findAll() {
-    return this.contractList;
+  getAll(): Observable<Contract[]> {
+    return this.http.get<Contract[]>(`${this.URL}`);
+  }
+
+  createContract(contract: Contract): Observable<Contract> {
+    return this.http.post<Contract>(`${this.URL}`, contract);
   }
 }

@@ -1,6 +1,6 @@
 <main class="container-fluid">
   <div class="container d-flex justify-content-between mt-2">
-    <button id="addContract" class="btn btn-primary save" data-bs-toggle="modal" data-bs-target="#addContractModal">
+    <button id="addContract" class="btn btn-primary save" routerLink="/contract/create">
       ADD CONTRACT <i
       class="fas fa-plus-square"></i>
     </button>
@@ -11,7 +11,7 @@
     <tr>
       <th>No.</th>
       <th>Facility</th>
-      <th>Employee</th>
+      <th>Customer</th>
       <th>Start Date</th>
       <th>End Date</th>
       <th>Deposit</th>
@@ -22,14 +22,11 @@
     <tbody class="table-group-divider">
     <tr *ngFor="let c of contractList,index as i">
       <td>{{i+1}}</td>
-      <td>{{c.facility}}</td>
-      <td>{{c.employee}}</td>
+      <td>{{c.facility.name}}</td>
+      <td>{{c.customer.name}}</td>
       <td>{{c.startDate}}</td>
       <td>{{c.endDate}}</td>
       <td>{{c.deposit}}</td>
-
-
-      <td>Delete</td>
     </tr>
     </tbody>
   </table>
