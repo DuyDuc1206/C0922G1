@@ -19,7 +19,9 @@
         <td>{{p.price}}</td>
         <td>{{p.description}}</td>
         <td>{{p.category.name}}</td>
-        <td><button class="btn btn-primary">EDIT</button></td>
+        <td>
+          <button class="btn btn-primary" routerLink="/product/edit/{{p.id}}">EDIT</button>
+        </td>
       </tr>
       </tbody>
     </table>

@@ -20,20 +20,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="735b8434-f457-4766-85bb-402f565fd4ee" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../case_module_5/angular-furama-app/src/app/data/db.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../case_module_5/angular-furama-app/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/../case_module_5/angular-furama-app/angular.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../case_module_5/angular-furama-app/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../case_module_5/angular-furama-app/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../case_module_5/angular-furama-app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../case_module_5/angular-furama-app/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../case_module_5/angular-furama-app/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../case_module_5/angular-furama-app/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../case_module_5/angular-furama-app/src/app/employee/employee-list/employee-list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../case_module_5/angular-furama-app/src/app/employee/employee-list/employee-list.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../case_module_5/angular-furama-app/src/app/employee/employee-list/employee-list.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../case_module_5/angular-furama-app/src/app/employee/employee-list/employee-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../case_module_5/angular-furama-app/src/app/employee/employee-list/employee-list.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../case_module_5/angular-furama-app/src/app/employee/service/employee.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../case_module_5/angular-furama-app/src/app/employee/service/employee.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../case_module_5/angular-furama-app/src/app/share/header/header.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../case_module_5/angular-furama-app/src/app/share/header/header.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../case_module_5/angular-furama-app/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../case_module_5/angular-furama-app/src/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../case_module_5/angular-furama-app/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/../case_module_5/angular-furama-app/src/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ss6_angular-form/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ss6_angular-form/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss8_connect-back-end/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ss8_connect-back-end/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss8_connect-back-end/db.json" beforeDir="false" afterPath="$PROJECT_DIR$/../ss8_connect-back-end/db.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss8_connect-back-end/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../ss8_connect-back-end/src/app/app-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss8_connect-back-end/src/app/product/product-create/product-create.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../ss8_connect-back-end/src/app/product/product-create/product-create.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss8_connect-back-end/src/app/product/product-update/product-update.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../ss8_connect-back-end/src/app/product/product-update/product-update.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss8_connect-back-end/src/app/product/product-update/product-update.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../ss8_connect-back-end/src/app/product/product-update/product-update.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss8_connect-back-end/src/app/product/product/product.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../ss8_connect-back-end/src/app/product/product/product.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss8_connect-back-end/src/app/service/product.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../ss8_connect-back-end/src/app/service/product.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +48,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ss8_connect-back-end" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -111,6 +106,7 @@
       <workItem from="1678757048483" duration="1118000" />
       <workItem from="1678776368004" duration="5652000" />
       <workItem from="1678787260047" duration="972000" />
+      <workItem from="1678796863776" duration="779000" />
     </task>
     <servers />
   </component>
@@ -130,9 +126,9 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="687" y="212" key="FileChooserDialogImpl" timestamp="1678758175463">
+    <state x="687" y="212" key="FileChooserDialogImpl" timestamp="1678797049115">
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
-    <state x="687" y="212" key="FileChooserDialogImpl/0.0.1920.1032@0.0.1920.1032" timestamp="1678758175463" />
+    <state x="687" y="212" key="FileChooserDialogImpl/0.0.1920.1032@0.0.1920.1032" timestamp="1678797049115" />
   </component>
 </project>

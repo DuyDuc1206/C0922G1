@@ -1,46 +1,39 @@
 {
   "products": [
     {
-      "id": "1",
       "name": "Nokia 11",
       "price": 20000000,
-      "description": "Điện thoại mới",
+      "description": "Điện thoại mới .",
       "category": {
-        "id": "1",
-        "name": "Điện thoại"
-      }
+        "id": "2",
+        "name": "Ti vi"
+      },
+      "id": "1"
     },
     {
-      "id": "2",
       "name": "Nokia 20",
       "price": 50000000,
       "description": "Điện thoại siêu mới",
       "category": {
         "id": "2",
         "name": "Ti vi"
-      }
+      },
+      "id": "2"
     },
     {
-      "name": null,
-      "price": null,
-      "description": null,
-      "category": "1",
-      "id": "m0iRclX"
-    },
-    {
-      "id": "FHqx2jP",
-      "name": null,
-      "price": null,
-      "description": null,
+      "id": "gnKNAYE",
+      "name": "Nokiaaaa",
+      "price": 123456,
+      "description": "MNW",
       "category": {
-        "id": "1",
-        "name": "Điện thoại"
+        "id": "2",
+        "name": "Ti vi"
       }
     },
     {
-      "id": "vdQeNnE",
-      "name": "fff",
-      "price": 2222,
+      "id": "5H6UDWp",
+      "name": "a",
+      "price": 2323,
       "description": "aaa",
       "category": {
         "id": "1",
@@ -48,10 +41,10 @@
       }
     },
     {
-      "id": "1h3OcnO",
-      "name": "Nguyen Duy Duc",
-      "price": 15000000,
-      "description": "nguyen d",
+      "id": "kfMiNUZ",
+      "name": "a",
+      "price": 22,
+      "description": "a",
       "category": {
         "id": "2",
         "name": "Ti vi"

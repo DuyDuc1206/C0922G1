@@ -5,6 +5,10 @@
       <div class="card-body">
         <form [formGroup]="productCreateForm" (ngSubmit)="onSubmit()" >
           <div class="row">
+            <div class="mb-3" disabled="">
+              <label class="form-label" >Id</label>
+              <input formControlName="id" type="text" class="form-control">
+            </div>
             <div class="mb-3">
               <label class="form-label" >Name</label>
               <input formControlName="name" type="text" class="form-control">
