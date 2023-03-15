@@ -18,6 +18,9 @@ import {CustomerModule} from './customer/customer.module';
 import {EmployeeListComponent} from './employee/employee-list/employee-list.component';
 import {HttpClientModule} from '@angular/common/http';
 import {ReactiveFormsModule} from '@angular/forms';
+import {CommonModule} from '@angular/common';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {ToastrModule} from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -41,6 +44,9 @@ import {ReactiveFormsModule} from '@angular/forms';
     CustomerModule,
     HttpClientModule,
     ReactiveFormsModule,
+    CommonModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot(), // ToastrModule added
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,8 +1,22 @@
 {
   "customer": [
     {
-      "id": 1,
-      "name": "Nguyễn Thị Hào",
+      "id": 2,
+      "name": "Nguyễn Thị Hùng",
+      "birthday": "1970-11-07",
+      "gender": true,
+      "idCard": "643431213",
+      "phoneNumber": "0945423362",
+      "address": "23 Nguyễn Hoàng, Đà Nẵng",
+      "email": "thihao07@gmail.com",
+      "customerType": {
+        "id": 2,
+        "name": "Platinium"
+      }
+    },
+    {
+      "id": 2,
+      "name": "Nguyễn Thị Hùng",
       "birthday": "1970-11-07",
       "gender": true,
       "idCard": "643431213",
@@ -16,156 +30,16 @@
     },
     {
       "id": 3,
-      "name": "Trương Định Nghệ",
-      "birthday": "1990-02-27",
-      "gender": false,
-      "idCard": "488645199",
-      "phoneNumber": "0373213122",
-      "address": "K323/12 Ông Ích Khiêm, Vinh",
-      "email": "nghenhan2702@gmail.com",
-      "customerType": {
-        "id": 2,
-        "name": "Platinium"
-      }
-    },
-    {
-      "id": 4,
-      "customerCode": "KH-1111",
-      "customerType": {
-        "id": 1,
-        "name": "Diamond"
-      },
-      "name": "Dương Văn Quan",
-      "birthday": "1981-07-08",
-      "idCard": "543432111",
-      "phoneNumber": "0490039241",
+      "name": "Nguyễn Thị Hùng",
+      "birthday": "1970-11-07",
       "gender": true,
-      "email": "duongquan@gmail.com",
-      "address": "K453/12 Lê Lợi, Đà Nẵng",
-      "flagDelete": false
-    },
-    {
-      "id": 5,
-      "customerCode": "KH-1111",
-      "customerType": {
-        "id": 4,
-        "name": "Silver"
-      },
-      "name": "Hoàng Trần Nhi Nhi",
-      "birthday": "1995-12-09",
-      "idCard": "795453345",
-      "phoneNumber": "0312345678",
-      "gender": false,
-      "email": "nhinhi123@gmail.com",
-      "address": "224 Lý Thái Tổ, Gia Lai",
-      "flagDelete": false
-    },
-    {
-      "id": 6,
-      "customerCode": "KH-1111",
-      "customerType": {
-        "id": 4,
-        "name": "Silver"
-      },
-      "name": "Tôn Nữ Mộc Châu",
-      "birthday": "2005-12-06",
-      "idCard": "732434215",
-      "phoneNumber": "0988888844",
-      "gender": false,
-      "email": "tonnuchau@gmail.com",
-      "address": "37 Yên Thế, Đà Nẵng",
-      "flagDelete": false
-    },
-    {
-      "id": 7,
-      "customerCode": "KH-1111",
-      "customerType": {
-        "id": 1,
-        "name": "Diamond"
-      },
-      "name": "Nguyễn Mỹ Kim",
-      "birthday": "1984-04-08",
-      "idCard": "856453123",
-      "phoneNumber": "0912345698",
-      "gender": false,
-      "email": "kimcuong84@gmail.com",
-      "address": "K123/45 Lê Lợi, Hồ Chí Minh",
-      "flagDelete": false
-    },
-    {
-      "id": 8,
-      "customerCode": "KH-1111",
-      "customerType": {
-        "id": 3,
-        "name": "Gold"
-      },
-      "name": "Nguyễn Thị Hào",
-      "birthday": "1999-04-08",
-      "idCard": "965656433",
-      "phoneNumber": "0763212345",
-      "gender": true,
-      "email": "haohao99@gmail.com",
-      "address": "55 Nguyễn Văn Linh, Kon Tum",
-      "flagDelete": false
-    },
-    {
-      "id": 9,
-      "customerCode": "KH-1111",
-      "customerType": {
-        "id": 1,
-        "name": "Diamond"
-      },
-      "name": "Trần Đại Danh",
-      "birthday": "1994-07-01",
-      "idCard": "432341235",
-      "phoneNumber": "0643343433",
-      "gender": true,
-      "email": "danhhai99@gmail.com",
-      "address": "24 Lý Thường Kiệt, Quảng Ngãi",
-      "flagDelete": false
-    },
-    {
-      "id": 10,
-      "customerCode": "KH-1111",
-      "customerType": {
-        "id": 3,
-        "name": "Gold"
-      },
-      "name": "Nguyễn Tâm Đắc",
-      "birthday": "1989-07-01",
-      "idCard": "344343432",
-      "phoneNumber": "0987654321",
-      "gender": true,
-      "email": "dactam@gmail.com",
-      "address": "22 Ngô Quyền, Đà Nẵng",
-      "flagDelete": false
-    },
-    {
-      "id": 11,
-      "name": "d DDDDDD",
-      "birthday": "2023-03-18",
-      "gender": false,
-      "idCard": "22",
-      "phoneNumber": "0528203141",
-      "address": "k164/94 Nguyễn Chánh, Hoà Minh, Liên Chiểu, Đà Nẵng",
-      "email": "dd",
-      "customerType": {
-        "id": 2,
-        "name": "Platinium"
-      }
-    },
-    {
-      "id": 12,
-      "name": "Duc",
-      "birthday": "2023-03-10",
-      "gender": true,
-      "idCard": "11",
-      "phoneNumber": "+8455555555",
-      "address": "k164/94 Nguyễn Chánh, Hoà Minh, Liên Chiểu, Đà Nẵng",
+      "idCard": "643431213",
+      "phoneNumber": "0945423362",
+      "address": "23 Nguyễn Hoàng, Đà Nẵng",
       "email": "thihao07@gmail.com",
       "customerType": {
-        "id": 1,
-        "name": "Diamond"
+        "id": 2,
+        "name": "Platinium"
       }
     }
   ],

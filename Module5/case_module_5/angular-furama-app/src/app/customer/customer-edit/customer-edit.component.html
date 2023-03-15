@@ -21,10 +21,6 @@
           </div>
           <div class="mb-3">
             <label class="form-label">Gender</label><br>
-<!--            <select id="cusGender"  class="form-select"  formControlName="gender">-->
-<!--              <option [ngValue]="true">Man</option>-->
-<!--              <option [ngValue]="false">Woman</option>-->
-<!--            </select>-->
             <input type="radio" [value]="true" formControlName="gender">Nam
             <input type="radio"  [value]="false" formControlName="gender">Nu
             <div *ngIf="genderControl().invalid && genderControl().dirty || genderControl().touched" class="text-danger">

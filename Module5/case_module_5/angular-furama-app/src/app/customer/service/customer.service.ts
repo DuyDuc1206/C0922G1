@@ -16,9 +16,9 @@ export class CustomerService {
     return this.http.get<Customer[]>(this.URL);
   }
 
-  // getListAndSearch(_limit = 4, search_key: any = null): Observable<Customer[]> {
-  //   return this.http.get<Customer[]>(`${this.URL}/_lim);
-  // }
+  searchNameAndCustomerType(searchName: string, searchCustomerType: string): Observable<Customer[]> {
+    return this.http.get<Customer[]>(`${this.URL}?name_like=${searchName}&customer-type?name_like=${searchCustomerType}`);
+  }
 
   createCustomer(customer: Customer): Observable<Customer> {
     return this.http.post<Customer>(this.URL, customer);

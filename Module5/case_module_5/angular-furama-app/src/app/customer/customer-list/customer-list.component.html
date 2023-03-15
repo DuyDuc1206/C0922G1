@@ -3,16 +3,16 @@
   <div class="container d-flex justify-content-between mt-2">
     <button class="btn btn-primary save" routerLink="/customer/create">Add Customer <i
       class="fas fa-plus-square"></i></button>
-<!--    <form method="get">-->
+<!--    <form>-->
       <div class="d-flex">
         <input class="form-control" type="text" name="name" placeholder="search name">
         <input class="form-control ms-2" type="text" name="email"
                placeholder="search email">
         <select class="form-select ms-2" name="customerTypeId">
-          <option value="">Customer Type</option>
-          <option></option>
+          <option [value]="{}">Customer Type</option>
+          <option [value]="ct" *ngFor=" let ct of customerTypeList">{{ct.name}}</option>
         </select>
-        <button class="btn btn-primary ms-2 form-control save">Search</button>
+        <button class="btn btn-primary ms-2 form-control save" (click)="search()">Search</button>
       </div>
 <!--    </form>-->
   </div>
@@ -40,7 +40,8 @@
       <td>
         <ng-container *ngIf="c.gender ===true">
           Nam
-        </ng-container><ng-container *ngIf="c.gender ===false">
+        </ng-container>
+        <ng-container *ngIf="c.gender ===false">
           Nu
         </ng-container>
       </td>
@@ -48,10 +49,36 @@
       <td>{{c.phoneNumber}}</td>
       <td>{{c.email}}</td>
       <td>{{c.address}}</td>
-      <td >{{c.customerType.name}}</td>
-      <td><button class="btn btn-danger" routerLink="/customer/delete/{{c.id}}">Delete</button></td>
-      <td><button class="btn btn-primary" routerLink="/customer/edit/{{c.id}}">Edit</button></td>
+      <td>{{c.customerType.name}}</td>
+      <td>
+        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                (click)="customerDelete = c">
+          Delete
+        </button>
+      </td>
+      <td>
+        <button class="btn btn-primary" routerLink="/customer/edit/{{c.id}}">Edit</button>
+      </td>
     </tr>
     </tbody>
   </table>
 </main>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <span>Do you want delete</span><span class="text-danger">{{customerDelete.name}} ?</span>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="removeCustomer()">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
