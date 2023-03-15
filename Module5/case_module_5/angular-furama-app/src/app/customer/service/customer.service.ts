@@ -8,12 +8,18 @@ import {Observable} from 'rxjs';
 })
 export class CustomerService {
   private URL = 'http://localhost:3000/customer';
+
   constructor(private http: HttpClient) {
   }
 
   getAllCustomer(): Observable<Customer[]> {
     return this.http.get<Customer[]>(this.URL);
   }
+
+  // getListAndSearch(_limit = 4, search_key: any = null): Observable<Customer[]> {
+  //   return this.http.get<Customer[]>(`${this.URL}/_lim);
+  // }
+
   createCustomer(customer: Customer): Observable<Customer> {
     return this.http.post<Customer>(this.URL, customer);
   }
@@ -22,7 +28,11 @@ export class CustomerService {
     return this.http.get<Customer>(`${this.URL}/${id}`);
   }
 
-  editProduct(id: number, customer: Customer): Observable<Customer> {
+  editCustomer(id: number, customer: Customer): Observable<Customer> {
     return this.http.put<Customer>(`${this.URL}/${id}`, customer);
+  }
+
+  deleteCustomer(id: number): Observable<Customer> {
+    return this.http.delete<Customer>(`${this.URL}/${id}`);
   }
 }

@@ -1,0 +1,52 @@
+<p class="text-center fs-3">Customer Delete</p>
+<div class="col-md-4 offset-md-4">
+  <div class="card">
+    <div class="card-body">
+      <form [formGroup]="customerDeleteForm" (ngSubmit)="onSubmit()" id="customerEditForm">
+        <div class="row">
+          <input id="cusId" class="form-control" formControlName="id" hidden>
+          <div class="mb-3">
+            <label class="form-label">Name</label>
+            <input id="cusName" type="text" class="form-control" formControlName="name"  disabled>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Date Of Birth</label>
+            <input id="cusDOB" type="date" class="form-control" formControlName="birthday" disabled >
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Gender</label><br>
+            <select id="cusGender" class="form-select" formControlName="gender" disabled >
+              <option value="true">Man</option>
+              <option value="false">Woman</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">ID Card</label>
+            <input id="cusIdCard" type="text" class="form-control" formControlName="idCard" disabled>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Phone Number</label>
+            <input id="cusPhoneNumber" type="text" class="form-control" formControlName="phoneNumber" disabled >
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Address</label>
+            <input id="cusAddress" type="text" class="form-control" formControlName="address" disabled>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input id="cusEmail" type="text" class="form-control" formControlName="email" disabled>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Customer Type </label><br>
+            <select id="cusTypeId" class="form-select" formControlName="customerType" disabled>
+              <option [ngValue]="ct" *ngFor="let ct of customerTypeList">{{ct.name}}</option>
+            </select>
+          </div>
+        </div>
+      </form>
+      <button type="button" class="btn btn-primary btn-md me-4" id="cancel">Cancel</button>
+      <button type="submit" class="btn btn-danger btn-md save" form="customerEditForm" >Delete</button>
+    </div>
+  </div>
+</div>
+

@@ -21,10 +21,8 @@
           </div>
           <div class="mb-3">
             <label class="form-label">Gender</label><br>
-            <select id="cusGender" class="form-select" formControlName="gender">
-              <option value="true">Man</option>
-              <option value="false">Woman</option>
-            </select>
+            <input type="radio" formControlName="gender" [value]="true" >Nam
+            <input type="radio" formControlName="gender" [value]="false">Nu
             <div *ngIf="genderControl().invalid && genderControl().dirty || genderControl().touched" class="text-danger">
               <div *ngIf="genderControl().errors?.required">Birthday must be required</div>
             </div>
@@ -41,6 +39,7 @@
             <input id="cusPhoneNumber" type="text" class="form-control" formControlName="phoneNumber">
             <div *ngIf="phoneNumberControl().invalid && phoneNumberControl().dirty || phoneNumberControl().touched" class="text-danger">
               <div *ngIf="phoneNumberControl().errors?.required">Phone number must be required</div>
+              <div *ngIf="phoneNumberControl().errors?.pattern">Phone number wrong format</div>
             </div>
           </div>
           <div class="mb-3">

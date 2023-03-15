@@ -27,7 +27,7 @@ export class CustomerCreateComponent implements OnInit {
       birthday: new FormControl('', [Validators.required]),
       gender: new FormControl('', [Validators.required]),
       idCard: new FormControl('', [Validators.required]),
-      phoneNumber: new FormControl('', [Validators.required]),
+      phoneNumber: new FormControl('', [Validators.required, Validators.pattern('^\\+84\\d{8}$')]),
       address: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required]),
       customerType: new FormControl('', [Validators.required]),
@@ -43,6 +43,7 @@ export class CustomerCreateComponent implements OnInit {
   addressControl = () => this.customerCreateForm.get('address');
   emailControl = () => this.customerCreateForm.get('email');
   customerTypeControl = () => this.customerCreateForm.get('customerType');
+
 
   getAllCustomerType() {
     this.customerTypeService.getAllCustomerType().subscribe(customerType => {

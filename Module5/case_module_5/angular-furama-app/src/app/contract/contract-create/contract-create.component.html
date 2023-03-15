@@ -54,7 +54,7 @@
             </div>
           </div>
           <button type="button" class="btn btn-primary btn-md me-4" id="cancel">Cancel</button>
-          <button type="submit" class="btn btn-primary btn-md save">Save</button>
+          <button type="submit" class="btn btn-primary btn-md" [disabled]="contractCreateForm.invalid">Save</button>
         </form>
       </div>
     </div>

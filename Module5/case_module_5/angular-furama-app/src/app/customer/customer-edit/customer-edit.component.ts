@@ -30,7 +30,7 @@ export class CustomerEditComponent implements OnInit {
   }
 
   onSubmit() {
-    this.customerService.editProduct(this.id, this.customerEditForm.value).subscribe(item => {
+    this.customerService.editCustomer(this.id, this.customerEditForm.value).subscribe(item => {
       this.router.navigateByUrl('/customer');
     });
 
@@ -47,10 +47,11 @@ export class CustomerEditComponent implements OnInit {
         phoneNumber: new FormControl(item.phoneNumber, [Validators.required]),
         address: new FormControl(item.address, [Validators.required]),
         email: new FormControl(item.email, [Validators.required]),
-        customerType: new FormControl(item.customerType, [Validators.required]),
+        customerType: new FormControl(this.customerTypeList.find(a => a.id === item.customerType.id), [Validators.required]),
       });
     });
   }
+
   idControl = () => this.customerEditForm.get('id');
   nameControl = () => this.customerEditForm.get('name');
   birthdayControl = () => this.customerEditForm.get('birthday');

@@ -15,6 +15,7 @@ import { CategoryUpdateComponent } from './category/category-update/category-upd
 import { ProductComponent } from './product/product/product.component';
 import { ProductCreateComponent } from './product/product-create/product-create.component';
 import { ProductUpdateComponent } from './product/product-update/product-update.component';
+import {SharedModule} from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { ProductUpdateComponent } from './product/product-update/product-update.
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
+    SharedModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

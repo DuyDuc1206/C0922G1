@@ -2,7 +2,7 @@
 <div class="col-md-4 offset-md-4">
   <div class="card">
     <div class="card-body">
-      <form [formGroup]="customerEditForm" (ngSubmit)="onSubmit()" id="customerEditForm">
+      <form *ngIf="customerEditForm" [formGroup]="customerEditForm" (ngSubmit)="onSubmit()" id="customerEditForm">
         <div class="row">
           <input id="cusId" class="form-control" formControlName="id" hidden>
           <div class="mb-3">
@@ -21,10 +21,12 @@
           </div>
           <div class="mb-3">
             <label class="form-label">Gender</label><br>
-            <select id="cusGender" class="form-select" formControlName="gender">
-              <option value="true">Man</option>
-              <option value="false">Woman</option>
-            </select>
+<!--            <select id="cusGender"  class="form-select"  formControlName="gender">-->
+<!--              <option [ngValue]="true">Man</option>-->
+<!--              <option [ngValue]="false">Woman</option>-->
+<!--            </select>-->
+            <input type="radio" [value]="true" formControlName="gender">Nam
+            <input type="radio"  [value]="false" formControlName="gender">Nu
             <div *ngIf="genderControl().invalid && genderControl().dirty || genderControl().touched" class="text-danger">
               <div *ngIf="genderControl().errors?.required">Birthday must be required</div>
             </div>
