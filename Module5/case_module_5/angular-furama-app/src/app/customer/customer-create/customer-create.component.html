@@ -2,7 +2,7 @@
 <div class="col-md-4 offset-md-4">
   <div class="card">
     <div class="card-body">
-      <form [formGroup]="customerCreateForm" (ngSubmit)="onSubmit()" id="customerCreateForm">
+      <form *ngIf="customerCreateForm" [formGroup]="customerCreateForm" (ngSubmit)="onSubmit()" id="customerCreateForm">
         <div class="row">
           <input id="cusId" class="form-control" formControlName="id" hidden>
           <div class="mb-3">
@@ -67,8 +67,8 @@
           </div>
         </div>
       </form>
-      <button type="button" class="btn btn-primary btn-md me-4" id="cancel">Cancel</button>
-      <button type="submit" class="btn btn-primary btn-md save" form="customerCreateForm" >Save</button>
+      <button type="button" class="btn btn-primary btn-md me-4" routerLink="/customer">Cancel</button>
+      <button type="submit" class="btn btn-primary btn-md save" form="customerCreateForm" [disabled]="customerCreateForm.invalid" >Save</button>
     </div>
   </div>
 </div>

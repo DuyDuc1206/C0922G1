@@ -17,10 +17,11 @@ import {HomeComponent} from './home/home.component';
 import {CustomerModule} from './customer/customer.module';
 import {EmployeeListComponent} from './employee/employee-list/employee-list.component';
 import {HttpClientModule} from '@angular/common/http';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ToastrModule} from 'ngx-toastr';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,8 @@ import {ToastrModule} from 'ngx-toastr';
     CommonModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(), // ToastrModule added
+    NgxPaginationModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

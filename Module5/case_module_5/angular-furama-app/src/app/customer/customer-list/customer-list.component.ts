@@ -14,6 +14,10 @@ export class CustomerListComponent implements OnInit {
   customerList: Customer[] = [];
   customerTypeList: CustomerType[] = [];
   customerDelete: Customer = {};
+  page = 1; // bắt đầu bằng 1
+  nameSearch = '';
+  emailSearch = '';
+  customerTypeId = 0;
 
   constructor(private customerService: CustomerService,
               private customerTypeService: CustomerTypeService,
@@ -44,7 +48,18 @@ export class CustomerListComponent implements OnInit {
     });
   }
 
-  search() {
-
+  searchAll() {
+    if (this.customerTypeId) {
+      this.customerService.searchAll(this.nameSearch, this.emailSearch, this.customerTypeId).subscribe(data => {
+        this.customerList = data;
+        this.page = 1; // quay lại trang 1
+      });
+    } else {
+      this.customerService.searchAllNotCustomerType(this.nameSearch, this.emailSearch).subscribe(data => {
+        this.customerList = data;
+        this.page = 1; // quay lại trang 1
+      });
+    }
   }
 }
+

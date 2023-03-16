@@ -4,6 +4,7 @@ import {CustomerType} from '../model/customer-type';
 import {CustomerService} from '../service/customer.service';
 import {CustomerTypeService} from '../service/customer-type.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-customer-edit',
@@ -18,7 +19,8 @@ export class CustomerEditComponent implements OnInit {
   constructor(private customerService: CustomerService,
               private customerTypeService: CustomerTypeService,
               private activatedRoute: ActivatedRoute,
-              private router: Router) {
+              private router: Router,
+              private toasts: ToastrService) {
   }
 
   ngOnInit(): void {
@@ -32,6 +34,7 @@ export class CustomerEditComponent implements OnInit {
   onSubmit() {
     this.customerService.editCustomer(this.id, this.customerEditForm.value).subscribe(item => {
       this.router.navigateByUrl('/customer');
+      this.toasts.success('Delete Successfully');
     });
 
   }

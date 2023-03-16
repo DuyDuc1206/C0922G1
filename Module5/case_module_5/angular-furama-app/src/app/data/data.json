@@ -1,7 +1,7 @@
 {
-  "customer": [
+  "customers": [
     {
-      "id": 2,
+      "id": 1,
       "name": "Nguyễn Thị Hùng",
       "birthday": "1970-11-07",
       "gender": true,
@@ -16,7 +16,7 @@
     },
     {
       "id": 2,
-      "name": "Nguyễn Thị Hùng",
+      "name": "Phan Hinh Nhan",
       "birthday": "1970-11-07",
       "gender": true,
       "idCard": "643431213",
@@ -40,6 +40,76 @@
       "customerType": {
         "id": 2,
         "name": "Platinium"
+      }
+    },
+    {
+      "id": 4,
+      "name": "Phan Hinh Nhan",
+      "birthday": "1970-11-07",
+      "gender": true,
+      "idCard": "643431213",
+      "phoneNumber": "0945423362",
+      "address": "23 Nguyễn Hoàng, Đà Nẵng",
+      "email": "thihao07@gmail.com",
+      "customerType": {
+        "id": 1,
+        "name": "Platinium"
+      }
+    },
+    {
+      "id": 5,
+      "name": "Duc Nguyen",
+      "birthday": "1970-11-07",
+      "gender": true,
+      "idCard": "643431213",
+      "phoneNumber": "0945423362",
+      "address": "23 Nguyễn Hoàng, Đà Nẵng",
+      "email": "thihao07@gmail.com",
+      "customerType": {
+        "id": 4,
+        "name": "Platinium"
+      }
+    },
+    {
+      "id": 6,
+      "name": "Duy Duc",
+      "birthday": "2023-03-25",
+      "gender": true,
+      "idCard": "1515",
+      "phoneNumber": "+8499999999",
+      "address": "k164/94 Nguyễn Chánh, Hoà Minh, Liên Chiểu, Đà Nẵng",
+      "email": "aaa",
+      "customerType": {
+        "id": 2,
+        "name": "Platinium"
+      }
+    },
+    {
+      "id": 7,
+      "name": "Nguyen DUy duc",
+      "birthday": "2023-03-18",
+      "gender": true,
+      "idCard": "22",
+      "phoneNumber": "+8466666666",
+      "address": "k164/94 Nguyễn Chánh, Hoà Minh, Liên Chiểu, Đà Nẵng",
+      "email": "a",
+      "customerType": {
+        "id": 4,
+        "name": "silver"
+      }
+    },
+    {
+      "id": 8,
+      "name": "Nguyen DUy duc",
+      "birthday": "2023-03-11",
+      "gender": false,
+      "idCard": "22",
+      "phoneNumber": "+8455555555",
+      "address": "k164/94 Nguyễn Chánh, Hoà Minh, Liên Chiểu, Đà Nẵng",
+      "email": "aaa",
+      "customerType": {
+        "id": 5,
+        "name": "Member"
       }
     }
   ],

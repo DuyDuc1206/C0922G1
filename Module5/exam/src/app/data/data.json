@@ -1,0 +1,92 @@
+{
+  "customers": [
+    {
+      "id": 1,
+      "name": "Nguyen Duy Dc",
+      "birthday": "1990-12-08",
+      "gender": false,
+      "import": "2000-01-01",
+      "export": "2010-01-01",
+      "phoneNumber": "+8499999999",
+      "email": "duyduc12@gmail.com",
+      "customerType": {
+        "id": 1,
+        "name": "Platinum"
+      }
+    },
+    {
+      "id": 2,
+      "name": "nguyen duy Hung",
+      "birthday": "1990-12-08",
+      "gender": false,
+      "import": "2000-01-01",
+      "export": "2010-01-01",
+      "phoneNumber": "+8499999999",
+      "email": "duyduc12@gmail.com",
+      "customerType": {
+        "id": 2,
+        "name": "Silver"
+      }
+    },
+    {
+      "id": 3,
+      "name": "nguyen Thi Ha",
+      "birthday": "1990-12-08",
+      "gender": false,
+      "import": "2000-01-01",
+      "export": "2010-01-01",
+      "phoneNumber": "+8499999999",
+      "email": "duyduc12@gmail.com",
+      "customerType": {
+        "id": 2,
+        "name": "Silver"
+      }
+    },
+    {
+      "id": 4,
+      "name": "Nguyen Duy Duc",
+      "birthday": "2023-03-11",
+      "gender": false,
+      "import": "2023-03-11",
+      "export": "2023-03-10",
+      "phoneNumber": "+8455555555",
+      "email": "duyDuc@gmail.com",
+      "customerType": "Platinum"
+    },
+    {
+      "id": 5,
+      "name": "Nguyen Duay Duc",
+      "birthday": "2023-03-18",
+      "gender": false,
+      "import": "2023-03-03",
+      "export": "2023-03-04",
+      "phoneNumber": "+8455555556",
+      "email": "duuyuuuu@gmail.com",
+      "customerType": 1
+    },
+    {
+      "id": 6,
+      "name": "Nguyen Duy Duc",
+      "birthday": "2023-03-16",
+      "gender": true,
+      "import": "2023-03-04",
+      "export": "2023-03-18",
+      "phoneNumber": "+8455555555",
+      "email": "duy@gmail.com",
+      "customerType": {
+        "id": 2,
+        "name": "Silver"
+      }
+    }
+  ],
+  "customer-types": [
+    {
+      "id": 1,
+      "name": "Platinum"
+    },
+    {
+      "id": 2,
+      "name": "Silver"
+    }
+  ]
+}

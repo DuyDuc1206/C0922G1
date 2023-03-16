@@ -7,7 +7,7 @@ import {Observable} from 'rxjs';
   providedIn: 'root'
 })
 export class CustomerService {
-  private URL = 'http://localhost:3000/customer';
+  private URL = 'http://localhost:3000/customers';
 
   constructor(private http: HttpClient) {
   }
@@ -16,8 +16,13 @@ export class CustomerService {
     return this.http.get<Customer[]>(this.URL);
   }
 
-  searchNameAndCustomerType(searchName: string, searchCustomerType: string): Observable<Customer[]> {
-    return this.http.get<Customer[]>(`${this.URL}?name_like=${searchName}&customer-type?name_like=${searchCustomerType}`);
+  searchAll(nameSearch: string, emailSearch: string, customerTypeId: number): Observable<Customer[]> {
+    return this.http.get<Customer[]>('http://localhost:3000/customers' + '?name_like=' + nameSearch + '&email_like=' +
+      emailSearch + `&customerType.id=` + customerTypeId);
+  }
+
+  searchAllNotCustomerType(nameSearch: string, emailSearch: string): Observable<Customer[]> {
+    return this.http.get<Customer[]>('http://localhost:3000/customers' + '?name_like=' + nameSearch + '&email_like=' + emailSearch);
   }
 
   createCustomer(customer: Customer): Observable<Customer> {

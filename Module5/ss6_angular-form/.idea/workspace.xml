@@ -20,22 +20,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e9fc4051-463e-408e-9b3f-a99a63c32ca9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../case_module_5/angular-furama-app/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/../case_module_5/angular-furama-app/angular.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../exam/src/app/data/data.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../case_module_5/angular-furama-app/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../case_module_5/angular-furama-app/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../case_module_5/angular-furama-app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../case_module_5/angular-furama-app/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../case_module_5/angular-furama-app/src/app/app.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../case_module_5/angular-furama-app/src/app/app.component.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../case_module_5/angular-furama-app/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../case_module_5/angular-furama-app/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case_module_5/angular-furama-app/src/app/customer/customer-create/customer-create.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../case_module_5/angular-furama-app/src/app/customer/customer-create/customer-create.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case_module_5/angular-furama-app/src/app/customer/customer-create/customer-create.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../case_module_5/angular-furama-app/src/app/customer/customer-create/customer-create.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../case_module_5/angular-furama-app/src/app/customer/customer-edit/customer-edit.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../case_module_5/angular-furama-app/src/app/customer/customer-edit/customer-edit.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case_module_5/angular-furama-app/src/app/customer/customer-edit/customer-edit.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../case_module_5/angular-furama-app/src/app/customer/customer-edit/customer-edit.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../case_module_5/angular-furama-app/src/app/customer/customer-list/customer-list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../case_module_5/angular-furama-app/src/app/customer/customer-list/customer-list.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../case_module_5/angular-furama-app/src/app/customer/customer-list/customer-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../case_module_5/angular-furama-app/src/app/customer/customer-list/customer-list.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../case_module_5/angular-furama-app/src/app/customer/service/customer.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../case_module_5/angular-furama-app/src/app/customer/service/customer.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../case_module_5/angular-furama-app/src/app/data/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/../case_module_5/angular-furama-app/src/app/data/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../case_module_5/angular-furama-app/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/../case_module_5/angular-furama-app/src/styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ss8_connect-back-end/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ss8_connect-back-end/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ss9_module-DI/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ss9_module-DI/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ss9_module-DI/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../ss9_module-DI/src/app/app.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ss9_module-DI/src/app/img-slider/img-slider.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../ss9_module-DI/src/app/img-slider/img-slider.component.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,6 +113,9 @@
       <workItem from="1678805279398" duration="1801000" />
       <workItem from="1678843486839" duration="1510000" />
       <workItem from="1678861280495" duration="2476000" />
+      <workItem from="1678883230745" duration="61000" />
+      <workItem from="1678935066281" duration="1892000" />
+      <workItem from="1678957419458" duration="1198000" />
     </task>
     <servers />
   </component>
@@ -135,10 +135,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="687" y="212" key="FileChooserDialogImpl" timestamp="1678670830612">
+    <state x="687" y="212" key="FileChooserDialogImpl" timestamp="1678936372850">
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
-    <state x="687" y="212" key="FileChooserDialogImpl/0.0.1920.1032@0.0.1920.1032" timestamp="1678670830612" />
+    <state x="687" y="212" key="FileChooserDialogImpl/0.0.1920.1032@0.0.1920.1032" timestamp="1678936372850" />
     <state x="605" y="21" width="710" height="990" key="find.popup" timestamp="1678524318630">
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
