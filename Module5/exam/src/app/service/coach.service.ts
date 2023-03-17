@@ -14,12 +14,15 @@ private URL = 'http://localhost:8080/coach';
     return this.http.get<Coach[]>(this.URL);
   }
   deleteCoach(id: number): Observable<Coach>{
-    return this.http.delete<Coach>(this.URL + '/delete/' + id);
+    return this.http.delete<Coach>(`${this.URL}/${id}`);
   }
   editCoach(id: number, coach: Coach): Observable<Coach>{
-    return this.http.put<Coach>(`${this.URL}/${id}`,coach);
+    return this.http.patch<Coach>(`${this.URL}/${id}`,coach);
   }
   getById(id: number): Observable<Coach>{
     return this.http.get<Coach>(`${this.URL}/${id}`);
+  }
+  create(coach: Coach): Observable<Coach>{
+    return this.http.post<Coach>(this.URL,coach);
   }
 }

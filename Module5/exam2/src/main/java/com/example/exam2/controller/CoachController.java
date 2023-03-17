@@ -2,9 +2,6 @@ package com.example.exam2.controller;
 
 import com.example.exam2.model.Coach;
 import com.example.exam2.service.ICoachService;
-import com.example.exam2.service.ICompanyNameService;
-import com.example.exam2.service.IPositionService;
-import com.example.exam2.service.ITypeCoachService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -40,21 +37,21 @@ public class CoachController {
         }
     }
 
-    @DeleteMapping("/coach/delete/{id}")
+    @DeleteMapping("/coach/{id}")
     public ResponseEntity deleteCoach(@PathVariable int id) {
         coachService.removeCoach(id);
         return new ResponseEntity(HttpStatus.OK);
     }
 
-    @PatchMapping("/coach")
+    @PatchMapping("/coach/{id}")
     public ResponseEntity edit(@RequestBody Coach coach) {
         coachService.editCoach(coach, coach.getId());
         return new ResponseEntity(HttpStatus.OK);
     }
 
-//    @PostMapping("")
-//    public ResponseEntity create(@RequestBody Coach coach) {
-//        coachService.create(coach);
-//        return new ResponseEntity(HttpStatus.CREATED);
-//    }
+    @PostMapping("/coach")
+    public ResponseEntity create(@RequestBody Coach coach) {
+        coachService.create(coach);
+        return new ResponseEntity(HttpStatus.CREATED);
+    }
 }
