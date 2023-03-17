@@ -1,1 +1,49 @@
-/* You can add global styles to this file, and also import other style files */
+a.nav-link,
+a.navbar-brand {
+  color: #f3f3f3;
+}
+
+a.nav-link:hover,
+a.navbar-brand:hover{
+  color: #cbbe73;
+}
+
+app-root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+router-outlet {
+  flex: 1;
+}
+
+app-footer {
+  margin-top: auto;
+}
+
+.card, table {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+
+.st0 {
+  fill: transparent;
+  stroke: #046056;
+  stroke-width: 3;
+  stroke-miterlimit: 10;
+  stroke-dasharray: 1800;
+  stroke-dashoffset: 0;
+  animation: effectText 3s ease-in-out infinite alternate;
+}
+
+@keyframes effectText {
+  from {
+    fill: transparent;
+    stroke-dashoffset: 1800;
+  }
+  to {
+    fill: #046056;
+    stroke-dashoffset: 0;
+  }
+}

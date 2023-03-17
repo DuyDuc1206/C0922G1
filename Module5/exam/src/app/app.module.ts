@@ -8,19 +8,24 @@ import {NgxPaginationModule} from "ngx-pagination";
 import {CommonModule} from "@angular/common";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {ToastrModule} from "ngx-toastr";
-import { CustomerComponent } from './customer/customer.component';
-import { CustomerTypeComponent } from './customer-type/customer-type.component';
 import {HttpClientModule} from "@angular/common/http";
-import { CustomerCreateComponent } from './customer-create/customer-create.component';
-import { CustomerEditComponent } from './customer-edit/customer-edit.component';
+import {HeaderComponent} from "./share/header/header.component";
+import {FooterComponent} from "./share/footer/footer.component";
+import { HomeComponent } from './home/home.component';
+import { CarComponent } from './car/car.component';
+
+import { CarEditComponent } from './car-edit/car-edit.component';
+import { CarCreateComponent } from './car-create/car-create.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CustomerComponent,
-    CustomerTypeComponent,
-    CustomerCreateComponent,
-    CustomerEditComponent
+    HeaderComponent,
+    FooterComponent,
+    HomeComponent,
+    CarComponent,
+    CarEditComponent,
+    CarCreateComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,3 +43,4 @@ import { CustomerEditComponent } from './customer-edit/customer-edit.component';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+``

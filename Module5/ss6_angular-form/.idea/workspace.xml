@@ -20,19 +20,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e9fc4051-463e-408e-9b3f-a99a63c32ca9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../exam/src/app/data/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../case_module_5/angular-furama-app/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../case_module_5/angular-furama-app/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../case_module_5/angular-furama-app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../case_module_5/angular-furama-app/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../case_module_5/angular-furama-app/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../case_module_5/angular-furama-app/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../case_module_5/angular-furama-app/src/app/customer/customer-create/customer-create.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../case_module_5/angular-furama-app/src/app/customer/customer-create/customer-create.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../case_module_5/angular-furama-app/src/app/customer/customer-create/customer-create.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../case_module_5/angular-furama-app/src/app/customer/customer-create/customer-create.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../case_module_5/angular-furama-app/src/app/customer/customer-edit/customer-edit.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../case_module_5/angular-furama-app/src/app/customer/customer-edit/customer-edit.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../case_module_5/angular-furama-app/src/app/customer/customer-edit/customer-edit.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../case_module_5/angular-furama-app/src/app/customer/customer-edit/customer-edit.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../case_module_5/angular-furama-app/src/app/customer/customer-list/customer-list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../case_module_5/angular-furama-app/src/app/customer/customer-list/customer-list.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../case_module_5/angular-furama-app/src/app/customer/customer-list/customer-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../case_module_5/angular-furama-app/src/app/customer/customer-list/customer-list.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../case_module_5/angular-furama-app/src/app/customer/service/customer.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../case_module_5/angular-furama-app/src/app/customer/service/customer.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../case_module_5/angular-furama-app/src/app/data/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/../case_module_5/angular-furama-app/src/app/data/data.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../exam/src/app/a.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exam/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../exam/src/app/app-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exam/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../exam/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exam/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../exam/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exam/src/app/customer-create/customer-create.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exam/src/app/customer-create/customer-create.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exam/src/app/customer-create/customer-create.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exam/src/app/customer-edit/customer-edit.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exam/src/app/customer-edit/customer-edit.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exam/src/app/customer-edit/customer-edit.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exam/src/app/customer-type/customer-type.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exam/src/app/customer-type/customer-type.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exam/src/app/customer-type/customer-type.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exam/src/app/customer/customer.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exam/src/app/customer/customer.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exam/src/app/customer/customer.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exam/src/app/data/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/../exam/src/app/data/data.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exam/src/app/model/customer-type.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exam/src/app/model/customer.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exam/src/app/service/customer-type.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exam/src/app/service/customer.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exam/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/../exam/src/styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss9_module-DI/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ss9_module-DI/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,6 +127,10 @@
       <workItem from="1678883230745" duration="61000" />
       <workItem from="1678935066281" duration="1892000" />
       <workItem from="1678957419458" duration="1198000" />
+      <workItem from="1678970683041" duration="612000" />
+      <workItem from="1678973108118" duration="184000" />
+      <workItem from="1678973308276" duration="2094000" />
+      <workItem from="1679017016337" duration="27000" />
     </task>
     <servers />
   </component>
@@ -135,10 +150,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="687" y="212" key="FileChooserDialogImpl" timestamp="1678936372850">
+    <state x="687" y="212" key="FileChooserDialogImpl" timestamp="1678973314866">
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
-    <state x="687" y="212" key="FileChooserDialogImpl/0.0.1920.1032@0.0.1920.1032" timestamp="1678936372850" />
+    <state x="687" y="212" key="FileChooserDialogImpl/0.0.1920.1032@0.0.1920.1032" timestamp="1678973314866" />
     <state x="605" y="21" width="710" height="990" key="find.popup" timestamp="1678524318630">
       <screen x="0" y="0" width="1920" height="1032" />
     </state>

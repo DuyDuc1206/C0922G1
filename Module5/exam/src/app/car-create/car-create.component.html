@@ -1,0 +1,88 @@
+<p class="text-center fs-3">Đăng ký thêm xe</p>
+<div class="col-md-4 offset-md-4">
+  <div class="card">
+    <div class="card-body">
+      <form *ngIf="createForm" [formGroup]="createForm" (ngSubmit)="onSubmit()" id="formCreate">
+        <div class="row">
+          <input class="form-control" hidden formControlName="id">
+          <div class="mb-3">
+            <label class="form-label">Số xe</label>
+            <input type="number" class="form-control" formControlName="codeCoach" >
+            <div *ngIf="codeCoachControl().invalid && codeCoachControl().touched" class="text-danger">
+              <div *ngIf="codeCoachControl().errors?.required"> Mã xe phải nhập</div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label class="form-label me-3">Loai xe</label>
+            <select formControlName="typeCoach">
+              <option [ngValue]="t" *ngFor="let t of typeCoachs">{{t.name}}</option>
+            </select>
+            <div *ngIf="typeCoachControl().invalid && typeCoachControl().touched" class="text-danger">
+              <div *ngIf="typeCoachControl().errors?.required"> Loại xe phải nhập</div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label class="form-label"> Nhà Xe</label>
+            <select class="form-select" formControlName="companyName">
+              <option [ngValue]="cp" *ngFor="let cp of companyNames">{{cp.name}}</option>
+            </select>
+            <div *ngIf="companyNameControl().invalid && companyNameControl().touched" class="text-danger">
+              <div *ngIf="companyNameControl().errors?.required">Nhà xe phải nhập</div>
+            </div>
+          </div>
+          <div>
+            <label class="form-label"> Điểm đi</label>
+            <select lass="form-select" formControlName="startLocal">
+              <option [ngValue]="p" *ngFor="let p of positionList">{{p.name}}</option>
+            </select>
+            <div *ngIf="startLocalControl().invalid && startLocalControl().touched" class="text-danger">
+              <div *ngIf="startLocalControl().errors?.required">Điểm đi phải nhập</div>
+            </div>
+          </div>
+          <div>
+            <label class="form-label"> Điểm đến</label>
+            <select lass="form-select" formControlName="endLocal">
+              <option [ngValue]="p" *ngFor="let p of positionList">{{p.name}}</option>
+            </select>
+            <div *ngIf="endLocalControl().invalid && endLocalControl().touched" class="text-danger">
+              <div *ngIf="endLocalControl().errors?.required">Điểm đi phải nhập</div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Số điện thoại</label>
+            <input type="text" class="form-control" formControlName="phoneNumber">
+            <div *ngIf="phoneNumberControl().invalid && phoneNumberControl().touched" class="text-danger">
+              <div *ngIf="phoneNumberControl().errors?.required">Số điện thoại phải nhập</div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input type="text" class="form-control" formControlName="email">
+            <div *ngIf="emailControl().invalid && emailControl().touched" class="text-danger">
+              <div *ngIf="emailControl().errors?.required">Email phải nhập</div>
+              <div *ngIf="emailControl().errors?.email">Email phải đúng định dạng</div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Giờ đi</label>
+            <input type="time" class="form-control" formControlName="startTime">
+            <div *ngIf="startTimeControl().invalid && startTimeControl().touched" class="text-danger">
+              <div *ngIf="startTimeControl().errors?.required">Email phải nhập</div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Giờ đến</label>
+            <input type="time" class="form-control" formControlName="endTime">
+            <div *ngIf="endTimeControl().invalid && endTimeControl().touched" class="text-danger">
+              <div *ngIf="endTimeControl().errors?.required">Email phải nhập</div>
+            </div>
+          </div>
+        </div>
+      </form>
+      <button type="button" class="btn btn-primary btn-md me-4" routerLink="/coach">Cancel</button>
+      <button type="submit" class="btn btn-primary btn-md save" form="formCreate" >Save
+      </button>
+    </div>
+  </div>
+</div>
+
