@@ -9,7 +9,7 @@ public interface ICoachService {
 
     void removeCoach(Integer id);
 
-//    void create(Coach coach);
+    void create(Coach coach);
 
     Coach findById(Integer id);
 

@@ -13,7 +13,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-@Repository
 public interface ICoachRepository extends JpaRepository<Coach, Integer> {
     @Query(value = "select * from coach where flag_delete = false", nativeQuery = true)
     List<Coach> finAll();
@@ -26,12 +25,12 @@ public interface ICoachRepository extends JpaRepository<Coach, Integer> {
 
     @Transactional
     @Modifying
-    @Query(value = "update coach set  email = :email, phone_number = :phoneNumber, start_time = :startTime, end_time = :endTime, company_name_id = :idCp," +
+    @Query(value = "update coach set email = :email, phone_number = :phoneNumber, start_time = :startTime, end_time = :endTime, company_name_id = :idCp," +
             "destination_id = :idDes,start_location_id = :idSl where id = :id",
             nativeQuery = true)
-    void edit(@Param("id") Integer id, @Param("email") String email, @Param("phoneNumber") String phoneNumber, @Param("startTime") String startTime,
+    void edit( @Param("email") String email, @Param("phoneNumber") String phoneNumber, @Param("startTime") String startTime,
               @Param("endTime") String endTime, @Param("idCp") CompanyName companyName,@Param("idSl") Position destination, @Param("idDes") Position startLocation,
-              @Param("idTc") TypeCoach typeCoach);
+              @Param("idTc") TypeCoach typeCoach,@Param("id") Integer id);
 
     @Transactional
     @Modifying

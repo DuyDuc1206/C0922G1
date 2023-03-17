@@ -19,11 +19,11 @@ public class CoachService implements ICoachService {
         coachRepository.remove(id);
     }
 
-//    @Override
-//    public void create(Coach coach) {
-//        coachRepository.create(coach.getId(), coach.getCodeCoach(), coach.getEmail(), coach.getEndTime(), coach.getPhoneNumber(), coach.getStartTime(), coach.getCompanyName(),
-//                coach.getDestination(), coach.getStartLocation(), coach.getTypeCoach());
-//    }
+    @Override
+    public void create(Coach coach) {
+        coachRepository.create(coach.getId(), coach.getCodeCoach(), coach.getEmail(), coach.getEndTime(), coach.getPhoneNumber(), coach.getStartTime(), coach.getCompanyName(),
+                coach.getDestination(), coach.getStartLocation(), coach.getTypeCoach());
+    }
 
     @Override
     public Coach findById(Integer id) {
@@ -32,8 +32,8 @@ public class CoachService implements ICoachService {
 
     @Override
     public void editCoach(Coach coach, Integer id) {
-        coachRepository.edit(id, coach.getEmail(), coach.getPhoneNumber(), coach.getStartTime(), coach.getEndTime(),
-                coach.getCompanyName(), coach.getStartLocation(), coach.getDestination(), coach.getTypeCoach());
+        coachRepository.edit(coach.getEmail(), coach.getPhoneNumber(), coach.getStartTime(), coach.getEndTime(),
+                coach.getCompanyName(), coach.getStartLocation(), coach.getDestination(), coach.getTypeCoach(),id);
     }
 
     @Override
