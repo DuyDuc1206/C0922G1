@@ -27,7 +27,7 @@ public class CoachController {
 //            return new ResponseEntity<>(coachList, HttpStatus.OK);
 //        }
 //    }
-    @GetMapping("/coach")
+    @GetMapping("coach")
     public ResponseEntity<List<Coach>> getAllCoach() {
         List<Coach> coachList = coachService.findAllCoach();
         if (coachList.isEmpty()) {
@@ -37,21 +37,21 @@ public class CoachController {
         }
     }
 
-    @DeleteMapping("/coach/{id}")
+    @DeleteMapping("coach/{id}")
     public ResponseEntity deleteCoach(@PathVariable int id) {
         coachService.removeCoach(id);
         return new ResponseEntity(HttpStatus.OK);
     }
 
-    @PatchMapping("/coach/{id}")
+    @PatchMapping("coach/{id}")
     public ResponseEntity edit(@RequestBody Coach coach) {
         coachService.editCoach(coach, coach.getId());
         return new ResponseEntity(HttpStatus.OK);
     }
 
-    @PostMapping("/coach")
+    @PostMapping("coach")
     public ResponseEntity create(@RequestBody Coach coach) {
-        coachService.create(coach);
+        coachService.createCoach(coach);
         return new ResponseEntity(HttpStatus.CREATED);
     }
 }

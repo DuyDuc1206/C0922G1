@@ -11,11 +11,10 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
-
+@Repository
 public interface ICoachRepository extends JpaRepository<Coach, Integer> {
-    @Query(value = "select * from coach where flag_delete = false", nativeQuery = true)
-    List<Coach> finAll();
+//    @Query(value = "select * from coach where flag_delete = false", nativeQuery = true)
+//    List<Coach> finAll();
 
     @Transactional
     @Modifying
@@ -26,7 +25,7 @@ public interface ICoachRepository extends JpaRepository<Coach, Integer> {
     @Transactional
     @Modifying
     @Query(value = "update coach set email = :email, phone_number = :phoneNumber, start_time = :startTime, end_time = :endTime, company_name_id = :idCp," +
-            "destination_id = :idDes,start_location_id = :idSl where id = :id",
+            "destination_id = :idDes,start_location_id = :idSl, type_coach_id = :idTc where id = :id",
             nativeQuery = true)
     void edit( @Param("email") String email, @Param("phoneNumber") String phoneNumber, @Param("startTime") String startTime,
               @Param("endTime") String endTime, @Param("idCp") CompanyName companyName,@Param("idSl") Position destination, @Param("idDes") Position startLocation,

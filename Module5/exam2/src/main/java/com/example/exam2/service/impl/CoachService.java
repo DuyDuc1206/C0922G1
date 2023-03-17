@@ -13,14 +13,13 @@ public class CoachService implements ICoachService {
     @Autowired
     private ICoachRepository coachRepository;
 
-
     @Override
     public void removeCoach(Integer id) {
         coachRepository.remove(id);
     }
 
     @Override
-    public void create(Coach coach) {
+    public void createCoach(Coach coach) {
         coachRepository.create(coach.getId(), coach.getCodeCoach(), coach.getEmail(), coach.getEndTime(), coach.getPhoneNumber(), coach.getStartTime(), coach.getCompanyName(),
                 coach.getDestination(), coach.getStartLocation(), coach.getTypeCoach());
     }
