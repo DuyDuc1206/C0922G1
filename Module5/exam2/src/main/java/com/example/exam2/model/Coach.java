@@ -103,5 +103,4 @@ public class Coach {
     public void setEndTime(String endTime) {
         this.endTime = endTime;
     }
-
 }

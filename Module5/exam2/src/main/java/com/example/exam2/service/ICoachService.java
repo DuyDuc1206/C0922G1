@@ -15,7 +15,6 @@ public interface ICoachService {
 
     Coach findById(Integer id);
 
-    void editCoach(String email, String phoneNumber,String startTime, String endTime,CompanyName companyName, Position destination, Position startLocation,
-                   TypeCoach typeCoach, Integer id);
+    void editCoach(Coach coach, Integer id);
     Page<Coach> findAll(Pageable pageable);
 }

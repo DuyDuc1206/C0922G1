@@ -1,5 +1,4 @@
 package com.example.exam2.model;
-
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
@@ -15,9 +14,9 @@ public class CompanyName {
     @OneToMany(mappedBy = "companyName")
     @JsonBackReference
     private Set<Coach> coachSet;
+
     public CompanyName() {
     }
-
 
     public Integer getId() {
         return id;
@@ -33,5 +32,13 @@ public class CompanyName {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Set<Coach> getCoachSet() {
+        return coachSet;
+    }
+
+    public void setCoachSet(Set<Coach> coachSet) {
+        this.coachSet = coachSet;
     }
 }

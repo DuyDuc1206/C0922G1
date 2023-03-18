@@ -13,13 +13,18 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+
 @Repository
 public interface ICoachRepository extends JpaRepository<Coach, Integer> {
-    @Query(value = "SELECT * FROM `coach` AS `c` " +
-            "JOIN `company_name` AS `cp` ON cp.id = c.company_name_id " +
-            "JOIN `position` AS `st` ON st.id = c.start_location_id " +
-            "JOIN `position` AS `dt` ON dt.id = c.destination_id " +
-            "JOIN `type_coach` AS `tc` ON tc.id = c.type_coach_id",
+    @Query(value = " select `c.id` as `id`, `c.code_coach` as `codeCoach`, `c.email` as `email`, " +
+            " `c.end_time` as `endTime`, `c.phone_number` as `phoneNumber`, " +
+            " `c.start_time` as `startTime`, `cp.name` as `companyName`, " +
+            " `dt.name` as `destination`, `st.name` as `startLocation`, `tc.name` as `typeCoach` " +
+            " from `coach` as `c`" +
+            " join `company_name` as `cp` on cp.id = c.company_name_id " +
+            " join `position` as `st` on st.id = c.start_location_id " +
+            " join `position` as `dt` on dt.id = c.destination_id " +
+            " join `type_coach` as `tc` on tc.id = c.type_coach_id",
             nativeQuery = true)
     Page<Coach> findAll(Pageable pageable);
 
@@ -36,12 +41,12 @@ public interface ICoachRepository extends JpaRepository<Coach, Integer> {
 
     @Transactional
     @Modifying
-    @Query(value = "update coach set email = :email, phone_number = :phoneNumber, start_time = :startTime, end_time = :endTime, company_name_id = :idCp," +
-            "destination_id = :idDes,start_location_id = :idSl, type_coach_id = :idTc where id = :id",
+    @Query(value = "update coach set code_coach = :codeCoach, email = :email, phone_number = :phoneNumber, start_time = :startTime, end_time = :endTime, company_name_id = :companyName," +
+            "destination_id = :destination,start_location_id = :startLocation, type_coach_id = :typeCoach where id = :id",
             nativeQuery = true)
-    void edit( @Param("email") String email, @Param("phoneNumber") String phoneNumber, @Param("startTime") String startTime,
-              @Param("endTime") String endTime, @Param("idCp") CompanyName companyName,@Param("idSl") Position destination, @Param("idDes") Position startLocation,
-              @Param("idTc") TypeCoach typeCoach,@Param("id") Integer id);
+    void edit(@Param("codeCoach") Integer codeCoach, @Param("email") String email, @Param("phoneNumber") String phoneNumber, @Param("startTime") String startTime,
+              @Param("endTime") String endTime, @Param("companyName") CompanyName companyName, @Param("destination") Position destination, @Param("startLocation") Position startLocation,
+              @Param("typeCoach") TypeCoach typeCoach, @Param("id") Integer id);
 
     @Transactional
     @Modifying

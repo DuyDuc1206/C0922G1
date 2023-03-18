@@ -15,9 +15,9 @@ public class TypeCoach {
     @OneToMany(mappedBy = "typeCoach")
     @JsonBackReference
     private Set<Coach> coachSet;
+
     public TypeCoach() {
     }
-
 
     public Integer getId() {
         return id;
@@ -33,5 +33,13 @@ public class TypeCoach {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Set<Coach> getCoachSet() {
+        return coachSet;
+    }
+
+    public void setCoachSet(Set<Coach> coachSet) {
+        this.coachSet = coachSet;
     }
 }

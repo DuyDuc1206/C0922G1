@@ -20,8 +20,8 @@ public class CoachController {
     @Autowired
     private ICoachService coachService;
 
-    @GetMapping(path = "coach")
-    public ResponseEntity<Page<Coach>> getAllCoach(@PageableDefault(size = 5)Pageable pageable) {
+    @GetMapping("coach")
+    public ResponseEntity<Page<Coach>> getAllCoach(@PageableDefault(size = 5) Pageable pageable) {
         Page<Coach> coachList = coachService.findAll(pageable);
         if (coachList.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
@@ -43,20 +43,18 @@ public class CoachController {
     }
 
 
-    @PutMapping(path = "coach-edit")
+    @PatchMapping("coach-edit")
     public ResponseEntity edit(@RequestBody Coach coach) {
-        coachService.editCoach(coach.getEmail(), coach.getPhoneNumber(), coach.getStartTime(), coach.getEndTime(), coach.getCompanyName(),
-                coach.getDestination(), coach.getStartLocation(), coach.getTypeCoach(), coach.getId());
+        coachService.editCoach(coach, coach.getId());
         return new ResponseEntity(HttpStatus.OK);
     }
 
-//    @PostMapping(path="coach-create", consumes=MediaType.APPLICATION_JSON_VALUE)
-//    @ResponseBody
-//    public ResponseEntity create(@RequestBody Coach coach) {
-//        if (coach == null) {
-//            return new ResponseEntity("Yêu cầu không hợp lệ", HttpStatus.BAD_REQUEST);
-//        }
-//        coachService.createCoach(coach);
-//        return new ResponseEntity(HttpStatus.CREATED);
-//    }
+    @PostMapping("coach-create")
+    public ResponseEntity create(@RequestBody Coach coach) {
+        if (coach == null) {
+            return new ResponseEntity("Yêu cầu không hợp lệ", HttpStatus.BAD_REQUEST);
+        }
+        coachService.createCoach(coach);
+        return new ResponseEntity(HttpStatus.CREATED);
+    }
 }

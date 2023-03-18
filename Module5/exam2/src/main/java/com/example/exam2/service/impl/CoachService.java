@@ -9,6 +9,7 @@ import com.example.exam2.service.ICoachService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -35,9 +36,8 @@ public class CoachService implements ICoachService {
     }
 
     @Override
-    public void editCoach(String email, String phoneNumber, String startTime, String endTime, CompanyName companyName, Position destination, Position startLocation,
-                          TypeCoach typeCoach, Integer id) {
-        coachRepository.edit(email, phoneNumber, startTime, endTime, companyName, destination, startLocation, typeCoach, id);
+    public void editCoach(Coach coach, Integer id) {
+        coachRepository.edit(coach.getCodeCoach(), coach.getEmail(), coach.getPhoneNumber(), coach.getStartTime(), coach.getEndTime(), coach.getCompanyName(), coach.getDestination(), coach.getStartLocation(), coach.getTypeCoach(), id);
     }
 
     @Override

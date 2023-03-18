@@ -3,12 +3,6 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Coach} from "../model/coach";
 
-const httpOptions = {
-  headers: new HttpHeaders({
-    'Content-Type': 'application/json'
-  })
-};
-
 @Injectable({
   providedIn: 'root'
 })
@@ -28,7 +22,7 @@ export class CoachService {
   }
 
   editCoach(coach: Coach): Observable<Coach> {
-    return this.http.put<Coach>('http://localhost:8080/coach-edit', coach);
+    return this.http.put<Coach>(`${this.URL}-edit`, coach);
   }
 
   getById(id: number): Observable<Coach> {
@@ -36,6 +30,6 @@ export class CoachService {
   }
 
   create(coach: Coach): Observable<Coach> {
-    return this.http.post<Coach>(this.URL, coach, httpOptions);
+    return this.http.post<Coach>(`${this.URL}-create`, coach);
   }
 }
