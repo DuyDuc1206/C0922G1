@@ -19,8 +19,10 @@ export class CarComponent implements OnInit {
   companyNames: CompanyName[] = [];
   coachList: Coach[] = [];
   PositionList: Position[] = [];
-  item:number
-  value:number
+  item: number;
+  value: number;
+  page: number = 0;
+  totalPage: number = 0;
 
   constructor(private typeCoachService: TypeCoachService,
               private CompanyNameService: CompanyNameService,
@@ -30,22 +32,25 @@ export class CarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getAllCoach();
+    this.getAllCoach(this.page);
     this.getAllCompanyName();
     this.getAllTypeCoach();
     this.getAllPosition();
   }
-  delete(id:number,name:number){
+
+  delete(id: number, name: number) {
     this.item = name
-    this.value=id
+    this.value = id
   }
-  getAllPosition(){
-  this.positionService.getAll().subscribe( item => {
-    this.PositionList = item;
-  })
+
+  getAllPosition() {
+    this.positionService.getAll().subscribe(item => {
+      this.PositionList = item;
+    })
   }
-  getAllCoach() {
-    this.coachService.getAll().subscribe(item => {
+
+  getAllCoach(page: number) {
+    this.coachService.getAll(page).subscribe(item => {
       this.coachList = item;
     })
   }
@@ -62,10 +67,25 @@ export class CarComponent implements OnInit {
     })
   }
 
-  deleteCoach(id:number) {
+  deleteCoach(id: number) {
     this.coachService.deleteCoach(id).subscribe(item => {
-      this.getAllCoach();
+      this.getAllCoach(this.page);
       this.toastr.success("Xóa thành công");
     })
   }
+
+  previousPage() {
+    if (this.page > 0) {
+      this.page = this.page - 1;
+      this.getAllCoach(this.page);
+    }
+  }
+
+  nextPage() {
+    if (this.page < this.totalPage - 1) {
+      this.page = this.page + 1;
+      this.getAllCoach(this.page);
+    }
+  }
 }
+

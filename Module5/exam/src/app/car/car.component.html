@@ -47,13 +47,23 @@
                 (click)="delete(c.id,c.codeCoach)">
           Delete
         </button>
-
       </td>
     </tr>
     </tbody>
   </table>
 </main>
-<pagination-controls style="text-align: end"></pagination-controls>
+<div class="row" style="margin: 0; padding: 0">
+  <div class="col-4"></div>
+  <div class="col-1">
+    <button type="button" class="btn btn-outline-success" (click)="previousPage()" *ngIf="page > 0">Trước</button>
+  </div>
+  <div class="col-2 text-center">
+    <p class="text-success" style="margin-top: 5px">Trang {{page + 1}}/ {{totalPage}} trang</p>
+  </div>
+  <div class="col-1">
+    <button type="button" class="btn btn-outline-success" (click)="nextPage()" *ngIf="page < totalPage - 1">Sau
+    </button>
+  </div>
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

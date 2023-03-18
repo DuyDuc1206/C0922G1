@@ -5,6 +5,7 @@ import com.example.exam2.model.CompanyName;
 import com.example.exam2.model.Position;
 import com.example.exam2.model.TypeCoach;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -12,14 +13,13 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.awt.print.Pageable;
-
 @Repository
 public interface ICoachRepository extends JpaRepository<Coach, Integer> {
-    @Query(value = "select * from coach as c join company_name as cp on cp.id = c.company_name_id " +
-            "join position as p on p.id = c.start_location_id" +
-            "join position on p.id = c.destination_id" +
-            "join type_coach as tc on tc.id = c.type_coach_id",
+    @Query(value = "SELECT * FROM `coach` AS `c` " +
+            "JOIN `company_name` AS `cp` ON cp.id = c.company_name_id " +
+            "JOIN `position` AS `st` ON st.id = c.start_location_id " +
+            "JOIN `position` AS `dt` ON dt.id = c.destination_id " +
+            "JOIN `type_coach` AS `tc` ON tc.id = c.type_coach_id",
             nativeQuery = true)
     Page<Coach> findAll(Pageable pageable);
 
