@@ -1,6 +1,9 @@
 package com.example.exam2.service.impl;
 
 import com.example.exam2.model.Coach;
+import com.example.exam2.model.CompanyName;
+import com.example.exam2.model.Position;
+import com.example.exam2.model.TypeCoach;
 import com.example.exam2.repository.ICoachRepository;
 import com.example.exam2.service.ICoachService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,9 +33,9 @@ public class CoachService implements ICoachService {
     }
 
     @Override
-    public void editCoach(Coach coach, Integer id) {
-        coachRepository.edit(coach.getEmail(), coach.getPhoneNumber(), coach.getStartTime(), coach.getEndTime(),
-                coach.getCompanyName(), coach.getStartLocation(), coach.getDestination(), coach.getTypeCoach(),id);
+    public void editCoach(String email, String phoneNumber, String startTime, String endTime, CompanyName companyName, Position destination, Position startLocation,
+                          TypeCoach typeCoach, Integer id) {
+        coachRepository.edit(email, phoneNumber, startTime, endTime, companyName, destination, startLocation, typeCoach, id);
     }
 
     @Override

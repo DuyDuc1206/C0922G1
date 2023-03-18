@@ -80,7 +80,7 @@
         </div>
       </form>
       <button type="button" class="btn btn-primary btn-md me-4" routerLink="/coach">Cancel</button>
-      <button type="submit" class="btn btn-primary btn-md save" form="formCreate" >Save
+      <button type="submit" class="btn btn-primary btn-md save" form="formCreate" [disabled]="createForm.invalid">Save
       </button>
     </div>
   </div>

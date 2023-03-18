@@ -24,7 +24,6 @@ public class Coach {
     public Coach() {
     }
 
-
     public Integer getId() {
         return id;
     }

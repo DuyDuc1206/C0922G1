@@ -21,6 +21,11 @@ public interface ICoachRepository extends JpaRepository<Coach, Integer> {
     @Query(value = "delete from coach where id=:id", nativeQuery = true)
     void remove(@Param("id") Integer id);
 
+//    @Transactional
+//    @Modifying
+//    @Query(value = "select * from coach where id = :id",nativeQuery = true)
+//    void findById(@Param("id") Integer id);
+
 
     @Transactional
     @Modifying

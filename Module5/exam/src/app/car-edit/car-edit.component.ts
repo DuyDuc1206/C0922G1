@@ -41,7 +41,7 @@ export class CarEditComponent implements OnInit {
     this.getAllTypeCoach();
     this.activatedRoute.paramMap.subscribe(paramMap => {
       this.id = +paramMap.get('id');
-      this.getCar(this.id);
+      this.getCoach(this.id);
     })
   }
 
@@ -63,7 +63,7 @@ export class CarEditComponent implements OnInit {
     })
   }
 
-  getCar(id: number) {
+  getCoach(id: number) {
     this.coachService.getById(id).subscribe(item => {
       this.editForm = new FormGroup({
         id: new FormControl(),
@@ -78,6 +78,7 @@ export class CarEditComponent implements OnInit {
         endTime: new FormControl(item.endTime, [Validators.required]),
       })
     })
+    console.log(this.editForm.value)
   }
 
   typeCoachControl = () => this.editForm.get('typeCoach');
@@ -90,8 +91,9 @@ export class CarEditComponent implements OnInit {
   endTimeControl = () => this.editForm.get('endTime');
 
   onSubmit() {
-    this.coachService.editCoach(this.id, this.editForm.value).subscribe(item => {
-      this.router.navigateByUrl('/car');
+    const coach123 = this.editForm.value;
+    this.coachService.editCoach(coach123).subscribe(item => {
+      this.router.navigateByUrl('/coach');
       this.toastr.success("Edit Successfully");
     })
   }

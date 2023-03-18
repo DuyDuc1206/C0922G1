@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {TypeCoachService} from "../service/type-coach.service";
 import {CompanyNameService} from "../service/company-name.service";
@@ -25,7 +25,7 @@ export class CarCreateComponent implements OnInit {
               private companyNameService: CompanyNameService,
               private positionService: PositionService,
               private activatedRoute: ActivatedRoute,
-              private carService: CoachService,
+              private coachService: CoachService,
               private router: Router,
               private toastr: ToastrService) {
 
@@ -37,17 +37,18 @@ export class CarCreateComponent implements OnInit {
     this.getAllTypeCoach();
     this.createForm = new FormGroup({
       id: new FormControl(),
-      codeCoach: new FormControl('',[Validators.required]),
-      typeCoach: new FormControl('',[Validators.required]),
-      companyName: new FormControl('',[Validators.required]),
-      startLocal: new FormControl('',[Validators.required]),
-      endLocal: new FormControl('',[Validators.required]),
-      phoneNumber: new FormControl('',[Validators.required]),
-      email: new FormControl('',[Validators.required, Validators.email]),
-      startTime: new FormControl('',[Validators.required]),
-      endTime: new FormControl('',[Validators.required]),
+      codeCoach: new FormControl('', [Validators.required]),
+      typeCoach: new FormControl('', [Validators.required]),
+      companyName: new FormControl('', [Validators.required]),
+      startLocal: new FormControl('', [Validators.required]),
+      endLocal: new FormControl('', [Validators.required]),
+      phoneNumber: new FormControl('', [Validators.required]),
+      email: new FormControl('', [Validators.required, Validators.email]),
+      startTime: new FormControl('', [Validators.required]),
+      endTime: new FormControl('', [Validators.required]),
     })
   }
+
   codeCoachControl = () => this.createForm.get('codeCoach');
   typeCoachControl = () => this.createForm.get('typeCoach');
   companyNameControl = () => this.createForm.get('companyName');
@@ -57,8 +58,9 @@ export class CarCreateComponent implements OnInit {
   emailControl = () => this.createForm.get('email');
   startTimeControl = () => this.createForm.get('startTime');
   endTimeControl = () => this.createForm.get('endTime');
-  getAllPosition(){
-    this.positionService.getAll().subscribe( item => {
+
+  getAllPosition() {
+    this.positionService.getAll().subscribe(item => {
       this.positionList = item;
     })
   }
@@ -68,12 +70,17 @@ export class CarCreateComponent implements OnInit {
       this.companyNames = item;
     })
   }
+
   getAllTypeCoach() {
     this.typeCoachService.getAll().subscribe(item => {
       this.typeCoachs = item;
     })
   }
-  onSubmit() {
 
+  onSubmit() {
+    this.coachService.create(this.createForm.value).subscribe(item => {
+      this.router.navigateByUrl('/coach');
+      this.toastr.success("Create Successfully");
+    })
   }
 }

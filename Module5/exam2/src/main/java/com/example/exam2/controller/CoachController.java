@@ -4,12 +4,13 @@ import com.example.exam2.model.Coach;
 import com.example.exam2.service.ICoachService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-
+//@RequestMapping("api")
 @RestController
 @CrossOrigin("*")
 public class CoachController {
@@ -27,7 +28,7 @@ public class CoachController {
 //            return new ResponseEntity<>(coachList, HttpStatus.OK);
 //        }
 //    }
-    @GetMapping("coach")
+    @GetMapping(path = "coach",consumes=MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<Coach>> getAllCoach() {
         List<Coach> coachList = coachService.findAllCoach();
         if (coachList.isEmpty()) {
@@ -37,21 +38,34 @@ public class CoachController {
         }
     }
 
+    @GetMapping("coach/{id}")
+    public ResponseEntity<Coach> getById(@PathVariable Integer id) {
+        Coach coach = coachService.findById(id);
+        return new ResponseEntity<>(coach, HttpStatus.OK);
+    }
+
     @DeleteMapping("coach/{id}")
-    public ResponseEntity deleteCoach(@PathVariable int id) {
+    public ResponseEntity deleteCoach(@PathVariable Integer id) {
         coachService.removeCoach(id);
         return new ResponseEntity(HttpStatus.OK);
     }
 
-    @PatchMapping("coach/{id}")
+
+    @PutMapping(path = "coach-edit",consumes=MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
     public ResponseEntity edit(@RequestBody Coach coach) {
-        coachService.editCoach(coach, coach.getId());
+        coachService.editCoach(coach.getEmail(), coach.getPhoneNumber(), coach.getStartTime(), coach.getEndTime(), coach.getCompanyName(),
+                coach.getDestination(), coach.getStartLocation(), coach.getTypeCoach(), coach.getId());
         return new ResponseEntity(HttpStatus.OK);
     }
 
-    @PostMapping("coach")
-    public ResponseEntity create(@RequestBody Coach coach) {
-        coachService.createCoach(coach);
-        return new ResponseEntity(HttpStatus.CREATED);
-    }
+//    @PostMapping(path="coach-create", consumes=MediaType.APPLICATION_JSON_VALUE)
+//    @ResponseBody
+//    public ResponseEntity create(@RequestBody Coach coach) {
+//        if (coach == null) {
+//            return new ResponseEntity("Yêu cầu không hợp lệ", HttpStatus.BAD_REQUEST);
+//        }
+//        coachService.createCoach(coach);
+//        return new ResponseEntity(HttpStatus.CREATED);
+//    }
 }
