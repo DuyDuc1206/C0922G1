@@ -3,6 +3,9 @@ package com.example.exam2.controller;
 import com.example.exam2.model.Coach;
 import com.example.exam2.service.ICoachService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -17,20 +20,9 @@ public class CoachController {
     @Autowired
     private ICoachService coachService;
 
-    //    @GetMapping("/coach")
-//    public ResponseEntity<Page<Coach>> getAllCoach(@RequestParam(defaultValue = "0") int page,
-//                                                   @RequestParam(defaultValue = "5") int size) {
-//        Pageable pageable = PageRequest.of(page, size);
-//        Page<Coach> coachList = coachService.findAll(pageable);
-//        if (coachList.isEmpty()) {
-//            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-//        } else {
-//            return new ResponseEntity<>(coachList, HttpStatus.OK);
-//        }
-//    }
-    @GetMapping(path = "coach",consumes=MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<Coach>> getAllCoach() {
-        List<Coach> coachList = coachService.findAllCoach();
+    @GetMapping(path = "coach")
+    public ResponseEntity<Page<Coach>> getAllCoach(@PageableDefault(size = 5)Pageable pageable) {
+        Page<Coach> coachList = coachService.findAll(pageable);
         if (coachList.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         } else {
@@ -51,8 +43,7 @@ public class CoachController {
     }
 
 
-    @PutMapping(path = "coach-edit",consumes=MediaType.APPLICATION_JSON_VALUE)
-    @ResponseBody
+    @PutMapping(path = "coach-edit")
     public ResponseEntity edit(@RequestBody Coach coach) {
         coachService.editCoach(coach.getEmail(), coach.getPhoneNumber(), coach.getStartTime(), coach.getEndTime(), coach.getCompanyName(),
                 coach.getDestination(), coach.getStartLocation(), coach.getTypeCoach(), coach.getId());

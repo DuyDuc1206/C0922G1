@@ -4,12 +4,10 @@ import com.example.exam2.model.Coach;
 import com.example.exam2.model.CompanyName;
 import com.example.exam2.model.Position;
 import com.example.exam2.model.TypeCoach;
-import org.springframework.data.repository.query.Param;
-
-import java.util.List;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 public interface ICoachService {
-//    Page<Coach> findAll(Pageable pageable);
 
     void removeCoach(Integer id);
 
@@ -19,5 +17,5 @@ public interface ICoachService {
 
     void editCoach(String email, String phoneNumber,String startTime, String endTime,CompanyName companyName, Position destination, Position startLocation,
                    TypeCoach typeCoach, Integer id);
-    List<Coach> findAllCoach();
+    Page<Coach> findAll(Pageable pageable);
 }

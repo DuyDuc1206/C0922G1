@@ -7,6 +7,8 @@ import com.example.exam2.model.TypeCoach;
 import com.example.exam2.repository.ICoachRepository;
 import com.example.exam2.service.ICoachService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -39,7 +41,8 @@ public class CoachService implements ICoachService {
     }
 
     @Override
-    public List<Coach> findAllCoach() {
-        return coachRepository.findAll();
+    public Page<Coach> findAll(Pageable pageable) {
+        return coachRepository.findAll(pageable);
     }
+
 }
