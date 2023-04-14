@@ -65,34 +65,35 @@ export class CarEditComponent implements OnInit {
 
   getCoach(id: number) {
     this.coachService.getById(id).subscribe(item => {
+
       this.editForm = new FormGroup({
         id: new FormControl(),
-        codeCoach: new FormControl(item.codeCoach),
-        typeCoach: new FormControl(this.typeCoachs.find(a => a.id === item.id), [Validators.required]),
-        companyName: new FormControl(this.companyNames.find(a => a.id === item.id), [Validators.required]),
-        startLocal: new FormControl(this.positionList.find(a => a.id === item.id), [Validators.required]),
-        endLocal: new FormControl(this.positionList.find(a => a.id === item.id), [Validators.required]),
+        code: new FormControl(item.code),
+        typeCoach: new FormControl(this.typeCoachs.find( a => a.id === item.typeCoach.id), [Validators.required]),
+        companyName: new FormControl(this.companyNames.find( a => a.id === item.companyName.id), [Validators.required]),
+        startLocation: new FormControl(this.positionList.find( a => a.id === item.startLocation.id), [Validators.required]),
+        destination: new FormControl(this.positionList.find( a => a.id === item.destination.id), [Validators.required]),
         phoneNumber: new FormControl(item.phoneNumber, [Validators.required]),
         email: new FormControl(item.email, [Validators.required, Validators.email]),
         startTime: new FormControl(item.startTime, [Validators.required]),
         endTime: new FormControl(item.endTime, [Validators.required]),
       })
+      console.log(item);
     })
-    console.log(this.editForm.value)
   }
 
   typeCoachControl = () => this.editForm.get('typeCoach');
   companyNameControl = () => this.editForm.get('companyName');
-  startLocalControl = () => this.editForm.get('startLocal');
-  endLocalControl = () => this.editForm.get('endLocal');
+  startLocalControl = () => this.editForm.get('startLocation');
+  endLocalControl = () => this.editForm.get('destination');
   phoneNumberControl = () => this.editForm.get('phoneNumber');
   emailControl = () => this.editForm.get('email');
   startTimeControl = () => this.editForm.get('startTime');
   endTimeControl = () => this.editForm.get('endTime');
 
+
   onSubmit() {
-    const coach123 = this.editForm.value;
-    this.coachService.editCoach(coach123).subscribe(item => {
+    this.coachService.editCoach(this.id,this.editForm.value).subscribe(item => {
       this.router.navigateByUrl('/coach');
       this.toastr.success("Edit Successfully");
     })

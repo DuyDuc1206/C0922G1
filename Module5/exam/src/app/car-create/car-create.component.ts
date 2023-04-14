@@ -37,11 +37,11 @@ export class CarCreateComponent implements OnInit {
     this.getAllTypeCoach();
     this.createForm = new FormGroup({
       id: new FormControl(),
-      codeCoach: new FormControl('', [Validators.required]),
+      code: new FormControl('', [Validators.required]),
       typeCoach: new FormControl('', [Validators.required]),
       companyName: new FormControl('', [Validators.required]),
-      startLocal: new FormControl('', [Validators.required]),
-      endLocal: new FormControl('', [Validators.required]),
+      startLocation: new FormControl('', [Validators.required]),
+      destination: new FormControl('', [Validators.required]),
       phoneNumber: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required, Validators.email]),
       startTime: new FormControl('', [Validators.required]),
@@ -49,11 +49,11 @@ export class CarCreateComponent implements OnInit {
     })
   }
 
-  codeCoachControl = () => this.createForm.get('codeCoach');
+  codeCoachControl = () => this.createForm.get('code');
   typeCoachControl = () => this.createForm.get('typeCoach');
   companyNameControl = () => this.createForm.get('companyName');
-  startLocalControl = () => this.createForm.get('startLocal');
-  endLocalControl = () => this.createForm.get('endLocal');
+  startLocalControl = () => this.createForm.get('startLocation');
+  endLocalControl = () => this.createForm.get('destination');
   phoneNumberControl = () => this.createForm.get('phoneNumber');
   emailControl = () => this.createForm.get('email');
   startTimeControl = () => this.createForm.get('startTime');

@@ -7,7 +7,7 @@
           <input class="form-control" hidden formControlName="id">
           <div class="mb-3">
             <label class="form-label">Số xe</label>
-            <input type="number" class="form-control" formControlName="codeCoach" >
+            <input type="text" class="form-control" formControlName="code" >
             <div *ngIf="codeCoachControl().invalid && codeCoachControl().touched" class="text-danger">
               <div *ngIf="codeCoachControl().errors?.required"> Mã xe phải nhập</div>
             </div>
@@ -32,7 +32,7 @@
           </div>
           <div>
             <label class="form-label"> Điểm đi</label>
-            <select lass="form-select" formControlName="startLocal">
+            <select lass="form-select" formControlName="startLocation">
               <option [ngValue]="p" *ngFor="let p of positionList">{{p.name}}</option>
             </select>
             <div *ngIf="startLocalControl().invalid && startLocalControl().touched" class="text-danger">
@@ -41,7 +41,7 @@
           </div>
           <div>
             <label class="form-label"> Điểm đến</label>
-            <select lass="form-select" formControlName="endLocal">
+            <select lass="form-select" formControlName="destination">
               <option [ngValue]="p" *ngFor="let p of positionList">{{p.name}}</option>
             </select>
             <div *ngIf="endLocalControl().invalid && endLocalControl().touched" class="text-danger">

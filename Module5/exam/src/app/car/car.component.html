@@ -4,13 +4,16 @@
     <button class="btn btn-primary save" routerLink="/coach/create">Add Car <i
       class="fas fa-plus-square"></i></button>
     <div class="d-flex">
-      <input class="form-control" type="text" placeholder="search name">
-      <input class="form-control ms-2" type="text" placeholder="search email">
-      <select class="form-select ms-2">
-        <option>Customer Type</option>
-        <option></option>
+      <input class="form-control" type="text" placeholder="Số xe" [(ngModel)]="codeSearch">
+      <!--      <select class="form-select ms-2">-->
+      <!--        <option value="">Điểm đi</option>-->
+      <!--        <option [ngValue]="p" *ngFor="let p of positionList">{{p.name}}</option>-->
+      <!--      </select>-->
+      <select class="form-select ms-2" [(ngModel)]="selectTypeCoach">
+        <option value="">Loại xe</option>
+        <option [ngValue]="ct.name" *ngFor="let ct of typeCoachs">{{ct.name}}</option>
       </select>
-      <button type="button" class="btn btn-primary ms-2 form-control save">Search
+      <button type="button" class="btn btn-primary ms-2 form-control save" (click)="searchAll()">Search
       </button>
     </div>
   </div>
@@ -18,25 +21,28 @@
   <table class="table table-striped table-bordered">
     <thead>
     <tr>
-      <th>Số Xe</th>
-      <th>Loại Xe</th>
-      <th>Nhà xe</th>
-      <th>Điểm đi</th>
-      <th>Điểm đến</th>
-      <th>Số điện thoại</th>
-      <th>Email</th>
-      <th>Giờ đi</th>
-      <th>Giờ đến</th>
-      <th>Action</th>
+      <th scope="col">Số Xe</th>
+      <th scope="col">Loại Xe</th>
+      <th scope="col">Nhà xe</th>
+      <th scope="col">Điểm đi</th>
+      <th scope="col">Điểm đến</th>
+      <th scope="col">Số điện thoại</th>
+      <th scope="col">Email</th>
+      <th scope="col">Giờ đi</th>
+      <th scope="col">Giờ đến</th>
+      <th scope="col">Action</th>
     </tr>
     </thead>
     <tbody>
+    <tr *ngIf="coachList.length===0">
+      <th colspan="10" class="text-center text-danger">Không có xe nào hù hợp với tìm kiếm</th>
+    </tr>
     <tr *ngFor="let c of coachList">
-      <td>{{c.codeCoach}}</td>
-      <td>{{c.typeCoach.name}}</td>
-      <td>{{c.companyName.name}}</td>
-      <td>{{c.startLocation.name}}</td>
-      <td>{{c.destination.name}}</td>
+      <td>{{c.code}}</td>
+      <td>{{c.typeCoach}}</td>
+      <td>{{c.companyName}}</td>
+      <td>{{c.startLocation}}</td>
+      <td>{{c.destination}}</td>
       <td>{{c.phoneNumber}}</td>
       <td>{{c.email}}</td>
       <td>{{c.startTime}}</td>
@@ -44,7 +50,7 @@
       <td class="d-flex justify-content-around">
         <button type="button" class="btn btn-warning" routerLink="/coach/edit/{{c.id}}">Edit</button>
         <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                (click)="delete(c.id,c.codeCoach)">
+                (click)="delete(c.id,c.code)">
           Delete
         </button>
       </td>
@@ -64,6 +70,7 @@
     <button type="button" class="btn btn-outline-success" (click)="nextPage()" *ngIf="page < totalPage - 1">Sau
     </button>
   </div>
+</div>
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -79,7 +86,8 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="deleteCoach(value)">Delete</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="deleteCoach(value)">Delete
+        </button>
       </div>
     </div>
   </div>

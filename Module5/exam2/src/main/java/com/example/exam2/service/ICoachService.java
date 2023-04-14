@@ -1,7 +1,7 @@
 package com.example.exam2.service;
 
+import com.example.exam2.dto.CoachListDto;
 import com.example.exam2.model.Coach;
-import com.example.exam2.model.CompanyName;
 import com.example.exam2.model.Position;
 import com.example.exam2.model.TypeCoach;
 import org.springframework.data.domain.Page;
@@ -16,5 +16,5 @@ public interface ICoachService {
     Coach findById(Integer id);
 
     void editCoach(Coach coach, Integer id);
-    Page<Coach> findAll(Pageable pageable);
+    Page<CoachListDto> getAllCoach(Pageable pageable, String code,String typeCoach);
 }

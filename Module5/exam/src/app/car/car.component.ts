@@ -18,11 +18,14 @@ export class CarComponent implements OnInit {
   typeCoachs: TypeCoach[] = []
   companyNames: CompanyName[] = [];
   coachList: Coach[] = [];
-  PositionList: Position[] = [];
-  item: number;
+  positionList: Position[] = [];
+  selectTypeCoach: string = '';
+  item: string;
   value: number;
   page: number = 0;
   totalPage: number = 0;
+  size: number = 0;
+  codeSearch: string = '';
 
   constructor(private typeCoachService: TypeCoachService,
               private CompanyNameService: CompanyNameService,
@@ -32,26 +35,30 @@ export class CarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getAllCoach(this.page);
+    this.getAllCoach(this.page, this.codeSearch, this.selectTypeCoach);
     this.getAllCompanyName();
     this.getAllTypeCoach();
     this.getAllPosition();
+    this.searchAll();
   }
 
-  delete(id: number, name: number) {
+  delete(id: number, name: string) {
     this.item = name
     this.value = id
   }
 
   getAllPosition() {
     this.positionService.getAll().subscribe(item => {
-      this.PositionList = item;
+      this.positionList = item;
     })
   }
 
-  getAllCoach(page: number) {
-    this.coachService.getAll(page).subscribe(item => {
-      this.coachList = item;
+  getAllCoach(page: number, code: string, typeCoach: string) {
+    this.coachService.getAll(page, code, typeCoach).subscribe(item => {
+      this.coachList = item['content'];
+      this.totalPage = item['totalPages'];
+      this.page = item['number'];
+      this.size = item['size'];
     })
   }
 
@@ -69,23 +76,39 @@ export class CarComponent implements OnInit {
 
   deleteCoach(id: number) {
     this.coachService.deleteCoach(id).subscribe(item => {
-      this.getAllCoach(this.page);
+      this.getAllCoach(this.page, this.codeSearch, this.selectTypeCoach);
       this.toastr.success("Xóa thành công");
     })
   }
 
   previousPage() {
     if (this.page > 0) {
-      this.page = this.page - 1;
-      this.getAllCoach(this.page);
+      this.page--;
+      this.getAllCoach(this.page, this.codeSearch, this.selectTypeCoach);
     }
   }
 
   nextPage() {
     if (this.page < this.totalPage - 1) {
-      this.page = this.page + 1;
-      this.getAllCoach(this.page);
+      this.page++;
+      this.getAllCoach(this.page, this.codeSearch, this.selectTypeCoach);
     }
+  }
+
+  searchAll() {
+    this.coachService.getAll(this.page, this.codeSearch, this.selectTypeCoach).subscribe(item => {
+      if (item) {
+        this.coachList = item['content'];
+        this.totalPage = item['totalPages'];
+        this.page = item['number'];
+        this.size = item['size'];
+      } else {
+        this.coachList = [];
+        this.totalPage = 0;
+        this.page = 0;
+        this.size = 0;
+      }
+    })
   }
 }
 

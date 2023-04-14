@@ -4,7 +4,7 @@ import {Position} from "./position";
 
 export interface Coach {
   id?: number;
-  codeCoach?: number;
+  code?: string;
   typeCoach?: TypeCoach;
   companyName?: CompanyName;
   startLocation?: Position;

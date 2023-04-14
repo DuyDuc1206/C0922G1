@@ -20,10 +20,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e8d5f66f-41b1-4af6-9f17-f4df6316c6f1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../case_module_5/angular-furama-app/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../case_module_5/angular-furama-app/src/app/app-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../case_module_5/angular-furama-app/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../case_module_5/angular-furama-app/src/app/app.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../case_module_5/angular-furama-app/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../case_module_5/angular-furama-app/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../case_module_5/angular-furama-app/src/app/header/header.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../case_module_5/angular-furama-app/src/app/header/header.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../exam/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../exam/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../exam2/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../../exam2/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../exam2/src/main/java/com/example/exam2/controller/CoachController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../exam2/src/main/java/com/example/exam2/controller/CoachController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../exam2/src/main/java/com/example/exam2/model/Coach.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../exam2/src/main/java/com/example/exam2/model/Coach.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../exam2/src/main/java/com/example/exam2/model/Position.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../exam2/src/main/java/com/example/exam2/model/Position.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../exam2/src/main/java/com/example/exam2/repository/ICoachRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../exam2/src/main/java/com/example/exam2/repository/ICoachRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../exam2/src/main/java/com/example/exam2/service/ICoachService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../exam2/src/main/java/com/example/exam2/service/ICoachService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../exam2/src/main/java/com/example/exam2/service/impl/CoachService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../exam2/src/main/java/com/example/exam2/service/impl/CoachService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../exam2/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../exam2/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/countdown-timer/countdown-timer.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/countdown-timer/countdown-timer.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/countdown-timer/countdown-timer.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/countdown-timer/countdown-timer.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +53,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../wfda-angular-rating-bar-app" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -96,6 +106,7 @@
       <workItem from="1678325547741" duration="3180000" />
       <workItem from="1678343657056" duration="873000" />
       <workItem from="1678353143000" duration="1025000" />
+      <workItem from="1679210866858" duration="1557000" />
     </task>
     <servers />
   </component>
