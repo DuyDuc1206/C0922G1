@@ -40,7 +40,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ss8_connect-back-end" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -99,6 +99,7 @@
       <workItem from="1678776368004" duration="5652000" />
       <workItem from="1678787260047" duration="972000" />
       <workItem from="1678796863776" duration="780000" />
+      <workItem from="1681785936147" duration="8000" />
     </task>
     <servers />
   </component>

@@ -43,7 +43,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ss9_module-DI" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -106,6 +106,7 @@
       <workItem from="1678802338067" duration="6388000" />
       <workItem from="1678843400309" duration="75000" />
       <workItem from="1678844127648" duration="2987000" />
+      <workItem from="1681785956468" duration="7000" />
     </task>
     <servers />
   </component>

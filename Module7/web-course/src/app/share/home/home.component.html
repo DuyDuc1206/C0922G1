@@ -1,47 +1,54 @@
 <body>
 
-<!-- Header -->
-<header id="header" class="transparent-nav ">
-  <div class="container">
-
-    <div class="navbar-header">
-      <!-- Logo -->
-      <div class="navbar-brand">
-        <a class="logo" href="index.html">
-          <img src="./img/logo-alt.png" alt="logo">
-        </a>
+<!-- header area start -->
+<header>
+  <div id="header-sticky" class="header__area header__padding-2 header__shadow">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-xxl-3 col-xl-3 col-lg-4 col-md-2 col-sm-4 col-6">
+          <div class="header__left d-flex">
+            <div class="logo">
+              <a href="index.html">
+                <img src="assets/img/logo-alt.png" alt="logo">
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-xxl-9 col-xl-9 col-lg-8 col-md-10 col-sm-8 col-6">
+          <div class="header__right d-flex justify-content-end align-items-center">
+            <div class="main-menu main-menu-2">
+              <nav id="mobile-menu">
+                <ul>
+                  <li><a href="index.html">Home</a></li>
+                  <li><a href="#">About</a></li>
+                  <li><a href="course-grid.html">Courses</a></li>
+                  <li><a href="blog.html">Blog</a></li>
+                  <li><a href="contact.html">Contact</a></li>
+                  <li><a href="sign-up.html">Sign In</a></li>
+                </ul>
+              </nav>
+            </div>
+            <div class="sidebar__menu d-xl-none">
+              <div class="sidebar-toggle-btn ml-30" id="sidebar-toggle">
+                <span class="line"></span>
+                <span class="line"></span>
+                <span class="line"></span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <!-- /Logo -->
-
-      <!-- Mobile toggle -->
-      <button class="navbar-toggle">
-        <span></span>
-      </button>
-      <!-- /Mobile toggle -->
     </div>
-
-    <!-- Navigation -->
-    <nav id="nav">
-      <ul class="main-menu nav navbar-nav navbar-right">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="course-grid.html">Courses</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="sign-up.html">Sign In</a></li>
-      </ul>
-    </nav>
-    <!-- /Navigation -->
-
   </div>
 </header>
-<!-- /Header -->
+<!-- header area end -->
 
 <!-- Home -->
 <div id="home" class="hero-area">
 
   <!-- Backgound Image -->
-  <div class="bg-image bg-parallax overlay" style="background-image:url(img/home1-background.jpg)" ></div>
+
+  <div class="bg-image bg-parallax overlay" style="background-image: url(../assets/img/home-background.jpg);"></div>
   <!-- /Backgound Image -->
 
   <div class="home-wrapper">
@@ -49,7 +56,8 @@
       <div class="row">
         <div class="col-md-8">
           <h1 class="white-text">Edusite Free Online Training Courses</h1>
-          <p class="lead white-text">Libris vivendo eloquentiam ex ius, nec id splendide abhorreant, eu pro alii error homero.</p>
+          <p class="lead white-text">Libris vivendo eloquentiam ex ius, nec id splendide abhorreant, eu pro alii error
+            homero.</p>
           <a class="main-button icon-button" href="#">Get Started!</a>
         </div>
       </div>
@@ -108,7 +116,7 @@
 
       <div class="col-md-6">
         <div class="about-img">
-          <img src="./img/about.png" alt="">
+          <img src="../assets/img/about.png" alt="">
         </div>
       </div>
 
@@ -145,7 +153,7 @@
         <div class="col-md-3 col-sm-6 col-xs-6">
           <div class="course">
             <a href="#" class="course-img">
-              <img src="./img/course01.jpg" alt="">
+              <img src="/assets/img/course01.jpg" alt="">
               <i class="course-link-icon fa fa-link"></i>
             </a>
             <a class="course-title" href="#">Beginner to Pro in Excel: Financial Modeling and Valuation</a>
@@ -161,7 +169,7 @@
         <div class="col-md-3 col-sm-6 col-xs-6">
           <div class="course">
             <a href="#" class="course-img">
-              <img src="./img/course02.jpg" alt="">
+              <img src="../assets/img/course02.jpg" alt="">
               <i class="course-link-icon fa fa-link"></i>
             </a>
             <a class="course-title" href="#">Introduction to CSS </a>
@@ -177,7 +185,7 @@
         <div class="col-md-3 col-sm-6 col-xs-6">
           <div class="course">
             <a href="#" class="course-img">
-              <img src="./img/course03.jpg" alt="">
+              <img src="../assets/img/course03.jpg" alt="">
               <i class="course-link-icon fa fa-link"></i>
             </a>
             <a class="course-title" href="#">The Ultimate Drawing Course | From Beginner To Advanced</a>
@@ -192,7 +200,7 @@
         <div class="col-md-3 col-sm-6 col-xs-6">
           <div class="course">
             <a href="#" class="course-img">
-              <img src="./img/course04.jpg" alt="">
+              <img src="../assets/img/course04.jpg" alt="">
               <i class="course-link-icon fa fa-link"></i>
             </a>
             <a class="course-title" href="#">The Complete Web Development Course</a>
@@ -214,7 +222,7 @@
         <div class="col-md-3 col-sm-6 col-xs-6">
           <div class="course">
             <a href="#" class="course-img">
-              <img src="./img/course05.jpg" alt="">
+              <img src="../assets/img/course05.jpg" alt="">
               <i class="course-link-icon fa fa-link"></i>
             </a>
             <a class="course-title" href="#">PHP Tips, Tricks, and Techniques</a>
@@ -230,7 +238,7 @@
         <div class="col-md-3 col-sm-6 col-xs-6">
           <div class="course">
             <a href="#" class="course-img">
-              <img src="./img/course06.jpg" alt="">
+              <img src="../assets/img/course06.jpg" alt="">
               <i class="course-link-icon fa fa-link"></i>
             </a>
             <a class="course-title" href="#">All You Need To Know About Web Design</a>
@@ -246,7 +254,7 @@
         <div class="col-md-3 col-sm-6 col-xs-6">
           <div class="course">
             <a href="#" class="course-img">
-              <img src="./img/course07.jpg" alt="">
+              <img src="../assets/img/course07.jpg" alt="">
               <i class="course-link-icon fa fa-link"></i>
             </a>
             <a class="course-title" href="#">How to Get Started in Photography</a>
@@ -263,7 +271,7 @@
         <div class="col-md-3 col-sm-6 col-xs-6">
           <div class="course">
             <a href="#" class="course-img">
-              <img src="./img/course08.jpg" alt="">
+              <img src="../assets/img/course08.jpg" alt="">
               <i class="course-link-icon fa fa-link"></i>
             </a>
             <a class="course-title" href="#">Typography From A to Z</a>
@@ -297,7 +305,7 @@
 <div id="cta" class="section">
 
   <!-- Backgound Image -->
-  <div class="bg-image bg-parallax overlay" style="background-image:url(./img/cta1-background.jpg)"></div>
+  <div class="bg-image bg-parallax overlay" style="background-image:url(../assets/img/cta1-background.jpg)"></div>
   <!-- /Backgound Image -->
 
   <!-- container -->
@@ -307,8 +315,9 @@
     <div class="row">
 
       <div class="col-md-6">
-        <h2 class="white-text">Ceteros fuisset mei no, soleat epicurei adipiscing ne vis.</h2>
-        <p class="lead white-text">Ceteros fuisset mei no, soleat epicurei adipiscing ne vis. Et his suas veniam nominati.</p>
+        <h2 class="text-white">Ceteros fuisset mei no, soleat epicurei adipiscing ne vis.</h2>
+        <p class="lead text-white">Ceteros fuisset mei no, soleat epicurei adipiscing ne vis. Et his suas veniam
+          nominati.</p>
         <a class="main-button icon-button" href="#">Get Started!</a>
       </div>
 
@@ -381,12 +390,14 @@
       <div class="col-md-6">
         <h3>Persius imperdiet incorrupte et qui, munere nusquam et nec.</h3>
         <p class="lead">Libris vivendo eloquentiam ex ius, nec id splendide abhorreant.</p>
-        <p>No vel facete sententiae, quodsi dolores no quo, pri ex tamquam interesset necessitatibus. Te denique cotidieque delicatissimi sed. Eu doming epicurei duo. Sit ea perfecto deseruisse theophrastus. At sed malis hendrerit, elitr deseruisse in sit, sit ei facilisi mediocrem.</p>
+        <p>No vel facete sententiae, quodsi dolores no quo, pri ex tamquam interesset necessitatibus. Te denique
+          cotidieque delicatissimi sed. Eu doming epicurei duo. Sit ea perfecto deseruisse theophrastus. At sed malis
+          hendrerit, elitr deseruisse in sit, sit ei facilisi mediocrem.</p>
       </div>
 
       <div class="col-md-5 col-md-offset-1">
         <a class="about-video" href="#">
-          <img src="./img/about-video.jpg" alt="">
+          <img src="../assets/img/about-video.jpg" alt="">
           <i class="play-icon fa fa-play"></i>
         </a>
       </div>
@@ -404,7 +415,7 @@
 <div id="contact-cta" class="section">
 
   <!-- Backgound Image -->
-  <div class="bg-image bg-parallax overlay" style="background-image:url(./img/cta2-background.jpg)"></div>
+  <div class="bg-image bg-parallax overlay" style="background-image:url(../assets/img/cta2-background.jpg)"></div>
   <!-- Backgound Image -->
 
   <!-- container -->
@@ -415,7 +426,7 @@
 
       <div class="col-md-8 col-md-offset-2 text-center">
         <h2 class="white-text">Contact Us</h2>
-        <p class="lead white-text">Libris vivendo eloquentiam ex ius, nec id splendide abhorreant.</p>
+        <p class="fs-1 fw-bold white-text">Libris vivendo eloquentiam ex ius, nec id splendide abhorreant.</p>
         <a class="main-button icon-button" href="#">Contact Us Now</a>
       </div>
 
@@ -428,73 +439,11 @@
 </div>
 <!-- /Contact CTA -->
 
-<!-- Footer -->
-<footer id="footer" class="section">
-
-  <!-- container -->
-  <div class="container">
-
-    <!-- row -->
-    <div class="row">
-
-      <!-- footer logo -->
-      <div class="col-md-6">
-        <div class="footer-logo">
-          <a class="logo" href="index.html">
-            <img src="./img/logo.png" alt="logo">
-          </a>
-        </div>
-      </div>
-      <!-- footer logo -->
-
-      <!-- footer nav -->
-      <div class="col-md-6">
-        <ul class="footer-nav">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Courses</a></li>
-          <li><a href="blog.html">Blog</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-      <!-- /footer nav -->
-
-    </div>
-    <!-- /row -->
-
-    <!-- row -->
-    <div id="bottom-footer" class="row">
-
-      <!-- social -->
-      <div class="col-md-4 col-md-push-8">
-        <ul class="footer-social">
-          <li><a href="#" class="facebook"><i class="fa fa-facebook"></i></a></li>
-          <li><a href="#" class="twitter"><i class="fa fa-twitter"></i></a></li>
-          <li><a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a></li>
-          <li><a href="#" class="instagram"><i class="fa fa-instagram"></i></a></li>
-          <li><a href="#" class="youtube"><i class="fa fa-youtube"></i></a></li>
-          <li><a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a></li>
-        </ul>
-      </div>
-      <!-- /social -->
-
-      <!-- copyright -->
-      <div class="col-md-8 col-md-pull-4">
-        <div class="footer-copyright">
-          <span>&copy; Copyright 2018. All Rights Reserved. | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com">Colorlib</a></span>
-        </div>
-      </div>
-      <!-- /copyright -->
-
-    </div>
-    <!-- row -->
-
-  </div>
-  <!-- /container -->
-
-</footer>
-<!-- /Footer -->
-
 <!-- preloader -->
-<div id='preloader'><div class='preloader'></div></div>
+<div id='preloader'>
+  <div class='preloader'></div>
+</div>
 <!-- /preloader -->
+
+
+</body>
