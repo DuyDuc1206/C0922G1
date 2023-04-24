@@ -12,16 +12,14 @@ import javax.persistence.*;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class AccountRole {
+public class Orders {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer accountRoleId;
-
+    @Column(name = "id_order")
+    private Integer idOrder;
+    private String orderDate;
+    private boolean flagDelete;
     @ManyToOne
-    @JoinColumn(name = "role_id",referencedColumnName = "role_id")
-    private Role role;
-
-    @ManyToOne
-    @JoinColumn(name = "account_id",referencedColumnName = "account_id")
-    private Account account;
+    @JoinColumn(name = "id_user",referencedColumnName = "id")
+    private User uer;
 }

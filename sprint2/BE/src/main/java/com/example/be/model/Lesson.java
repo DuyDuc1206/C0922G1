@@ -15,10 +15,11 @@ import javax.persistence.*;
 public class Lesson {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer lessonId;
+    @Column(name = "id_lesson")
+    private Integer idLesson;
     private String lessonName;
     private String lessonContent;
     @ManyToOne
-    @JoinColumn(name = "course_id", referencedColumnName = "course_id")
+    @JoinColumn(name = "id_course",referencedColumnName = "id_course")
     private Course course;
 }

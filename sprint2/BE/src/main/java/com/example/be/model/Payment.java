@@ -17,7 +17,8 @@ import java.util.Set;
 public class Payment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer paymentId;
+    @Column(name = "id_payment")
+    private Integer idPayment;
     private String paymentMethod;
     @OneToMany
     @JsonIgnore

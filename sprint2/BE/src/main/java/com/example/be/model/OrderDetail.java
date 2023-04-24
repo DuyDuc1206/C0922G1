@@ -15,15 +15,16 @@ import javax.persistence.*;
 public class OrderDetail {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer orderDetailId;
+    @Column(name = "id_order_detail")
+    private Integer idOrderDetail;
     @ManyToOne
-    @JoinColumn(name = "order_id",referencedColumnName = "order_id")
-    private Order order;
+    @JoinColumn(name = "id_order",referencedColumnName = "id_order")
+    private Orders orders;
 
     @ManyToOne
-    @JoinColumn(name = "account_id",referencedColumnName = "account_id")
-    private Account account;
+    @JoinColumn(name = "id_user",referencedColumnName = "id")
+    private User user;
     @ManyToOne
-    @JoinColumn(name = "payment_id",referencedColumnName = "payment_id")
+    @JoinColumn(name = "id_payment",referencedColumnName = "id_payment")
     private Payment payment;
 }

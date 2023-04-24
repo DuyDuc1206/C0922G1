@@ -8765,7 +8765,7 @@ p.checkout-coupon input[type=text]:focus {
 
 .contact__form-agree input:checked::after {
     box-sizing: border-box;
-    content: "\f00c";
+    /*content: "\f00c";*/
     position: absolute;
     font-family: "Font Awesome 5 Pro";
     font-size: 10px;
@@ -9675,7 +9675,7 @@ p.checkout-coupon input[type=text]:focus {
 
 .sign__agree input:checked::after {
     box-sizing: border-box;
-    content: "\f00c";
+    /*content: "\f00c";*/
     position: absolute;
     font-family: "Font Awesome 5 Pro";
     font-size: 10px;

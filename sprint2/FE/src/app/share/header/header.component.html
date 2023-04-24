@@ -1,34 +1,44 @@
 <!-- header area start -->
 <header>
-  <div id="header-sticky" class="header__area header__transparent header__padding">
+  <div id="header-sticky" class="header__area header__transparent header__padding" [class.header__white]="!isHomePage">
     <div class="container-fluid">
       <div class="row align-items-center">
         <div class="col-xxl-3 col-xl-3 col-lg-4 col-md-2 col-sm-4 col-6">
           <div class="header__left d-flex">
             <div class="logo">
               <a href="index.html">
-                <img src="assets/img/logo/logo.png" alt="logo">
+                <img *ngIf="!isHomePage" class="logo-white" src="assets/img/logo/logo-2.png" alt="logo">
+                <img *ngIf="isHomePage" src="assets/img/logo/logo.png" alt="logo">
               </a>
             </div>
           </div>
         </div>
         <div class="col-xxl-9 col-xl-9 col-lg-8 col-md-10 col-sm-8 col-6">
           <div class="header__right d-flex justify-content-end align-items-center">
-            <div class="main-menu">
+            <div class="main-menu" [class.main-menu-3]="!isHomePage">
               <nav id="mobile-menu">
                 <ul>
                   <li><a href="index.html">Home</a></li>
                   <li><a routerLink="/course">Courses</a></li>
                   <li><a routerLink="/blog">Blog</a></li>
                   <li><a routerLink="/contact">Contact</a></li>
-                  <li><a routerLink="/sign-in">Login</a></li>
+                  <ng-container *ngIf="!(isLogined || isSignInPage || isSignUpPage)" >
+                    <li><a routerLink="/sign-in">Login</a></li>
+                  </ng-container>
+                  <li *ngIf="isLogined" >
+                    <a href=""><i class="fas fa-user-circle"></i> {{name}}</a>
+                    <ul class="submenu">
+                      <li><a routerLink="/">Account</a></li>
+                      <li><a (click)="logOut()">Log out <i class="fas fa-sign-out-alt"></i></a></li>
+                    </ul>
+                  </li>
                 </ul>
               </nav>
             </div>
-            <div class="header__search p-relative ml-50 d-none d-md-block">
+            <div class="header__search p-relative ml-50 d-none d-md-block" *ngIf="!isSignInPage && !isSignUpPage">
               <form action="#">
                 <input type="text" placeholder="Search...">
-                <button type="submit"><i class="fad fa-search"></i></button>
+                <button type="submit"><i class="fas fa-search"></i></button>
               </form>
               <div class="header__cart">
                 <a href="javascript:void(0);" class="cart-toggle-btn">
@@ -43,7 +53,12 @@
                 </a>
               </div>
             </div>
-
+            <div class="header__btn header__btn-2 ml-50 d-none d-sm-block" *ngIf="isSignUpPage">
+              <a routerLink="/sign-in" class="e-btn">Sign In</a>
+            </div>
+            <div class="header__btn header__btn-2 ml-50 d-none d-sm-block" *ngIf="isSignInPage">
+              <a routerLink="/sign-up" class="e-btn">Sign Up</a>
+            </div>
             <div class="sidebar__menu d-xl-none">
               <div class="sidebar-toggle-btn ml-30" id="sidebar-toggle">
                 <span class="line"></span>
