@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 
@@ -8,8 +8,10 @@ import {Observable} from 'rxjs';
 export class AuthService {
   private API_SIGNIN = 'http://localhost:8080/api/auth/sign-in';
   private API_SIGNUP = 'http://localhost:8080/api/auth/sign-up';
-  isLoggedIn: boolean;
-  constructor(private http: HttpClient) { }
+
+  constructor(private http: HttpClient) {
+  }
+
   signIn(obj): Observable<any> {
     return this.http.post(`${this.API_SIGNIN}`, {username: obj.username, password: obj.password});
   }

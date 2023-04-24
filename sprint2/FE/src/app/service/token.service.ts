@@ -83,7 +83,7 @@ export class TokenService {
     }
   }
 
-  public getRole(): string {
+  public getRole(): string[] {
     if (this.getStorage() === 'local') {
       let roles = JSON.parse(<string> localStorage.getItem(ROLE_KEY));
       return roles[0].authority;

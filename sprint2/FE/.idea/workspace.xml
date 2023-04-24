@@ -20,52 +20,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9ca6faf6-5d05-4519-a591-21e4cce462df" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../BE/src/main/java/com/example/be/config/WebSecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../BE/src/main/java/com/example/be/controller/AuthController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../BE/src/main/java/com/example/be/dto/request/SignInForm.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../BE/src/main/java/com/example/be/dto/request/SignUpForm.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../BE/src/main/java/com/example/be/dto/response/JWTResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../BE/src/main/java/com/example/be/dto/response/ResponseMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../BE/src/main/java/com/example/be/model/RoleName.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../BE/src/main/java/com/example/be/repository/IRoleRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../BE/src/main/java/com/example/be/repository/IUserRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../BE/src/main/java/com/example/be/security/jwt/JWTEntryPoint.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../BE/src/main/java/com/example/be/security/jwt/JWTProvider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../BE/src/main/java/com/example/be/security/jwt/JWTTokenFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../BE/src/main/java/com/example/be/security/userPrinciple/UserDetailService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../BE/src/main/java/com/example/be/security/userPrinciple/UserPrinciple.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../BE/src/main/java/com/example/be/service/IRoleService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../BE/src/main/java/com/example/be/service/IUserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../BE/src/main/java/com/example/be/service/RoleService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../BE/src/main/java/com/example/be/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BE/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../BE/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BE/src/main/java/com/example/be/model/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/../BE/src/main/java/com/example/be/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BE/src/main/java/com/example/be/model/AccountRole.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BE/src/main/java/com/example/be/model/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/../BE/src/main/java/com/example/be/model/Course.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BE/src/main/java/com/example/be/model/Lesson.java" beforeDir="false" afterPath="$PROJECT_DIR$/../BE/src/main/java/com/example/be/model/Lesson.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BE/src/main/java/com/example/be/model/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/../BE/src/main/java/com/example/be/model/Orders.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BE/src/main/java/com/example/be/model/OrderDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/../BE/src/main/java/com/example/be/model/OrderDetail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BE/src/main/java/com/example/be/model/Payment.java" beforeDir="false" afterPath="$PROJECT_DIR$/../BE/src/main/java/com/example/be/model/Payment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BE/src/main/java/com/example/be/model/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/../BE/src/main/java/com/example/be/model/Role.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BE/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../BE/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/js/app.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/js/particles.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/blog/blog.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/blog/blog.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/cart/cart.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/cart/cart.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/contact/contact.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/contact/contact.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/course/course.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/course/course.component.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/course/course.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/course/course.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/share/footer/footer.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/share/footer/footer.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/share/header/header.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/share/header/header.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/share/header/header.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/share/header/header.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/course/course.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/course/course.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/service/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/service/auth.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/service/token.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/service/token.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/share/home/home.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/share/home/home.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/sign-in/sign-in.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/sign-in/sign-in.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/sign-in/sign-in.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/sign-in/sign-in.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/sign-up/sign-up.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/sign-up/sign-up.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/assets/css/backToTop.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/css/backToTop.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/css/bootstrap.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/css/bootstrap.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/css/fontAwesome5Pro.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/css/fontAwesome5Pro.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,6 +43,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="TypeScript File" />
+        <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -92,7 +61,8 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/assets/css" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -103,7 +73,11 @@
     <property name="ts.external.directory.path" value="D:\CODEGYM\sprint2\FE\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\CODEGYM\sprint2\FE\src\assets\js" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\CODEGYM\sprint2\FE\src\assets\css" />
       <recent name="D:\CODEGYM\sprint2\FE\src\assets\img\course" />
       <recent name="D:\CODEGYM\sprint2\FE\src\assets" />
     </key>
@@ -162,7 +136,8 @@
       <workItem from="1682214497639" duration="8514000" />
       <workItem from="1682240994242" duration="7244000" />
       <workItem from="1682258842312" duration="15194000" />
-      <workItem from="1682299292764" duration="7003000" />
+      <workItem from="1682299292764" duration="8769000" />
+      <workItem from="1682317921059" duration="9463000" />
     </task>
     <servers />
   </component>
@@ -190,10 +165,10 @@
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
     <state x="624" y="202" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1032@0.0.1920.1032" timestamp="1682215677687" />
-    <state x="687" y="212" key="FileChooserDialogImpl" timestamp="1682218974526">
+    <state x="687" y="212" key="FileChooserDialogImpl" timestamp="1682324150904">
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
-    <state x="687" y="212" key="FileChooserDialogImpl/0.0.1920.1032@0.0.1920.1032" timestamp="1682218974526" />
+    <state x="687" y="212" key="FileChooserDialogImpl/0.0.1920.1032@0.0.1920.1032" timestamp="1682324150904" />
     <state width="1893" height="264" key="GridCell.Tab.0.bottom" timestamp="1682218171262">
       <screen x="0" y="0" width="1920" height="1032" />
     </state>

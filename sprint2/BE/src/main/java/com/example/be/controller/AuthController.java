@@ -101,4 +101,27 @@ public class AuthController {
 //        iUserService.save(user);
 //        return new ResponseEntity<>(HttpStatus.OK);
 //    }
+
+//    @PatchMapping("/change-password")
+//    public ResponseEntity<List<FieldError>> changePassword(@RequestBody @Valid PasswordDto passwordDto,
+//                                                           BindingResult bindingResult) {
+//        new PasswordDto().validate(passwordDto, bindingResult);
+//        Account account = accountService.findAccountByEmail(passwordDto.getUsername());
+//        if (account == null) {
+//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+//        }
+//        String password = account.getPassword();
+//        String oldPassWord = passwordDto.getOldPassword();
+//        Boolean checkOldPassword = accountService.checkOldPassword(oldPassWord, password);
+//        if (!checkOldPassword) {
+//            bindingResult.rejectValue("oldPassword", "passwordError2", "Mật khẩu cũ sai");
+//        }
+//        if (bindingResult.hasErrors()) {
+//            return new ResponseEntity<>(bindingResult.getFieldErrors(), HttpStatus.BAD_REQUEST);
+//        }
+//        String hashPassword = BCrypt.hashpw(passwordDto.getPasswordConfirm(), BCrypt.gensalt(12));
+//        account.setPassword(hashPassword);
+//        accountService.updateAccount(account);
+//        return new ResponseEntity<>(HttpStatus.OK);
+//    }
 }

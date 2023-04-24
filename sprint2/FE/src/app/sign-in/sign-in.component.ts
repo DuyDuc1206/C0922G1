@@ -11,22 +11,24 @@ import {ShareService} from '../service/share.service';
   styleUrls: ['./sign-in.component.css']
 })
 export class SignInComponent implements OnInit {
-  signInForm = new FormGroup({
-    username: new FormControl(),
-    password: new FormControl(),
-    rememberMe: new FormControl(true)
-  });
+  signInForm: FormGroup;
   isLogged = false;
   message = '';
+  username: string;
+  roles: string[] = [];
 
   constructor(private tokenService: TokenService,
               private authService: AuthService,
               private shareService: ShareService,
-              private router: Router,
-              private route: ActivatedRoute) {
+              private router: Router) {
   }
 
   ngOnInit(): void {
+    this.signInForm = new FormGroup({
+      username: new FormControl(),
+      password: new FormControl(),
+      rememberMe: new FormControl(false)
+    });
     this.isLogged = this.tokenService.isLogined();
     if (this.isLogged) {
       this.router.navigateByUrl('/');
@@ -38,13 +40,15 @@ export class SignInComponent implements OnInit {
       return;
     }
     this.authService.signIn(this.signInForm.value).subscribe(next => {
-        if (this.signInForm.controls.rememberMe.value) {
+        if (this.signInForm.value.rememberMe) {
           this.tokenService.rememberMe(next.token, next.name, next.roles, 'local');
         } else {
           this.tokenService.rememberMe(next.token, next.name, next.roles, 'session');
         }
         this.isLogged = true;
-
+        this.username = this.tokenService.getStorage().username;
+        this.roles = this.tokenService.getStorage().roles;
+        this.signInForm.reset();
         this.shareService.sendClickEvent();
         this.router.navigateByUrl('/');
       }, error => {

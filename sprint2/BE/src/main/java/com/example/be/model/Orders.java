@@ -1,5 +1,6 @@
 package com.example.be.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,9 +18,13 @@ public class Orders {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_order")
     private Integer idOrder;
+    private Integer codeOrder;
     private String orderDate;
-    private boolean flagDelete;
+    private Boolean paymentStatus;
+    @Column(columnDefinition = "bit default false")
+    private Boolean flagDelete;
     @ManyToOne
+    @JsonManagedReference
     @JoinColumn(name = "id_user",referencedColumnName = "id")
     private User uer;
 }
