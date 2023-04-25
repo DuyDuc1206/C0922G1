@@ -11,7 +11,7 @@ import {User} from '../../model/user';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  // mặc định undefine
+// mặc định undefine
   isHomePage: boolean;
   isSignInPage = false;
   isSignUpPage = false;
@@ -55,15 +55,18 @@ export class HeaderComponent implements OnInit {
   // }
   logOut() {
     this.tokenService.signOut();
+    this.role = 'none';
+    this.router.navigateByUrl('/');
     this.shareService.sendClickEvent();
     this.isLogined = false;
   }
 
   loading(): void {
     if (this.tokenService.getToken()) {
-      this.role = this.tokenService.getRole()[0];
+      this.role = this.tokenService.getRole();
       this.name = this.tokenService.getName();
       this.tokenService.setName(this.name);
+      console.log(this.role);
     }
     this.isLogined = this.name != null;
     this.tokenService.getName();

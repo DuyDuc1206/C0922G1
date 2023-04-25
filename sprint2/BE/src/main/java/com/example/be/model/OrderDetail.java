@@ -24,7 +24,4 @@ public class OrderDetail {
     @ManyToOne
     @JoinColumn(name = "id_user",referencedColumnName = "id")
     private User user;
-    @ManyToOne
-    @JoinColumn(name = "id_payment",referencedColumnName = "id_payment")
-    private Payment payment;
 }

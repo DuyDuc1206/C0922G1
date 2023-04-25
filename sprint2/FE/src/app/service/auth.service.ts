@@ -8,6 +8,7 @@ import {Observable} from 'rxjs';
 export class AuthService {
   private API_SIGNIN = 'http://localhost:8080/api/auth/sign-in';
   private API_SIGNUP = 'http://localhost:8080/api/auth/sign-up';
+  isLoggedIn = false;
 
   constructor(private http: HttpClient) {
   }

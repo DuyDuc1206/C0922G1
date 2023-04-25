@@ -22,10 +22,20 @@
                   <li><a routerLink="/course">Courses</a></li>
                   <li><a routerLink="/blog">Blog</a></li>
                   <li><a routerLink="/contact">Contact</a></li>
-                  <ng-container *ngIf="!(isLogined || isSignInPage || isSignUpPage)" >
+                  <ng-container *ngIf="role == 'ROLE_ADMIN'">
+                    <li   >
+                      <a routerLink="">Manage <i class="fas fa-angle-down"></i></a>
+                      <ul class="submenu">
+                        <li><a href="course-grid.html">Course Management</a></li>
+                        <li><a href="course-list.html">User Management</a></li>
+                        <li><a href="course-sidebar.html">Order Management</a></li>
+                      </ul>
+                    </li>
+                  </ng-container>
+                  <ng-container *ngIf="!(isLogined || isSignInPage || isSignUpPage)">
                     <li><a routerLink="/sign-in">Login</a></li>
                   </ng-container>
-                  <li *ngIf="isLogined" >
+                  <li *ngIf="isLogined">
                     <a href=""><i class="fas fa-user-circle"></i> {{name}}</a>
                     <ul class="submenu">
                       <li><a routerLink="/">Account</a></li>

@@ -11,7 +11,6 @@ import com.example.be.security.jwt.JWTProvider;
 import com.example.be.security.userPrinciple.UserPrinciple;
 import com.example.be.service.IRoleService;
 import com.example.be.service.IUserService;
-import com.example.be.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

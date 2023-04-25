@@ -4,6 +4,7 @@ import {TokenService} from '../service/token.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {AuthService} from '../service/auth.service';
 import {ShareService} from '../service/share.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-sign-in',
@@ -46,8 +47,8 @@ export class SignInComponent implements OnInit {
           this.tokenService.rememberMe(next.token, next.name, next.roles, 'session');
         }
         this.isLogged = true;
-        this.username = this.tokenService.getStorage().username;
-        this.roles = this.tokenService.getStorage().roles;
+        // this.username = this.tokenService.getStorage().username;
+        // this.roles = this.tokenService.getStorage().roles;
         this.signInForm.reset();
         this.shareService.sendClickEvent();
         this.router.navigateByUrl('/');

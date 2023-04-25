@@ -10,6 +10,7 @@ const STORAGE = 'Storage_key';
 })
 export class TokenService {
   username: string;
+
   constructor() {
   }
 
@@ -83,12 +84,12 @@ export class TokenService {
     }
   }
 
-  public getRole(): string[] {
+  public getRole(): string {
     if (this.getStorage() === 'local') {
-      let roles = JSON.parse(<string> localStorage.getItem(ROLE_KEY));
+      const roles = JSON.parse(<string> localStorage.getItem(ROLE_KEY));
       return roles[0].authority;
     } else {
-      let roles = JSON.parse(<string> sessionStorage.getItem(ROLE_KEY));
+      const roles = JSON.parse(<string> sessionStorage.getItem(ROLE_KEY));
       return roles[0].authority;
     }
   }

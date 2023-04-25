@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface ICourseService {
     List<Course> findCourse(String name);
+    List<Course> findAll();
 }
