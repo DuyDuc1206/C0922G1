@@ -21,7 +21,7 @@
               <h5><a href="#">Strategy law and organization Foundation </a></h5>
               <div class="product-quantity mt-10 mb-10">
                 <span class="cart-minus">-</span>
-                <input class="cart-input" type="text" value="1" />
+                <input class="cart-input" type="text" value="1"/>
                 <span class="cart-plus">+</span>
               </div>
               <div class="product__sm-price-wrapper">
@@ -40,7 +40,7 @@
               <h5><a href="#">Fundamentals of music theory Learn new</a></h5>
               <div class="product-quantity mt-10 mb-10">
                 <span class="cart-minus">-</span>
-                <input class="cart-input" type="text" value="1" />
+                <input class="cart-input" type="text" value="1"/>
                 <span class="cart-plus">+</span>
               </div>
               <div class="product__sm-price-wrapper">
@@ -59,7 +59,7 @@
               <h5><a href="#">Strategy law and organization Foundation </a></h5>
               <div class="product-quantity mt-10 mb-10">
                 <span class="cart-minus">-</span>
-                <input class="cart-input" type="text" value="1" />
+                <input class="cart-input" type="text" value="1"/>
                 <span class="cart-plus">+</span>
               </div>
               <div class="product__sm-price-wrapper">
@@ -132,8 +132,9 @@
 <main>
 
   <!-- page title area start -->
-  <section  class="page__title-area page__title-height page__title-overlay d-flex align-items-center" data-background="assets/img/page-title/page-title.jpg">
-    <div  class="container">
+  <section class="page__title-area page__title-height page__title-overlay d-flex align-items-center"
+           data-background="assets/img/page-title/page-title.jpg">
+    <div class="container">
       <div class="row">
         <div class="col-xxl-12">
           <div class="page__title-wrapper mt-110">
@@ -148,6 +149,9 @@
         </div>
       </div>
     </div>
+    <div id="particles-js" style="position: absolute;width: 100%; height: 100%; top: 0; left: 0; z-index: 1;">
+      <!-- nội dung của particles-js -->
+    </div>
   </section>
   <!-- page title area end -->
 
@@ -161,7 +165,8 @@
               <div class="course__tab-btn">
                 <ul class="nav nav-tabs" id="courseTab" role="tablist">
                   <li class="nav-item" role="presentation">
-                    <button class="nav-link active" id="grid-tab" data-bs-toggle="tab" data-bs-target="#grid" type="button" role="tab" aria-controls="grid" aria-selected="true">
+                    <button class="nav-link active" id="grid-tab" data-bs-toggle="tab" data-bs-target="#grid"
+                            type="button" role="tab" aria-controls="grid" aria-selected="true">
                       <svg class="grid" viewBox="0 0 24 24">
                         <rect x="3" y="3" class="st0" width="7" height="7"/>
                         <rect x="14" y="3" class="st0" width="7" height="7"/>
@@ -171,14 +176,18 @@
                     </button>
                   </li>
                   <li class="nav-item" role="presentation">
-                    <button class="nav-link list" id="list-tab" data-bs-toggle="tab" data-bs-target="#list" type="button" role="tab" aria-controls="list" aria-selected="false">
+                    <button class="nav-link list" id="list-tab" data-bs-toggle="tab" data-bs-target="#list"
+                            type="button" role="tab" aria-controls="list" aria-selected="false">
                       <svg class="list" viewBox="0 0 512 512">
                         <g id="Layer_2_1_">
-                          <path class="st0" d="M448,69H192c-17.7,0-32,13.9-32,31s14.3,31,32,31h256c17.7,0,32-13.9,32-31S465.7,69,448,69z"/>
+                          <path class="st0"
+                                d="M448,69H192c-17.7,0-32,13.9-32,31s14.3,31,32,31h256c17.7,0,32-13.9,32-31S465.7,69,448,69z"/>
                           <circle class="st0" cx="64" cy="100" r="31"/>
-                          <path class="st0" d="M448,225H192c-17.7,0-32,13.9-32,31s14.3,31,32,31h256c17.7,0,32-13.9,32-31S465.7,225,448,225z"/>
+                          <path class="st0"
+                                d="M448,225H192c-17.7,0-32,13.9-32,31s14.3,31,32,31h256c17.7,0,32-13.9,32-31S465.7,225,448,225z"/>
                           <circle class="st0" cx="64" cy="256" r="31"/>
-                          <path class="st0" d="M448,381H192c-17.7,0-32,13.9-32,31s14.3,31,32,31h256c17.7,0,32-13.9,32-31S465.7,381,448,381z"/>
+                          <path class="st0"
+                                d="M448,381H192c-17.7,0-32,13.9-32,31s14.3,31,32,31h256c17.7,0,32-13.9,32-31S465.7,381,448,381z"/>
                           <circle class="st0" cx="64" cy="412" r="31"/>
                         </g>
                       </svg>
@@ -214,7 +223,7 @@
             <div class="tab-content" id="courseTabContent">
               <div class="tab-pane fade show active" id="grid" role="tabpanel" aria-labelledby="grid-tab">
                 <div class="row">
-                  <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6">
+                  <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6" *ngFor="let c of lessonsPerCourse">
                     <div class="course__item white-bg mb-30 fix">
                       <div class="course__thumb w-img p-relative fix">
                         <a href="course-details.html">
@@ -227,26 +236,26 @@
                       <div class="course__content">
                         <div class="course__meta d-flex align-items-center justify-content-between">
                           <div class="course__lesson">
-                            <span><i class="far fa-book-alt"></i>43 Lesson</span>
+                            <span><i class="fas fa-book"></i>{{c.lessonCount}} lesson</span>
                           </div>
                           <div class="course__rating">
-                            <span><i class="icon_star"></i>4.5 (44)</span>
+                            <span><i class="fas fa-star"></i>4.5 (44)</span>
                           </div>
                         </div>
-                        <h3 class="course__title"><a href="course-details.html">Become a product Manager learn the skills & job.</a></h3>
+                        <h3 class="course__title"><a href="course-details.html">{{c.course.courseName}}</a></h3>
                         <div class="course__teacher d-flex align-items-center">
                           <div class="course__teacher-thumb mr-15">
-                            <img src="assets/img/course/teacher/teacher-1.jpg" alt="">
+                            <img src="assets/img/portfolio.png" alt="">
                           </div>
-                          <h6><a href="instructor-details.html">Jim Séchen</a></h6>
+                          <h6><a href="instructor-details.html">Educal</a></h6>
                         </div>
                       </div>
                       <div class="course__more d-flex justify-content-between align-items-center">
                         <div class="course__status">
-                          <span>Free</span>
+                          <span>{{c.course.price === null ? 'Free' : c.course.price + '$'}}</span>
                         </div>
                         <div class="course__btn">
-                          <a href="course-details.html" class="link-btn">
+                          <a routerLink="/course/{{c.course.idCourse}}" class="link-btn">
                             Know Details
                             <i class="far fa-arrow-right"></i>
                             <i class="far fa-arrow-right"></i>
@@ -274,7 +283,8 @@
                             <span><i class="icon_star"></i>4.5 (44)</span>
                           </div>
                         </div>
-                        <h3 class="course__title"><a href="course-details.html">Fundamentals of music theory Learn new</a></h3>
+                        <h3 class="course__title"><a href="course-details.html">Fundamentals of music theory Learn
+                          new</a></h3>
                         <div class="course__teacher d-flex align-items-center">
                           <div class="course__teacher-thumb mr-15">
                             <img src="assets/img/course/teacher/teacher-2.jpg" alt="">
@@ -316,7 +326,8 @@
                             <span><i class="icon_star"></i>4.4 (40)</span>
                           </div>
                         </div>
-                        <h3 class="course__title"><a href="course-details.html">Bases Matemáticas dios Álgebra Ecuacion</a></h3>
+                        <h3 class="course__title"><a href="course-details.html">Bases Matemáticas dios Álgebra
+                          Ecuacion</a></h3>
                         <div class="course__teacher d-flex align-items-center">
                           <div class="course__teacher-thumb mr-15">
                             <img src="assets/img/course/teacher/teacher-7.jpg" alt="">
@@ -358,7 +369,8 @@
                             <span><i class="icon_star"></i>3.5 (55)</span>
                           </div>
                         </div>
-                        <h3 class="course__title"><a href="course-details.html">Strategy law and organization Foundation</a></h3>
+                        <h3 class="course__title"><a href="course-details.html">Strategy law and organization
+                          Foundation</a></h3>
                         <div class="course__teacher d-flex align-items-center">
                           <div class="course__teacher-thumb mr-15">
                             <img src="assets/img/course/teacher/teacher-3.jpg" alt="">
@@ -400,7 +412,8 @@
                             <span><i class="icon_star"></i>4.5 (42)</span>
                           </div>
                         </div>
-                        <h3 class="course__title"><a href="course-details.html">The business Intelligence analyst Course 2022</a></h3>
+                        <h3 class="course__title"><a href="course-details.html">The business Intelligence analyst Course
+                          2022</a></h3>
                         <div class="course__teacher d-flex align-items-center">
                           <div class="course__teacher-thumb mr-15">
                             <img src="assets/img/course/teacher/teacher-4.jpg" alt="">
@@ -442,7 +455,8 @@
                             <span><i class="icon_star"></i>4.5 (42)</span>
                           </div>
                         </div>
-                        <h3 class="course__title"><a href="course-details.html">The business Intelligence analyst Course 2022</a></h3>
+                        <h3 class="course__title"><a href="course-details.html">The business Intelligence analyst Course
+                          2022</a></h3>
                         <div class="course__teacher d-flex align-items-center">
                           <div class="course__teacher-thumb mr-15">
                             <img src="assets/img/course/teacher/teacher-8.jpg" alt="">
@@ -484,7 +498,8 @@
                             <span><i class="icon_star"></i>4.5 (37)</span>
                           </div>
                         </div>
-                        <h3 class="course__title"><a href="course-details.html">Build your media and Public presence</a></h3>
+                        <h3 class="course__title"><a href="course-details.html">Build your media and Public presence</a>
+                        </h3>
                         <div class="course__teacher d-flex align-items-center">
                           <div class="course__teacher-thumb mr-15">
                             <img src="assets/img/course/teacher/teacher-5.jpg" alt="">
@@ -526,7 +541,8 @@
                             <span><i class="icon_star"></i>4.5 (72)</span>
                           </div>
                         </div>
-                        <h3 class="course__title"><a href="course-details.html">Creative writing through Storytelling</a></h3>
+                        <h3 class="course__title"><a href="course-details.html">Creative writing through
+                          Storytelling</a></h3>
                         <div class="course__teacher d-flex align-items-center">
                           <div class="course__teacher-thumb mr-15">
                             <img src="assets/img/course/teacher/teacher-6.jpg" alt="">
@@ -568,7 +584,8 @@
                             <span><i class="icon_star"></i>4.5 (35)</span>
                           </div>
                         </div>
-                        <h3 class="course__title"><a href="course-details.html">Creative writing through Storytelling</a></h3>
+                        <h3 class="course__title"><a href="course-details.html">Creative writing through
+                          Storytelling</a></h3>
                         <div class="course__teacher d-flex align-items-center">
                           <div class="course__teacher-thumb mr-15">
                             <img src="assets/img/course/teacher/teacher-9.jpg" alt="">
@@ -623,7 +640,8 @@
                                 <a href="course-details.html">Become a product Manager learn the skills & job.</a>
                               </h3>
                               <div class="course__summary">
-                                <p>Communia virtutes tutiorem declarat stoicorum sanabat oblivisci nostris tamquam iucunditatem</p>
+                                <p>Communia virtutes tutiorem declarat stoicorum sanabat oblivisci nostris tamquam
+                                  iucunditatem</p>
                               </div>
                               <div class="course__teacher d-flex align-items-center">
                                 <div class="course__teacher-thumb mr-15">
@@ -677,7 +695,8 @@
                                 <a href="course-details.html">Fundamentals of music theory Learn new.</a>
                               </h3>
                               <div class="course__summary">
-                                <p>Communia virtutes tutiorem declarat stoicorum sanabat oblivisci nostris tamquam iucunditatem</p>
+                                <p>Communia virtutes tutiorem declarat stoicorum sanabat oblivisci nostris tamquam
+                                  iucunditatem</p>
                               </div>
                               <div class="course__teacher d-flex align-items-center">
                                 <div class="course__teacher-thumb mr-15">
@@ -732,7 +751,8 @@
                                 <a href="course-details.html">Strategy law and organization Foundation</a>
                               </h3>
                               <div class="course__summary">
-                                <p>Communia virtutes tutiorem declarat stoicorum sanabat oblivisci nostris tamquam iucunditatem</p>
+                                <p>Communia virtutes tutiorem declarat stoicorum sanabat oblivisci nostris tamquam
+                                  iucunditatem</p>
                               </div>
                               <div class="course__teacher d-flex align-items-center">
                                 <div class="course__teacher-thumb mr-15">
@@ -787,7 +807,8 @@
                                 <a href="course-details.html">The business Intelligence analyst Course 2022</a>
                               </h3>
                               <div class="course__summary">
-                                <p>Communia virtutes tutiorem declarat stoicorum sanabat oblivisci nostris tamquam iucunditatem</p>
+                                <p>Communia virtutes tutiorem declarat stoicorum sanabat oblivisci nostris tamquam
+                                  iucunditatem</p>
                               </div>
                               <div class="course__teacher d-flex align-items-center">
                                 <div class="course__teacher-thumb mr-15">
@@ -842,7 +863,8 @@
                                 <a href="course-details.html">Build your media and Public presence</a>
                               </h3>
                               <div class="course__summary">
-                                <p>Communia virtutes tutiorem declarat stoicorum sanabat oblivisci nostris tamquam iucunditatem</p>
+                                <p>Communia virtutes tutiorem declarat stoicorum sanabat oblivisci nostris tamquam
+                                  iucunditatem</p>
                               </div>
                               <div class="course__teacher d-flex align-items-center">
                                 <div class="course__teacher-thumb mr-15">
@@ -897,7 +919,8 @@
                                 <a href="course-details.html">Creative writing through Storytelling</a>
                               </h3>
                               <div class="course__summary">
-                                <p>Communia virtutes tutiorem declarat stoicorum sanabat oblivisci nostris tamquam iucunditatem</p>
+                                <p>Communia virtutes tutiorem declarat stoicorum sanabat oblivisci nostris tamquam
+                                  iucunditatem</p>
                               </div>
                               <div class="course__teacher d-flex align-items-center">
                                 <div class="course__teacher-thumb mr-15">

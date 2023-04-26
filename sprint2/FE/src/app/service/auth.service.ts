@@ -8,12 +8,22 @@ import {Observable} from 'rxjs';
 export class AuthService {
   private API_SIGNIN = 'http://localhost:8080/api/auth/sign-in';
   private API_SIGNUP = 'http://localhost:8080/api/auth/sign-up';
-  isLoggedIn = false;
 
   constructor(private http: HttpClient) {
   }
 
   signIn(obj): Observable<any> {
     return this.http.post(`${this.API_SIGNIN}`, {username: obj.username, password: obj.password});
+  }
+
+  signUp(obj): Observable<any> {
+    return this.http.post(`${this.API_SIGNUP}`, {
+      name: obj.name,
+      username: obj.username,
+      password: obj.password,
+      email: obj.email,
+      confirmPassword: obj.confirmPassword,
+      roles: [obj.roles]
+    });
   }
 }

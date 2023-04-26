@@ -47,8 +47,6 @@ export class SignInComponent implements OnInit {
           this.tokenService.rememberMe(next.token, next.name, next.roles, 'session');
         }
         this.isLogged = true;
-        // this.username = this.tokenService.getStorage().username;
-        // this.roles = this.tokenService.getStorage().roles;
         this.signInForm.reset();
         this.shareService.sendClickEvent();
         this.router.navigateByUrl('/');

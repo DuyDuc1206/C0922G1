@@ -1,7 +1,9 @@
 package com.example.be.controller;
 
 import com.example.be.model.Course;
+import com.example.be.model.Lesson;
 import com.example.be.service.ICourseService;
+import com.example.be.service.ILessonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +17,8 @@ import java.util.List;
 public class CourseController {
     @Autowired
     private ICourseService courseService;
+    @Autowired
+    private ILessonService lessonService;
 
     @GetMapping("/")
     public ResponseEntity<List<Course>> getAllCourse() {
@@ -32,6 +36,15 @@ public class CourseController {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
         return new ResponseEntity<>(courseList, HttpStatus.OK);
+    }
+
+    @GetMapping("/{courseId}/lessons")
+    public ResponseEntity<List<Lesson>> getLessonByIdCourse(@PathVariable Integer courseId) {
+        List<Lesson> lessonList = lessonService.findLessonByIdCourse(courseId);
+        if (lessonList.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<>(lessonList, HttpStatus.OK);
     }
 
 }

@@ -1,5 +1,3 @@
-import {Lesson} from './lesson';
-
 export interface Course {
   idCourse?: number;
   courseName?: string;
@@ -7,5 +5,4 @@ export interface Course {
   thumbnail?: string;
   price?: number;
   courseDuration?: number;
-  lessonSet?: Lesson[];
 }
