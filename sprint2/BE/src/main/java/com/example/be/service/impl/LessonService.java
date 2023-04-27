@@ -21,4 +21,9 @@ public class LessonService implements ILessonService {
     public List<Lesson> findAll() {
         return lessonRepository.findAll();
     }
+
+    @Override
+    public Lesson findLessonById(Integer idLesson) {
+        return lessonRepository.findLessonByIdLesson(idLesson).orElse(null);
+    }
 }

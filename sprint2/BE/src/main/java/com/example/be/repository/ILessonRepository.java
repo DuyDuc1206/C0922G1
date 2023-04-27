@@ -7,6 +7,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface ILessonRepository extends JpaRepository<Lesson, Integer> {
@@ -15,4 +16,6 @@ public interface ILessonRepository extends JpaRepository<Lesson, Integer> {
     List<Lesson> findLessonByCourse(@Param("idCourse") Integer idCourse);
 
     List<Lesson> findAll();
+
+   Optional<Lesson> findLessonByIdLesson(Integer id);
 }

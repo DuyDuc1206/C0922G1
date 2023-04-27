@@ -12,10 +12,15 @@ export class LessonService {
   constructor(private http: HttpClient) {
   }
 
-  getAllLesson(courseId: number): Observable<Lesson[]> {
+  getAllLessonByCourseId(courseId: number): Observable<Lesson[]> {
     return this.http.get<Lesson[]>(`${this.URL}/course/${courseId}/lessons`);
   }
-  getAll(): Observable<Lesson[]>{
+
+  getAll(): Observable<Lesson[]> {
     return this.http.get<Lesson[]>(`${this.URL}/lessons`);
+  }
+
+  getLessonById(lessonId: number): Observable<Lesson> {
+    return this.http.get<Lesson>(`${this.URL}/lessons/${lessonId}`);
   }
 }

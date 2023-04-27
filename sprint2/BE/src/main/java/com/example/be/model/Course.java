@@ -23,8 +23,12 @@ public class Course {
     private String courseDescription;
     private String thumbnail;
     private Double price;
+//    private Integer enrolled;
     private Integer courseDuration;
     @OneToMany(mappedBy = "course")
     @JsonIgnore
     private Set<Lesson> lessonSet;
+//    @ManyToOne()
+//    @JoinColumn(name = "id_category", referencedColumnName = "id_category")
+//    private Category category;
 }

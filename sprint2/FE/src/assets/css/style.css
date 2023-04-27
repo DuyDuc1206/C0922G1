@@ -3508,7 +3508,7 @@ p {
 }
 
 .course__tab-2 .nav-tabs .nav-item {
-    width: 25%;
+    width: 50%;
 }
 
 .course__tab-2 .nav-tabs .nav-item:not(:last-child) .nav-link {

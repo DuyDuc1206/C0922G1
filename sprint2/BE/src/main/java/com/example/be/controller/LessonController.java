@@ -25,5 +25,12 @@ public class LessonController {
         return new ResponseEntity<>(lessonList, HttpStatus.OK);
     }
 
-
+    @GetMapping("/{id}")
+    public ResponseEntity<Lesson> getLessonById(@PathVariable Integer id) {
+        Lesson lesson = lessonService.findLessonById(id);
+        if (lesson == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(lesson, HttpStatus.OK);
+    }
 }

@@ -7,12 +7,16 @@ import {Observable} from 'rxjs';
   providedIn: 'root'
 })
 export class CourseService {
-  private URL = 'http://localhost:8080/api/course/';
+  private URL = 'http://localhost:8080/api/course';
 
   constructor(private http: HttpClient) {
   }
 
   getALlCourse(): Observable<Course[]> {
     return this.http.get<Course[]>(`${this.URL}`);
+  }
+
+  getCourseById(id: number): Observable<Course> {
+    return this.http.get<Course>(`${this.URL}/${id}`);
   }
 }
