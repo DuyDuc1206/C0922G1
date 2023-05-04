@@ -16,6 +16,11 @@ import {SignUpComponent} from './sign-up/sign-up.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import { LessonComponent } from './lesson/lesson.component';
+import { ErrorComponent } from './error/error.component';
+import {environment} from '../environments/environment';
+import {AngularFireModule} from '@angular/fire';
+import {AngularFireStorageModule} from '@angular/fire/storage';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +35,9 @@ import { LessonComponent } from './lesson/lesson.component';
     BlogComponent,
     ContactComponent,
     SignUpComponent,
-    LessonComponent
+    LessonComponent,
+    ErrorComponent,
+    CheckoutComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,6 +45,9 @@ import { LessonComponent } from './lesson/lesson.component';
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
+    AngularFireStorageModule,
+    AngularFireModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
   ],
   providers: [],
   bootstrap: [AppComponent]

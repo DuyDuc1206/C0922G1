@@ -1,9 +1,11 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {CourseService} from '../service/course/course.service';
 import {Course} from '../model/course';
 import {Lesson} from '../model/lesson';
 import {LessonService} from '../service/course/lesson.service';
 import {ActivatedRoute} from '@angular/router';
+import {ShareService} from '../service/share.service';
+import {Subscription} from 'rxjs';
 
 declare var particlesJS: any;
 
@@ -15,12 +17,16 @@ declare var particlesJS: any;
 export class CourseComponent implements OnInit {
   courses: Course[] = [];
   lessons: Lesson[] = [];
-  courseId: number;
+  page: number = 0;
+  totalPage: number = 0;
+  size: number = 6;
+  nameSearch: string = '';
   lessonsPerCourse: { course: Course, lessons: Lesson[], lessonCount: number }[];
 
   constructor(private courseService: CourseService,
               private lessonService: LessonService,
-              private activatedRoute: ActivatedRoute) {
+              private activatedRoute: ActivatedRoute,
+              private shareService: ShareService) {
   }
 
   ngOnInit(): void {
@@ -28,32 +34,30 @@ export class CourseComponent implements OnInit {
     particlesJS.load('particles-js', 'assets/particles.json', function() {
       console.log('callback - particles.js config loaded');
     });
-    this.getAllCourse();
-    // this.courseId = +this.activatedRoute.snapshot.paramMap.get('courserId');
-    // this.getLessonsByCourse();
     this.getAllLessons();
+    this.shareService.currentSearch.subscribe(search => {
+      this.nameSearch = search;
+      this.getAllCourse(this.nameSearch, this.page, this.size);
+    });
+    this.getAllCourse(this.nameSearch, this.page, this.size);
   }
 
-  getAllCourse() {
-    this.courseService.getALlCourse().subscribe(next => {
-      this.courses = next;
+  getAllCourse(nameSearch: string, page: number, size: number) {
+    this.courseService.getALlCourse(nameSearch, page, size).subscribe(data => {
+      this.courses = data['content'];
+      this.totalPage = data['totalPages'];
+      this.page = data['number'];
+      this.size = data['size'];
       this.updateLessonsPerCourse();
     });
   }
-
-  // getLessonsByCourse() {
-  //   this.lessonService.getAllLesson(this.courseId).subscribe(next => {
-  //     this.lessons = next;
-  //     this.updateLessonsPerCourse();
-  //   });
-  // }
 
   updateLessonsPerCourse() {
     if (this.courses.length > 0 && this.lessons.length > 0) {
       this.lessonsPerCourse = this.courses.map((course) => ({
         course,
-        lessons: this.lessons.filter((lesson) => lesson.course.idCourse === course.idCourse),
-        lessonCount: this.lessons.filter((lesson) => lesson.course.idCourse === course.idCourse).length
+        lessons: this.lessons.filter(lesson => lesson.course.idCourse === course.idCourse),
+        lessonCount: this.lessons.filter(lesson => lesson.course.idCourse === course.idCourse).length
       }));
       console.log(this.lessonsPerCourse[0].lessonCount);
     }
@@ -66,4 +70,18 @@ export class CourseComponent implements OnInit {
     });
   }
 
+  previousPage() {
+    if (this.page > 0) {
+      this.page--;
+      this.getAllCourse(this.nameSearch, this.page, this.size);
+    }
+  }
+
+  nextPage() {
+    window.scrollTo(700,200)
+    if (this.page < this.totalPage - 1) {
+      this.page++;
+      this.getAllCourse(this.nameSearch, this.page, this.size);
+    }
+  }
 }

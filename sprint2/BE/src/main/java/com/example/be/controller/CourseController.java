@@ -35,7 +35,7 @@ public class CourseController {
 
     @GetMapping("")
     public ResponseEntity<Page<Course>> getAllCourse(@RequestParam(defaultValue = "0") int page,
-                                                           @RequestParam(defaultValue = "5") int size,
+                                                           @RequestParam(defaultValue = "6") int size,
                                                            @RequestParam(defaultValue = "") String nameSearch) {
         Pageable pageable = PageRequest.of(page, size);
         Page<Course> courseList = courseService.getAllCourse(pageable, nameSearch);

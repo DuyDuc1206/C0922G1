@@ -1,3 +1,5 @@
+import {Category} from './category';
+
 export interface Course {
   idCourse?: number;
   courseName?: string;
@@ -5,4 +7,5 @@ export interface Course {
   thumbnail?: string;
   price?: number;
   courseDuration?: number;
+  category?: Category;
 }

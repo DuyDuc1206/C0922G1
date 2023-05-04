@@ -1,15 +1,19 @@
 import {Injectable} from '@angular/core';
+import {Cart} from '../model/cart';
 
 const TOKEN_KEY = 'Token_Key';
+const ID_KEY = 'Id_key';
 const NAME_KEY = 'Name_Key';
 const ROLE_KEY = 'Role_key';
 const STORAGE = 'Storage_key';
+const CART = 'Cart_key';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TokenService {
   username: string;
+  cart: Cart[] = [];
 
   constructor() {
   }
@@ -56,6 +60,24 @@ export class TokenService {
     }
   }
 
+  public setId(id: string) {
+    if (this.getStorage() === 'local') {
+      localStorage.removeItem(ID_KEY);
+      localStorage.setItem(ID_KEY, id);
+    } else {
+      sessionStorage.removeItem(ID_KEY);
+      sessionStorage.setItem(ID_KEY, id);
+    }
+  }
+
+  public getId() {
+    if (this.getStorage() === 'local') {
+      return localStorage.getItem(ID_KEY);
+    } else {
+      return sessionStorage.getItem(ID_KEY);
+    }
+  }
+
   public setName(name: string) {
     if (this.getStorage() === 'local') {
       localStorage.removeItem(NAME_KEY);
@@ -94,10 +116,41 @@ export class TokenService {
     }
   }
 
-  rememberMe(token, name, roles, storage) {
+  rememberMe(token, id, name, roles, storage) {
     this.setToken(token);
+    this.setId(id);
     this.setName(name);
     this.setRole(roles);
     this.setStorage(storage);
+  }
+
+  public getCartSession() {
+    const carts = sessionStorage.getItem(CART);
+    this.cart = JSON.parse(carts);
+    return this.cart;
+  }
+
+  public changeQuantitySession(operator: string, index: number) {
+    let cart: Cart[] = this.getCartSession();
+    if (operator == '-') {
+      if (cart[index].quantity == 1) {
+        cart.splice(index, 1);
+      } else {
+        cart[index].quantity = cart[index].quantity - 1;
+      }
+    } else {
+      cart[index].quantity = cart[index].quantity + 1;
+    }
+    this.setCart(cart);
+  }
+  public setCart(cart: Cart[]) {
+    sessionStorage.removeItem(CART);
+    sessionStorage.setItem(CART, JSON.stringify(cart));
+  }
+
+  public deleteCartSessionIndex(index:number) {
+    this.cart = this.getCartSession();
+    this.cart.splice(index,1)
+    this.setCart(this.cart);
   }
 }

@@ -1,5 +1,5 @@
 <!-- header area start -->
-<header>
+<header *ngIf="!isLessonPage">
   <div id="header-sticky" class="header__area header__transparent header__padding" [class.header__white]="!isHomePage">
     <div class="container-fluid">
       <div class="row align-items-center">
@@ -7,24 +7,24 @@
           <div class="header__left d-flex">
             <div class="logo">
               <a href="index.html">
-                <img *ngIf="!isHomePage" class="logo-white" src="assets/img/logo/logo-2.png" alt="logo">
-                <img *ngIf="isHomePage" src="assets/img/logo/logo.png" alt="logo">
+                <img *ngIf="!isHomePage && !isScrolled && !isCourseDetailPage" class="logo-white"
+                     src="assets/img/logo/logo-2.png" alt="logo">
+                <img *ngIf="isHomePage || isScrolled || isCourseDetailPage" src="assets/img/logo/logo.png" alt="logo">
               </a>
             </div>
           </div>
         </div>
         <div class="col-xxl-9 col-xl-9 col-lg-8 col-md-10 col-sm-8 col-6">
           <div class="header__right d-flex justify-content-end align-items-center">
-            <div class="main-menu" [class.main-menu-3]="!isHomePage">
+            <div class="main-menu" [class.main-menu-3]="!(isHomePage || isCourseDetailPage)">
               <nav id="mobile-menu">
                 <ul>
-                  <li><a href="index.html">Home</a></li>
+                  <li><a routerLink="/">Home</a></li>
                   <li><a routerLink="/course">Courses</a></li>
                   <li><a routerLink="/blog">Blog</a></li>
                   <li><a routerLink="/contact">Contact</a></li>
-                  <li><a routerLink="/lesson">Contact</a></li>
                   <ng-container *ngIf="role == 'ROLE_ADMIN'">
-                    <li   >
+                    <li>
                       <a routerLink="">Manage <i class="fas fa-angle-down"></i></a>
                       <ul class="submenu">
                         <li><a href="course-grid.html">Course Management</a></li>
@@ -47,12 +47,10 @@
               </nav>
             </div>
             <div class="header__search p-relative ml-50 d-none d-md-block" *ngIf="!isSignInPage && !isSignUpPage">
-              <form action="#">
-                <input type="text" placeholder="Search...">
-                <button type="submit"><i class="fas fa-search"></i></button>
-              </form>
+              <input type="text" placeholder="Search..." [(ngModel)]="nameSearch">
+              <button type="button" (click)="search()"><i class="fas fa-search"></i></button>
               <div class="header__cart">
-                <a href="javascript:void(0);" class="cart-toggle-btn">
+                <a routerLink="/cart" href="javascript:void(0);" class="cart-toggle-btn">
                   <div class="header__cart-icon">
                     <svg viewBox="0 0 24 24">
                       <circle class="st0" cx="9" cy="21" r="1"/>
@@ -171,6 +169,8 @@
 </div>
 <div class="body-overlay"></div>
 <!-- cart mini area end -->
+
+
 <!-- sidebar area start -->
 <div class="sidebar__area">
   <div class="sidebar__wrapper">
@@ -212,4 +212,5 @@
 <!-- sidebar area end -->
 <div class="body-overlay"></div>
 <!-- sidebar area end -->
+
 

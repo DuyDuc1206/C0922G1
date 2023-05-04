@@ -13,7 +13,11 @@ import {LessonService} from '../service/course/lesson.service';
 export class CourseDetailComponent implements OnInit {
   course: Course = {};
   lessons: Lesson[] = [];
+  courses: Course[] = [];
   id: number;
+  nameSearch = '';
+  page = 0;
+  size = 2;
 
   constructor(private courseService: CourseService,
               private lessonService: LessonService,
@@ -26,6 +30,7 @@ export class CourseDetailComponent implements OnInit {
       this.getCourse(this.id);
       this.getAllLessons(this.id);
     });
+    this.getAllCourse(this.nameSearch, this.page, this.size);
   }
 
   getCourse(id: number) {
@@ -37,6 +42,12 @@ export class CourseDetailComponent implements OnInit {
   getAllLessons(id: number) {
     this.lessonService.getAllLessonByCourseId(id).subscribe(data => {
       this.lessons = data;
+    });
+  }
+
+  getAllCourse(nameSearch: string, page: number, size: number) {
+    this.courseService.getALlCourse(nameSearch, page, size).subscribe(data => {
+      this.courses = data['content'];
     });
   }
 

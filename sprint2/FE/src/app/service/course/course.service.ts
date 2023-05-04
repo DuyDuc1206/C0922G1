@@ -12,11 +12,12 @@ export class CourseService {
   constructor(private http: HttpClient) {
   }
 
-  getALlCourse(): Observable<Course[]> {
-    return this.http.get<Course[]>(`${this.URL}`);
+  getALlCourse(nameSearch: string, page: number, size: number): Observable<Course[]> {
+    return this.http.get<Course[]>(`${this.URL}?nameSearch=${nameSearch}&page=${page}&size=${size}`);
   }
 
   getCourseById(id: number): Observable<Course> {
     return this.http.get<Course>(`${this.URL}/${id}`);
   }
+
 }

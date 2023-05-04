@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
 
 @font-face {
@@ -32,8 +33,8 @@
 
 .progress-wrap::after {
   position: absolute;
-  content: '\f062';
-  font-family:  "Font Awesome 5 Free";
+  content: "\f062";
+  font-family: "Font Awesome 5 Free";
   text-align: center;
   line-height: 46px;
   font-size: 20px;

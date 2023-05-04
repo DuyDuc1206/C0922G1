@@ -66,6 +66,13 @@ public class JWTResponse {
         this.roles = authorities;
     }
 
+    public JWTResponse(String token, Integer id, String name, Collection<? extends GrantedAuthority> authorities) {
+        this.token = token;
+        this.id = id;
+        this.name = name;
+        this.roles = authorities;
+    }
+
     public String getToken() {
         return token;
     }

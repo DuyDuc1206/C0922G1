@@ -9,11 +9,13 @@ import {SignUpComponent} from './sign-up/sign-up.component';
 import {CartComponent} from './cart/cart.component';
 import {CourseDetailComponent} from './course-detail/course-detail.component';
 import {LessonComponent} from './lesson/lesson.component';
+import {ErrorComponent} from './error/error.component';
+import {CheckoutComponent} from './checkout/checkout.component';
 
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
-  {path: 'home', component: HomeComponent},
+  // {path: 'home', component: HomeComponent},
   {path: 'sign-up', component: SignUpComponent},
   {path: 'sign-in', component: SignInComponent},
   {path: 'course', component: CourseComponent},
@@ -22,6 +24,9 @@ const routes: Routes = [
   {path: 'contact', component: ContactComponent},
   {path: 'cart', component: CartComponent},
   {path: 'course/:idCourse/lesson/:idLesson', component: LessonComponent},
+  {path: 'cart', component: CartComponent},
+  {path: 'error', component: ErrorComponent},
+  {path: 'checkout', component: CheckoutComponent},
 ];
 
 @NgModule({

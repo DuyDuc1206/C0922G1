@@ -20,6 +20,7 @@ public class Course {
     @Column(name = "id_course")
     private Integer idCourse;
     private String courseName;
+    @Lob
     private String courseDescription;
     private String thumbnail;
     private Double price;
@@ -28,7 +29,7 @@ public class Course {
     @OneToMany(mappedBy = "course")
     @JsonIgnore
     private Set<Lesson> lessonSet;
-//    @ManyToOne()
-//    @JoinColumn(name = "id_category", referencedColumnName = "id_category")
-//    private Category category;
+    @ManyToOne()
+    @JoinColumn(name = "id_category", referencedColumnName = "id_category")
+    private Category category;
 }

@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Title} from '@angular/platform-browser';
+
+declare var particlesJS: any;
 
 @Component({
   selector: 'app-blog',
@@ -7,9 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BlogComponent implements OnInit {
 
-  constructor() { }
+  constructor(private tile: Title) {
+  }
 
   ngOnInit(): void {
+    this.tile.setTitle('Educal-');
+    // tslint:disable-next-line:only-arrow-functions
+    particlesJS.load('particles-js', 'assets/particles.json', function() {
+      console.log('callback - particles.js config loaded');
+    });
   }
 
 }

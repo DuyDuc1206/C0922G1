@@ -5825,7 +5825,7 @@ p {
     top: 13px;
     position: absolute;
     color: #6f7172;
-    font-family: "Font Awesome 5 Pro";
+    font-family: "Font Awesome 5 Free";
     font-weight: 700;
 }
 
@@ -6215,7 +6215,7 @@ p.checkout-coupon input[type=text]:focus {
 
 .payment-method .accordion-button::after {
     position: absolute;
-    content: "\f067";
+    content: "\002B";
     right: 0;
     top: 50%;
     -webkit-transform: translateY(-50%);
@@ -6236,7 +6236,7 @@ p.checkout-coupon input[type=text]:focus {
 }
 
 .payment-method .accordion-button:not(.collapsed)::after {
-    content: "\f068";
+    content: "\002B";
 }
 
 .payment-method .accordion-body {

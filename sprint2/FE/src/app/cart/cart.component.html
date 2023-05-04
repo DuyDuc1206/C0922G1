@@ -38,41 +38,21 @@
               </tr>
               </thead>
               <tbody>
-              <tr>
-                <td class="product-thumbnail"><a href="course-details.html"><img src="assets/img/course/sm/cart-1.jpg" alt=""></a></td>
-                <td class="product-name"><a href="course-details.html">Strategy law and organization Foundation </a></td>
-                <td class="product-price"><span class="amount">$130.00</span></td>
+              <tr *ngFor="let c of carts;index as i">
+                <td class="product-thumbnail"><a routerLink="/course/{{c.course.idCourse}}"><img src="{{c.course.thumbnail}}" alt=""></a></td>
+                <td class="product-name"><a href="course-details.html">{{c.course.courseName}} </a></td>
+                <td class="product-price"><span class="amount">{{c.course.price}}$</span></td>
                 <td class="product-quantity text-center">
                   <div class="product-quantity mt-10 mb-10">
                     <div class="product-quantity-form">
-                      <form action="#">
-                        <button class="cart-minus"><i class="far fa-minus"></i></button>
-                        <input class="cart-input" type="text" value="1" />
-                        <button class="cart-plus"><i class="far fa-plus"></i></button>
-                      </form>
+                        <button class="cart-minus" (click)="changeQuantity('-',c.id,i)"><i class="fas fa-minus"></i></button>
+                        <input class="cart-input" type="text" value="{{c.quantity}}" />
+                        <button class="cart-plus" (click)="changeQuantity('+',c.id,i)"><i class="fas fa-plus"></i></button>
                     </div>
                   </div>
                 </td>
-                <td class="product-subtotal"><span class="amount">$130.00</span></td>
-                <td class="product-remove"><a href="#"><i class="fa fa-times"></i></a></td>
-              </tr>
-              <tr>
-                <td class="product-thumbnail"><a href="course-details.html"><img src="assets/img/course/sm/cart-2.jpg"  alt=""></a></td>
-                <td class="product-name"><a href="course-details.html">Fundamentals of music theory Learn new</a></td>
-                <td class="product-price"><span class="amount">$120.50</span></td>
-                <td class="product-quantity text-center">
-                  <div class="product-quantity mt-10 mb-10">
-                    <div class="product-quantity-form">
-                      <form action="#">
-                        <button class="cart-minus"><i class="far fa-minus"></i></button>
-                        <input class="cart-input" type="text" value="1" />
-                        <button class="cart-plus"><i class="far fa-plus"></i></button>
-                      </form>
-                    </div>
-                  </div>
-                </td>
-                <td class="product-subtotal"><span class="amount">$120.50</span></td>
-                <td class="product-remove"><a href="#"><i class="fa fa-times"></i></a></td>
+                <td class="product-subtotal"><span class="amount">{{c.course.price * c.quantity}}</span></td>
+                <td class="product-remove" (click)="deleteCart(c.id,i)"><button><i class="fa fa-times"></i></button></td>
               </tr>
               </tbody>
             </table>
@@ -97,9 +77,9 @@
                 <h2>Cart totals</h2>
                 <ul class="mb-20">
 <!--                  <li>Subtotal <span>$250.00</span></li>-->
-                  <li>Total <span>$250.00</span></li>
+                  <li>Total <span>{{total}}$</span></li>
                 </ul>
-                <a class="e-btn e-btn-border" href="checkout.html">Proceed to checkout</a>
+                <a class="e-btn e-btn-border" routerLink="/checkout">Proceed to checkout</a>
               </div>
             </div>
           </div>

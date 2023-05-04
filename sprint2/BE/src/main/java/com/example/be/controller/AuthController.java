@@ -84,6 +84,7 @@ public class AuthController {
         String token = jwtProvider.createToken(authentication);
         UserPrinciple userPrinciple = (UserPrinciple) authentication.getPrincipal();
         return ResponseEntity.ok(new JWTResponse(token,
+                userPrinciple.getId(),
                 userPrinciple.getName(),
                 userPrinciple.getAuthorities()));
     }

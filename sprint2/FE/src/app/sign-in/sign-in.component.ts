@@ -42,9 +42,9 @@ export class SignInComponent implements OnInit {
     }
     this.authService.signIn(this.signInForm.value).subscribe(next => {
         if (this.signInForm.value.rememberMe) {
-          this.tokenService.rememberMe(next.token, next.name, next.roles, 'local');
+          this.tokenService.rememberMe(next.token,next.id, next.name, next.roles, 'local');
         } else {
-          this.tokenService.rememberMe(next.token, next.name, next.roles, 'session');
+          this.tokenService.rememberMe(next.token,next.id, next.name, next.roles, 'session');
         }
         this.isLogged = true;
         this.signInForm.reset();

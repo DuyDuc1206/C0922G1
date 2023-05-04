@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {LessonService} from '../service/course/lesson.service';
 import {Lesson} from '../model/lesson';
 import {ActivatedRoute} from '@angular/router';
+import {CourseService} from '../service/course/course.service';
+import {Course} from '../model/course';
 
 @Component({
   selector: 'app-lesson',
@@ -11,16 +13,19 @@ import {ActivatedRoute} from '@angular/router';
 export class LessonComponent implements OnInit {
   lessons: Lesson[] = [];
   lesson: Lesson = {};
+  course: Course = {};
   idCourse: number;
   idLesson: number;
 
   constructor(private lessonService: LessonService,
+              private courseService: CourseService,
               private activatedRoute: ActivatedRoute) {
   }
 
   ngOnInit(): void {
     this.idCourse = +this.activatedRoute.snapshot.paramMap.get('idCourse');
     this.getAllLessons(this.idCourse);
+    this.getCourse(this.idCourse);
     this.activatedRoute.paramMap.subscribe(paraMap => {
       this.idLesson = +paraMap.get('idLesson');
       this.getLesson(this.idLesson);
@@ -35,9 +40,11 @@ export class LessonComponent implements OnInit {
   }
 
   getLesson(id: number) {
-    this.lessonService.getLessonById(id).subscribe(data => {
-      this.lesson = data;
-    });
+    this.lessonService.getLessonById(id).subscribe(data => this.lesson = data);
+  }
+
+  getCourse(id: number) {
+    this.courseService.getCourseById(id).subscribe(data => this.course = data);
   }
 
 }

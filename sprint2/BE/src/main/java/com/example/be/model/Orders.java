@@ -25,6 +25,6 @@ public class Orders {
     private Boolean flagDelete;
     @ManyToOne
     @JsonManagedReference
-    @JoinColumn(name = "id_user",referencedColumnName = "id")
-    private User uer;
+    @JoinColumn(name = "id_cart",referencedColumnName = "id")
+    private Cart cart;
 }

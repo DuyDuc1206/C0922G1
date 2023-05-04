@@ -18,6 +18,7 @@ public class Lesson {
     @Column(name = "id_lesson")
     private Integer idLesson;
     private String lessonName;
+    @Lob
     private String lessonContent;
     @ManyToOne
     @JoinColumn(name = "id_course",referencedColumnName = "id_course")
