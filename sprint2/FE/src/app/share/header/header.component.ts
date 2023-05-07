@@ -6,6 +6,7 @@ import {ShareService} from '../../service/share.service';
 import {User} from '../../model/user';
 import {CartService} from '../../service/cart/cart.service';
 import {Cart} from '../../model/cart';
+import {AuthService} from '../../service/auth.service';
 
 
 @Component({
@@ -26,8 +27,8 @@ export class HeaderComponent implements OnInit {
   user: User;
   nameSearch: string;
   isScrolled = false;
-  cart: Cart[] = [];
-  id: number = 0
+  id: number = 0;
+  totalCart: number = 0;
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
@@ -37,7 +38,8 @@ export class HeaderComponent implements OnInit {
   constructor(private router: Router,
               private tokenService: TokenService,
               private shareService: ShareService,
-              private cartService: CartService) {
+              private cartService: CartService,
+              private authService: AuthService) {
   }
 
   ngOnInit(): void {
@@ -47,27 +49,41 @@ export class HeaderComponent implements OnInit {
       this.isLogined = this.tokenService.isLogined();
       this.loading();
     });
+
+    this.authService.profile(this.tokenService.getId()).subscribe(next => {
+      this.user = next;
+      this.id = this.user.id;
+    });
+    this.getAllCarts();
+    this.shareService.getClickEvent().subscribe(next => {
+      this.getAllCarts();
+    })
+
     this.router.events
       .pipe(filter((event) => event instanceof NavigationEnd))
       .subscribe((event: NavigationEnd) => {
         this.isHomePage = this.router.url === '/' || this.router.url === '/sign-in' || this.router.url === '/sign-up';
       });
+
     this.router.events
       .pipe(filter((event) => event instanceof NavigationEnd))
       .subscribe((event: NavigationEnd) => {
         this.isSignInPage = this.router.url === '/sign-in';
       });
+
     this.router.events
       .pipe(filter((event) => event instanceof NavigationEnd))
       .subscribe((event: NavigationEnd) => {
         this.isSignUpPage = this.router.url === '/sign-up';
       });
+
     this.router.events
       .pipe(filter((event) => event instanceof NavigationEnd))
       .subscribe((event: NavigationEnd) => {
         const urlSegments = this.router.url.split('/');
         this.isLessonPage = urlSegments[1] === 'course' && urlSegments[3] === 'lesson';
       });
+
     this.router.events
       .pipe(filter((event) => event instanceof NavigationEnd))
       .subscribe((event: NavigationEnd) => {
@@ -101,9 +117,9 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['/course'], {queryParams: {nameSearch: this.nameSearch}});
   }
 
-  getAllCart(id: number){
-    this.cartService.getCartByUser(id).subscribe( next => {
-
-    })
+  getAllCarts() {
+    this.cartService.getCartByUser(this.id).subscribe(next => {
+        this.totalCart = next.length;
+    });
   }
 }

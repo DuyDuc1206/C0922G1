@@ -41,7 +41,7 @@
               <tr *ngFor="let c of carts;index as i">
                 <td class="product-thumbnail"><a routerLink="/course/{{c.course.idCourse}}"><img src="{{c.course.thumbnail}}" alt=""></a></td>
                 <td class="product-name"><a href="course-details.html">{{c.course.courseName}} </a></td>
-                <td class="product-price"><span class="amount">{{c.course.price}}$</span></td>
+                <td class="product-price"><span class="amount">{{c.course.price == null ? 'Free' : c.course.price + '$' }}</span></td>
                 <td class="product-quantity text-center">
                   <div class="product-quantity mt-10 mb-10">
                     <div class="product-quantity-form">
@@ -51,26 +51,12 @@
                     </div>
                   </div>
                 </td>
-                <td class="product-subtotal"><span class="amount">{{c.course.price * c.quantity}}</span></td>
+                <td class="product-subtotal"><span class="amount">{{c.course.price * c.quantity}}$</span></td>
                 <td class="product-remove" (click)="deleteCart(c.id,i)"><button><i class="fa fa-times"></i></button></td>
               </tr>
               </tbody>
             </table>
           </div>
-<!--          <div class="row">-->
-<!--            <div class="col-12">-->
-<!--              <div class="coupon-all">-->
-<!--                <div class="coupon d-sm-flex align-items-center">-->
-<!--                  <input id="coupon_code" class="input-text" name="coupon_code" value="" placeholder="Coupon code" type="text">-->
-<!--                  <button class="e-btn" name="apply_coupon" type="submit">Apply-->
-<!--                    coupon</button>-->
-<!--                </div>-->
-<!--                <div class="coupon2">-->
-<!--                  <button class="e-btn" name="update_cart" type="submit">Update cart</button>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </div>-->
           <div class="row">
             <div class="col-md-5 ml-auto">
               <div class="cart-page-total">

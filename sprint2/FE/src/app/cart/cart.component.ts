@@ -90,7 +90,7 @@ export class CartComponent implements OnInit {
     if (this.isLogged) {
       this.cartService.changeQuantity(operator, id).subscribe(next => {
         debugger;
-        this.shareService.sendClickEvent()
+        // this.shareService.sendClickEvent()
         this.cartService.getCartByUser(this.user.id).subscribe(next => {
             this.carts = next
             this.getAllValue();
@@ -99,14 +99,16 @@ export class CartComponent implements OnInit {
       })
     } else {
       this.tokenService.changeQuantitySession(operator, index);
-      this.shareService.sendClickEvent();
+      // this.shareService.sendClickEvent();
     }
   }
 
   deleteCart(id: number, index: number) {
     if (this.isLogged) {
       this.cartService.deleteCart(id).subscribe(next => {
+        console.trace()
         this.shareService.sendClickEvent()
+        console.trace()
         this.shareService.getClickEvent().subscribe(next => {
           this.cartService.getCartByUser(this.user.id).subscribe(next => {
               this.carts = next
@@ -119,7 +121,6 @@ export class CartComponent implements OnInit {
       this.tokenService.deleteCartSessionIndex(index)
       this.shareService.sendClickEvent();
     }
-
   }
 
 }

@@ -13,10 +13,18 @@ export class CartService {
 
   constructor(private http: HttpClient) {
   }
+  putQuantity(id_user: number, id:number,quantity:string): Observable<any> {
+    let putDto = {
+      id: id,
+      idUser: id_user,
+      quantity:quantity,
+    }
+    return this.http.post<any>('http://localhost:8080/api/cart/buyDetail',putDto)
+  }
 
   addToCart(course: Course, user: User): Observable<any> {
     let cart: Cart = {
-      user: user, id: null, course: course, quantity: 1
+      id: null, user: user, course: course, quantity: 1
     };
     return this.http.post<any>(`${this.URL}/add`, cart);
   }

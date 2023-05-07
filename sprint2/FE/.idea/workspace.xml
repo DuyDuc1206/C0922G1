@@ -20,63 +20,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9ca6faf6-5d05-4519-a591-21e4cce462df" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../BE/src/main/java/com/example/be/controller/CartController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../BE/src/main/java/com/example/be/model/Cart.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../BE/src/main/java/com/example/be/repository/ICartRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../BE/src/main/java/com/example/be/service/ICartService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../BE/src/main/java/com/example/be/service/impl/CartService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Module5/exam/src/app/car/car.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module5/exam/src/app/car/car.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Module5/ss6_angular-form/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module5/ss6_angular-form/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Module5/ss7_service-router/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module5/ss7_service-router/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BE/src/main/java/com/example/be/controller/CourseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../BE/src/main/java/com/example/be/controller/CourseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BE/src/main/java/com/example/be/model/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/../BE/src/main/java/com/example/be/model/Course.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BE/src/main/java/com/example/be/model/Lesson.java" beforeDir="false" afterPath="$PROJECT_DIR$/../BE/src/main/java/com/example/be/model/Lesson.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BE/src/main/java/com/example/be/model/OrderDetail.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BE/src/main/java/com/example/be/model/Orders.java" beforeDir="false" afterPath="$PROJECT_DIR$/../BE/src/main/java/com/example/be/model/Orders.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BE/src/main/java/com/example/be/repository/ICourseRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../BE/src/main/java/com/example/be/repository/ICourseRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BE/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../BE/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/angular.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/blog/blog.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/blog/blog.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/blog/blog.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/blog/blog.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/blog/blog.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/blog/blog.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/cart/cart.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/cart/cart.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/cart/cart.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/cart/cart.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/contact/contact.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/contact/contact.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/contact/contact.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/contact/contact.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/contact/contact.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/contact/contact.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/checkout/checkout.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/checkout/checkout.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/checkout/checkout.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/checkout/checkout.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/course-detail/course-detail.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/course-detail/course-detail.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/course-detail/course-detail.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/course-detail/course-detail.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/course/course.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/course/course.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/course/course.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/course/course.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/course/course.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/course/course.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/lesson/lesson.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/lesson/lesson.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/lesson/lesson.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/lesson/lesson.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/model/course.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/model/course.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/service/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/service/auth.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/service/cart/cart.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/service/cart/cart.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/service/course/course.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/service/course/course.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/service/share.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/service/share.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/service/token.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/service/token.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/share/footer/footer.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/share/footer/footer.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/share/footer/footer.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/share/footer/footer.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/share/header/header.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/share/header/header.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/share/header/header.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/share/header/header.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/share/home/home.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/share/home/home.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/share/home/home.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/share/home/home.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/share/home/home.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/share/home/home.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/sign-in/sign-in.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/sign-in/sign-in.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/css/backToTop.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/css/backToTop.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/js/vendor/jquery-3.5.1.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/js/jquery-3.5.1.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/environments/environment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/environments/environment.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/js/backToTop.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/js/backToTop.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tslint.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,7 +66,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../tesssst" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Module5/case_module_5/angular-furama-app" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -211,7 +172,12 @@
       <workItem from="1683163678914" duration="4000" />
       <workItem from="1683168021655" duration="14523000" />
       <workItem from="1683193206792" duration="2378000" />
-      <workItem from="1683199333123" duration="16333000" />
+      <workItem from="1683199333123" duration="16520000" />
+      <workItem from="1683254901933" duration="19085000" />
+      <workItem from="1683302448969" duration="3842000" />
+      <workItem from="1683365018879" duration="127000" />
+      <workItem from="1683365623055" duration="1895000" />
+      <workItem from="1683449918010" duration="5925000" />
     </task>
     <servers />
   </component>
@@ -239,12 +205,12 @@
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
     <state x="624" y="202" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1032@0.0.1920.1032" timestamp="1682215677687" />
-    <state x="687" y="212" key="FileChooserDialogImpl" timestamp="1683194660050">
+    <state x="687" y="212" key="FileChooserDialogImpl" timestamp="1683257737596">
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
     <state x="687" y="212" key="FileChooserDialogImpl/0.0.1920.1032/1920.0.1920.1032@0.0.1920.1032" timestamp="1683050005897" />
     <state x="2607" y="212" key="FileChooserDialogImpl/0.0.1920.1032/1920.0.1920.1032@1920.0.1920.1032" timestamp="1682440781484" />
-    <state x="687" y="212" key="FileChooserDialogImpl/0.0.1920.1032@0.0.1920.1032" timestamp="1683194660050" />
+    <state x="687" y="212" key="FileChooserDialogImpl/0.0.1920.1032@0.0.1920.1032" timestamp="1683257737596" />
     <state width="1893" height="264" key="GridCell.Tab.0.bottom" timestamp="1683193888061">
       <screen x="0" y="0" width="1920" height="1032" />
     </state>

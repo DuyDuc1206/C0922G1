@@ -5,6 +5,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {AuthService} from '../service/auth.service';
 import {ShareService} from '../service/share.service';
 import Swal from 'sweetalert2';
+import {Cart} from '../model/cart';
 
 @Component({
   selector: 'app-sign-in',
@@ -17,6 +18,7 @@ export class SignInComponent implements OnInit {
   message = '';
   username: string;
   roles: string[] = [];
+  cart:Cart[] = []
 
   constructor(private tokenService: TokenService,
               private authService: AuthService,
@@ -30,24 +32,42 @@ export class SignInComponent implements OnInit {
       password: new FormControl(),
       rememberMe: new FormControl(false)
     });
+    debugger
+    this.loadCart()
+    this.shareService.getClickEvent().subscribe(next => {
+      this.loadCart()
+    })
     this.isLogged = this.tokenService.isLogined();
+    console.log('aa ' + this.isLogged);
     if (this.isLogged) {
       this.router.navigateByUrl('/');
     }
   }
-
-  async login() {
+  loadCart() {
+    this.isLogged = this.tokenService.isLogined();
+    this.cart = this.tokenService.getCartSession();
+  }
+  login() {
     if (this.isLogged || this.tokenService.isLogined()) {
+      console.log('vao ben tren ne`')
       return;
     }
-    this.authService.signIn(this.signInForm.value).subscribe(next => {
+    console.log('vao login ne`')
+    this.authService.signIn(this.signInForm?.value).subscribe(next => {
         if (this.signInForm.value.rememberMe) {
           this.tokenService.rememberMe(next.token,next.id, next.name, next.roles, 'local');
+          console.log('b '+ this.isLogged);
         } else {
           this.tokenService.rememberMe(next.token,next.id, next.name, next.roles, 'session');
+          console.log('c' + this.isLogged);
         }
         this.isLogged = true;
-        this.signInForm.reset();
+        console.log(this.isLogged);
+      // Toast.fire({
+      //   iconHtml: '<img style="width: 90px;height: 90px;padding: 10px;border-radius: 50%" src="'+next.avatar+'">',
+      //   title: 'Chào mừng ' + next.name + ' đã quay trở lại!'
+      // })
+      //   this.signInForm.reset();
         this.shareService.sendClickEvent();
         this.router.navigateByUrl('/');
       }, error => {
