@@ -4,6 +4,7 @@ import {Observable} from 'rxjs';
 import {Course} from '../../model/course';
 import {User} from '../../model/user';
 import {Cart} from '../../model/cart';
+import {ICart} from '../../model/i-cart';
 
 @Injectable({
   providedIn: 'root'
@@ -33,11 +34,19 @@ export class CartService {
     return this.http.get<any>(`${this.URL}/delete/${id}`);
   }
 
-  getCartByUser(id: number): Observable<Cart[]> {
-    return this.http.get<Cart[]>(`${this.URL}/${id}`);
+  // getCartByUser(id: number): Observable<Cart[]> {
+  //   return this.http.get<Cart[]>(`${this.URL}/${id}`);
+  // }
+
+  getCartByUser(id: number): Observable<ICart[]> {
+    return this.http.get<ICart[]>(`${this.URL}/${id}`);
   }
 
   changeQuantity(operator:string,id:number): Observable<any> {
     return this.http.get<any>('http://localhost:8080/api/cart/change/'+operator + '/' +id)
+  }
+
+  setFlagDelete(idUser: any): Observable<Cart>{
+    return this.http.get(`${this.URL}/flag-delete?idUser=${idUser}`)
   }
 }

@@ -49,15 +49,15 @@ export class HeaderComponent implements OnInit {
       this.isLogined = this.tokenService.isLogined();
       this.loading();
     });
-
+    this.shareService.sendClickEvent();
     this.authService.profile(this.tokenService.getId()).subscribe(next => {
       this.user = next;
       this.id = this.user.id;
-    });
-    this.getAllCarts();
-    this.shareService.getClickEvent().subscribe(next => {
       this.getAllCarts();
-    })
+      this.shareService.getClickEvent().subscribe(next => {
+        this.getAllCarts();
+      })
+    });
 
     this.router.events
       .pipe(filter((event) => event instanceof NavigationEnd))
@@ -116,6 +116,7 @@ export class HeaderComponent implements OnInit {
     this.shareService.changeSearch(this.nameSearch);
     this.router.navigate(['/course'], {queryParams: {nameSearch: this.nameSearch}});
   }
+
 
   getAllCarts() {
     this.cartService.getCartByUser(this.id).subscribe(next => {

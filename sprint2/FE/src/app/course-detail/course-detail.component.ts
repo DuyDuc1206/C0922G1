@@ -11,6 +11,7 @@ import {TokenService} from '../service/token.service';
 import {User} from '../model/user';
 import {Cart} from '../model/cart';
 import {AuthService} from '../service/auth.service';
+import {ICart} from '../model/i-cart';
 
 @Component({
   selector: 'app-course-detail',
@@ -27,7 +28,7 @@ export class CourseDetailComponent implements OnInit {
   size = 2;
   isLogged = false;
   user: User;
-  carts: Cart[] = [];
+  carts: ICart[] = [];
   cart: Cart = {};
   quantity = 0;
   total = 0;
@@ -102,12 +103,13 @@ export class CourseDetailComponent implements OnInit {
     if (this.carts != null) {
       for (let i = 0; i < this.carts.length; i++) {
         this.quantity += this.carts[i].quantity;
-        this.total += this.carts[i].course.price * this.carts[i].quantity;
+        this.total += this.carts[i].price * this.carts[i].quantity;
       }
     }
   }
 
   addToCart() {
+    debugger
     if (this.isLogged) {
       this.cartService.addToCart(this.course, this.user).subscribe(next => {
         this.shareService.sendClickEvent()

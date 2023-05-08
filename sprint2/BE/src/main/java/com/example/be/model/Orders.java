@@ -18,9 +18,9 @@ public class Orders {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_order")
     private Integer idOrder;
-    private Integer codeOrder;
+    private String codeOrder;
     private String orderDate;
-    private Boolean paymentStatus;
+    private double totalPrice;
     @Column(columnDefinition = "bit default false")
     private Boolean flagDelete;
     @ManyToOne

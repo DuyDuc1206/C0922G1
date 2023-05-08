@@ -1,5 +1,6 @@
 package com.example.be.service.impl;
 
+import com.example.be.dto.ICart;
 import com.example.be.model.Cart;
 import com.example.be.model.Course;
 import com.example.be.model.User;
@@ -14,6 +15,11 @@ import java.util.List;
 public class CartService implements ICartService {
     @Autowired
     private ICartRepository cartRepository;
+
+    @Override
+    public List<ICart> findCartByUserId(Integer idUser) {
+        return cartRepository.getAllCartsByUserId(idUser);
+    }
 
     @Override
     public List<Cart> findAll() {
@@ -65,5 +71,10 @@ public class CartService implements ICartService {
     @Override
     public void deleteById(Integer id) {
         cartRepository.deleteById(id);
+    }
+
+    @Override
+    public void setFlagDelete(Integer idUser) {
+        cartRepository.setFlagDelete(idUser);
     }
 }

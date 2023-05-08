@@ -1,5 +1,6 @@
 package com.example.be.controller;
 
+import com.example.be.dto.ICart;
 import com.example.be.model.Cart;
 import com.example.be.model.User;
 import com.example.be.service.ICartService;
@@ -22,12 +23,13 @@ public class CartController {
     private IUserService userService;
 
     @GetMapping("/{id}")
-    private ResponseEntity<List<Cart>> getAllCartByUser(@PathVariable("id") Integer id) {
-        User user = userService.findById(2).orElse(null);
+    private ResponseEntity<List<ICart>> getAllCartByUser(@PathVariable("id") Integer id) {
+        User user = userService.findById(id).orElse(null);
         if (user == null) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
-        List<Cart> cartList = cartService.getAllByUser(user);
+//        List<Cart> cartList = cartService.getAllByUser(user);
+        List<ICart> cartList = cartService.findCartByUserId(id);
         return new ResponseEntity<>(cartList, HttpStatus.OK);
     }
 
@@ -50,17 +52,20 @@ public class CartController {
             System.out.println(operator);
             if (cart.getQuantity() == 1) {
                 this.cartService.deleteById(id);
-                System.out.println("alo trên nè");
             } else {
                 Cart cart2 = cartService.findById(id);
                 cart2.setQuantity(cart2.getQuantity() - 1);
                 cartService.save2(cart2);
-                System.out.println("dưới nè");
             }
         } else {
             cart.setQuantity(cart.getQuantity() + 1);
             cartService.save2(cart);
         }
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+    @GetMapping("/flag-delete")
+    private ResponseEntity<?> setFlagDelete(@RequestParam(defaultValue = "", required = false) Integer idUser) {
+        cartService.setFlagDelete(idUser);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 }

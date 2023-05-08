@@ -7,6 +7,12 @@ import {User} from '../model/user';
 import {render} from 'creditcardpayments/creditCardPayments';
 import Swal from 'sweetalert2';
 import {Router} from '@angular/router';
+import {OrderService} from '../service/cart/order.service';
+import {ShareService} from '../service/share.service';
+import {ICart} from '../model/i-cart';
+import {OrderDTO} from '../model/order-dto';
+
+declare let paypal: any;
 
 @Component({
   selector: 'app-checkout',
@@ -14,37 +20,43 @@ import {Router} from '@angular/router';
   styleUrls: ['./checkout.component.css']
 })
 export class CheckoutComponent implements OnInit {
-  carts: Cart[] = [];
+  carts: ICart[] = [];
+  orderDto: OrderDTO = {};
   id: number = 0;
   user: User = {};
   total: number = 0;
 
   constructor(private cartService: CartService,
+              private orderService: OrderService,
               private tokenService: TokenService,
               private authService: AuthService,
-              private router: Router) {
+              private router: Router,
+              private shareService: ShareService) {
   }
 
-  ngOnInit(): void {
-    this.authService.profile(this.tokenService.getId()).subscribe(next => {
-      this.user = next;
-      this.id = this.user.id;
-    });
+  async ngOnInit() {
+    await this.getUser();
     this.getAllCarts();
   }
 
+  async getUser() {
+    const user = await this.authService.profile(this.tokenService.getId()).toPromise();
+    this.user = user;
+    this.id = this.user.id;
+  }
+
   getAllCarts() {
-    this.cartService.getCartByUser(this.id).subscribe(next => {
+    this.cartService.getCartByUser(this.user.id).subscribe(next => {
       this.carts = next;
       for (let i = 0; i < this.carts.length; i++) {
-        this.total += this.carts[i].quantity * this.carts[i].course.price;
+        this.total += this.carts[i].quantity * this.carts[i].price;
       }
       render({
-        id: "#buttonPayment",
-        currency: "USD",
-        value: this.total.toFixed(),
+        id: '#buttonPayment',
+        currency: 'USD',
+        value: this.total.toFixed(2),
         onApprove: (details) => {
-          this.buy()
+          this.buy();
           Swal.fire({
             position: 'center',
             icon: 'success',
@@ -52,34 +64,38 @@ export class CheckoutComponent implements OnInit {
             showConfirmButton: false,
             timer: 3000
           });
-          this.getAll()
-          this.router.navigateByUrl('/')
+          this.getAll();
+          this.router.navigateByUrl('/');
         }
       });
     });
   }
-  buy() {
-    const number = Math.floor(Math.random()*1000000000);
-    const code ='DAcademy-' + number;
 
-    // for (let i = 0; i < this.carts.length; i++) {
-    //   this.orderService.order(this.address,
-    //     this.carts[i].size * this.carts[i].quantity * this.carts[i].price, this.carts[i].id,
-    //     this.carts[i].productId, this.carts[i].size, this.carts[i].quantity, code).subscribe(data => {
-    //   })
-    // }
-    // this.cartService.setFlagDelete(this.user.id).subscribe()
+  buy() {
+    const number = Math.floor(Math.random() * 1000000000);
+    const codeOrder = 'DAcademy-' + number;
+
+    for (let i = 0; i < this.carts.length; i++) {
+      this.orderService.order(
+        this.carts[i].quantity * this.carts[i].price, this.carts[i].id,
+        this.carts[i].idCourse, codeOrder).subscribe(data => {
+          this.orderDto = data;
+      });
+    }
+    this.cartService.setFlagDelete(this.user.id).subscribe();
   }
+
   getAll() {
-    this.total = 0
+    this.total = 0;
     this.cartService.getCartByUser(this.user.id).subscribe(data => {
-      this.carts = data
-      // this.lenghtMessage.changeMassege(data.length);
+      this.carts = data;
       if (this.carts.length > 0) {
         for (let i = 0; i < this.carts.length; i++) {
-          this.total += this.carts[i].quantity * this.carts[i].course.price;
+          this.total += this.carts[i].quantity * this.carts[i].price;
         }
       }
-    })
+    });
   }
+
+
 }

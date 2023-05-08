@@ -24,5 +24,5 @@ public class Cart {
     private User user;
     private Integer quantity;
     @Column(columnDefinition = "bit default false")
-    private Boolean flagDelete;
+    private boolean flagDelete;
 }

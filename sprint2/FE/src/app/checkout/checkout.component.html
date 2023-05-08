@@ -195,10 +195,10 @@
                   <tbody>
                   <tr class="cart_item" *ngFor="let c of carts">
                     <td class="product-name">
-                      {{c.course.courseName}}<strong class="product-quantity"> × {{c.quantity}}</strong>
+                      {{c.courseName}}<strong class="product-quantity"> × {{c.quantity}}</strong>
                     </td>
                     <td class="product-total">
-                      <span class="amount">{{c.course.price * c.quantity}}$</span>
+                      <span class="amount">{{c.price * c.quantity}}$</span>
                     </td>
                   </tr>
                   </tbody>
@@ -240,7 +240,7 @@
                   </div>
                   <div class="accordion-item">
                     <h2 class="accordion-header" id="paypalThree">
-                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#paypal" aria-expanded="false" aria-controls="paypal">
+                      <button  class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#paypal" aria-expanded="false" aria-controls="paypal">
                         PayPal
                       </button>
                     </h2>
@@ -252,8 +252,8 @@
                   </div>
                 </div>
                 <div class="order-button-payment mt-20">
-                  <button type="submit" class="e-btn e-btn-border">Place order</button>
-                  <div id="buttonPayment"></div>
+<!--                  <button type="submit" class="e-btn e-btn-border">Place order</button>-->
+                  <div id="buttonPayment" ></div>
                 </div>
               </div>
             </div>

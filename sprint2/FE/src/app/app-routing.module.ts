@@ -24,7 +24,6 @@ const routes: Routes = [
   {path: 'contact', component: ContactComponent},
   {path: 'cart', component: CartComponent},
   {path: 'course/:idCourse/lesson/:idLesson', component: LessonComponent},
-  {path: 'cart', component: CartComponent},
   {path: 'error', component: ErrorComponent},
   {path: 'checkout', component: CheckoutComponent},
 ];
