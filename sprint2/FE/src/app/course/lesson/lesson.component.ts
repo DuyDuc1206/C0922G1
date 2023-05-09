@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {LessonService} from '../service/course/lesson.service';
-import {Lesson} from '../model/lesson';
+import {LessonService} from '../../service/course/lesson.service';
+import {Lesson} from '../../model/lesson';
 import {ActivatedRoute} from '@angular/router';
-import {CourseService} from '../service/course/course.service';
-import {Course} from '../model/course';
+import {CourseService} from '../../service/course/course.service';
+import {Course} from '../../model/course';
 
 @Component({
   selector: 'app-lesson',

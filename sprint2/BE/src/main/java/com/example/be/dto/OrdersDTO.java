@@ -10,7 +10,6 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class OrdersDTO {
-
     private  String codeOrder;
     private  double totalPrice;
     private  Integer idCart;

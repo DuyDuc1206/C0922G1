@@ -1,11 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
-import {TokenService} from '../service/token.service';
+import {TokenService} from '../../service/token.service';
 import {ActivatedRoute, Router} from '@angular/router';
-import {AuthService} from '../service/auth.service';
-import {ShareService} from '../service/share.service';
+import {AuthService} from '../../service/auth.service';
+import {ShareService} from '../../service/share.service';
 import Swal from 'sweetalert2';
-import {Cart} from '../model/cart';
+import {Cart} from '../../model/cart';
 
 @Component({
   selector: 'app-sign-in',
@@ -32,7 +32,7 @@ export class SignInComponent implements OnInit {
       password: new FormControl(),
       rememberMe: new FormControl(false)
     });
-    debugger
+
     this.loadCart()
     this.shareService.getClickEvent().subscribe(next => {
       this.loadCart()
@@ -47,14 +47,12 @@ export class SignInComponent implements OnInit {
     this.isLogged = this.tokenService.isLogined();
     this.cart = this.tokenService.getCartSession();
   }
-  login() {
+  async login() {
     if (this.isLogged || this.tokenService.isLogined()) {
-      console.log('vao ben tren ne`')
       return;
     }
-    console.log('vao login ne`')
     this.authService.signIn(this.signInForm?.value).subscribe(next => {
-        if (this.signInForm.value.rememberMe) {
+        if (this.signInForm.controls.rememberMe.value) {
           this.tokenService.rememberMe(next.token,next.id, next.name, next.roles, 'local');
           console.log('b '+ this.isLogged);
         } else {

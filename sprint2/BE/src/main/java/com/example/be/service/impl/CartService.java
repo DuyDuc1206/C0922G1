@@ -28,13 +28,13 @@ public class CartService implements ICartService {
 
     @Override
     public Boolean existsByCourseAndUser(Course course, User user) {
-        return cartRepository.existsByCourseAndUser(course, user);
+        return cartRepository.existsByCourseAndUserAndFlagDelete(course, user,false);
     }
 
     @Override
     public void save(Cart cart) {
         if (existsByCourseAndUser(cart.getCourse(), cart.getUser())) {
-            Cart cart1 = cartRepository.findByCourseAndUser(cart.getCourse(), cart.getUser());
+            Cart cart1 = cartRepository.findByCourseAndUserAndFlagDelete(cart.getCourse(), cart.getUser(),cart.isFlagDelete());
             int quantity = cart1.getQuantity();
             cart1.setQuantity(quantity += 1);
             cartRepository.save(cart1);
@@ -65,7 +65,7 @@ public class CartService implements ICartService {
 
     @Override
     public Cart findByCourseAndUser(Course course, User user) {
-        return cartRepository.findByCourseAndUser(course, user);
+        return cartRepository.findByCourseAndUserAndFlagDelete(course, user,false);
     }
 
     @Override

@@ -22,7 +22,7 @@ public interface IOrdersRepository extends JpaRepository<Orders, Integer> {
                   @Param("idCart") Integer idCart,
                   @Param("codeOrder") String codeOrder);
 
-    @Query(value = "select o.total_price as totalPrice,\n" +
+    @Query(value = "select sum(o.total_price) as totalPrice,\n" +
             "       o.order_date as orderDate,\n" +
             "       o.id_order as idOrder,\n" +
             "       o.code_order as codeOrder\n" +

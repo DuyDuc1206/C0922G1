@@ -1,10 +1,10 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {CourseService} from '../service/course/course.service';
-import {Course} from '../model/course';
-import {Lesson} from '../model/lesson';
-import {LessonService} from '../service/course/lesson.service';
+import {CourseService} from '../../service/course/course.service';
+import {Course} from '../../model/course';
+import {Lesson} from '../../model/lesson';
+import {LessonService} from '../../service/course/lesson.service';
 import {ActivatedRoute} from '@angular/router';
-import {ShareService} from '../service/share.service';
+import {ShareService} from '../../service/share.service';
 import {Subscription} from 'rxjs';
 
 declare var particlesJS: any;

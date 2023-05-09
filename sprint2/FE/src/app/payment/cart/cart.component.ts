@@ -1,15 +1,15 @@
 import {Component, OnInit} from '@angular/core';
-import {Cart} from '../model/cart';
-import {Course} from '../model/course';
-import {User} from '../model/user';
-import {TokenService} from '../service/token.service';
-import {ShareService} from '../service/share.service';
+import {Cart} from '../../model/cart';
+import {Course} from '../../model/course';
+import {User} from '../../model/user';
+import {TokenService} from '../../service/token.service';
+import {ShareService} from '../../service/share.service';
 import {Title} from '@angular/platform-browser';
-import {CartService} from '../service/cart/cart.service';
+import {CartService} from '../../service/cart/cart.service';
 import {Router} from '@angular/router';
-import {CourseService} from '../service/course/course.service';
-import {AuthService} from '../service/auth.service';
-import {ICart} from '../model/i-cart';
+import {CourseService} from '../../service/course/course.service';
+import {AuthService} from '../../service/auth.service';
+import {ICart} from '../../model/i-cart';
 
 @Component({
   selector: 'app-cart',

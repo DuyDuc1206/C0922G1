@@ -6,13 +6,33 @@ import {
   HttpInterceptor
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import {TokenService} from '../service/token.service';
+import {Router} from '@angular/router';
+export const InterceptorSkipHeader = 'X-Skip-Interceptor';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
 
-  constructor() {}
+  constructor(private tokenService: TokenService,
+              private router: Router) {
+  }
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    return next.handle(request);
+    let authRequest = request;
+    const token = this.tokenService.getToken();
+    console.log('token là:' + token);
+
+    if (authRequest.headers.has(InterceptorSkipHeader)) {
+      const headers = request.headers.delete(InterceptorSkipHeader);
+      return next.handle(authRequest.clone({headers}));
+    }
+
+    if (token != null) {
+      authRequest = request.clone({headers: request.headers.set('Authorization', 'Bearer ' + token)});
+      console.log('token là:' + authRequest);
+    }
+
+    return next.handle(authRequest);
   }
 }
+

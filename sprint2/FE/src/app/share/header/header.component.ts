@@ -43,6 +43,19 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if (!this.tokenService.isLogined()) {
+      this.user = null; // hoặc gán giá trị khác tùy ý
+      this.id = null;   // hoặc gán giá trị khác tùy ý
+    } else {
+      this.authService.profile(this.tokenService.getId())?.subscribe(next => {
+          this.user = next;
+          this.id = this.user.id;
+          this.getAllCarts();
+          this.shareService.getClickEvent().subscribe(next => {
+            this.getAllCarts();
+          })
+      });
+    }
     this.isLogined = this.tokenService.isLogined();
     this.loading();
     this.shareService.getClickEvent().subscribe(next => {
@@ -50,14 +63,6 @@ export class HeaderComponent implements OnInit {
       this.loading();
     });
     this.shareService.sendClickEvent();
-    this.authService.profile(this.tokenService.getId()).subscribe(next => {
-      this.user = next;
-      this.id = this.user.id;
-      this.getAllCarts();
-      this.shareService.getClickEvent().subscribe(next => {
-        this.getAllCarts();
-      })
-    });
 
     this.router.events
       .pipe(filter((event) => event instanceof NavigationEnd))
@@ -109,12 +114,11 @@ export class HeaderComponent implements OnInit {
     }
     this.isLogined = this.name != null;
     this.tokenService.getName();
-    this.router.navigateByUrl('/');
   }
 
   search() {
     this.shareService.changeSearch(this.nameSearch);
-    this.router.navigate(['/course'], {queryParams: {nameSearch: this.nameSearch}});
+    this.router.navigate(['/course-list'], {queryParams: {nameSearch: this.nameSearch}});
   }
 
 

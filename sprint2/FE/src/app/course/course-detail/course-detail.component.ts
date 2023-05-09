@@ -1,17 +1,17 @@
 import {Component, OnInit} from '@angular/core';
-import {CourseService} from '../service/course/course.service';
-import {Course} from '../model/course';
+import {CourseService} from '../../service/course/course.service';
+import {Course} from '../../model/course';
 import {ActivatedRoute, Router} from '@angular/router';
-import {Lesson} from '../model/lesson';
-import {LessonService} from '../service/course/lesson.service';
-import {CartService} from '../service/cart/cart.service';
-import {ShareService} from '../service/share.service';
+import {Lesson} from '../../model/lesson';
+import {LessonService} from '../../service/course/lesson.service';
+import {CartService} from '../../service/cart/cart.service';
+import {ShareService} from '../../service/share.service';
 import Swal from 'sweetalert2';
-import {TokenService} from '../service/token.service';
-import {User} from '../model/user';
-import {Cart} from '../model/cart';
-import {AuthService} from '../service/auth.service';
-import {ICart} from '../model/i-cart';
+import {TokenService} from '../../service/token.service';
+import {User} from '../../model/user';
+import {Cart} from '../../model/cart';
+import {AuthService} from '../../service/auth.service';
+import {ICart} from '../../model/i-cart';
 
 @Component({
   selector: 'app-course-detail',
@@ -25,7 +25,7 @@ export class CourseDetailComponent implements OnInit {
   id: number;
   nameSearch = '';
   page = 0;
-  size = 2;
+  size = 4;
   isLogged = false;
   user: User;
   carts: ICart[] = [];
@@ -45,11 +45,10 @@ export class CourseDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.isLogged = this.tokenService.isLogined();
-    this.check();
-    // this.shareService.getClickEvent().subscribe(next => {
-    //   this.isLogged = this.tokenService.isLogined();
-    //   this.check()
-    // })
+    this.shareService.getClickEvent().subscribe(next => {
+      this.isLogged = this.tokenService.isLogined();
+      this.check()
+    })
     this.activatedRoute.paramMap.subscribe(paraMap => {
       this.id = +paraMap.get('id');
       this.getCourse(this.id);
@@ -72,7 +71,7 @@ export class CourseDetailComponent implements OnInit {
 
   getAllCourse(nameSearch: string, page: number, size: number) {
     this.courseService.getALlCourse(nameSearch, page, size).subscribe(data => {
-      this.courses = data['content'];
+      this.courses = data['content'].filter(course => course.idCourse !== this.course.idCourse);
     });
   }
 
@@ -108,25 +107,27 @@ export class CourseDetailComponent implements OnInit {
     }
   }
 
-  addToCart() {
-    debugger
-    if (this.isLogged) {
-      this.cartService.addToCart(this.course, this.user).subscribe(next => {
-        this.shareService.sendClickEvent()
-        this.cartService.getCartByUser(this.id).subscribe( next => {
-          this.carts = next;
-          if (this.carts.length === 1) {
-            this.router.navigateByUrl('/checkout');
-          }else {
-            this.router.navigateByUrl('cart');
-          }
-        })
-      });
+    addToCart() {
+      if (this.isLogged) {
+        this.cartService.addToCart(this.course, this.user).subscribe(next => {
+          this.shareService.sendClickEvent();
+          this.shareService.getClickEvent().subscribe(next => {
+            this.cartService.getCartByUser(this.user.id).subscribe(next => {
+              this.carts = next;
+              console.log('a2 sss' +this.carts );
+              if (this.carts.length === 1) {
+                this.router.navigateByUrl('/checkout');
+              } else {
+                this.router.navigateByUrl('/cart');
+              }
+            });
+          })
+        });
 
-      // this.cartService.putQuantity(this.user.id, this.course.idCourse, 1, 'add').subscribe(next => {
+      // this.cartService.putQuantity(this.user.id, this.course-list.idCourse, 1, 'add').subscribe(next => {
       //     Swal.fire({
-      //       title: 'Bạn đã thêm sản phẩm ' + this.course.courseName + ' vào giỏ!',
-      //       imageUrl: this.course.thumbnail,
+      //       title: 'Bạn đã thêm sản phẩm ' + this.course-list.courseName + ' vào giỏ!',
+      //       imageUrl: this.course-list.thumbnail,
       //       showConfirmButton: false,
       //       timer: 2000,
       //       imageWidth: 200,
@@ -137,7 +138,7 @@ export class CourseDetailComponent implements OnInit {
       //   }
       // );
     } else {
-      // this.tokenService.addCartSessionDetail(this.course, parseInt(quantity));
+     this.router.navigate(['/sign-in']);
     }
   }
 }

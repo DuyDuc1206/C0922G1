@@ -12,10 +12,13 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-public interface ICartRepository extends JpaRepository<Cart,Integer> {
+public interface ICartRepository extends JpaRepository<Cart, Integer> {
     List<Cart> getAllByUser(User user);
-    Cart findByCourseAndUser(Course course, User user);
-    Boolean existsByCourseAndUser(Course course,User user);
+
+    Cart findByCourseAndUserAndFlagDelete(Course course, User user,boolean flagDelete);
+    
+    boolean existsByCourseAndUserAndFlagDelete(Course course, User user, boolean flagDelete);
+
 
     @Query(value = "select cs.id_course as courseId, cs.course_name as courseName, cs.thumbnail as thumbnail, cs.price as price,\n" +
             "       c.id as id, c.quantity as quantity\n" +

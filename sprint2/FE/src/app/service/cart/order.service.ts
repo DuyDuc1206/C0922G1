@@ -10,8 +10,8 @@ import {OrderDTO} from '../../model/order-dto';
 export class OrderService {
   private URL = 'http://localhost:8080/api/orders';
   constructor(private http: HttpClient) { }
-  order(totalPrice: any, idCart: any,idCourse: any, codeOrder: any){
-    return this.http.post<OrderDTO>(`${this.URL}/add`, {totalPrice: totalPrice, idCart: idCart, idCourse: idCourse, codeOder: codeOrder})
+  order(totalPrice: number, idCart: number,idCourse: number, codeOrder: string){
+    return this.http.post<OrderDTO>(`${this.URL}/add`, {totalPrice: totalPrice, idCart: idCart, idCourse: idCourse, codeOrder: codeOrder})
   }
 
   purchaseHistories(idUser: any){

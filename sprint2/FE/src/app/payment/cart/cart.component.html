@@ -20,7 +20,7 @@
   </section>
   <!-- page title area end -->
 
-  <!-- Cart Area Strat-->
+  <!-- Cart Area Start-->
   <section class="cart-area pt-100 pb-100">
     <div class="container">
       <div class="row">
@@ -45,7 +45,7 @@
                 <td class="product-quantity text-center">
                   <div class="product-quantity mt-10 mb-10">
                     <div class="product-quantity-form">
-                        <button class="cart-minus" (click)="changeQuantity('-',c.id,i)"><i class="fas fa-minus"></i></button>
+                        <button class="cart-minus" (click)="changeQuantity('-',c.id,i)" [disabled]="c.quantity === 1"><i class="fas fa-minus"></i></button>
                         <input class="cart-input" type="text" value="{{c.quantity}}" />
                         <button class="cart-plus" (click)="changeQuantity('+',c.id,i)"><i class="fas fa-plus"></i></button>
                     </div>

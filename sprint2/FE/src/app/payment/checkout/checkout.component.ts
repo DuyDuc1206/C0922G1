@@ -1,16 +1,16 @@
 import {Component, OnInit} from '@angular/core';
-import {CartService} from '../service/cart/cart.service';
-import {Cart} from '../model/cart';
-import {TokenService} from '../service/token.service';
-import {AuthService} from '../service/auth.service';
-import {User} from '../model/user';
+import {CartService} from '../../service/cart/cart.service';
+import {Cart} from '../../model/cart';
+import {TokenService} from '../../service/token.service';
+import {AuthService} from '../../service/auth.service';
+import {User} from '../../model/user';
 import {render} from 'creditcardpayments/creditCardPayments';
 import Swal from 'sweetalert2';
 import {Router} from '@angular/router';
-import {OrderService} from '../service/cart/order.service';
-import {ShareService} from '../service/share.service';
-import {ICart} from '../model/i-cart';
-import {OrderDTO} from '../model/order-dto';
+import {OrderService} from '../../service/cart/order.service';
+import {ShareService} from '../../service/share.service';
+import {ICart} from '../../model/i-cart';
+import {OrderDTO} from '../../model/order-dto';
 
 declare let paypal: any;
 
@@ -72,8 +72,12 @@ export class CheckoutComponent implements OnInit {
   }
 
   buy() {
-    const number = Math.floor(Math.random() * 1000000000);
-    const codeOrder = 'DAcademy-' + number;
+    // // Lấy giá trị của biến orderCount từ localStorage
+    // let orderCount = parseInt(localStorage.getItem('orderCount') || '0');
+    // orderCount++;
+
+    this.shareService.incrementOrderCount();
+    const codeOrder = 'DAcademy-' + this.shareService.getOrderCount().toString().padStart(4,'0');
 
     for (let i = 0; i < this.carts.length; i++) {
       this.orderService.order(
@@ -83,6 +87,8 @@ export class CheckoutComponent implements OnInit {
       });
     }
     this.cartService.setFlagDelete(this.user.id).subscribe();
+    // // Lưu giá trị của biến orderCount vào localStorage
+    // localStorage.setItem('orderCount', orderCount.toString());
   }
 
   getAll() {
