@@ -1,0 +1,8 @@
+.page__title-area {
+  position: relative; /* Thiết lập position cho khối section */
+}
+.course__summary {
+  height: 8em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
