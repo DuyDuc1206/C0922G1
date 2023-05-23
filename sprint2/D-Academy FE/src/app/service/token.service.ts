@@ -23,7 +23,7 @@ export class TokenService {
   }
 
   signOut() {
-    window.localStorage.clear();
+    window.location.reload();
     window.sessionStorage.clear();
   }
 

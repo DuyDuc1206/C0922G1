@@ -5,7 +5,6 @@ import {Lesson} from '../../model/lesson';
 import {LessonService} from '../../service/course/lesson.service';
 import {ActivatedRoute} from '@angular/router';
 import {ShareService} from '../../service/share.service';
-import {Subscription} from 'rxjs';
 import Swal from "sweetalert2";
 import {Title} from '@angular/platform-browser';
 

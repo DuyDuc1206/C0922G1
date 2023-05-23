@@ -20,10 +20,10 @@ const routes: Routes = [
   {path: 'blog', component: BlogComponent},
   {path: 'contact', component: ContactComponent},
   {path: 'cart', component: CartComponent,canActivate: [AdminGuard]},
-  // {path: '**', redirectTo: 'error'},
-  {path: 'error', component: ErrorComponent},
-  {path: 'checkout', component: CheckoutComponent},
   {path: 'profile', component: UserComponent},
+  {path: 'checkout', component: CheckoutComponent},
+  {path: '**', redirectTo: 'error'}
+//  cái này phải đặt cuối cùng
 ];
 
 @NgModule({

@@ -53,14 +53,16 @@ public class AuthController {
         if (iUserService.existByEmail(signUpForm.getEmail())) {
             return new ResponseEntity<>(new ResponseMessage("Email " + signUpForm.getEmail() + " đã được sử dụng"), HttpStatus.BAD_REQUEST);
         }
-        User user = new User(signUpForm.getName(), signUpForm.getUsername(), passwordEncoder.encode(signUpForm.getPassword()), signUpForm.getEmail());
+        User user = new User(signUpForm.getName(), signUpForm.getUsername(),passwordEncoder.encode(signUpForm.getPassword()), signUpForm.getEmail());
         Set<String> strRoles = signUpForm.getRoles();
         Set<Role> roles = new HashSet<>();
         strRoles.forEach(role -> {
             switch (role) {
                 case "admin":
-                    Role roleAdmin = iRoleService.findByName(RoleName.ROLE_ADMIN).orElseThrow(() -> new RuntimeException("Role not found 1"));
-                    roles.add(roleAdmin);
+                    Role adminRole = iRoleService.findByName(RoleName.ROLE_ADMIN).orElseThrow(
+                            ()-> new RuntimeException("Role not found 1")
+                    );
+                    roles.add(adminRole);
                     break;
 //                case "employee":
 //                    Role roleEmployee = iRoleService.roleEmployee().orElseThrow(() -> new RuntimeException("Role not found 2"));

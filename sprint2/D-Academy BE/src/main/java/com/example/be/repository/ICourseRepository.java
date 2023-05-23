@@ -13,6 +13,12 @@ import java.util.Optional;
 public interface ICourseRepository extends JpaRepository<Course, Integer> {
 
     List<Course> findAll();
+//    @Query(value = "select * from course as c " +
+//            "join category as ct on c.id_category = ct.id_category" +
+//            "where ct.id_category = idCategory and c.course_name like concat('%',:courseName,'%')", nativeQuery = true)
+//    Page<Course> getAllCourseByCategoryOrName(Pageable pageable,
+//                                              @Param("idCategory") Integer idCategory,
+//                                              @Param("courseName") String courseName);
 
     @Query(value = "SELECT * FROM course WHERE id_course = :idCourse", nativeQuery = true)
     Optional<Course> findCourseById(@Param("idCourse") Integer idCourse);

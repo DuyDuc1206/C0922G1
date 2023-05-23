@@ -45,6 +45,19 @@ public class CourseController {
         return new ResponseEntity<>(courseList, HttpStatus.OK);
     }
 
+//    @GetMapping("")
+//    public ResponseEntity<?>getAllCourse(@RequestParam(defaultValue = "0") int page,
+//                                         @RequestParam(defaultValue = "6") int size,
+//                                         @RequestParam(defaultValue = "") Integer,
+//                                         @RequestParam(defaultValue = "") String courseName) {
+//        Pageable pageable = PageRequest.of(page, size);
+//        Page<Course> courseList = courseService.getAllCourse(pageable, courseName);
+//        if (courseList.isEmpty()) {
+//            return new ResponseEntity<>(new ArrayList<>(), HttpStatus.OK);
+//        }
+//        return new ResponseEntity<>(courseList, HttpStatus.OK);
+//    }
+
 
     @GetMapping("/{id}")
     public ResponseEntity<Course> findCourseById(@PathVariable Integer id) {

@@ -29,4 +29,6 @@ export class ShareService {
   changeData(data: any){
     this.data$.next(data);
   }
+
+
 }

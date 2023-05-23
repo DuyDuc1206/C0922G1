@@ -25,6 +25,11 @@ public class CourseService implements ICourseService {
         return courseRepository.findAll();
     }
 
+//    @Override
+//    public Page<Course> getAll(Pageable pageable, String courseName, Integer idCourse) {
+//        return courseRepository.getAllCourseByCategoryOrName(pageable,idCourse,courseName);
+//    }
+
     @Override
     public Course findCourseById(Integer idCourse) {
         return courseRepository.findCourseById(idCourse).orElse(null);

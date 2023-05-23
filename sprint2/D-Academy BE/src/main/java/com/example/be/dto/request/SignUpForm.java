@@ -29,11 +29,12 @@ public class SignUpForm {
     public SignUpForm() {
     }
 
-    public SignUpForm(String name, String username, String password, String email, Set<String> roles) {
+    public SignUpForm(String name, String username,String email, String password, String confirmPassword, Set<String> roles) {
         this.name = name;
         this.username = username;
-        this.password = password;
         this.email = email;
+        this.password = password;
+        this.confirmPassword = confirmPassword;
         this.roles = roles;
     }
 
@@ -99,5 +100,6 @@ public class SignUpForm {
     public void setRoles(Set<String> roles) {
         this.roles = roles;
     }
+
 
 }

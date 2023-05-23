@@ -8,6 +8,7 @@ import Swal from 'sweetalert2';
 import {Cart} from '../../model/cart';
 import {Title} from '@angular/platform-browser';
 
+
 @Component({
   selector: 'app-sign-in',
   templateUrl: './sign-in.component.html',
@@ -64,12 +65,26 @@ export class SignInComponent implements OnInit {
         }
         this.isLogged = true;
         console.log(this.isLogged);
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Sign in success!',
+        showConfirmButton: false,
+        timer: 3000
+      });
 
       //   this.signInForm.reset();
         this.shareService.sendClickEvent();
         this.router.navigateByUrl('/');
       }, error => {
         console.log(error);
+      Swal.fire({
+        position: 'center',
+        icon: 'warning',
+        title: 'Wrong Password!',
+        showConfirmButton: false,
+        timer: 3000
+      });
         if (error.error) {
           for (let i = 0; i < error.error.length; i++) {
             this.message = error.error[i].defaultMessage;
