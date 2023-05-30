@@ -1,1 +1,1 @@
-# Các Module học và dự án làm trong quá trình học ở CODEGYM
+# Các module và dự án làm và học ở CODEGYM
