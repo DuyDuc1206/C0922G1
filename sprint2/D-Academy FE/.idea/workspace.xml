@@ -20,9 +20,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9ca6faf6-5d05-4519-a591-21e4cce462df" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../../Module6/new-project/src/component/TodoList.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Module4/ss1_overview_springMVC/dictionary_simple/.idea/dictionary_simple.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Module4/ss1_overview_springMVC/dictionary_simple/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Module4/ss1_overview_springMVC/dictionary_simple/.idea/runConfigurations.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Module3/src/no_name/html.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Module3/src/no_name/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module4/ss1_overview_springMVC/dictionary_simple/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module4/ss1_overview_springMVC/dictionary_simple/.gradle/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module4/ss4_view_thymeleaf/customer_data_managemet/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module4/ss4_view_thymeleaf/customer_data_managemet/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module4/ss4_view_thymeleaf/product_management_application/src/main/webapp/WEB-INF/views/product/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module4/ss4_view_thymeleaf/product_management_application/src/main/webapp/WEB-INF/views/product/list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Module4/test2/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Module4/test2/build.gradle" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Module4/test2/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
@@ -62,23 +67,26 @@
       <change beforePath="$PROJECT_DIR$/../../Module4/untitled1/src/com/company/Main.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Module4/untitled1/untitled1.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Module5/ss6_angular-form/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module5/ss6_angular-form/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../D-Academy BE/src/main/java/com/example/be/controller/CourseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../D-Academy BE/src/main/java/com/example/be/controller/CourseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../D-Academy BE/src/main/java/com/example/be/repository/ICourseRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../D-Academy BE/src/main/java/com/example/be/repository/ICourseRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../D-Academy BE/src/main/java/com/example/be/service/ICourseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../D-Academy BE/src/main/java/com/example/be/service/ICourseService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../D-Academy BE/src/main/java/com/example/be/service/impl/CourseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../D-Academy BE/src/main/java/com/example/be/service/impl/CourseService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module6/new-project/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module6/new-project/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module6/new-project/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module6/new-project/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module6/new-project/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module6/new-project/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module6/new-project/src/component/Todo.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module6/new-project/src/component/Todo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module6/new-project/src/component/TodoList.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module6/new-project/src/component/TodoList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module6/new-project/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module6/new-project/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../D-Academy BE/Duc-Nguyen-Resume.doc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../D-Academy BE/src/main/java/com/example/be/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../D-Academy BE/src/main/java/com/example/be/config/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../D-Academy BE/src/main/java/com/example/be/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../D-Academy BE/src/main/java/com/example/be/controller/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../D-Academy BE/src/main/java/com/example/be/model/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/../D-Academy BE/src/main/java/com/example/be/model/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../D-Academy BE/src/main/java/com/example/be/model/RoleName.java" beforeDir="false" afterPath="$PROJECT_DIR$/../D-Academy BE/src/main/java/com/example/be/model/RoleName.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../D-Academy BE/src/main/java/com/example/be/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../D-Academy BE/src/main/java/com/example/be/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../D-Academy BE/src/main/java/com/example/be/security/jwt/JWTProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/../D-Academy BE/src/main/java/com/example/be/security/jwt/JWTProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../D-Academy BE/src/main/java/com/example/be/security/jwt/JWTTokenFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../D-Academy BE/src/main/java/com/example/be/security/jwt/JWTTokenFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../D-Academy BE/src/main/java/com/example/be/security/userPrinciple/UserDetailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../D-Academy BE/src/main/java/com/example/be/security/userPrinciple/UserDetailService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../D-Academy BE/src/main/java/com/example/be/security/userPrinciple/UserPrinciple.java" beforeDir="false" afterPath="$PROJECT_DIR$/../D-Academy BE/src/main/java/com/example/be/security/userPrinciple/UserPrinciple.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../D-Academy BE/src/main/java/com/example/be/service/IRoleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../D-Academy BE/src/main/java/com/example/be/service/IRoleService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/course/course-list/course.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/course/course-list/course.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/login/login-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/login/login-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/login/sign-in/sign-in.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/login/sign-in/sign-in.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/login/sign-up/sign-up.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/login/sign-up/sign-up.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/login/sign-up/sign-up.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/login/sign-up/sign-up.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/model/sign-up-form.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/model/sign-up-form.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/service/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/service/auth.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/service/share.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/service/share.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/service/token.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/service/token.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/js/backToTop.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/js/backToTop.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/share/footer/footer.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/share/footer/footer.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/share/footer/footer.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/share/footer/footer.component.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,7 +115,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Module5/ss6_angular-form" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -247,6 +255,15 @@
       <workItem from="1684253428120" duration="1967000" />
       <workItem from="1684563063127" duration="377000" />
       <workItem from="1684563456986" duration="8813000" />
+      <workItem from="1684906532871" duration="21000" />
+      <workItem from="1685431048851" duration="231000" />
+      <workItem from="1685527307973" duration="620000" />
+      <workItem from="1685545044775" duration="7906000" />
+      <workItem from="1685584636084" duration="589000" />
+      <workItem from="1685686194855" duration="44000" />
+      <workItem from="1685781793316" duration="285000" />
+      <workItem from="1685974465790" duration="29000" />
+      <workItem from="1687020596280" duration="4135000" />
     </task>
     <servers />
   </component>
@@ -275,12 +292,12 @@
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
     <state x="624" y="202" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1032@0.0.1920.1032" timestamp="1683799255975" />
-    <state x="921" y="252" key="FileChooserDialogImpl" timestamp="1684565861869">
+    <state x="921" y="252" key="FileChooserDialogImpl" timestamp="1685974494118">
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
     <state x="687" y="212" key="FileChooserDialogImpl/0.0.1920.1032/1920.0.1920.1032@0.0.1920.1032" timestamp="1683050005897" />
     <state x="2607" y="212" key="FileChooserDialogImpl/0.0.1920.1032/1920.0.1920.1032@1920.0.1920.1032" timestamp="1682440781484" />
-    <state x="921" y="252" key="FileChooserDialogImpl/0.0.1920.1032@0.0.1920.1032" timestamp="1684565861869" />
+    <state x="921" y="252" key="FileChooserDialogImpl/0.0.1920.1032@0.0.1920.1032" timestamp="1685974494118" />
     <state width="1893" height="264" key="GridCell.Tab.0.bottom" timestamp="1684577105825">
       <screen x="0" y="0" width="1920" height="1032" />
     </state>

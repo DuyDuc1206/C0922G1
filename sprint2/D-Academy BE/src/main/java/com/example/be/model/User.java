@@ -30,12 +30,7 @@ public class User {
 
     public User() {
     }
-    public User(String name, String username, String password, String email) {
-        this.name = name;
-        this.username = username;
-        this.password = password;
-        this.email = email;
-    }
+
 
     public User(Integer id,String name, String username, String password, String email) {
         this.id = id;
@@ -44,6 +39,15 @@ public class User {
         this.password = password;
         this.email = email;
     }
+
+    public User(String name, String username, String email, String encode) {
+        this.name = name;
+        this.username = username;
+        this.email = email;
+        this.password = encode;
+    }
+
+
 
     public Integer getId() {
         return id;

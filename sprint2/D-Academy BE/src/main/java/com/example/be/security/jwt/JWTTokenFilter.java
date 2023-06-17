@@ -32,25 +32,24 @@ public class JWTTokenFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         try {
             String token = getJwt(request);
-            if (token != null && jwtProvider.validateToken(token)) {
+            if(token !=null &&jwtProvider.validateToken(token)){
                 String username = jwtProvider.getUsernameFromToken(token);
-                UserDetails userDetails =userDetailService.loadUserByUsername(username);
+                UserDetails userDetails = userDetailService.loadUserByUsername(username);
                 UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(
-                        userDetails, null, userDetails.getAuthorities()
-                );
+                        userDetails, null, userDetails.getAuthorities());
                 authenticationToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
                 SecurityContextHolder.getContext().setAuthentication(authenticationToken);
             }
-        } catch (Exception e) {
-            logger.error("Can't set user authentication -> Message: {}", e.getMessage());
+        } catch (Exception e){
+            logger.error("Can't set user authentication -> Message: {}",e);
         }
         filterChain.doFilter(request,response);
     }
-    public List<String> authoritiesToStringList(Collection<? extends GrantedAuthority> authorities) {
-        return authorities.stream()
-                .map(GrantedAuthority::getAuthority)
-                .collect(Collectors.toList());
-    }
+//    public List<String> authoritiesToStringList(Collection<? extends GrantedAuthority> authorities) {
+//        return authorities.stream()
+//                .map(GrantedAuthority::getAuthority)
+//                .collect(Collectors.toList());
+//    }
     private String getJwt(HttpServletRequest request) {
         String authHeader = request.getHeader("Authorization");
         if (authHeader != null && authHeader.startsWith("Bearer")) {

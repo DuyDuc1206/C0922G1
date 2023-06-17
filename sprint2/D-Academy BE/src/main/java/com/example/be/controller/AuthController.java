@@ -7,6 +7,7 @@ import com.example.be.dto.response.ResponseMessage;
 import com.example.be.model.Role;
 import com.example.be.model.RoleName;
 import com.example.be.model.User;
+import com.example.be.repository.IRoleRepository;
 import com.example.be.security.jwt.JWTProvider;
 import com.example.be.security.userPrinciple.UserPrinciple;
 import com.example.be.service.IRoleService;
@@ -39,6 +40,8 @@ public class AuthController {
     @Autowired
     private IRoleService iRoleService;
     @Autowired
+    private IRoleRepository iRoleRepository;
+    @Autowired
     private PasswordEncoder passwordEncoder;
 
     @PostMapping("/sign-up")
@@ -53,13 +56,13 @@ public class AuthController {
         if (iUserService.existByEmail(signUpForm.getEmail())) {
             return new ResponseEntity<>(new ResponseMessage("Email " + signUpForm.getEmail() + " đã được sử dụng"), HttpStatus.BAD_REQUEST);
         }
-        User user = new User(signUpForm.getName(), signUpForm.getUsername(),passwordEncoder.encode(signUpForm.getPassword()), signUpForm.getEmail());
+        User user = new User(signUpForm.getName(), signUpForm.getUsername(),signUpForm.getEmail(),passwordEncoder.encode(signUpForm.getPassword()));
         Set<String> strRoles = signUpForm.getRoles();
         Set<Role> roles = new HashSet<>();
         strRoles.forEach(role -> {
             switch (role) {
                 case "admin":
-                    Role adminRole = iRoleService.findByName(RoleName.ROLE_ADMIN).orElseThrow(
+                    Role adminRole = iRoleRepository.findByName(RoleName.ADMIN).orElseThrow(
                             ()-> new RuntimeException("Role not found 1")
                     );
                     roles.add(adminRole);
@@ -69,7 +72,7 @@ public class AuthController {
 //                    roles.add(roleEmployee);
 //                    break;
                 default:
-                    Role roleCustomer = iRoleService.findByName(RoleName.ROLE_CUSTOMER).orElseThrow(() -> new RuntimeException("Role not found 3"));
+                    Role roleCustomer = iRoleService.findByName(RoleName.USER).orElseThrow(() -> new RuntimeException("Role not found 3"));
                     roles.add(roleCustomer);
             }
         });

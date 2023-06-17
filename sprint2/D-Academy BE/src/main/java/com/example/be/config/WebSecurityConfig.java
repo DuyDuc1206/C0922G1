@@ -31,7 +31,7 @@ public class WebSecurityConfig  extends WebSecurityConfigurerAdapter {
     }
 
     @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+    protected void configure(AuthenticationManagerBuilder auth  ) throws Exception {
         auth.userDetailsService(userDetailService).passwordEncoder(passwordEncoder());
     }
 
@@ -46,12 +46,10 @@ public class WebSecurityConfig  extends WebSecurityConfigurerAdapter {
         return super.authenticationManager();
     }
 
-
-
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.cors().and().csrf().disable()
-                .authorizeRequests().antMatchers("/**").permitAll()
+                .authorizeRequests().antMatchers("/api/auth/**").permitAll()
 //                .antMatchers("/api/auth/products").access("hasAnyRole('ADMIN','CUSTOMER')")
 //                .antMatchers("/api/auth/admin").access("hasRole('ADMIN')")
 //                .antMatchers("/api/auth/users").access("hasRole('ADMIN')")

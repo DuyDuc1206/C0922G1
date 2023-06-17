@@ -40,6 +40,22 @@ public class UserPrinciple implements UserDetails {
         this.roles = roles;
     }
 
+    public static UserPrinciple build(User user) {
+        List<GrantedAuthority> authorityList = user.getRoles().stream().map(role ->
+                new SimpleGrantedAuthority(role.getName().name())).collect(Collectors.toList());
+        return new UserPrinciple(
+                user.getId(),
+                user.getName(),
+                user.getUsername(),
+                user.getPassword(),
+                user.getDateOfBirth(),
+                user.getGender(),
+                user.getAddress(),
+                user.getEmail(),
+                user.getPhoneNumber(),
+                authorityList
+        );
+    }
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return roles;
@@ -76,22 +92,6 @@ public class UserPrinciple implements UserDetails {
     }
 
 
-    public static UserPrinciple build(User user) {
-        List<GrantedAuthority> authorityList = user.getRoles().stream().map(role -> new SimpleGrantedAuthority(role.getName().name())).collect(Collectors.toList());
-        return new UserPrinciple(
-                user.getId(),
-                user.getName(),
-                user.getUsername(),
-                user.getPassword(),
-                user.getDateOfBirth(),
-                user.getGender(),
-                user.getAddress(),
-                user.getEmail(),
-                user.getPhoneNumber(),
-                authorityList
-        );
-    }
-
     public Integer getId() {
         return id;
     }
@@ -99,11 +99,11 @@ public class UserPrinciple implements UserDetails {
     public void setId(Integer id) {
         this.id = id;
     }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
+//
+//    public void setUsername(String username) {
+//        this.username = username;
+//    }
+//
     public String getName() {
         return name;
     }
@@ -111,56 +111,56 @@ public class UserPrinciple implements UserDetails {
     public void setName(String name) {
         this.name = name;
     }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getDateOfBirth() {
-        return dateOfBirth;
-    }
-
-    public void setDateOfBirth(String dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
-    }
-
-    public Boolean getGender() {
-        return gender;
-    }
-
-    public void setGender(Boolean gender) {
-        this.gender = gender;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-    public Collection<? extends GrantedAuthority> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(Collection<? extends GrantedAuthority> roles) {
-        this.roles = roles;
-    }
+//
+//    public void setPassword(String password) {
+//        this.password = password;
+//    }
+//
+//    public String getDateOfBirth() {
+//        return dateOfBirth;
+//    }
+//
+//    public void setDateOfBirth(String dateOfBirth) {
+//        this.dateOfBirth = dateOfBirth;
+//    }
+//
+//    public Boolean getGender() {
+//        return gender;
+//    }
+//
+//    public void setGender(Boolean gender) {
+//        this.gender = gender;
+//    }
+//
+//    public String getAddress() {
+//        return address;
+//    }
+//
+//    public void setAddress(String address) {
+//        this.address = address;
+//    }
+//
+//    public String getEmail() {
+//        return email;
+//    }
+//
+//    public void setEmail(String email) {
+//        this.email = email;
+//    }
+//
+//    public String getPhoneNumber() {
+//        return phoneNumber;
+//    }
+//
+//    public void setPhoneNumber(String phoneNumber) {
+//        this.phoneNumber = phoneNumber;
+//    }
+//
+//    public Collection<? extends GrantedAuthority> getRoles() {
+//        return roles;
+//    }
+//
+//    public void setRoles(Collection<? extends GrantedAuthority> roles) {
+//        this.roles = roles;
+//    }
 }

@@ -8,8 +8,6 @@ import org.hibernate.annotations.NaturalId;
 import javax.persistence.*;
 
 @Entity
-@NoArgsConstructor
-@AllArgsConstructor
 @Getter
 public class Role {
     @Id
@@ -19,27 +17,27 @@ public class Role {
     @NaturalId
     private RoleName name;
 
-//    public Role() {
-//    }
-//
-//    public Role(Integer id, RoleName name) {
-//        this.id = id;
-//        this.name = name;
-//    }
-//
-//    public Integer getId() {
-//        return id;
-//    }
-//
-//    public void setId(Integer id) {
-//        this.id = id;
-//    }
-//
-//    public RoleName getName() {
-//        return name;
-//    }
-//
-//    public void setName(RoleName name) {
-//        this.name = name;
-//    }
+    public Role() {
+    }
+
+    public Role(Integer id, RoleName name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public RoleName getName() {
+        return name;
+    }
+
+    public void setName(RoleName name) {
+        this.name = name;
+    }
 }
